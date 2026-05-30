@@ -5,6 +5,24 @@ on:
     branches: [main]
     paths:
       - 'AIGP_*_Quiz.html'
+  workflow_dispatch:
+    inputs:
+      day:
+        description: 'Day number (e.g. 1)'
+        required: true
+        default: '1'
+      topic:
+        description: 'Topic (e.g. AI Foundations)'
+        required: true
+        default: 'AI Foundations'
+      quiz_filename:
+        description: 'Quiz filename'
+        required: true
+        default: 'AIGP_310526_Day1_AI-Foundations_Quiz.html'
+      card_filename:
+        description: 'Study card filename'
+        required: true
+        default: 'AIGP_310526_Day1_AI-Foundations.html'
 
 jobs:
   send-email:
@@ -17,29 +35,34 @@ jobs:
 
       - name: Parse filename and send webhook
         run: |
-          QUIZ_FILE=$(git diff --name-only HEAD~1 HEAD | grep 'AIGP_.*_Quiz\.html' | head -1)
+          BASE="https://shawaw.github.io/aigp-quiz"
 
-          if [ -z "$QUIZ_FILE" ]; then
-            echo "No AIGP quiz file found. Skipping."
-            exit 0
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            DAY="${{ github.event.inputs.day }}"
+            TOPIC="${{ github.event.inputs.topic }}"
+            QUIZ_URL="${BASE}/${{ github.event.inputs.quiz_filename }}"
+            CARD_URL="${BASE}/${{ github.event.inputs.card_filename }}"
+          else
+            QUIZ_FILE=$(git diff --name-only HEAD~1 HEAD | grep 'AIGP_.*_Quiz\.html' | head -1)
+            if [ -z "$QUIZ_FILE" ]; then
+              echo "No AIGP quiz file found. Skipping."
+              exit 0
+            fi
+            DAY=$(echo "$QUIZ_FILE" | grep -oP '(?<=_Day)\d+')
+            SLUG=$(echo "$QUIZ_FILE" | sed 's/AIGP_[0-9]*_Day[0-9]*_//' | sed 's/_Quiz\.html//')
+            TOPIC=$(echo "$SLUG" | tr '-' ' ')
+            QUIZ_URL="${BASE}/${QUIZ_FILE}"
+            CARD_URL="${BASE}/$(echo "$QUIZ_FILE" | sed 's/_Quiz\.html/.html/')"
           fi
 
-          echo "Detected: $QUIZ_FILE"
-
-          DAY=$(echo "$QUIZ_FILE" | grep -oP '(?<=_Day)\d+')
-          SLUG=$(echo "$QUIZ_FILE" | sed 's/AIGP_[0-9]*_Day[0-9]*_//' | sed 's/_Quiz\.html//')
-          TOPIC=$(echo "$SLUG" | tr '-' ' ')
-          STUDY_CARD_FILE=$(echo "$QUIZ_FILE" | sed 's/_Quiz\.html/.html/')
-
-          BASE="https://shawaw.github.io/aigp-quiz"
-          QUIZ_URL="${BASE}/${QUIZ_FILE}"
-          CARD_URL="${BASE}/${STUDY_CARD_FILE}"
+          echo "Day: $DAY | Topic: $TOPIC"
+          echo "Quiz: $QUIZ_URL"
+          echo "Card: $CARD_URL"
 
           PAYLOAD="{\"action\":\"sendStudyEmail\",\"day\":${DAY},\"topic\":\"${TOPIC}\",\"quizUrl\":\"${QUIZ_URL}\",\"studyCardUrl\":\"${CARD_URL}\"}"
 
           HTTP_CODE=$(curl -s -o /tmp/resp.txt -w "%{http_code}" \
-            -X POST \
-            -H "Content-Type: application/json" \
+            -X POST -H "Content-Type: application/json" \
             -d "$PAYLOAD" \
             "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec")
 
