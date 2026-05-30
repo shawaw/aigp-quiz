@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 1 · AI Foundations</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#1a5c3a;--accent-light:#e8f5ee}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 1 · Week 1</span>
+    <span class="sc-meta">31 May 2026 &nbsp;·&nbsp; Domain I &nbsp;·&nbsp; Competency I.A &nbsp;·&nbsp; Exam weight: 16–20 Qs &nbsp;·&nbsp; ~45 min</span>
+  </div>
+  <h1 class="sc-title">AI Foundations</h1>
+</div>
+
+<!-- SECTION 1: BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Competency I.A — Performance Indicators</span>
+  </div>
+  <div class="sc-section-body">
+    <ul class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">I.A.1</span> Distinguish AI systems from traditional software systems and describe how AI systems learn and improve from data.</li>
+      <li class="sc-pi"><span class="sc-pi-code">I.A.2</span> Identify and describe types of AI systems — supervised, unsupervised, reinforcement learning, and generative AI — and their typical use cases.</li>
+      <li class="sc-pi"><span class="sc-pi-code">I.A.3</span> Describe the unique characteristics of AI that create governance challenges: opacity, emergent behaviour, scalability, adaptability, and dependency on data quality.</li>
+      <li class="sc-pi"><span class="sc-pi-code">I.A.4</span> Identify key AI terminology: model, training data, inference, algorithm, foundation model, large language model (LLM), hallucination, bias.</li>
+      <li class="sc-pi"><span class="sc-pi-code">I.A.5</span> Describe the general AI development lifecycle from problem framing through deployment and monitoring.</li>
+      <li class="sc-pi"><span class="sc-pi-code">I.A.6</span> Explain why the unique characteristics of AI necessitate AI-specific governance beyond traditional IT governance.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 2: KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Core Concepts &amp; Definitions</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">AI vs. Traditional Software</span></div>
+      <div class="sc-concept-body">
+        <p class="sc-why">Exam frequently tests whether candidates can articulate <em>why</em> AI requires different governance — the answer always starts here.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key distinctions</div>
+          <div class="sc-def"><span class="sc-term">Traditional software</span> executes explicit, human-written rules. Behaviour is deterministic and fully traceable to code.</div>
+          <div class="sc-def"><span class="sc-term">AI systems</span> derive behaviour from patterns in training data. Behaviour is probabilistic, can change with new data, and may not be fully explainable.</div>
+          <div class="sc-def"><span class="sc-term">Governance implication</span> — you cannot audit an AI system purely by reading its code. You must also audit its training data, model architecture, and outputs.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Types of AI Systems</span></div>
+      <div class="sc-concept-body">
+        <p class="sc-why">Governance obligations differ by AI type. Exam scenarios often specify a type and ask what risk or control applies.</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">Supervised learning</span> — trained on labelled data to predict outputs (e.g., fraud detection, credit scoring). Risk: label bias.</div>
+          <div class="sc-def"><span class="sc-term">Unsupervised learning</span> — finds patterns in unlabelled data (e.g., customer segmentation). Risk: opaque groupings that may encode discrimination.</div>
+          <div class="sc-def"><span class="sc-term">Reinforcement learning</span> — agent learns by reward/penalty from environment (e.g., recommendation engines). Risk: optimising a proxy metric that diverges from intended outcome.</div>
+          <div class="sc-def"><span class="sc-term">Generative AI / Foundation models / LLMs</span> — trained on massive corpora to generate content. Risks: hallucination, IP infringement, prompt injection, amplified bias at scale.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Unique Governance Challenges of AI</span></div>
+      <div class="sc-concept-body">
+        <p class="sc-why">I.A.3 and I.A.6 are the highest-frequency PIs in Domain I. Every exam scenario about "why we need AI governance" maps to one of these five characteristics.</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">Opacity (black-box)</span> — model reasoning cannot always be inspected. Blocks meaningful human review and contestability.</div>
+          <div class="sc-def"><span class="sc-term">Emergent behaviour</span> — capabilities appear at scale that were not designed or anticipated, making pre-deployment testing insufficient.</div>
+          <div class="sc-def"><span class="sc-term">Scalability</span> — a single model can make billions of decisions. Errors replicate at societal scale before they are detected.</div>
+          <div class="sc-def"><span class="sc-term">Adaptability</span> — models that retrain on new data can drift from validated behaviour without explicit deployment of new code.</div>
+          <div class="sc-def"><span class="sc-term">Data dependency</span> — output quality and fairness are determined by training data, not code. Garbage-in is invisible at the software layer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Key Terminology</span></div>
+      <div class="sc-concept-body">
+        <p class="sc-why">The AIGP exam uses IAPP/BOK terminology precisely. Using a term loosely will cost marks on scenario questions that hinge on definitional accuracy.</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">Model</span> — the mathematical function produced by training an algorithm on data; it maps inputs to outputs at inference time.</div>
+          <div class="sc-def"><span class="sc-term">Training data</span> — the labelled or unlabelled dataset used to fit model parameters. Its quality and representativeness determine model fairness and accuracy.</div>
+          <div class="sc-def"><span class="sc-term">Inference</span> — the production use of a trained model to generate predictions or outputs on new, unseen data.</div>
+          <div class="sc-def"><span class="sc-term">Hallucination</span> — a generative AI output that is factually incorrect or fabricated, presented with apparent confidence. A key reliability and liability risk.</div>
+          <div class="sc-def"><span class="sc-term">Bias</span> — systematic error in model outputs caused by unrepresentative training data or flawed design choices. Distinct from statistical variance.</div>
+          <div class="sc-def"><span class="sc-term">Foundation model</span> — a large model trained on broad data at scale, adapted to many downstream tasks (e.g., GPT-4, Gemini, Claude). Governance challenge: a single upstream failure cascades across all downstream applications.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">AI Development Lifecycle</span></div>
+      <div class="sc-concept-body">
+        <p class="sc-why">The lifecycle is the scaffold on which Domains III and IV hang. Understanding it now lets you place every control you study in its correct phase.</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">1. Problem framing</span> — define objective, determine if AI is the right tool, identify affected stakeholders.</div>
+          <div class="sc-def"><span class="sc-term">2. Data collection &amp; preparation</span> — acquire, label, clean, and document training data. Primary locus of bias risk.</div>
+          <div class="sc-def"><span class="sc-term">3. Model development &amp; training</span> — select algorithm, train, tune hyperparameters, document design choices.</div>
+          <div class="sc-def"><span class="sc-term">4. Testing &amp; evaluation</span> — accuracy, fairness, robustness, and adversarial testing before release.</div>
+          <div class="sc-def"><span class="sc-term">5. Deployment</span> — release into production; governance gates, change management, rollback plans.</div>
+          <div class="sc-def"><span class="sc-term">6. Monitoring &amp; maintenance</span> — ongoing performance, drift detection, incident response, periodic re-evaluation.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 3: COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Compare</span>
+    <span class="sc-section-title">Traditional IT vs. AI Governance Requirements</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead>
+          <tr><th>Dimension</th><th>Traditional IT</th><th>AI Systems</th><th>Governance Gap</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Behaviour source</td><td>Explicit code rules</td><td>Learned from data</td><td>Must audit data, not just code</td></tr>
+          <tr><td>Predictability</td><td>Deterministic</td><td>Probabilistic</td><td>Statistical testing required</td></tr>
+          <tr><td>Explainability</td><td>Traceable to logic</td><td>Often opaque</td><td>XAI techniques; contestability rights</td></tr>
+          <tr><td>Change trigger</td><td>Code deployment</td><td>Data drift / retraining</td><td>Continuous monitoring, not just release gates</td></tr>
+          <tr><td>Failure mode</td><td>Crash / error</td><td>Confident wrong answer</td><td>Harder to detect; human override mechanisms</td></tr>
+          <tr><td>Scale of impact</td><td>Limited by user base</td><td>Societal scale instantly</td><td>Pre-deployment impact assessment required</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Worked Exam Scenario — Apply Level</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">A regional bank's IT governance team proposes applying its existing software change-control policy to a new AI-driven loan decisioning system. The policy requires documented code review and sign-off before each release. The AI model retrains on new transaction data weekly without a new software release.</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Your Role</div>
+      <div class="sc-scenario-text">AI Governance Professional advising the Chief Risk Officer. The CRO asks: is the existing policy sufficient?</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Analysis</div>
+      <div class="sc-scenario-text">The existing policy fails on two dimensions. First, it targets code changes — but AI behaviour changes via data-driven retraining with no new code deployed <span class="sc-pi-ref">I.A.3 — Adaptability</span>. Second, code review cannot catch bias introduced through new training data; that requires data governance and fairness testing <span class="sc-pi-ref">I.A.6 — AI-specific governance necessity</span>. The model can become materially different between reviews without triggering any existing control gate.</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Recommended Outcome</div>
+      <div class="sc-scenario-text">Supplement the change-control policy with: (1) a retraining governance procedure triggered by each weekly retrain cycle, not software releases; (2) automated fairness metric monitoring on inference outputs; (3) a human-in-the-loop escalation path for decisions above a lending threshold. Existing IT controls remain valid for infrastructure layers but cannot substitute for AI-specific controls at the model layer.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 5: QUICK RECALL FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall — Click to Reveal</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> What single property of AI systems means you cannot audit them purely through code review?</div>
+        <div class="sc-fc-a">Behaviour emerges from training data, not explicit code rules (I.A.1 / I.A.3). The data is the functional specification — code review sees only the algorithm shell.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> Name the five unique AI characteristics that create governance challenges per the BOK.</div>
+        <div class="sc-fc-a">Opacity · Emergent behaviour · Scalability · Adaptability · Data dependency (I.A.3). Remember: OESAD.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> What is the governance risk specific to foundation models that does not apply equally to narrow AI?</div>
+        <div class="sc-fc-a">Cascade risk — a single upstream model serves hundreds of downstream applications. A bias, error, or security vulnerability in the foundation model propagates instantly and at scale across all of them (I.A.4).</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> Distinguish hallucination from bias in an LLM context.</div>
+        <div class="sc-fc-a">Hallucination: factually incorrect output produced with apparent confidence — a reliability/accuracy issue. Bias: systematic skew in outputs toward or against particular groups — a fairness issue. Both can cause harm but require different controls (I.A.4).</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> At which lifecycle phase does bias most commonly originate, and why?</div>
+        <div class="sc-fc-a">Data collection and preparation (I.A.5). If the training dataset underrepresents or misrepresents a group, the model learns that skew. Downstream testing can detect it but not cure it without fixing the data.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> A model retrains on live data daily with no new code deployment. Which AI characteristic does this exemplify, and what control does it require?</div>
+        <div class="sc-fc-a">Adaptability (I.A.3). Requires continuous monitoring and a retraining governance procedure that triggers review on each retrain cycle, independent of software release gates (I.A.6).</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> What is the difference between training and inference in an AI lifecycle context?</div>
+        <div class="sc-fc-a">Training: fitting model parameters to data — happens during development. Inference: applying the trained model to new inputs in production. Governance controls differ — training controls focus on data quality and fairness; inference controls focus on output monitoring and human oversight (I.A.4/I.A.5).</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: IAPP RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Resources</span>
+    <span class="sc-section-title">IAPP Official Links</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank">
+        <span class="sc-res-label">AIGP Body of Knowledge</span>
+        <span class="sc-res-desc">Authoritative source — Competency I.A performance indicators</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank">
+        <span class="sc-res-label">IAPP Exam Preparation</span>
+        <span class="sc-res-desc">Official preparation guidance and recommended resources</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank">
+        <span class="sc-res-label">AIGP Study Guide Request</span>
+        <span class="sc-res-desc">IAPP official study guide download</span>
+      </a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank">
+        <span class="sc-res-label">IAPP Certification Handbook</span>
+        <span class="sc-res-desc">Exam structure, scoring, and candidate policies</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script>
+</body></html>

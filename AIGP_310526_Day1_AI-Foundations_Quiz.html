@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 1 · AI Foundations</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day: 1, week: 1, comp: "I.A", topic: "AI Foundations",
+  filename: "AIGP_310526_Day1_AI-Foundations_Quiz.html",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DI-IA-001", comp: "I.A", isRetrieval: false,
+      stem: "A healthcare insurer deploys an AI model that denies claims by learning patterns from historical adjudicator decisions. Regulators request an explanation of why a specific claim was denied. The model's vendor states that internal decision weights cannot be surfaced. Which unique AI characteristic most directly prevents the insurer from satisfying the regulatory request?",
+      options: { A: "Scalability — the model processes too many claims per second to log individual decisions", B: "Opacity — the model's reasoning cannot be traced or explained even by its operators", C: "Adaptability — the model has retrained since the decision was made, altering its parameters", D: "Emergent behaviour — the denial pattern was not programmed and therefore has no rationale" },
+      correct: "B",
+      explanation: "Opacity (black-box nature) is the characteristic that prevents surfacing decision reasoning — the model produces outputs without accessible intermediate logic. Scalability (A) relates to volume of impact, not explainability. Adaptability (C) is plausible but secondary; the issue is structural opacity, not parameter drift. Emergent behaviour (D) describes unanticipated capabilities, not the explainability problem. BOK I.A.3 — Opacity.",
+      bokRef: "I.A.3 — Unique characteristics of AI: opacity"
+    },
+    {
+      id: "DI-IA-002", comp: "I.A", isRetrieval: false,
+      stem: "An AI governance team is reviewing whether existing software change-control procedures are sufficient for a fraud detection model that retrains automatically on new transaction data every 48 hours without any code change. What is the PRIMARY governance gap they should flag?",
+      options: { A: "The change-control policy does not specify who approves model hyperparameters", B: "AI behaviour can change materially through data-driven retraining without triggering any code release gate", C: "Fraud detection models require human approval for every individual decision", D: "The 48-hour retraining cycle is too frequent to meet software testing standards" },
+      correct: "B",
+      explanation: "Adaptability means AI systems change behaviour via data, not code deployments. Code-focused change controls miss this entirely. A (hyperparameters) is a valid sub-concern but not the primary structural gap. C (human approval per decision) is not a general requirement. D misapplies software testing standards to an AI lifecycle question. BOK I.A.3 — Adaptability; I.A.6 — AI-specific governance necessity.",
+      bokRef: "I.A.3 — Adaptability; I.A.6"
+    },
+    {
+      id: "DI-IA-003", comp: "I.A", isRetrieval: false,
+      stem: "A company builds a customer service chatbot on top of a foundation model provided by a third-party vendor. During testing, the chatbot produces factually incorrect answers to product questions with apparent confidence. What term best describes this failure mode, and which governance control most directly addresses it?",
+      options: { A: "Bias — remediated by rebalancing the training dataset for demographic parity", B: "Hallucination — remediated by output monitoring, human review thresholds, and retrieval-augmented generation", C: "Emergent behaviour — remediated by limiting the model's context window", D: "Data drift — remediated by retraining the foundation model on updated product data" },
+      correct: "B",
+      explanation: "Hallucination is the production of confident, plausible-sounding but factually incorrect output — the defining LLM reliability risk. Bias (A) refers to systematic group-level skew, not factual inaccuracy. Emergent behaviour (C) describes unanticipated capabilities, not factual errors. Data drift (D) causes performance degradation over time, not the structural hallucination problem. BOK I.A.4 — Hallucination.",
+      bokRef: "I.A.4 — Key AI terminology: hallucination"
+    },
+    {
+      id: "DI-IA-004", comp: "I.A", isRetrieval: false,
+      stem: "An AI governance professional is explaining to the board why a loan approval AI requires a fairness audit of its training dataset, not just a code review. The most precise justification is:",
+      options: { A: "Code review cannot verify that the algorithm is mathematically correct", B: "Training data is the functional specification of AI behaviour; bias encoded there is invisible at the code layer", C: "Regulators require dataset audits as a standard IT governance control", D: "The model's vendor will not provide source code for proprietary reasons" },
+      correct: "B",
+      explanation: "Because AI learns from data rather than executing explicit rules, training data quality and representativeness determine output fairness. Code review sees the algorithm structure but not what patterns it learned from biased data. A (mathematical correctness) is a valid code-review concern but not the fairness justification. C is incorrect — dataset audits are an AI-specific requirement, not standard IT governance. D (vendor secrecy) is a procurement issue, not the conceptual justification. BOK I.A.1; I.A.3 — Data dependency.",
+      bokRef: "I.A.1; I.A.3 — Data dependency"
+    },
+    {
+      id: "DI-IA-005", comp: "I.A", isRetrieval: false,
+      stem: "A government agency uses a large language model to draft regulatory guidance documents. An internal review discovers that the model occasionally produces plausible-sounding but legally incorrect citations. Which combination of controls is MOST appropriate given the nature of this failure?",
+      options: { A: "Retrain the model on a larger dataset and disable the citation feature", B: "Implement mandatory human review of all AI-generated citations and deploy retrieval-augmented generation to ground outputs in verified legal sources", C: "Require users to append a disclaimer that AI outputs may be inaccurate", D: "Switch to a supervised learning model trained only on verified legal texts" },
+      correct: "B",
+      explanation: "Hallucination of citations is a known LLM failure mode. Human review provides the human oversight control; retrieval-augmented generation (RAG) grounds outputs in authoritative sources, directly addressing the hallucination root cause. A (retraining) does not reliably eliminate hallucination and removing citations removes utility. C (disclaimer) shifts risk to users without mitigating the harm. D (supervised learning) would require a fundamentally different system architecture and doesn't address the generative task requirement. BOK I.A.4 — Hallucination; I.A.6.",
+      bokRef: "I.A.4 — Hallucination; I.A.6"
+    },
+    {
+      id: "DI-IA-006", comp: "I.A", isRetrieval: false,
+      stem: "During an AI risk assessment, a governance team classifies a recommendation engine as 'reinforcement learning.' Which risk profile is MOST characteristic of this AI type and should drive the governance approach?",
+      options: { A: "Label bias from human annotators who labelled training examples inconsistently", B: "Hallucination of product descriptions not in the catalogue", C: "Proxy metric misalignment — the reward function optimises engagement but incentivises addictive or harmful content", D: "Model opacity caused by an ensemble of decision trees too large to interpret" },
+      correct: "C",
+      explanation: "Reinforcement learning optimises a reward signal. If that signal is a proxy (e.g., clicks/time-on-site), the model can exploit the proxy in ways that diverge from the intended objective, including surfacing harmful content. A (label bias) is the primary risk for supervised learning. B (hallucination) is a generative AI failure mode. D (ensemble opacity) applies to specific supervised model architectures. BOK I.A.2 — Types of AI systems.",
+      bokRef: "I.A.2 — Types of AI: reinforcement learning risk profile"
+    },
+    {
+      id: "DI-IA-007", comp: "I.A", isRetrieval: false,
+      stem: "A company purchases a foundation model from a major AI lab and builds five internal tools on top of it. The AI lab announces it has discovered and patched a bias issue in the base model. What governance risk does this scenario illustrate?",
+      options: { A: "Data dependency — the company's tools depend on the quality of the lab's training data", B: "Cascade risk from foundation model architecture — an upstream flaw propagates simultaneously to all downstream applications", C: "Vendor lock-in — the company cannot switch providers without rebuilding its tools", D: "Emergent behaviour — the bias appeared unexpectedly at scale without prior indication" },
+      correct: "B",
+      explanation: "Foundation models create cascade risk: one upstream issue (bias, security flaw, capability change) propagates instantly across every downstream application built on the model. This is a distinguishing governance concern compared to narrow AI or traditional software. A (data dependency) is real but describes data quality in general, not the cascade structure. C (vendor lock-in) is a procurement risk, not the primary governance risk here. D (emergent behaviour) describes unanticipated capabilities, not propagation of a known flaw. BOK I.A.4 — Foundation model.",
+      bokRef: "I.A.4 — Foundation model cascade risk"
+    },
+    {
+      id: "DI-IA-008", comp: "I.A", isRetrieval: false,
+      stem: "An AI system for CV screening is found to systematically rank female candidates lower than equally qualified male candidates. An investigation reveals the training data consisted of 10 years of historical hiring decisions made by a predominantly male leadership team. At which AI lifecycle phase did this problem originate?",
+      options: { A: "Model development — the algorithm selected was inherently gender-biased", B: "Testing and evaluation — fairness testing was not conducted before deployment", C: "Data collection and preparation — biased historical decisions encoded gender preferences into training labels", D: "Deployment — the model was not restricted to jurisdictions with anti-discrimination law" },
+      correct: "C",
+      explanation: "Bias most commonly originates during data collection and preparation when historical data encodes past human decisions that themselves reflect discrimination. The algorithm (A) learned from biased labels — it functioned as designed. Failure to test (B) allowed the problem to reach production but was not the origin. Deployment restrictions (D) are a control, not the source. BOK I.A.5 — Data collection and preparation as bias origin; I.A.3 — Data dependency.",
+      bokRef: "I.A.5; I.A.3 — Data dependency and bias origin"
+    },
+    {
+      id: "DI-IA-009", comp: "I.A", isRetrieval: false,
+      stem: "A bank's AI governance committee is deciding whether post-deployment monitoring is needed for a credit scoring model that will not be retrained for 12 months. The model development team argues monitoring is unnecessary since the model is static. What is the strongest counterargument?",
+      options: { A: "Regulators require monthly reporting on all AI models regardless of retraining status", B: "Even a static model can exhibit performance drift if the real-world population it scores changes, making its outputs less reliable or fair over time", C: "Static models are more prone to hallucination than adaptive models", D: "The 12-month retraining gap violates IAPP certification requirements" },
+      correct: "B",
+      explanation: "Monitoring is necessary even for static models because the data distribution at inference time can drift from the training distribution, degrading accuracy and fairness without any change to the model itself. This is a concept-data distribution shift. A is not universally true and varies by jurisdiction. C is false — hallucination is a generative AI concern. D is fabricated. BOK I.A.5 — Monitoring and maintenance; I.A.3 — Adaptability (and its mirror: population drift affecting static models).",
+      bokRef: "I.A.5 — Monitoring; I.A.3"
+    },
+    {
+      id: "DI-IA-010", comp: "I.A", isRetrieval: false,
+      stem: "A company's CISO argues that AI security risks are identical to traditional software security risks and that existing controls are sufficient. An AI governance professional reviewing an LLM-based customer assistant should raise which of the following as an AI-specific security risk NOT covered by traditional controls?",
+      options: { A: "SQL injection via API endpoints connecting the LLM to a database", B: "Prompt injection — adversarial inputs that override the model's system instructions to cause unintended behaviour", C: "Denial-of-service attacks that overwhelm the inference API with requests", D: "Insecure storage of user conversation logs on the server" },
+      correct: "B",
+      explanation: "Prompt injection is an AI-specific attack vector where malicious input manipulates model behaviour by overriding system-level instructions — it exploits the AI's instruction-following capability, not a software vulnerability. A (SQL injection) is a traditional software security risk applicable to any API. C (DoS) is standard infrastructure security. D (insecure log storage) is data security, not AI-specific. BOK I.A.1/I.A.6 — AI-specific governance beyond traditional IT.",
+      bokRef: "I.A.1; I.A.6 — AI-specific risks beyond traditional IT governance"
+    },
+    {
+      id: "DI-IA-011", comp: "I.A", isRetrieval: false,
+      stem: "A very large language model demonstrates the ability to perform multi-step legal reasoning, a capability not present in earlier, smaller versions and not explicitly included in the training objective. This is an example of which AI characteristic?",
+      options: { A: "Adaptability — the model has been fine-tuned on legal texts after initial training", B: "Data dependency — the training corpus included legal documents the developers did not intend", C: "Emergent behaviour — a capability arising unexpectedly at scale that was not designed or anticipated", D: "Opacity — the model's internal reasoning process cannot be observed" },
+      correct: "C",
+      explanation: "Emergent behaviour describes capabilities that appear at scale without being explicitly trained for and that were not present in smaller versions — a documented phenomenon in large foundation models. Adaptability (A) requires retraining or fine-tuning — the question describes a baseline capability. Data dependency (B) is plausible but describes input, not the unexpected output capability. Opacity (D) describes explainability limitations, not capability emergence. BOK I.A.3 — Emergent behaviour.",
+      bokRef: "I.A.3 — Emergent behaviour"
+    },
+    {
+      id: "DI-IA-012", comp: "I.A", isRetrieval: false,
+      stem: "A national social welfare agency deploys an AI system that determines benefit eligibility for 2 million citizens. After six months, an error in the model's income assessment logic is discovered. What unique AI characteristic makes the governance response to this error most urgent compared to a similar error in a traditional rule-based system?",
+      options: { A: "Opacity — the agency cannot determine which citizens were affected without complex audit tools", B: "Scalability — the error has already propagated to millions of decisions simultaneously, causing large-scale harm before detection", C: "Adaptability — the model will have retrained and altered its parameters before the error can be fixed", D: "Data dependency — the agency must rebuild the training dataset before redeploying" },
+      correct: "B",
+      explanation: "Scalability is the characteristic that makes AI errors governance-critical: a single model deployed at scale applies a flawed logic to millions of decisions simultaneously. A comparable error in a human-run system would affect a fraction of cases before detection. Opacity (A) affects the audit process but is not the primary urgency driver. Adaptability (C) and Data dependency (D) describe other lifecycle concerns not central to the scale-of-harm urgency. BOK I.A.3 — Scalability.",
+      bokRef: "I.A.3 — Scalability"
+    },
+    {
+      id: "DI-IA-013", comp: "I.A", isRetrieval: false,
+      stem: "A legal team asks an AI governance professional to explain the difference between a 'model' and an 'algorithm' for a vendor contract negotiation. The most precise distinction is:",
+      options: { A: "An algorithm is proprietary; a model is open source", B: "An algorithm is the procedure or set of rules for learning from data; a model is the output artifact produced after applying that algorithm to a specific dataset", C: "A model is more accurate than an algorithm because it has been trained", D: "Algorithms are used in development; models are used for compliance documentation" },
+      correct: "B",
+      explanation: "An algorithm (e.g., gradient boosting, transformer architecture) is the learning procedure. A model is the trained artifact — the parameterised function that results from running the algorithm on a specific dataset. The distinction matters legally: a vendor may license an algorithm but own the model trained on your data. A is false — open/proprietary is a licensing dimension, not a definitional one. C conflates training with accuracy. D is false. BOK I.A.4 — Key terminology.",
+      bokRef: "I.A.4 — Key terminology: model vs algorithm"
+    },
+    {
+      id: "DI-IA-014", comp: "I.A", isRetrieval: false,
+      stem: "An AI governance team must determine where in the AI lifecycle to place a new 'impact assessment' requirement. The assessment must occur before the system can affect real users. Where should the gate be positioned?",
+      options: { A: "During data collection and preparation, before training begins", B: "Between testing/evaluation and deployment — after risk is measurable but before production impact", C: "During model development, before hyperparameters are finalised", D: "During monitoring, triggered by the first 1,000 production decisions" },
+      correct: "B",
+      explanation: "An impact assessment requires knowing what the system does and what risks it carries — information only available after testing, where performance and fairness metrics are measurable. Placing it before deployment ensures real users are protected. A (data collection) is too early to assess system-level impact. C (during development) is too early for measurable outcomes. D (post-deployment) exposes real users to unassessed risk. BOK I.A.5 — AI development lifecycle; lifecycle gate positioning.",
+      bokRef: "I.A.5 — AI development lifecycle"
+    },
+    {
+      id: "DI-IA-015", comp: "I.A", isRetrieval: false,
+      stem: "A company's board asks why it needs a separate AI governance policy when it already has a comprehensive data governance policy. The AI governance professional's most complete answer is:",
+      options: { A: "AI governance policy is required by the EU AI Act and therefore mandatory regardless of existing policies", B: "Data governance addresses data quality and access; AI governance additionally addresses model behaviour, opacity, emergent risk, human oversight mechanisms, and lifecycle controls that data governance does not cover", C: "The company's data governance policy is likely outdated and needs to be replaced with an AI governance policy", D: "AI governance policy is needed only for high-risk AI systems; low-risk systems can rely on existing data governance" },
+      correct: "B",
+      explanation: "Data governance is necessary but not sufficient for AI. AI governance must additionally address: model-specific risks (opacity, bias, hallucination), the AI development lifecycle (problem framing through monitoring), human oversight and contestability, and deployment-specific controls. A is jurisdiction-specific and misses the substantive governance argument. C is false — both policies can coexist. D incorrectly implies risk-tier determines whether AI governance is needed at all; governance tiering determines the depth of controls. BOK I.A.6 — Why AI-specific governance is necessary.",
+      bokRef: "I.A.6 — AI-specific governance necessity"
+    }
+  ]
+});
+</script>
+</body></html>
