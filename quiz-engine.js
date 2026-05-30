@@ -1,4 +1,4 @@
-// AIGP Quiz Engine v1.0
+// AIGP Quiz Engine v1.1
 // One-time asset on GitHub Pages. Referenced by every quiz HTML file.
 // Usage: <script src="quiz-engine.js"></script> then call initQuiz(config)
 //
@@ -165,7 +165,7 @@
       if (mc >= 2)       chips += ' <span class="chip chip-tricky">⛑ Tricky — missed ' + mc + '×</span>';
 
       var banner = isFirstRetrieval
-        ? '<div class="qe-banner">Retrieval warm-up — these 5 questions strengthen memory of prior sessions before today’s new content.</div>'
+        ? '<div class="qe-banner">Retrieval warm-up — these 5 questions strengthen memory of prior sessions before today\'s new content.</div>'
         : '';
 
       var opts = Object.keys(q.options).map(function (k) {
@@ -293,13 +293,17 @@
       document.getElementById('qe-fill').style.width = '100%';
     }
 
+    // FIX v1.1: Content-Type must be 'text/plain' (not 'application/json') when using
+    // mode:'no-cors'. Browsers reject non-simple headers in no-cors mode, silently
+    // dropping the request. Apps Script reads e.postData.contents raw regardless of
+    // Content-Type, so JSON body still parses correctly on the server side.
     function postWebhook(data) {
       if (!cfg.webhookUrl) return;
       try {
         fetch(cfg.webhookUrl, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify(Object.assign({ action: 'saveQuizResult' }, data))
         }).catch(function () {});
       } catch (e) {}
