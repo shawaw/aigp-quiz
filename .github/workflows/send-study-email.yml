@@ -1,0 +1,54 @@
+name: Send Study Email
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'AIGP_*_Quiz.html'
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Parse filename and send webhook
+        run: |
+          QUIZ_FILE=$(git diff --name-only HEAD~1 HEAD | grep 'AIGP_.*_Quiz\.html' | head -1)
+
+          if [ -z "$QUIZ_FILE" ]; then
+            echo "No AIGP quiz file found. Skipping."
+            exit 0
+          fi
+
+          echo "Detected: $QUIZ_FILE"
+
+          DAY=$(echo "$QUIZ_FILE" | grep -oP '(?<=_Day)\d+')
+          SLUG=$(echo "$QUIZ_FILE" | sed 's/AIGP_[0-9]*_Day[0-9]*_//' | sed 's/_Quiz\.html//')
+          TOPIC=$(echo "$SLUG" | tr '-' ' ')
+          STUDY_CARD_FILE=$(echo "$QUIZ_FILE" | sed 's/_Quiz\.html/.html/')
+
+          BASE="https://shawaw.github.io/aigp-quiz"
+          QUIZ_URL="${BASE}/${QUIZ_FILE}"
+          CARD_URL="${BASE}/${STUDY_CARD_FILE}"
+
+          PAYLOAD="{\"action\":\"sendStudyEmail\",\"day\":${DAY},\"topic\":\"${TOPIC}\",\"quizUrl\":\"${QUIZ_URL}\",\"studyCardUrl\":\"${CARD_URL}\"}"
+
+          HTTP_CODE=$(curl -s -o /tmp/resp.txt -w "%{http_code}" \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD" \
+            "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec")
+
+          echo "HTTP code: $HTTP_CODE"
+          cat /tmp/resp.txt || true
+
+          if [ "$HTTP_CODE" = "302" ] || [ "$HTTP_CODE" = "200" ]; then
+            echo "Webhook fired — email sent."
+          else
+            echo "Unexpected HTTP code: $HTTP_CODE"
+            exit 1
+          fi
