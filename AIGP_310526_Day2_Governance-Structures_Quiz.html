@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 2 · Governance Structures</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day: 2, week: 1, comp: "I.B", topic: "Governance Structures",
+  filename: "AIGP_310526_Day2_Governance-Structures_Quiz.html",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DI-IB-001", comp: "I.B", isRetrieval: false,
+      stem: "A global insurer establishes an AI governance program led exclusively by its Chief Information Security Officer. Legal, HR, and product teams are not involved in oversight decisions. Which BOK performance indicator does this structure most directly violate?",
+      options: { A: "I.B.3 — training and awareness program delivery", B: "I.B.2 — cross-functional collaboration for efficacy and diversity of expertise and perspective", C: "I.B.4 — differentiation based on company size and maturity", D: "I.B.1 — defining roles and responsibilities" },
+      correct: "B",
+      explanation: "Assigning governance exclusively to the CISO eliminates cross-functional input. I.B.2 explicitly requires cross-functional collaboration for 'efficacy and diversity of expertise and perspective.' I.B.1 is also implicated but the primary structural failure is the absence of cross-functional collaboration, not merely undefined roles. A is wrong — training is not the issue described. C and D are secondary concerns.",
+      bokRef: "I.B.2 — Establish cross-functional collaboration in the AI governance program (e.g., for efficacy and diversity of expertise and perspective)."
+    },
+    {
+      id: "DI-IB-002", comp: "I.B", isRetrieval: false,
+      stem: "A fintech startup (12 employees) wants to deploy an AI chatbot for customer queries. Their legal counsel recommends establishing a formal AI Ethics Board with a standing committee, quarterly board-level reviews, and a dedicated Chief AI Officer before launch. Which assessment is most consistent with the BOK?",
+      options: { A: "The counsel's recommendation is appropriate regardless of company size", B: "The recommendation is disproportionate; governance should be calibrated to company size, maturity and risk tolerance", C: "The recommendation is correct because AI deployment always requires a dedicated Chief AI Officer", D: "The recommendation is appropriate only if the chatbot handles sensitive personal data" },
+      correct: "B",
+      explanation: "I.B.4 requires governance to be differentiated based on company size, maturity, industry, products and services, objectives and risk tolerance. A 12-person startup deploying a low-risk customer chatbot does not require a formal ethics board or a CAIO. The governance structure must be proportionate. A is wrong — one size does not fit all. C is wrong — a CAIO is not universally required. D introduces a condition not in the BOK's calibration factors.",
+      bokRef: "I.B.4 — Differentiate approaches to AI governance based upon company size, maturity, industry, products and services, objectives and risk tolerance."
+    },
+    {
+      id: "DI-IB-003", comp: "I.B", isRetrieval: false,
+      stem: "A healthcare company licenses its AI diagnostic model to hospitals across Southeast Asia. The hospitals integrate it into their clinical workflows and make treatment recommendations using its outputs. From a BOK governance perspective, which roles does the healthcare company most accurately occupy?",
+      options: { A: "User and deployer", B: "Developer and provider", C: "Provider and deployer", D: "Developer only" },
+      correct: "B",
+      explanation: "The healthcare company created (developed) the model and is now making it available to the hospitals (provider role). I.B.5 distinguishes developer (creates/trains), provider (makes available to others), deployer (integrates and operates in context), and user. The hospitals are the deployers. A is wrong — the company is not a user. C is wrong — the hospitals, not the company, are deployers here. D is incomplete — the company is also acting as provider by licensing the model.",
+      bokRef: "I.B.5 — Identify differences among AI developers, providers, deployers and users from a governance perspective (e.g., with respect to responsibilities, opportunities and needs)."
+    },
+    {
+      id: "DI-IB-004", comp: "I.B", isRetrieval: false,
+      stem: "A bank's AI governance training program is delivered only to its data science and IT teams. Senior executives and credit officers who use the AI outputs daily are excluded. Which I.B performance indicator is most directly violated?",
+      options: { A: "I.B.1 — defining stakeholder roles and responsibilities", B: "I.B.4 — differentiating approaches by risk tolerance", C: "I.B.3 — creating and delivering training to all stakeholders on AI terminology, strategy and governance", D: "I.B.2 — establishing cross-functional collaboration" },
+      correct: "C",
+      explanation: "I.B.3 explicitly requires training be delivered to 'all stakeholders.' Excluding executives and credit officers who act on model outputs violates this requirement. A is wrong — role definition is not the issue described. B is wrong — risk tolerance calibration refers to governance program design, not training scope. D is wrong — cross-functional collaboration is a structural requirement, distinct from training delivery.",
+      bokRef: "I.B.3 — Create and deliver a training and awareness program to all stakeholders on AI terminology, strategy and governance."
+    },
+    {
+      id: "DI-IB-005", comp: "I.B", isRetrieval: false,
+      stem: "A deployer organisation uses a third-party AI hiring tool. A candidate is rejected and requests an explanation. The deployer claims responsibility lies with the AI vendor. Under the BOK's role taxonomy, which statement best describes the deployer's governance obligation?",
+      options: { A: "The deployer has no obligation; the developer and provider bear all responsibility for model outputs", B: "The deployer is responsible for use-case fit, human oversight, user notification and incident management in its operational context", C: "The deployer is only responsible for training employees on how to use the tool", D: "The deployer's obligation is limited to procurement due diligence before signing the vendor contract" },
+      correct: "B",
+      explanation: "Per I.B.5, deployers are responsible for context-specific obligations including use-case fit, human oversight, user notification and incident management — distinct from the developer/provider's upstream obligations. The deployer cannot offload responsibility to the vendor for how it uses the tool operationally. A is wrong — deployers carry material obligations. C and D are incomplete — they each name one obligation but omit the broader set.",
+      bokRef: "I.B.5 — Identify differences among AI developers, providers, deployers and users from a governance perspective (e.g., with respect to responsibilities, opportunities and needs)."
+    },
+    {
+      id: "DI-IB-006", comp: "I.B", isRetrieval: false,
+      stem: "An organisation's AI governance program assigns all oversight responsibilities to its AI development team because 'they understand the technology best.' Which structural flaw does this most directly represent under the BOK?",
+      options: { A: "Failure to create adequate technical documentation", B: "Failure to establish cross-functional collaboration for efficacy and diversity of expertise and perspective", C: "Failure to differentiate governance by industry context", D: "Failure to define a training and awareness program" },
+      correct: "B",
+      explanation: "I.B.2 requires cross-functional collaboration precisely because technical expertise alone cannot address the full range of governance risks (legal, ethical, commercial, social). Concentrating oversight in the development team eliminates the 'diversity of expertise and perspective' the BOK requires. A addresses documentation, not governance structure. C addresses calibration, not collaboration. D addresses training, a separate requirement.",
+      bokRef: "I.B.2 — Establish cross-functional collaboration in the AI governance program (e.g., for efficacy and diversity of expertise and perspective)."
+    },
+    {
+      id: "DI-IB-007", comp: "I.B", isRetrieval: false,
+      stem: "A large financial institution with a mature, established AI governance program is reviewing its structure. It currently has a steering committee, a Centre of Excellence, embedded compliance liaisons in each business unit, and quarterly internal audits. What does this structure most closely reflect under the BOK?",
+      options: { A: "An over-engineered program that exceeds what the BOK requires for any organisation", B: "A proportionate, mature governance structure consistent with I.B.2 and I.B.4 for a large organisation with high risk exposure", C: "A structure that violates I.B.1 because responsibilities appear distributed rather than centralised", D: "A structure that is only appropriate if the institution operates exclusively in regulated markets" },
+      correct: "B",
+      explanation: "I.B.4 requires calibration to company size, maturity, industry, objectives and risk tolerance. A large financial institution with a mature AI program and high-risk AI applications warrants this level of structural depth. I.B.2 supports cross-functional structures like embedded liaisons. A is wrong — sophistication is appropriate given context. C misreads I.B.1 — distributed responsibilities with clear RACI is valid. D introduces a geographic condition not in the BOK.",
+      bokRef: "I.B.4 — Differentiate approaches to AI governance based upon company size, maturity, industry, products and services, objectives and risk tolerance."
+    },
+    {
+      id: "DI-IB-008", comp: "I.B", isRetrieval: false,
+      stem: "A software company builds and sells an AI content moderation service to social media platforms. The platforms integrate the service into their moderation workflows. What governance obligation does the software company hold that the social media platforms do not, per the BOK?",
+      options: { A: "Conducting human oversight of each moderation decision", B: "Managing incidents arising from moderation errors in the platforms' specific contexts", C: "Providing instructions for use to deployers and conducting post-market monitoring", D: "Training end-users on appropriate interaction with the moderation system" },
+      correct: "C",
+      explanation: "The software company is the provider — it makes the system available to others. I.B.5 distinguishes provider obligations: instructions for use to deployers and post-market monitoring. A is wrong — human oversight of specific decisions is the deployer's (platform's) obligation. B is wrong — context-specific incident management belongs to the deployer. D is wrong — end-user training is also a deployer responsibility.",
+      bokRef: "I.B.5 — Identify differences among AI developers, providers, deployers and users from a governance perspective (e.g., with respect to responsibilities, opportunities and needs)."
+    },
+    {
+      id: "DI-IB-009", comp: "I.B", isRetrieval: false,
+      stem: "An AI governance officer is designing a training program. She plans to deliver one identical module to all staff — executives, data engineers, frontline employees and procurement staff. Which gap does this approach most likely create under I.B.3?",
+      options: { A: "The program will not satisfy the BOK's requirement for quarterly refresher training", B: "A single module cannot address the different roles, contexts and depth requirements of varied stakeholder groups", C: "The program is invalid because the BOK requires external training providers", D: "The program satisfies I.B.3 as long as it covers AI terminology, strategy and governance" },
+      correct: "B",
+      explanation: "While I.B.3 requires all stakeholders to receive training on AI terminology, strategy and governance, a single undifferentiated module fails to address the different needs, contexts and knowledge depths across roles. Executives need strategic framing; engineers need technical standards; frontline staff need acceptable use and escalation. D is partially right about content but wrong about format — stakeholder-appropriate delivery is implied by effective program design. A and C introduce requirements not in the BOK.",
+      bokRef: "I.B.3 — Create and deliver a training and awareness program to all stakeholders on AI terminology, strategy and governance."
+    },
+    {
+      id: "DI-IB-010", comp: "I.B", isRetrieval: false,
+      stem: "A new AI governance manager is tasked with establishing the company's governance program. Her first action is to document who is accountable for AI use case approvals, who owns incident response, and who reviews model performance quarterly. Which BOK PI does this action most directly fulfil?",
+      options: { A: "I.B.3 — training and awareness", B: "I.B.4 — governance differentiation by risk tolerance", C: "I.B.1 — defining roles and responsibilities for AI governance stakeholders", D: "I.B.2 — cross-functional collaboration" },
+      correct: "C",
+      explanation: "Documenting accountability for specific governance activities (use case approval, incident response, performance review) is directly fulfilling I.B.1: defining roles and responsibilities for AI governance stakeholders. A addresses training, not accountability mapping. B addresses contextual calibration. D addresses the structure of collaboration, which is a subsequent step once roles are defined.",
+      bokRef: "I.B.1 — Define roles and responsibilities for AI governance stakeholders."
+    },
+    {
+      id: "DI-IB-011", comp: "I.B", isRetrieval: false,
+      stem: "An AI governance program at a mid-size retailer was designed two years ago when the company had 200 employees and used AI only for inventory forecasting. The company now has 2,000 employees and uses AI in customer profiling, dynamic pricing, and HR screening. The original governance structure has not been updated. Which BOK PI most clearly requires this program to be revisited?",
+      options: { A: "I.B.3 — training programs must be redelivered annually", B: "I.B.1 — roles and responsibilities must be redefined after staff changes", C: "I.B.4 — governance must be differentiated based on company size, maturity, products and services, and risk tolerance", D: "I.B.5 — deployer obligations change when new AI systems are added" },
+      correct: "C",
+      explanation: "I.B.4 requires governance to be calibrated to current company size, maturity, products and services, and risk tolerance. A 10x staff increase combined with dramatically higher-risk AI applications (HR screening, profiling, dynamic pricing) makes the original program structurally inadequate. A introduces a timeline requirement not in the BOK. B is about role definition, not program scope. D is relevant but secondary — the primary driver is I.B.4's calibration requirement.",
+      bokRef: "I.B.4 — Differentiate approaches to AI governance based upon company size, maturity, industry, products and services, objectives and risk tolerance."
+    },
+    {
+      id: "DI-IB-012", comp: "I.B", isRetrieval: false,
+      stem: "An individual uses an AI-powered loan application tool provided by her bank. The AI model was developed by a third-party vendor and deployed by the bank. She is denied a loan. From a governance perspective, what describes her role and its implications under I.B.5?",
+      options: { A: "She is a deployer and has the right to request technical documentation from the vendor", B: "She is a user and may hold rights such as explanation or appeal but has limited direct governance obligations", C: "She is a provider because her data was used to train the model", D: "She is a developer because she initiates the AI system interaction" },
+      correct: "B",
+      explanation: "I.B.5 identifies users as individuals who interact with or are subject to the AI system. Users may hold rights (such as explanation or appeal) but carry limited direct governance obligations — those fall on the deployer (bank) and provider/developer (vendor). A is wrong — users are not deployers and do not access technical documentation. C and D fundamentally misapply the role taxonomy.",
+      bokRef: "I.B.5 — Identify differences among AI developers, providers, deployers and users from a governance perspective (e.g., with respect to responsibilities, opportunities and needs)."
+    },
+    {
+      id: "DI-IB-013", comp: "I.B", isRetrieval: false,
+      stem: "A technology company's AI governance committee includes only members from the AI product team and IT security. Legal, Privacy, HR and Procurement are not represented. An AI system causes a regulatory breach due to improper data use. Which BOK-grounded conclusion is most accurate?",
+      options: { A: "The governance failure is primarily a training issue because staff were not educated on data regulations", B: "The governance structure violated I.B.2 by lacking the cross-functional diversity needed to identify legal and privacy risks before deployment", C: "The failure is a documentation failure — model cards should have flagged the data issue", D: "The committee structure is appropriate; Legal and Privacy involvement is only required after an incident occurs" },
+      correct: "B",
+      explanation: "I.B.2 requires cross-functional collaboration for 'efficacy and diversity of expertise and perspective.' Excluding Legal and Privacy from a committee making AI deployment decisions removes exactly the functions that would have identified the data use issue. A addresses training, which is a secondary concern. C addresses documentation, not governance structure. D is the opposite of the BOK's intent — cross-functional involvement must precede deployment.",
+      bokRef: "I.B.2 — Establish cross-functional collaboration in the AI governance program (e.g., for efficacy and diversity of expertise and perspective)."
+    },
+    {
+      id: "DI-IB-014", comp: "I.B", isRetrieval: false,
+      stem: "A hospital system is evaluating two AI governance models: Model A centralises all decisions in a dedicated AI Ethics Board with no business unit input. Model B uses embedded governance leads in each clinical department coordinated by a central AI governance function. Which model better aligns with the BOK, and why?",
+      options: { A: "Model A, because centralised oversight ensures consistency and eliminates conflicting priorities", B: "Model B, because it establishes cross-functional collaboration and enables diversity of expertise and perspective while maintaining coordination", C: "Model A, because the BOK recommends centralised ethics boards for healthcare settings", D: "Model B only if the hospital system has more than 500 employees" },
+      correct: "B",
+      explanation: "I.B.2 supports distributed cross-functional collaboration — Model B embeds expertise where decisions are made (clinical departments) and coordinates centrally. This directly satisfies the 'diversity of expertise and perspective' requirement. Model A centralises decisions but removes the domain expertise needed to govern AI in clinical contexts effectively. C introduces a healthcare-specific rule not in the BOK. D introduces a size threshold not in the BOK.",
+      bokRef: "I.B.2 — Establish cross-functional collaboration in the AI governance program (e.g., for efficacy and diversity of expertise and perspective)."
+    },
+    {
+      id: "DI-IB-015", comp: "I.B", isRetrieval: false,
+      stem: "An AI governance program's training module covers AI technology concepts and recent AI news in depth but does not address the company's AI strategy or how governance policies apply to employees' daily work. Under I.B.3, what is missing?",
+      options: { A: "The training is compliant because it covers AI terminology, which is one of the three required areas", B: "The training is missing coverage of AI strategy and governance — only one of the three BOK-required content areas is addressed", C: "The training is missing coverage of AI ethics, which the BOK requires all programs to address", D: "The training is non-compliant because it should be delivered by an external IAPP-certified trainer" },
+      correct: "B",
+      explanation: "I.B.3 specifies three content areas: AI terminology, strategy, and governance. Covering technology concepts (partially addressing 'terminology') while omitting strategy and governance means two of the three required areas are absent. A is wrong — one of three is not sufficient. C introduces an 'AI ethics' requirement that is not the BOK's framing for I.B.3. D introduces a delivery requirement not in the BOK.",
+      bokRef: "I.B.3 — Create and deliver a training and awareness program to all stakeholders on AI terminology, strategy and governance."
+    }
+  ]
+});
+</script>
+</body></html>
