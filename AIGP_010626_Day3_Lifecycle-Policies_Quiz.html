@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 3 · Lifecycle Policies</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day: 3, week: 1, comp: "I.C", topic: "Lifecycle Policies",
+  filename: "AIGP_010626_Day3_Lifecycle-Policies_Quiz.html",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DI-IA-R01", comp: "I.A", isRetrieval: true,
+      stem: "An AI image recognition system used by a hospital misclassifies a rare condition at a higher rate for one demographic group, because it was trained predominantly on data from other groups. Which unique characteristic of AI most directly explains why this harm can scale before it is detected?",
+      options: { A: "Autonomy — the system operates without human intervention at each decision point", B: "Opacity — the internal decision logic cannot be interpreted by clinicians", C: "Data dependency — outputs reflect the patterns and gaps present in training data", D: "Probabilistic outputs — the system produces likelihood scores rather than certainties" },
+      correct: "C",
+      explanation: "I.A.3 identifies data dependency as a unique AI characteristic requiring governance. AI outputs reflect the data they were trained on, so demographic gaps in training data propagate into biased outputs at scale. Opacity (B) relates to explainability, not the origin of the demographic disparity. Autonomy (A) describes operational independence. Probabilistic outputs (D) is a characteristic of output type, not the root cause of demographic misclassification.",
+      bokRef: "I.A — Identify the unique characteristics of AI that require a comprehensive approach to governance (e.g., complexity, opacity, autonomy, speed and scale, potential for harm or misuse, data dependency, and probabilistic versus deterministic outputs)."
+    },
+    {
+      id: "DI-IA-R02", comp: "I.A", isRetrieval: true,
+      stem: "An AI governance team is designing a framework for a content moderation system that makes consequential removal decisions. They want to ensure affected parties can challenge decisions. Which responsible AI principle most directly requires this capability?",
+      options: { A: "Fairness — the system must treat all content creators equally", B: "Privacy and security — user data must be protected during review", C: "Transparency and explainability — the system's logic must be visible", D: "Accountability and human-centricity — decisions must be answerable to those affected" },
+      correct: "D",
+      explanation: "I.A.4 lists accountability and human-centricity as a responsible AI principle. Challengeability is a direct expression of accountability — the system's decisions must be answerable to affected parties. Transparency (C) makes logic visible but does not by itself create a right to challenge. Fairness (A) governs equal treatment, not redress mechanisms.",
+      bokRef: "I.A — Identify and apply the common principles of responsible AI (e.g., fairness, safety and reliability, privacy and security, transparency and explainability, accountability and human-centricity)."
+    },
+    {
+      id: "DI-IA-R03", comp: "I.A", isRetrieval: true,
+      stem: "A company deploys an AI loan decisioning system that continuously updates its own weights based on new transaction data with no human review of the updates. A compliance officer wants to classify the primary long-term governance risk. Which AI characteristic makes this system progressively harder to govern?",
+      options: { A: "Speed and scale — the model processes too many decisions per day to audit", B: "Data dependency — the model's quality degrades if input data quality drops", C: "Complexity and opacity — as weights drift, the decision logic becomes increasingly uninterpretable", D: "Probabilistic outputs — regulators cannot verify deterministic outcomes" },
+      correct: "C",
+      explanation: "I.A.3 identifies complexity and opacity as AI characteristics requiring governance. A self-updating model accumulates weight changes over time with no corresponding audit trail, making its decision logic progressively more opaque and harder to explain, challenge, or audit. Data dependency (B) is relevant but describes input quality risk, not the governance challenge of growing opacity.",
+      bokRef: "I.A — Identify the unique characteristics of AI that require a comprehensive approach to governance (e.g., complexity, opacity, autonomy, speed and scale, potential for harm or misuse, data dependency, and probabilistic versus deterministic outputs)."
+    },
+    {
+      id: "DI-IB-R04", comp: "I.B", isRetrieval: true,
+      stem: "A mid-size logistics company is building its first AI governance program. The CEO wants to assign all AI governance responsibility to the IT security team to maintain clear ownership. As the governance advisor, what is the most significant structural gap this creates?",
+      options: { A: "The program will lack board-level sponsorship and executive visibility", B: "AI governance requires cross-functional expertise that a single team cannot provide", C: "IT security teams are not authorized to create binding AI policies", D: "The risk function must always lead AI governance programs per the BOK" },
+      correct: "B",
+      explanation: "I.B.2 requires establishing cross-functional collaboration for efficacy and diversity of expertise and perspective. Assigning governance to IT security creates blind spots across legal, HR, product, compliance, and ethics — disciplines that are essential for holistic AI governance. A (board sponsorship) is a separate concern not raised by the question. C and D are not BOK requirements.",
+      bokRef: "I.B — Establish cross-functional collaboration in the AI governance program (e.g., for efficacy and diversity of expertise and perspective)."
+    },
+    {
+      id: "DI-IB-R05", comp: "I.B", isRetrieval: true,
+      stem: "A government agency deploying AI to support welfare benefit eligibility decisions has a fundamentally different governance profile than a startup using AI for product recommendations. Which I.B factor most directly explains why their governance programs must differ in intensity?",
+      options: { A: "Company size — the agency is larger and has more resources", B: "Risk tolerance — consequences of errors on vulnerable populations demand near-zero tolerance for harm", C: "Organizational maturity — the agency has more established processes", D: "Products and services — benefit eligibility is a different product category" },
+      correct: "B",
+      explanation: "I.B.4 states governance approaches should be differentiated based on company size, maturity, industry, products/services, objectives, and risk tolerance. Risk tolerance is the factor that most directly drives governance intensity: welfare benefit decisions affect vulnerable populations, carry legal obligations, and require near-zero tolerance for harm-causing errors — demanding far more stringent oversight than product recommendation AI.",
+      bokRef: "I.B — Differentiate approaches to AI governance based upon company size, maturity, industry, products and services, objectives and risk tolerance."
+    },
+    {
+      id: "DI-IC-006", comp: "I.C", isRetrieval: false,
+      stem: "A retail company has a data governance policy covering structured customer data. It now wants to use purchase history to train a recommendation model. The data governance policy makes no mention of AI. What does I.C.2 require the governance team to do first?",
+      options: { A: "Create a new standalone AI data policy to run in parallel with the existing one", B: "Evaluate the existing data governance policy and update it to address AI-specific requirements", C: "Apply the existing data governance policy unchanged, since it already covers customer data", D: "Defer to the AI vendor's data handling policy, which addresses model training" },
+      correct: "B",
+      explanation: "I.C.2 specifically requires evaluating and updating existing policies for AI — not creating parallel policies or applying existing policies unchanged. The existing policy does not address AI-specific issues: purpose limitation for training, data minimization in model contexts, training data rights, or re-identification risk from model outputs. Applying it unchanged (C) violates I.C.2.",
+      bokRef: "I.C — Evaluate and update existing policies (e.g., data privacy, security, data governance and intellectual property) for AI."
+    },
+    {
+      id: "DI-IC-007", comp: "I.C", isRetrieval: false,
+      stem: "An AI governance team is drafting its first AI policy framework. A senior developer argues the policy should only apply from deployment onward, since pre-deployment is a protected research phase. Which BOK requirement most directly contradicts this position?",
+      options: { A: "I.C.2 — existing policies must be evaluated for applicability to AI contexts", B: "I.C.1 — policies must cover oversight and accountability across all AI life cycle stages, including use case assessment and ethics by design", C: "I.C.3 — third-party risk management must be addressed through contracts before any development", D: "I.B.2 — cross-functional collaboration must be established before deployment" },
+      correct: "B",
+      explanation: "I.C.1 explicitly names use case assessment, model and system development, and ethics by design as lifecycle stages requiring policy coverage. The argument that governance only starts at deployment directly contradicts I.C.1's end-to-end lifecycle requirement. Without pre-development policy coverage, organizations have no governance gate before high-risk AI projects begin.",
+      bokRef: "I.C — Create and implement policies to ensure oversight and accountability across all AI life cycle stages (e.g., use case assessment, risk management, ethics by design, data acquisition and use, model and system development, training and testing, deployment and monitoring, documentation and reporting, and incident management)."
+    },
+    {
+      id: "DI-IC-008", comp: "I.C", isRetrieval: false,
+      stem: "A company uses a third-party AI vendor for automated resume screening. The vendor contract specifies only uptime guarantees and pricing. Legal believes this is sufficient because AI governance is an internal matter. What is the most significant gap under I.C.3?",
+      options: { A: "The contract should include SLA provisions for model accuracy and performance", B: "The contract does not include the policies, assessments and obligations required to manage third-party AI risk", C: "The vendor should be required to hold ISO 42001 certification before the contract is signed", D: "A data processing agreement alone is sufficient to cover all AI third-party obligations" },
+      correct: "B",
+      explanation: "I.C.3 requires policies, assessments and contracts to manage third-party AI risk. A contract covering only uptime and pricing leaves critical gaps: acceptable use of training data, bias testing obligations, audit rights, incident notification requirements, and human oversight terms. ISO certification (C) is not a BOK requirement. A DPA (D) addresses data protection only, not the full scope of AI-specific third-party risk under I.C.3.",
+      bokRef: "I.C — Create, update and implement policies, assessments and contracts to manage third-party risk (e.g., procurement, supply chain, human resources and acceptable use)."
+    },
+    {
+      id: "DI-IC-009", comp: "I.C", isRetrieval: false,
+      stem: "During an AI governance audit, you find that the company's cybersecurity policy does not address AI-specific attack vectors such as prompt injection or model inversion. Which I.C obligation does this gap most directly violate?",
+      options: { A: "I.C.1 — policies must cover deployment and monitoring lifecycle stages", B: "I.C.2 — existing security policies must be evaluated and updated for AI", C: "I.C.3 — supply chain risk from AI vendors must be assessed through contracts", D: "I.C.1 — policies must cover incident management" },
+      correct: "B",
+      explanation: "I.C.2 requires evaluating and updating existing policies — including security — for AI. AI introduces attack vectors not present in traditional cybersecurity scenarios: adversarial inputs, data poisoning, prompt injection, and model extraction attacks. The root cause here is the failure to update the existing policy, which is precisely I.C.2's obligation. While I.C.1 covers incident management (D), the upstream failure is not updating the security policy to address the new threat landscape.",
+      bokRef: "I.C — Evaluate and update existing policies (e.g., data privacy, security, data governance and intellectual property) for AI."
+    },
+    {
+      id: "DI-IC-010", comp: "I.C", isRetrieval: false,
+      stem: "A procurement team is finalizing a contract with an AI training data provider. They focus on pricing and data format. As the AI governance officer, which I.C.3 requirement is most critical to ensure is satisfied before execution?",
+      options: { A: "A board resolution formally approving the procurement decision", B: "An assessment of the provider's AI risk standards compliance, plus a contract with AI-specific obligations covering data provenance and permitted use", C: "A non-disclosure agreement protecting the confidentiality of the training data", D: "A cross-functional technical review confirming the data format meets engineering specifications" },
+      correct: "B",
+      explanation: "I.C.3 requires policies, assessments and contracts to manage third-party risk, with procurement explicitly cited. The assessment must verify the supplier's practices against the organization's AI risk standards (data provenance, quality, lawful rights); the contract must bind the supplier to AI-specific obligations (permitted use, audit rights, incident notification). An NDA (C) addresses confidentiality only. A technical format review (D) is not a governance control.",
+      bokRef: "I.C — Create, update and implement policies, assessments and contracts to manage third-party risk (e.g., procurement, supply chain, human resources and acceptable use)."
+    },
+    {
+      id: "DI-IC-011", comp: "I.C", isRetrieval: false,
+      stem: "A company discovers that a freelance data annotation contractor — hired for RLHF labeling — was sharing training data examples with third parties. Which I.C.3 category most directly governs this relationship, and what was the primary governance failure?",
+      options: { A: "Procurement risk; the contract should have specified data format and quality standards", B: "Human resources risk; there was no acceptable use policy or contractual confidentiality obligation binding the contractor", C: "Supply chain risk; upstream model providers should have been audited for data handling", D: "Acceptable use risk; internal employees violated the company's AI usage policy" },
+      correct: "B",
+      explanation: "I.C.3 explicitly includes human resources risk in its third-party scope, covering contractors and gig workers used for data labeling and RLHF. The governance failure is the absence of a contractual acceptable use clause and confidentiality obligation binding the contractor. Acceptable use (D) describes an internal employee policy failure, not a contractor governance failure. Supply chain (C) covers upstream model or data providers, not individual annotators.",
+      bokRef: "I.C — Create, update and implement policies, assessments and contracts to manage third-party risk (e.g., procurement, supply chain, human resources and acceptable use)."
+    },
+    {
+      id: "DI-IC-012", comp: "I.C", isRetrieval: false,
+      stem: "An AI governance team has comprehensive policies covering model development, training, and deployment monitoring. However, when an AI credit model produces an incorrect adverse decision that harms a customer, there is no defined process for what happens next. Which I.C.1 lifecycle stage is unaddressed?",
+      options: { A: "Documentation and reporting — the decision must be logged", B: "Use case assessment — the original approval process was flawed", C: "Incident management — there is no policy for responding to AI-caused harms", D: "Deployment and monitoring — ongoing performance tracking should have caught this" },
+      correct: "C",
+      explanation: "I.C.1 requires policies across all lifecycle stages, explicitly including incident management. Incident management defines what happens after an AI-caused harm: reporting triggers, investigation process, remediation steps, and disclosure obligations. Deployment and monitoring (D) covers ongoing performance detection, but the gap identified is the absence of a response process once harm has occurred — which is incident management.",
+      bokRef: "I.C — Create and implement policies to ensure oversight and accountability across all AI life cycle stages (e.g., use case assessment, risk management, ethics by design, data acquisition and use, model and system development, training and testing, deployment and monitoring, documentation and reporting, and incident management)."
+    },
+    {
+      id: "DI-IC-013", comp: "I.C", isRetrieval: false,
+      stem: "After deploying a generative AI writing assistant, a product manager asks whether AI-generated outputs belong to the company or the employee who prompted them. The existing IP policy states 'all content created by employees is company property' but predates AI. Which action does I.C.2 require?",
+      options: { A: "The existing policy already covers AI-generated content — no update is needed since employees triggered the output", B: "A new standalone AI-generated content policy should be created as a separate document", C: "The existing IP policy must be evaluated and updated to address AI-generated content ownership and related AI IP questions", D: "IP ownership of AI outputs is a legal matter outside the scope of AI governance policy" },
+      correct: "C",
+      explanation: "I.C.2 specifically names intellectual property as an existing policy requiring evaluation and update for AI. AI-generated outputs raise new IP questions — ownership, copyright eligibility, attribution, training data rights — that a pre-AI policy does not address. Option A incorrectly assumes coverage. Option B is possible but not what I.C.2 prescribes: it requires evaluating and updating the existing policy, not necessarily creating a separate one.",
+      bokRef: "I.C — Evaluate and update existing policies (e.g., data privacy, security, data governance and intellectual property) for AI."
+    },
+    {
+      id: "DI-IC-014", comp: "I.C", isRetrieval: false,
+      stem: "A company sources training data from three cloud providers. One provider goes bankrupt mid-project; the company loses access to datasets already integrated into the model with no continuity provision. Which I.C.3 category should have been addressed to prevent this, and through which instrument?",
+      options: { A: "Procurement risk; through a more rigorous internal vendor selection policy", B: "Supply chain risk; through contracts including data portability and continuity obligations", C: "Human resources risk; through contractor acceptable use and data handling agreements", D: "Acceptable use risk; through an employee policy on approved AI data sources" },
+      correct: "B",
+      explanation: "I.C.3 includes supply chain risk in its third-party scope — dependencies on upstream data providers are supply chain risks for AI. The contract should have included data portability rights, continuity provisions, and transition assistance obligations to ensure access is maintained or data can be migrated if the provider fails. Procurement risk (A) relates to vendor selection diligence, not continuity obligations during the relationship.",
+      bokRef: "I.C — Create, update and implement policies, assessments and contracts to manage third-party risk (e.g., procurement, supply chain, human resources and acceptable use)."
+    },
+    {
+      id: "DI-IC-015", comp: "I.C", isRetrieval: false,
+      stem: "An AI governance officer reviews the company's policy framework and finds policies for data acquisition, model development, training, testing, and deployment. There is no policy covering the stage before development begins. Which I.C.1 lifecycle stage is missing, and what function does it serve?",
+      options: { A: "Ethics by design — it embeds fairness requirements into the architecture phase", B: "Use case assessment — it is the front-gate evaluation of whether an AI application is appropriate, lawful, and aligned with organizational objectives before development starts", C: "Risk management — it ensures that risks are identified and logged before the first sprint begins", D: "Documentation and reporting — it ensures that initial design decisions are recorded for audit purposes" },
+      correct: "B",
+      explanation: "I.C.1 lists use case assessment as the first lifecycle stage requiring policy coverage. It functions as the governance gate before development begins — evaluating whether the proposed AI application is appropriate, lawful, and aligned with organizational values and risk tolerance. Without this gate, teams can initiate high-risk AI projects without any governance scrutiny. Ethics by design (A) is also a pre-development stage but specifically addresses design-phase ethical requirements, not the initial approval gate.",
+      bokRef: "I.C — Create and implement policies to ensure oversight and accountability across all AI life cycle stages (e.g., use case assessment, risk management, ethics by design, data acquisition and use, model and system development, training and testing, deployment and monitoring, documentation and reporting, and incident management)."
+    }
+  ]
+});
+</script>
+</body></html>
