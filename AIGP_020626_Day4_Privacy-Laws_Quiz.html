@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 4 · Privacy Laws &amp; AI</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day:4, week:1, comp:"II.A", topic:"Privacy Laws & AI",
+  filename:"AIGP_020626_Day4_Privacy-Laws_Quiz.html",
+  webhookUrl:"https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions:[
+    {id:"DI-IA-R01",comp:"I.A",isRetrieval:true,
+     stem:"A logistics company's AI route optimizer occasionally produces unexplainable outputs that disadvantage certain postal codes. A governance reviewer asks which AI characteristic most directly creates the need for a governance response. Which is it?",
+     options:{A:"Speed and scale — the system processes millions of routes daily",B:"Opacity — the model cannot explain why certain routes are penalised",C:"Data dependency — the model relies on historical delivery data",D:"Probabilistic outputs — no single deterministic answer exists"},
+     correct:"B",
+     explanation:"Opacity (also called 'black-box' behaviour) is the characteristic that directly creates the governance need here — the inability to explain decisions prevents oversight, accountability, and identifying bias. Speed/scale, data dependency, and probabilistic outputs are also AI characteristics requiring governance, but they are not the proximate cause of this specific governance gap.",
+     bokRef:"I.A — Identify the unique characteristics of AI that require a comprehensive approach to governance (e.g., complexity, opacity, autonomy, speed and scale, potential for harm or misuse, data dependency, and probabilistic versus deterministic outputs)."},
+
+    {id:"DI-IB-R02",comp:"I.B",isRetrieval:true,
+     stem:"A mid-sized bank is setting up its AI governance program and has designated the CISO as the sole AI governance authority. An AIGP advisor flags this as insufficient. What is the primary reason?",
+     options:{A:"AI governance requires a dedicated Chief AI Officer role, not a CISO",B:"Effective AI governance requires cross-functional collaboration for efficacy and diversity of expertise and perspective",C:"The CISO lacks the technical skills to evaluate AI models",D:"Regulatory requirements mandate a separate AI ethics committee"},
+     correct:"B",
+     explanation:"The BOK PI explicitly requires cross-functional collaboration — a single function (even the CISO) cannot represent the full range of expertise (legal, risk, business, data science, HR, etc.) or stakeholder perspectives needed. There is no BOK requirement for a specific Chief AI Officer role; the cross-functional collaboration point is the correct BOK grounding.",
+     bokRef:"I.B — Establish cross-functional collaboration in the AI governance program (e.g., for efficacy and diversity of expertise and perspective)."},
+
+    {id:"DI-IA-R03",comp:"I.A",isRetrieval:true,
+     stem:"An AI hiring tool systematically scores candidates from certain universities lower due to historical patterns in the training data. Which responsible AI principle is most directly violated?",
+     options:{A:"Transparency and explainability — the scoring rationale is not disclosed to candidates",B:"Fairness — the system produces discriminatory outcomes based on historical bias in training data",C:"Privacy and security — candidate personal data is processed without adequate safeguards",D:"Human-centricity — recruiters are not involved in final hiring decisions"},
+     correct:"B",
+     explanation:"Fairness is the directly violated principle: the system produces outcomes that discriminate based on patterns correlated with protected characteristics. Transparency is also an issue (candidates don't know the rationale), but the root harm — discriminatory scoring — maps to the fairness principle. Human-centricity and privacy are not the primary issue raised in this scenario.",
+     bokRef:"I.A — Identify and apply the common principles of responsible AI (e.g., fairness, safety and reliability, privacy and security, transparency and explainability, accountability and human-centricity)."},
+
+    {id:"DI-IB-R04",comp:"I.B",isRetrieval:true,
+     stem:"A software company purchases an AI model from a third-party vendor and deploys it in its customer-facing product. From a governance perspective, which statement best describes this company's position?",
+     options:{A:"Developer — it built and configured the model for deployment",B:"Provider — it makes the AI system available in the market",C:"Deployer — it uses the AI system in a product for end users",D:"User — it consumes AI outputs like any other customer"},
+     correct:"C",
+     explanation:"A deployer uses an AI system developed or provided by another party and integrates it into their product or service for end users. The third-party vendor is the provider (makes the system available). The deployer carries distinct governance responsibilities — particularly around acceptable use, monitoring, and user-facing obligations — even though they did not build the model.",
+     bokRef:"I.B — Identify differences among AI developers, providers, deployers and users from a governance perspective (e.g., with respect to responsibilities, opportunities and needs)."},
+
+    {id:"DI-IC-R05",comp:"I.C",isRetrieval:true,
+     stem:"An organization has a strong data privacy policy but has not updated it since implementing a large language model for customer service. An audit flags this. What does the BOK require in this situation?",
+     options:{A:"Create a new standalone AI policy to cover the LLM use case",B:"Evaluate and update existing policies (e.g., data privacy) for AI",C:"Retire the old policy and adopt the EU AI Act compliance framework directly",D:"Conduct a DPIA as the only required governance action"},
+     correct:"B",
+     explanation:"The BOK PI explicitly requires evaluating and updating existing policies — including data privacy — for AI. Creating a completely separate standalone AI policy is not required; the BOK approach is to adapt existing governance instruments. A DPIA may also be needed, but it does not replace the policy update obligation.",
+     bokRef:"I.C — Evaluate and update existing policies (e.g., data privacy, security, data governance and intellectual property) for AI."},
+
+    {id:"DII-IIA-006",comp:"II.A",isRetrieval:false,
+     stem:"A retailer in Germany trains a recommendation AI using purchase history data originally collected under a consent that described its use for 'personalised marketing emails.' The company now wants to use the same dataset to train the model. What must the company do before proceeding?",
+     options:{A:"Obtain fresh consent from all customers for AI model training specifically",B:"Conduct a purpose limitation compatibility assessment and establish a lawful basis for the new processing",C:"Publish an updated privacy notice describing the AI training use",D:"Apply pseudonymisation to the dataset and training can proceed without further steps"},
+     correct:"B",
+     explanation:"Purpose limitation under GDPR Art. 5(1)(b) requires a compatibility assessment before repurposing data for a new use. If incompatible, a fresh lawful basis is needed. While updating the privacy notice is a transparency obligation, it does not itself authorise the processing. Fresh consent is one option but not the only route — legitimate interests or another basis may apply. Pseudonymisation reduces risk but does not override the purpose limitation obligation.",
+     bokRef:"II.A — Understand how transparency, choice, lawful basis and purpose limitation requirements apply to AI."},
+
+    {id:"DII-IIA-007",comp:"II.A",isRetrieval:false,
+     stem:"An insurtech company's AI underwriting model achieves its highest accuracy when trained on 15 data fields including social media activity and browsing history. The data science team argues all 15 fields are necessary for accuracy. What is the correct governance response?",
+     options:{A:"Accept the team's assessment — necessity is determined by model performance requirements",B:"Apply the data minimization principle: fields must be adequate, relevant, and limited to what is necessary for the stated purpose — not whatever maximises accuracy",C:"Replace the model with a lower-accuracy alternative that uses fewer fields",D:"Require explicit consent for each data field individually before training"},
+     correct:"B",
+     explanation:"Data minimization under GDPR Art. 5(1)(c) requires data be adequate, relevant, and necessary — the legal standard, not a technical performance standard. The fact that more data improves accuracy does not make collection of that data 'necessary.' The governance professional must challenge the framing: necessity is assessed against the processing purpose, not model performance. Replacing the model may follow from this analysis but is not the primary governance response.",
+     bokRef:"II.A — Understand how data minimization and privacy by design requirements apply to AI."},
+
+    {id:"DII-IIA-008",comp:"II.A",isRetrieval:false,
+     stem:"A healthcare provider builds a diagnostic AI tool. The privacy team asks when a DPIA is required. The system will process patient health records at scale using a novel deep learning architecture. Which statement is correct?",
+     options:{A:"A DPIA is required only if the tool makes final diagnostic decisions without clinician review",B:"A DPIA is required because the processing involves large-scale special category data processed using novel technology — two high-risk indicators",C:"A DPIA is optional for internal clinical tools not made available to the public",D:"A DPIA is not required because processing health data by healthcare providers is lawful under Art. 9(2)(h)"},
+     correct:"B",
+     explanation:"GDPR Art. 35 mandates a DPIA when processing is likely to result in high risk. The scenario triggers multiple indicators from supervisory authority lists: large-scale processing of special category data (health records) and use of novel technology (deep learning). The Art. 9(2)(h) exemption permits processing but does not remove the DPIA obligation — those are separate requirements.",
+     bokRef:"II.A — Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping)."},
+
+    {id:"DII-IIA-009",comp:"II.A",isRetrieval:false,
+     stem:"A bank's AI loan decision system returns binary approve/decline outputs to applicants with no further information. An EU customer requests an explanation of why their application was declined. What is the legal obligation?",
+     options:{A:"The bank must provide a general description of the model's logic in its privacy notice — this satisfies GDPR",B:"Under Art. 22 GDPR, the applicant has the right to obtain an explanation, express their point of view, and request human review of the automated decision",C:"Explanation rights apply only to profiling, not to binary loan approval decisions",D:"The bank need only confirm that an automated system was used — the specific logic is proprietary"},
+     correct:"B",
+     explanation:"GDPR Art. 22 gives individuals subjected to solely automated decisions producing legal or similarly significant effects the right to: obtain human intervention, express their point of view, and obtain an explanation of the decision. A loan approval decision has significant financial effects and qualifies. A general model description in a privacy notice meets transparency obligations but does not satisfy the Art. 22 individual rights on a per-decision basis.",
+     bokRef:"II.A — Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping)."},
+
+    {id:"DII-IIA-010",comp:"II.A",isRetrieval:false,
+     stem:"A company using a US-based AI SaaS vendor to process EU customer data has a Data Processing Agreement in place. Security researchers demonstrate a model inversion attack that reconstructs EU customer records from the vendor's API. What must the company do within the statutory timeframe?",
+     options:{A:"Notify affected customers within 72 hours",B:"Notify the competent supervisory authority within 72 hours of becoming aware of the breach",C:"Terminate the vendor contract and file a complaint with the supervisory authority",D:"Conduct a DPIA — the breach demonstrates processing has become high risk"},
+     correct:"B",
+     explanation:"GDPR Art. 33 requires notification to the supervisory authority within 72 hours of the controller becoming aware of a personal data breach that is likely to result in risk to individuals. Notification to affected individuals (Art. 34) is required when the breach is likely to result in a high risk to those individuals — a separate and additional obligation. Terminating the vendor relationship and conducting a DPIA may be appropriate actions but are not the statutory 72-hour obligation.",
+     bokRef:"II.A — Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping)."},
+
+    {id:"DII-IIA-011",comp:"II.A",isRetrieval:false,
+     stem:"A social media analytics company insists its sentiment analysis AI does not process special category data because it only analyses public posts. A governance reviewer disagrees. What is the strongest basis for the reviewer's position?",
+     options:{A:"Public posts are still personal data and therefore require a lawful basis under Art. 6",B:"The AI can infer religious beliefs, political opinions, or health conditions from post content — constituting processing of special category data through inference",C:"Sentiment analysis of public posts constitutes profiling under GDPR requiring a DPIA",D:"The company cannot rely on legitimate interests as a lawful basis for sentiment analysis"},
+     correct:"B",
+     explanation:"GDPR Art. 9 special category data includes political opinions and religious beliefs. An AI that infers these attributes from post content is effectively processing special category data even if it never explicitly collected a 'religion' field. The inference itself is the processing. This is the key AI-specific governance risk: indirect derivation of sensitive attributes from non-sensitive inputs. Option A is true but not the basis for the reviewer's disagreement about special category data specifically.",
+     bokRef:"II.A — Understand the requirements that apply to sensitive or special categories of data (e.g., biometrics)."},
+
+    {id:"DII-IIA-012",comp:"II.A",isRetrieval:false,
+     stem:"An HR tech startup integrates a third-party AI that uses facial recognition to infer emotional states during video interviews. The startup argues it collects no biometric data because the AI vendor processes the video and only returns emotion scores. Is this assessment correct?",
+     options:{A:"Yes — the startup only receives aggregated emotion scores, not raw biometric data",B:"No — the startup is the data controller; processing of facial images to derive inferences constitutes biometric data processing for which the controller is responsible",C:"Yes — the vendor is the sole data controller for biometric processing under this arrangement",D:"No — but only because emotion scores themselves constitute special category health data"},
+     correct:"B",
+     explanation:"The startup remains the data controller: it determines the purpose (candidate assessment) and means (video interview platform with AI inference). The fact that the AI vendor physically processes the video does not transfer controller status. Processing facial images to uniquely or indirectly identify or profile a person constitutes biometric data processing under GDPR Art. 4(14) and Art. 9. The startup cannot outsource its controller obligations by using a processor.",
+     bokRef:"II.A — Understand the requirements that apply to sensitive or special categories of data (e.g., biometrics)."},
+
+    {id:"DII-IIA-013",comp:"II.A",isRetrieval:false,
+     stem:"A company's AI model for fraud detection is built using a Privacy by Design approach. Which of the following actions most directly demonstrates PbD rather than transparency?",
+     options:{A:"Publishing a detailed privacy notice explaining how the fraud model uses customer transaction data",B:"Configuring the model architecture to operate on anonymised transaction patterns rather than raw personal data, reducing identifiability by default",C:"Providing customers an opt-out mechanism from fraud detection processing",D:"Completing a DPIA before deploying the fraud detection model"},
+     correct:"B",
+     explanation:"Privacy by Design requires privacy embedded proactively into system architecture — technical measures that minimise personal data processing by design. Choosing an architecture that operates on anonymised patterns rather than raw personal data is PbD in action: the privacy protection is built in, not bolted on. A privacy notice satisfies transparency obligations. An opt-out mechanism addresses choice. A DPIA is a risk assessment obligation. None of these constitute embedding privacy into the technical design of the system.",
+     bokRef:"II.A — Understand how data minimization and privacy by design requirements apply to AI."},
+
+    {id:"DII-IIA-014",comp:"II.A",isRetrieval:false,
+     stem:"A global tech company trains its AI model using data from EU, US, and APAC users. Processed data is transferred to its US-headquartered model training infrastructure. What must the company have in place for the EU-to-US data transfer leg?",
+     options:{A:"A Data Processing Agreement between the EU subsidiary and the US parent is sufficient",B:"A transfer mechanism under GDPR Chapter V — such as an adequacy decision, Standard Contractual Clauses, or Binding Corporate Rules",C:"EU user consent to international transfer obtained at registration",D:"Notification to the competent EU supervisory authority before each transfer"},
+     correct:"B",
+     explanation:"GDPR Chapter V requires a transfer mechanism for any transfer of personal data to a third country (outside EEA). A DPA governs controller-processor responsibilities but does not by itself authorise an international transfer. Consent is technically a derogation under Art. 49 but is not a primary transfer mechanism for systematic, large-scale transfers. Supervisory authority notification is not required for transfers relying on SCCs or BCRs.",
+     bokRef:"II.A — Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping)."},
+
+    {id:"DII-IIA-015",comp:"II.A",isRetrieval:false,
+     stem:"A customer makes a data erasure request for all their personal data. The company's AI model was trained on this customer's data. What is the key governance challenge and correct response?",
+     options:{A:"Erasure requests do not apply to data already used in AI model training — once incorporated, it is no longer identifiable",B:"The company must retrain or rebuild the model from scratch to honour the erasure request",C:"Erasing the customer's data from source systems satisfies the request; the residual influence on model weights is a known technical limitation requiring documented governance measures",D:"The company can refuse the erasure request citing legitimate interest in maintaining model integrity"},
+     correct:"C",
+     explanation:"The right to erasure under GDPR Art. 17 requires deleting personal data from source systems and preventing further processing. The residual influence of training data on model weights (the 'unlearning problem') is a genuine and documented technical limitation — regulators acknowledge this. The practical governance response is: delete from all source/training datasets, document the limitation, and implement architectural measures (e.g., data segregation, retraining pipelines) to minimise residual influence over time. Claiming data is no longer identifiable within model weights (A) is an unsupported legal conclusion. Mandatory full retraining (B) is disproportionate in most contexts. Refusing on legitimate interest (D) does not apply to erasure requests where the individual objects to processing.",
+     bokRef:"II.A — Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping)."}
+  ]
+});
+</script>
+</body></html>
