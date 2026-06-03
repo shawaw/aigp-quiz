@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 5 · Other Laws &amp; AI</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day: 5, week: 1, comp: "II.B", topic: "Other Laws & AI",
+  filename: "AIGP_030626_Day5_Other-Laws_Quiz.html",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DI-IA-001", comp: "I.A", isRetrieval: true,
+      stem: "An AI-powered loan approval system denies applications at significantly higher rates for applicants from certain postal codes. The governance officer notes the model is opaque — even the developers cannot explain why individual decisions are made. Which unique AI characteristic is the PRIMARY governance concern here?",
+      options: { A: "Data dependency, because the model relies on historical loan data", B: "Opacity, because the system cannot explain its reasoning, impeding oversight and accountability", C: "Speed and scale, because the model processes thousands of applications daily", D: "Autonomy, because no human reviews individual applications" },
+      correct: "B",
+      explanation: "Opacity (lack of explainability) is the characteristic directly at issue — the model cannot be interrogated to determine why decisions are made, which makes bias detection and legal compliance impossible. Data dependency (A) is a contributing factor but not the primary governance concern named. Speed and scale (C) amplifies risk but is not the root issue. Autonomy (D) is relevant to human oversight, but opacity is the more precise answer here because it is what prevents any oversight from being meaningful.",
+      bokRef: "I.A PI 3 — Identify the unique characteristics of AI that require a comprehensive approach to governance (e.g., complexity, opacity, autonomy, speed and scale, potential for harm or misuse, data dependency, and probabilistic versus deterministic outputs)."
+    },
+    {
+      id: "DI-IB-001", comp: "I.B", isRetrieval: true,
+      stem: "A mid-size e-commerce company is establishing its first AI governance program. The CISO wants to own all AI governance decisions. The legal team has no visibility into AI deployments. The data science team runs its own risk assessments. As governance officer, what is the most important structural change to recommend?",
+      options: { A: "Appoint the CISO as the AI governance lead with veto authority over all AI projects", B: "Establish cross-functional collaboration bringing legal, data science, business, and ethics stakeholders into governance", C: "Commission an external audit firm to perform annual AI risk assessments", D: "Create a dedicated AI ethics board staffed exclusively by senior executives" },
+      correct: "B",
+      explanation: "BOK I.B PI 2 requires establishing cross-functional collaboration for efficacy and diversity of expertise and perspective. Siloed governance (A, D) fails this requirement. External audits (C) are useful but cannot substitute for internal cross-functional collaboration as the primary structural fix.",
+      bokRef: "I.B PI 2 — Establish cross-functional collaboration in the AI governance program (e.g., for efficacy and diversity of expertise and perspective)."
+    },
+    {
+      id: "DI-IC-001", comp: "I.C", isRetrieval: true,
+      stem: "A bank is procuring an AI fraud-detection system from a third-party vendor. The vendor declines to share model documentation, citing trade secrets. The bank's legal team asks the governance officer what minimum governance requirements apply to this procurement. What is the MOST appropriate response?",
+      options: { A: "Accept the vendor's position — trade secret protection is a legitimate business reason to withhold documentation", B: "Require the vendor to share all model weights and training data as a condition of contract", C: "Create, update and implement contracts to manage third-party risk, including obligations around documentation, audit rights, and performance standards", D: "Escalate to the regulator and seek a waiver of documentation requirements for third-party AI" },
+      correct: "C",
+      explanation: "BOK I.C PI 3 requires organisations to create, update and implement contracts to manage third-party risk. This does not require full disclosure of trade secrets (B), but it does require contractual protections — audit rights, performance standards, breach notification, and accountability mechanisms. Accepting the vendor's position without controls (A) fails the governance obligation. Escalating to regulators (D) is premature and incorrect.",
+      bokRef: "I.C PI 3 — Create, update and implement policies, assessments and contracts to manage third-party risk (e.g., procurement, supply chain, human resources and acceptable use)."
+    },
+    {
+      id: "DII-IIA-001", comp: "II.A", isRetrieval: true,
+      stem: "A user subject to GDPR receives an automated rejection from a company's AI-driven job application screening system. The user requests an explanation of the decision. Which data controller obligation is MOST directly engaged?",
+      options: { A: "Data minimisation — the company should not have collected the applicant's data in the first place", B: "Obligations around automated decision-making, including the right to explanation and human review", C: "Purpose limitation — the company must demonstrate the screening purpose was specified at collection", D: "Breach notification — the automated decision constitutes a personal data breach" },
+      correct: "B",
+      explanation: "GDPR Article 22 and BOK II.A PI 3 address obligations on data controllers regarding automated decision-making, including the right to explanation, human review, and challenge. Data minimisation (A) and purpose limitation (C) are relevant data protection principles but not the most direct obligation triggered by an automated rejection decision. A rejection is not a data breach (D).",
+      bokRef: "II.A PI 3 — Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping)."
+    },
+    {
+      id: "DI-IB-002", comp: "I.B", isRetrieval: true,
+      stem: "A global bank with thousands of AI models and a five-person startup using one AI-powered chatbot are both designing AI governance programs. Which BOK principle most directly justifies different governance approaches for each?",
+      options: { A: "Cross-functional collaboration — both organisations need diverse expertise regardless of size", B: "Differentiate approaches based on company size, maturity, industry, products and services, objectives and risk tolerance", C: "Training and awareness — both must train all stakeholders on AI governance", D: "Roles and responsibilities — both must define governance roles, but the bank needs more roles" },
+      correct: "B",
+      explanation: "BOK I.B PI 4 explicitly requires differentiating governance approaches based on company size, maturity, industry, products and services, objectives and risk tolerance. The bank and startup legitimately require different program scope and formality. Options A, C, and D describe universal governance requirements that apply regardless of size — they do not justify differentiated approaches.",
+      bokRef: "I.B PI 4 — Differentiate approaches to AI governance based upon company size, maturity, industry, products and services, objectives and risk tolerance."
+    },
+    {
+      id: "DII-IIB-001", comp: "II.B", isRetrieval: false,
+      stem: "A technology company trains a large language model using books, articles, and code scraped from the internet without obtaining licences from rights holders. The company argues this is permissible because the data is publicly accessible. As governance officer, how should you characterise the IP risk?",
+      options: { A: "No risk — publicly accessible data is in the public domain and freely usable for training", B: "Moderate risk — only applies if the model reproduces verbatim excerpts from the training data", C: "Material copyright infringement risk — public accessibility does not confer a licence to reproduce for commercial AI training; fair use is unresolved and fact-specific", D: "No risk to the company — liability rests solely with the data hosting platform" },
+      correct: "C",
+      explanation: "Public accessibility is not equivalent to a licence. Copyright subsists in original works regardless of where they are hosted online. Using those works for commercial AI training without a licence creates infringement exposure. Fair use/fair dealing arguments are contested and unresolved across jurisdictions. Option A conflates accessibility with legality. Option B incorrectly limits risk to verbatim reproduction. Option D is wrong — the company as developer is a direct user of the copyrighted works.",
+      bokRef: "II.B PI 1 — Understand how intellectual property laws apply to AI (e.g., prohibiting or limiting use of data for AI training)."
+    },
+    {
+      id: "DII-IIB-002", comp: "II.B", isRetrieval: false,
+      stem: "An AI system used for employee performance reviews assigns lower ratings to employees with historically female names, even though gender is not an explicit input. The company argues it cannot be liable for discrimination because the AI was built by a vendor. What is the most accurate legal analysis?",
+      options: { A: "The company is not liable because it did not build the AI — liability rests with the vendor", B: "The company faces nondiscrimination liability as a deployer — disparate impact does not require discriminatory intent, and using a proxy variable for a protected characteristic triggers exposure", C: "The company is liable only if it was aware the AI used name-based proxies before deployment", D: "There is no legal exposure unless a harmed employee can prove the AI system was intentionally designed to discriminate" },
+      correct: "B",
+      explanation: "Disparate impact liability does not require discriminatory intent or knowledge. A deployer organisation that uses an AI tool that produces discriminatory outcomes bears legal exposure regardless of whether the vendor built the system. Name as a proxy for gender is a well-established disparate impact risk. The claim in A is incorrect — deployers have obligations independent of developers. C and D both incorrectly require knowledge or intent, which disparate impact theory does not.",
+      bokRef: "II.B PI 2 — Understand how nondiscrimination laws apply to AI (e.g., in the employment, credit, lending, housing and insurance contexts)."
+    },
+    {
+      id: "DII-IIB-003", comp: "II.B", isRetrieval: false,
+      stem: "A bank uses an AI credit-scoring model that approves loans at significantly lower rates for applicants from minority-majority neighbourhoods. The model does not use race or ethnicity as inputs. An applicant who was denied demands written reasons. Which legal framework is MOST directly applicable?",
+      options: { A: "Consumer protection law — the denial is a deceptive act if the bank does not disclose it uses AI", B: "Product liability law — the AI model constitutes a defective product causing financial harm", C: "Nondiscrimination law — the Equal Credit Opportunity Act requires adverse action notices and prohibits disparate impact in credit decisions", D: "Intellectual property law — the bank must disclose its AI model's architecture to demonstrate compliance" },
+      correct: "C",
+      explanation: "ECOA directly requires adverse action notices explaining denial reasons and prohibits credit-scoring practices with discriminatory disparate impact. Neighbourhood as proxy for race is a classic redlining pattern subject to ECOA scrutiny. Consumer protection (A) and product liability (B) are secondary. IP law (D) has no bearing on adverse action notice obligations.",
+      bokRef: "II.B PI 2 — Understand how nondiscrimination laws apply to AI (e.g., in the employment, credit, lending, housing and insurance contexts)."
+    },
+    {
+      id: "DII-IIB-004", comp: "II.B", isRetrieval: false,
+      stem: "A company markets its AI-powered wellness app claiming it can 'diagnose early-stage depression with 94% accuracy.' Independent testing shows the accuracy figure was based on a narrow research dataset and does not hold in diverse populations. Which legal exposure is MOST directly created?",
+      options: { A: "Product liability — design defect in the AI architecture", B: "Consumer protection — deceptive act or practice, because the accuracy claim is a material misrepresentation likely to mislead consumers", C: "Nondiscrimination — the app produces disparate accuracy rates across demographic groups", D: "Intellectual property — the accuracy claim implies access to proprietary clinical data" },
+      correct: "B",
+      explanation: "A false or unsubstantiated accuracy claim made to consumers is a textbook deceptive act under FTC Act § 5 — it is material (affects purchasing decision), likely to mislead a reasonable consumer, and not substantiated by the evidence. Product liability (A) applies if the app causes harm, but the question targets the marketing claim specifically. Disparate accuracy (C) is a real concern but not the most direct legal exposure from the marketing claim. IP (D) is not relevant to marketing claims.",
+      bokRef: "II.B PI 3 — Understand how consumer protection laws apply to AI (e.g., prohibiting unfair and deceptive acts or practices)."
+    },
+    {
+      id: "DII-IIB-005", comp: "II.B", isRetrieval: false,
+      stem: "An e-commerce platform uses AI to dynamically adjust prices for individual consumers based on inferred willingness to pay, derived from browsing behaviour, location, and device type. Consumers have no way to know prices differ. Which consumer protection theory BEST applies?",
+      options: { A: "Deceptive act — the platform is misrepresenting that prices are uniform", B: "Unfair act — consumers suffer substantial injury from the price discrimination, cannot reasonably avoid it, and the harm is not outweighed by countervailing benefits", C: "Both deceptive and unfair — dynamic pricing is prohibited in all jurisdictions", D: "Neither — dynamic pricing is a lawful business practice and consumer protection law does not regulate pricing algorithms" },
+      correct: "B",
+      explanation: "The unfair act theory under FTC § 5 applies: (1) consumers suffer a real financial injury, (2) they have no way to know prices are personalised (not reasonably avoidable), (3) harm is not outweighed by benefits. A deceptive theory (A) requires a misrepresentation — the platform may not be making an explicit false statement, though omission-based deception is possible. C overstates: dynamic pricing per se is not prohibited. D is wrong — consumer protection law does apply to AI-driven pricing practices.",
+      bokRef: "II.B PI 3 — Understand how consumer protection laws apply to AI (e.g., prohibiting unfair and deceptive acts or practices)."
+    },
+    {
+      id: "DII-IIB-006", comp: "II.B", isRetrieval: false,
+      stem: "A medical AI diagnostic device consistently misidentifies a class of conditions because the training dataset was inadvertently contaminated with mislabelled records, causing the model to deviate from its intended design specification. Patients receive incorrect treatment recommendations. Which product liability theory applies?",
+      options: { A: "Design defect — the AI system's intended architecture is unreasonably dangerous", B: "Warning defect — the manufacturer failed to warn patients of known diagnostic limitations", C: "Manufacturing defect — the AI system deviates from its intended design due to flaws in the training process", D: "Strict liability does not apply to AI — only negligence claims are available" },
+      correct: "C",
+      explanation: "Manufacturing defect theory applies when a product deviates from its intended design due to a flaw in the production/build process. Here the training data contamination is the flaw — the intended model design was correct, but the build (training) process introduced the error. Design defect (A) applies when the specification itself is the problem. Warning defect (B) is about failure to disclose known risks, not the cause of the defect. D is incorrect — courts have applied strict liability to AI-enabled products.",
+      bokRef: "II.B PI 4 — Understand how product liability laws apply to AI (e.g., prohibiting design and manufacturing defects)."
+    },
+    {
+      id: "DII-IIB-007", comp: "II.B", isRetrieval: false,
+      stem: "An insurance company uses an AI underwriting model that is intentionally designed to decline coverage for policyholders in flood-prone areas. The company claims this is sound actuarial practice. However, the flood-zone boundaries strongly correlate with racial demographics. What is the governance officer's primary legal concern?",
+      options: { A: "Product liability — the underwriting model constitutes a defective product", B: "Consumer protection — the coverage denial is a deceptive act without adequate explanation", C: "Nondiscrimination — even facially neutral actuarial criteria can constitute unlawful disparate impact if they produce racially discriminatory outcomes", D: "Intellectual property — using third-party flood zone mapping data may infringe the data provider's copyright" },
+      correct: "C",
+      explanation: "Disparate impact doctrine applies to insurance: a facially neutral underwriting criterion (flood-zone) that produces racially disproportionate exclusions is subject to nondiscrimination scrutiny. The company must demonstrate the criterion is actuarially justified and that no less discriminatory alternative exists. Product liability (A) requires harm from a defect, not a business decision. Consumer protection (B) is secondary. IP (D) is not the primary concern.",
+      bokRef: "II.B PI 2 — Understand how nondiscrimination laws apply to AI (e.g., in the employment, credit, lending, housing and insurance contexts)."
+    },
+    {
+      id: "DII-IIB-008", comp: "II.B", isRetrieval: false,
+      stem: "A company's AI-powered customer service chatbot is programmed to respond 'I'm Sarah, your human account manager' when asked whether it is a bot. A customer relies on this representation and shares sensitive financial information. Which law is MOST directly violated and under what theory?",
+      options: { A: "Product liability — warning defect, because the company failed to disclose the AI nature of the system", B: "Consumer protection — deceptive act or practice, because claiming to be human is a material misrepresentation that deceives consumers", C: "Data privacy law — the collection of sensitive information without disclosure violates purpose limitation", D: "Nondiscrimination law — the misrepresentation targets a protected class of consumers" },
+      correct: "B",
+      explanation: "Explicitly claiming to be human when operating as a bot is a clear deceptive act under FTC § 5 — it is a material misrepresentation (consumers would behave differently if they knew they were talking to an AI), likely to mislead a reasonable consumer. Warning defect (A) requires physical harm from a product. Data privacy (C) is a secondary concern. Nondiscrimination (D) has no relevant application here.",
+      bokRef: "II.B PI 3 — Understand how consumer protection laws apply to AI (e.g., prohibiting unfair and deceptive acts or practices)."
+    },
+    {
+      id: "DII-IIB-009", comp: "II.B", isRetrieval: false,
+      stem: "A software company releases an AI code-generation tool. The tool sometimes outputs code that is substantially similar to open-source code with copyleft licences (e.g., GPL), but without any licence attribution. Developers who incorporate this output into proprietary products face which risk?",
+      options: { A: "No risk — AI-generated outputs are not copyrightable and therefore cannot infringe", B: "Copyright infringement risk — if the AI output reproduces copyleft-licensed code, the developer's proprietary product may be required to be released under the same open-source licence", C: "Trade secret misappropriation — the copyleft code constitutes a trade secret of the original author", D: "Product liability risk — the AI tool is a defective product because it fails to generate original code" },
+      correct: "B",
+      explanation: "Copyleft licences (like GPL) require that any derivative work incorporating the licensed code be distributed under the same licence. If an AI tool outputs code substantially similar to GPL-licensed code, incorporating that output into a proprietary product triggers the GPL's reciprocal licensing requirement — a material IP risk. A is incorrect: the absence of copyright in AI output does not resolve the question of whether the output infringes third-party copyright in training data. C is wrong: open-source code is not a trade secret. D conflates product liability with IP law.",
+      bokRef: "II.B PI 1 — Understand how intellectual property laws apply to AI (e.g., prohibiting or limiting use of data for AI training)."
+    },
+    {
+      id: "DII-IIB-010", comp: "II.B", isRetrieval: false,
+      stem: "An autonomous vehicle manufacturer deploys a self-driving system that is involved in a collision. Investigation reveals the system's decision algorithm, as designed, fails to account for a known edge-case scenario involving pedestrians in low-visibility conditions. The manufacturer included warnings in the user manual about general AI limitations. Which product liability claim is MOST likely to succeed?",
+      options: { A: "Manufacturing defect — the vehicle deviated from the intended design specification during production", B: "Warning defect — the manufacturer's general AI limitation warning was insufficient for this specific known risk", C: "Design defect — the intended algorithm specification failed to account for a known foreseeable risk, making the system unreasonably dangerous as designed", D: "Strict liability cannot apply because autonomous vehicles are a service, not a product" },
+      correct: "C",
+      explanation: "Design defect applies when the intended specification itself is unreasonably dangerous. The algorithm, as designed, failed to address a known foreseeable edge case — the defect was built into the design. Manufacturing defect (A) requires deviation from the intended design during production, which is not described here. Warning defect (B) may have some merit, but a general warning does not eliminate liability for a specific known design risk — however, the design defect claim is more direct. D is incorrect: product liability frameworks have been applied to AI-enabled physical products.",
+      bokRef: "II.B PI 4 — Understand how product liability laws apply to AI (e.g., prohibiting design and manufacturing defects)."
+    }
+  ]
+});
+</script>
+</body></html>
