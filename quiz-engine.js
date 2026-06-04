@@ -1,4 +1,4 @@
-// AIGP Quiz Engine v1.2
+// AIGP Quiz Engine v1.3
 // One-time asset on GitHub Pages. Referenced by every quiz HTML file.
 // Usage: <script src="quiz-engine.js"></script> then call initQuiz(config)
 //
@@ -7,11 +7,8 @@
 // question shape:
 //   { id, comp, isRetrieval, stem, options:{A,B,C,D}, correct, explanation, bokRef }
 //
-// v1.2 changes:
-//   - Review panel now shows full question stem (no 85-char truncation)
-//   - Webhook + localStorage now records bokRef as comp (granular PI tag)
-//     so Google Sheet column E shows e.g. "I.A.3 — opacity" not just "I.A"
-//   - qText in session payload is full stem (no 80-char cut)
+// v1.2: full question text in review panel; bokRef sent as comp to Google Sheet
+// v1.3: Previous button added — navigate back to any answered question
 
 (function (global) {
   'use strict';
@@ -89,11 +86,13 @@
       ".qe-opt.selected .qe-key { color: #2563eb; }",
       ".qe-opt.correct  .qe-key { color: #15803d; }",
       ".qe-opt.wrong    .qe-key { color: #dc2626; }",
-      ".qe-nav { display: flex; justify-content: flex-end; }",
+      ".qe-nav { display: flex; justify-content: space-between; align-items: center; }",
       ".btn { font-family: 'DM Sans', sans-serif; font-size: 0.93rem; font-weight: 600; padding: 10px 26px; border: none; border-radius: 6px; cursor: pointer; transition: opacity 0.15s; }",
       ".btn-primary { background: " + dark + "; color: #fff; }",
       ".btn-primary:disabled { opacity: 0.3; cursor: not-allowed; }",
-      ".btn-ghost { background: #ebebeb; color: #444; margin-right: 8px; }",
+      ".btn-ghost { background: #ebebeb; color: #444; }",
+      ".btn-back { background: #f0f0ec; color: #555; border: 1px solid #ddd; }",
+      ".btn-back:disabled { opacity: 0.25; cursor: not-allowed; }",
       ".qe-results-top { text-align: center; padding: 24px 0 18px; }",
       ".qe-score-ring { display: inline-flex; align-items: center; justify-content: center; width: 96px; height: 96px; border-radius: 50%; border: 5px solid " + dark + "; font-size: 1.9rem; font-weight: 700; color: " + dark + "; margin-bottom: 10px; }",
       ".qe-score-label { font-size: 1.1rem; font-weight: 600; margin-bottom: 3px; }",
@@ -158,7 +157,7 @@
 
     injectStyles(dc.dark, dc.light);
 
-    function pct() { return Math.round((current / qs.length) * 100); }
+    function pct() { return Math.round(((current + 1) / qs.length) * 100); }
 
     function renderQuestion() {
       var q   = qs[current];
@@ -168,10 +167,10 @@
 
       var chips = '<span class="chip chip-domain" style="background:' + qc.light + ';color:' + qc.dark + '">' + esc(q.comp) + '</span>';
       if (q.isRetrieval) chips += ' <span class="chip chip-retrieval">Retrieval</span>';
-      if (mc >= 2)       chips += ' <span class="chip chip-tricky">&#9873; Tricky &mdash; missed ' + mc + '&times;</span>';
+      if (mc >= 2)       chips += ' <span class="chip chip-tricky">&#9873; Tricky — missed ' + mc + '×</span>';
 
       var banner = isFirstRetrieval
-        ? '<div class="qe-banner">Retrieval warm-up &mdash; these questions strengthen memory of prior sessions before today\'s new content.</div>'
+        ? '<div class="qe-banner">Retrieval round — these questions target prior competencies based on your weaker areas.</div>'
         : '';
 
       var opts = Object.keys(q.options).map(function (k) {
@@ -181,7 +180,17 @@
         '</div>';
       }).join('');
 
-      var isLast = current === qs.length - 1;
+      var isLast  = current === qs.length - 1;
+      var isFirst = current === 0;
+
+      // v1.3: nav row has Back (left) and Next (right)
+      var navHTML =
+        '<div class="qe-nav">' +
+          '<button class="btn btn-back" id="qe-back"' + (isFirst ? ' disabled' : '') + '>&#8592; Back</button>' +
+          '<button class="btn btn-primary" id="qe-next" disabled>' +
+            (isLast ? 'Submit &amp; Review Results' : 'Next &#8594;') +
+          '</button>' +
+        '</div>';
 
       root.innerHTML =
         headerHTML(title, sid, pct()) +
@@ -189,13 +198,10 @@
         '<div class="qe-meta"><span class="qe-qnum">Q' + (current + 1) + ' of ' + qs.length + '</span>' + chips + '</div>' +
         '<div class="qe-stem">' + esc(q.stem) + '</div>' +
         '<div class="qe-options">' + opts + '</div>' +
-        '<div class="qe-nav">' +
-          '<button class="btn btn-primary" id="qe-next" disabled>' +
-            (isLast ? 'Submit &amp; Review Results' : 'Next &rarr;') +
-          '</button>' +
-        '</div>';
+        navHTML;
 
-      if (answers[current]) {
+      // Restore previously selected answer (allows re-selection after Back)
+      if (answers[current] !== null) {
         var prev = root.querySelector('[data-k="' + answers[current] + '"]');
         if (prev) { prev.classList.add('selected'); selected = answers[current]; }
         document.getElementById('qe-next').disabled = false;
@@ -203,6 +209,7 @@
         selected = null;
       }
 
+      // Option click handler
       root.querySelectorAll('.qe-opt').forEach(function (opt) {
         opt.addEventListener('click', function () {
           root.querySelectorAll('.qe-opt').forEach(function (o) { o.classList.remove('selected'); });
@@ -213,10 +220,19 @@
         });
       });
 
+      // Next button
       document.getElementById('qe-next').addEventListener('click', function () {
         if (current < qs.length - 1) { current++; renderQuestion(); }
         else { showResults(); }
       });
+
+      // Back button (v1.3)
+      var backBtn = document.getElementById('qe-back');
+      if (backBtn) {
+        backBtn.addEventListener('click', function () {
+          if (current > 0) { current--; renderQuestion(); }
+        });
+      }
     }
 
     function showResults() {
@@ -244,13 +260,13 @@
             day: cfg.day,
             week: cfg.week,
             domain: 'Domain ' + domainNum(q.comp),
-            comp: q.bokRef || q.comp,   // v1.2: granular PI tag (e.g. "I.A.3 — opacity") not just "I.A"
+            comp: q.bokRef || q.comp,   // v1.2: granular PI tag for Google Sheet column E
             isRetrieval: !!q.isRetrieval,
             correct: answers[i] === q.correct,
             skipped: answers[i] === null,
             userAns: answers[i] || 'skipped',
             correctAns: q.correct,
-            qText: q.stem   // v1.2: full stem, no 80-char truncation
+            qText: q.stem   // v1.2: full stem
           };
         })
       };
@@ -259,19 +275,18 @@
       postWebhook(sessionData);
 
       var label = score >= 80 ? 'Strong result'
-        : score >= 60 ? 'Passing &mdash; review your mistakes'
-        : 'Needs work &mdash; re-read the study card';
+        : score >= 60 ? 'Passing — review your mistakes'
+        : 'Needs work — re-read the study card';
 
-      // v1.2: full question stem shown in review panel (no 85-char truncation)
       var reviewItems = qs.map(function (q, i) {
         var ua = answers[i];
         var ok = ua === q.correct;
         var sk = ua === null;
         var dotCls = sk ? 'dot-sk' : ok ? 'dot-ok' : 'dot-no';
-        var dotIcon = sk ? '&mdash;' : ok ? '&#10003;' : '&#10007;';
+        var dotIcon = sk ? '—' : ok ? '&#10003;' : '&#10007;';
         var mc = missCount(q.id);
         var qc = colors(q.comp);
-        var trickyChip = mc >= 2 ? '<span class="chip chip-tricky" style="margin-right:4px">&#9873; Tricky &mdash; missed ' + mc + '&times;</span>' : '';
+        var trickyChip = mc >= 2 ? '<span class="chip chip-tricky" style="margin-right:4px">&#9873; Tricky — missed ' + mc + '×</span>' : '';
         var ansRows;
         if (sk) {
           ansRows = '<div class="ans-row"><span class="ans-lbl">You answered:</span><span style="color:#d97706">Skipped</span></div><div class="ans-row"><span class="ans-lbl">Correct:</span><span class="ans-ok">' + q.correct + ': ' + esc(q.options[q.correct]) + '</span></div>';
@@ -280,18 +295,17 @@
         } else {
           ansRows = '<div class="ans-row"><span class="ans-lbl">You answered:</span><span class="ans-bad">' + ua + ': ' + esc(q.options[ua]) + '</span></div><div class="ans-row"><span class="ans-lbl">Correct:</span><span class="ans-ok">' + q.correct + ': ' + esc(q.options[q.correct]) + '</span></div>';
         }
-        // Full stem in preview — no truncation
         return '<div class="qe-ri" id="ri' + i + '"><div class="qe-ri-toggle" onclick="qeToggle(' + i + ')"><div class="qe-ri-dot ' + dotCls + '">' + dotIcon + '</div><div class="qe-ri-preview">' + trickyChip + 'Q' + (i + 1) + ': ' + esc(q.stem) + '</div><div class="qe-ri-chev">&#9660;</div></div><div class="qe-ri-body"><div class="qe-ans-rows">' + ansRows + '</div><div class="qe-expl">' + esc(q.explanation) + '</div><div><span class="bok-tag" style="background:' + qc.light + ';color:' + qc.dark + '">BOK ' + esc(q.bokRef) + '</span></div></div></div>';
       }).join('');
 
       var attemptNum = loadHistory().length;
       var saveNote = savedLocally
-        ? 'Saved to localStorage &middot; Attempt #' + attemptNum + ' &middot; ' + new Date().toLocaleString('en-SG', { timeZone: 'Asia/Singapore' })
-        : 'localStorage unavailable &mdash; results shown above only';
+        ? 'Saved to localStorage · Attempt #' + attemptNum + ' · ' + new Date().toLocaleString('en-SG', { timeZone: 'Asia/Singapore' })
+        : 'localStorage unavailable — results shown above only';
 
       root.innerHTML =
         headerHTML(title, sid, 100) +
-        '<div class="qe-results-top"><div class="qe-score-ring">' + score + '%</div><div class="qe-score-label">' + label + '</div><div class="qe-score-sub">Day ' + cfg.day + ' &middot; ' + esc(cfg.topic) + ' &middot; ' + qs.length + ' questions</div></div>' +
+        '<div class="qe-results-top"><div class="qe-score-ring">' + score + '%</div><div class="qe-score-label">' + label + '</div><div class="qe-score-sub">Day ' + cfg.day + ' · ' + esc(cfg.topic) + ' · ' + qs.length + ' questions</div></div>' +
         '<div class="qe-stats"><div class="stat stat-ok"><div class="stat-n">' + correct + '</div><div class="stat-l">Correct</div></div><div class="stat stat-no"><div class="stat-n">' + wrong + '</div><div class="stat-l">Wrong</div></div><div class="stat stat-sk"><div class="stat-n">' + skipped + '</div><div class="stat-l">Skipped</div></div></div>' +
         '<div class="qe-review-hd">Question Review</div>' +
         reviewItems +
@@ -301,10 +315,7 @@
       document.getElementById('qe-fill').style.width = '100%';
     }
 
-    // FIX v1.1: Content-Type must be 'text/plain' (not 'application/json') when using
-    // mode:'no-cors'. Browsers reject non-simple headers in no-cors mode, silently
-    // dropping the request. Apps Script reads e.postData.contents raw regardless of
-    // Content-Type, so JSON body still parses correctly on the server side.
+    // Content-Type must be 'text/plain' in no-cors mode (see v1.1 note)
     function postWebhook(data) {
       if (!cfg.webhookUrl) return;
       try {
