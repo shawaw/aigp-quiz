@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 6 · AI Laws & Standards</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day: 6, week: 2, comp: "II.C+D", topic: "AI Laws & Standards",
+  filename: "AIGP_040626_Day6_AI-Laws-Standards_Quiz.html",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DII-IIC-001", comp: "II.C", isRetrieval: false,
+      stem: "A company deploys an AI system that uses real-time biometric data to identify individuals in a publicly accessible space for law enforcement purposes. Under the EU AI Act, how should this system be classified?",
+      options: {
+        A: "High-risk, subject to conformity assessment before deployment",
+        B: "Limited-risk, requiring only transparency obligations",
+        C: "Prohibited, as it constitutes an unacceptable risk to fundamental rights",
+        D: "Minimal-risk, with no mandatory requirements"
+      },
+      correct: "C",
+      explanation: "C is correct. The EU AI Act explicitly prohibits real-time remote biometric identification in publicly accessible spaces for law enforcement purposes, classifying it as an unacceptable-risk use. A is wrong — high-risk systems are allowed with controls; this use is outright banned. B is wrong — limited-risk only triggers transparency (e.g., chatbots), not applicable here. D is wrong — minimal-risk systems have no mandatory requirements, but this system is prohibited entirely.",
+      bokRef: "II.C.1 — Understand the risk classification framework for AI (e.g., prohibited/high/limited/minimal risk) and what systems/uses fall into each category"
+    },
+    {
+      id: "DII-IIC-002", comp: "II.C", isRetrieval: false,
+      stem: "An AI provider is preparing to place a high-risk AI system on the EU market. The product manager asks which documentation must be maintained to demonstrate ongoing compliance. Which set of obligations is required under the EU AI Act?",
+      options: {
+        A: "Risk management records, technical documentation, data governance documentation, and automatic logging",
+        B: "Privacy impact assessment, data retention policy, and user consent records only",
+        C: "ISO 42001 certification, NIST RMF alignment report, and OECD compliance statement",
+        D: "CE marking application, product liability insurance, and distribution agreement"
+      },
+      correct: "A",
+      explanation: "A is correct. The EU AI Act requires high-risk AI providers to maintain: a risk management system with records, technical documentation, data governance measures, and logs generated automatically by the system. B is wrong — these are GDPR obligations, not the Act's specific documentation requirements. C is wrong — these are voluntary international standards, not mandatory EU AI Act documentation. D is wrong — CE marking is an output of conformity assessment, not a documentation category, and the others are unrelated.",
+      bokRef: "II.C.2 — Understand the key requirements around risk management, data governance, technical documentation, conformity/impact assessments and record keeping"
+    },
+    {
+      id: "DII-IIC-003", comp: "II.C", isRetrieval: false,
+      stem: "A hospital is deploying an AI system that assists radiologists in detecting tumours from medical images. During the deployment planning phase, the compliance officer asks what human oversight mechanisms the EU AI Act requires for this high-risk system. Which answer best reflects the Act's requirements?",
+      options: {
+        A: "The system must be fully autonomous; human review would introduce bias",
+        B: "Human oversight measures must be built in so that natural persons can monitor, intervene, and override outputs",
+        C: "Oversight is only required if the system operates without internet connectivity",
+        D: "Quarterly audits by a notified body satisfy the human oversight requirement"
+      },
+      correct: "B",
+      explanation: "B is correct. The EU AI Act requires high-risk AI systems to be designed and developed so that natural persons can effectively oversee the system's operation, intervene, and override or stop it. This is a design requirement, not a periodic audit. A is wrong — full autonomy without human oversight is explicitly what the Act guards against for high-risk systems. C is wrong — connectivity has no bearing on the oversight requirement. D is wrong — notified body audits relate to conformity assessment, not ongoing human oversight during operation.",
+      bokRef: "II.C.3 — Understand the key requirements around human oversight, transparency and notification, and quality management"
+    },
+    {
+      id: "DII-IIC-004", comp: "II.C", isRetrieval: false,
+      stem: "A credit institution uses an AI model to make automated lending decisions affecting retail customers. The AI governance team is assessing transparency obligations under the EU AI Act. Which requirement applies to this high-risk system's deployer?",
+      options: {
+        A: "Post a general notice on the company website that AI is used in business operations",
+        B: "Notify affected individuals that they are subject to an AI system making or assisting in decisions",
+        C: "Publish the full technical documentation of the AI model on a public registry",
+        D: "Obtain written consent from each applicant before any AI-assisted decision"
+      },
+      correct: "B",
+      explanation: "B is correct. Under the EU AI Act, deployers of high-risk AI systems that make or assist in decisions affecting natural persons must notify those individuals that they are subject to a high-risk AI system. A is wrong — a generic website notice does not satisfy the specific individual notification obligation. C is wrong — technical documentation is maintained internally and submitted to authorities, not published publicly. D is wrong — the Act imposes notification, not a consent requirement (consent is a GDPR concept).",
+      bokRef: "II.C.3 — Understand the key requirements around human oversight, transparency and notification, and quality management"
+    },
+    {
+      id: "DII-IIC-005", comp: "II.C", isRetrieval: false,
+      stem: "A technology company releases a large language model that can be integrated into many downstream applications. The model has systemic risk due to its high computational training threshold. Under the EU AI Act, what distinct obligations apply to this model that do not apply to standard high-risk AI systems?",
+      options: {
+        A: "CE marking and notified body conformity assessment",
+        B: "Adversarial testing, incident reporting to the AI Office, and cybersecurity measures specific to GPAI with systemic risk",
+        C: "Full prohibition on commercial deployment until approval by national authorities",
+        D: "Mandatory data minimisation and purpose limitation in line with GDPR Article 5"
+      },
+      correct: "B",
+      explanation: "B is correct. The EU AI Act establishes distinct obligations for general-purpose AI (GPAI) models with systemic risk, including adversarial testing (red-teaming), reporting serious incidents to the EU AI Office, and enhanced cybersecurity obligations. These are over and above what applies to other GPAI models or high-risk systems. A is wrong — CE marking and notified body assessment apply to high-risk AI systems placed on the market, not to GPAI model providers as such. C is wrong — GPAI models are not prohibited; they face additional obligations. D is wrong — these are GDPR obligations, not EU AI Act GPAI-specific requirements.",
+      bokRef: "II.C.4 — Understand the distinct requirements for general-purpose AI models"
+    },
+    {
+      id: "DII-IIC-006", comp: "II.C", isRetrieval: false,
+      stem: "An AI provider places a high-risk AI system on the EU market without conducting the required conformity assessment. The system is later found to have caused harm to job applicants through biased screening. Which penalty framework applies under the EU AI Act?",
+      options: {
+        A: "Up to €35 million or 7% of global annual turnover for prohibited AI practices; up to €15 million or 3% for other violations",
+        B: "Criminal prosecution of the CEO with mandatory imprisonment",
+        C: "Mandatory recall of all AI products in the provider's portfolio regardless of risk level",
+        D: "Automatic suspension of the provider's operating licence across all EU member states"
+      },
+      correct: "A",
+      explanation: "A is correct. The EU AI Act's enforcement framework sets tiered penalties: up to €35 million or 7% of worldwide annual turnover for prohibited AI practices, up to €15 million or 3% for violations of other obligations (such as missing conformity assessments for high-risk systems), and up to €7.5 million or 1.5% for supplying incorrect information. B is wrong — the Act provides administrative fines, not criminal imprisonment. C is wrong — recall is not automatic and is not portfolio-wide; it targets the non-compliant system. D is wrong — operating licence suspension is not part of the Act's penalty framework.",
+      bokRef: "II.C.5 — Understand the enforcement framework and penalties for noncompliance"
+    },
+    {
+      id: "DII-IIC-007", comp: "II.C", isRetrieval: false,
+      stem: "A company in Singapore imports a high-risk AI system developed by a US provider and makes it available to EU customers under its own brand. Under the EU AI Act, which role does this company hold, and what is a key obligation that flows from that role?",
+      options: {
+        A: "Deployer — it must conduct a fundamental rights impact assessment before use",
+        B: "Importer — it must verify the provider has completed conformity assessment and that the system bears CE marking before placing it on the EU market",
+        C: "Distributor — it must conduct its own independent conformity assessment",
+        D: "Operator — it is exempt from all obligations because the original provider retains full liability"
+      },
+      correct: "B",
+      explanation: "B is correct. Under the EU AI Act, an importer is an entity in the EU that places an AI system from a third-country provider on the EU market. A key importer obligation is to verify that the provider has carried out the conformity assessment, the technical documentation exists, and the system bears CE marking. A is wrong — deployers use AI systems in a professional context; the company here is placing the system on the market under its own brand, making it an importer (or provider by assumption of responsibility). C is wrong — distributors make systems available but do not conduct their own conformity assessment; that obligation belongs to the provider. D is wrong — importers bear their own obligations; liability is not entirely retained by the original provider.",
+      bokRef: "II.C.6 — Understand the differences in requirements based on organizational context (e.g., providers, deployers, importers and distributors)"
+    },
+    {
+      id: "DII-IIC-008", comp: "II.C", isRetrieval: false,
+      stem: "An AI system used to evaluate students in educational institutions is under review. The governance team must determine whether it qualifies as high-risk under the EU AI Act Annex III. Which characteristic is most determinative of high-risk classification?",
+      options: {
+        A: "The system uses a neural network architecture with more than 1 billion parameters",
+        B: "The system is used to determine access to education or to assess students in ways that affect their educational opportunities",
+        C: "The system was trained on personal data without explicit consent",
+        D: "The system operates in real time without caching"
+      },
+      correct: "B",
+      explanation: "B is correct. The EU AI Act Annex III lists high-risk AI systems by use-case, not by technical architecture. Education and vocational training is an Annex III category — specifically, AI used to determine access to educational institutions or to evaluate students in ways that affect their life opportunities qualifies as high-risk. A is wrong — parameter count is relevant to GPAI systemic risk thresholds (e.g., 10^25 FLOPs training compute), not the Annex III high-risk classification. C is wrong — consent issues are GDPR concerns, not the basis for high-risk classification under the Act. D is wrong — real-time operation is irrelevant to the Annex III high-risk determination.",
+      bokRef: "II.C.1 — Understand the risk classification framework for AI (e.g., prohibited/high/limited/minimal risk) and what systems/uses fall into each category"
+    },
+    {
+      id: "DII-IIC-009", comp: "II.C", isRetrieval: false,
+      stem: "A fintech company deploying a high-risk AI credit scoring system in the EU establishes a quality management system as required by the EU AI Act. The legal team asks what the quality management system must address. Which answer best reflects the Act's requirements?",
+      options: {
+        A: "ISO 9001 certification, Six Sigma methodology, and annual staff performance reviews",
+        B: "Strategies and procedures for compliance, testing protocols, data management practices, and post-market monitoring",
+        C: "A GDPR records of processing activities register and data protection officer appointment",
+        D: "Quarterly board reporting and shareholder disclosure of AI risk"
+      },
+      correct: "B",
+      explanation: "B is correct. Under the EU AI Act, high-risk AI providers must establish a quality management system covering: strategies and procedures for regulatory compliance, techniques for design control, testing and validation procedures, data management, post-market monitoring plans, and serious incident reporting processes. A is wrong — ISO 9001 and Six Sigma are voluntary management standards; the Act specifies substantive elements, not a certification requirement. C is wrong — ROPA and DPO are GDPR obligations, not EU AI Act quality management components. D is wrong — board reporting may be good governance practice but is not a defined quality management requirement under the Act.",
+      bokRef: "II.C.3 — Understand the key requirements around human oversight, transparency and notification, and quality management"
+    },
+    {
+      id: "DII-IIC-010", comp: "II.C", isRetrieval: false,
+      stem: "A GPAI model provider must comply with the EU AI Act's obligations for all GPAI models, regardless of systemic risk. Which obligation applies to ALL GPAI model providers (not just those with systemic risk)?",
+      options: {
+        A: "Adversarial testing and red-teaming before market release",
+        B: "Drawing up and maintaining technical documentation and making it available to the AI Office on request",
+        C: "Reporting all incidents to national competent authorities within 72 hours",
+        D: "Obtaining prior authorisation from the EU AI Office before releasing the model"
+      },
+      correct: "B",
+      explanation: "B is correct. All GPAI model providers — whether or not they carry systemic risk — must draw up and keep up-to-date technical documentation and make it available to the AI Office and national authorities upon request. They must also provide downstream providers with information to enable compliance. A is wrong — adversarial testing (red-teaming) is a specific obligation for GPAI models with systemic risk only. C is wrong — 72-hour incident reporting applies to systemic-risk GPAI models and high-risk AI systems, not all GPAI models. D is wrong — there is no prior authorisation requirement; the Act does not create a pre-market approval regime for GPAI models.",
+      bokRef: "II.C.4 — Understand the distinct requirements for general-purpose AI models"
+    },
+    {
+      id: "DII-IID-001", comp: "II.D", isRetrieval: false,
+      stem: "An AI governance team is reviewing the OECD AI Principles to inform their organisation's trustworthy AI policy. A colleague asks which overarching principle the OECD framework places at the foundation of all others. Which answer best reflects the OECD AI Principles?",
+      options: {
+        A: "Maximising economic efficiency and return on AI investment",
+        B: "Inclusive growth, sustainable development, and well-being as the overarching objective",
+        C: "Achieving regulatory harmonisation across OECD member states",
+        D: "Eliminating all AI-related risk through prohibition of high-risk applications"
+      },
+      correct: "B",
+      explanation: "B is correct. The OECD AI Principles open with the objective that AI should benefit people and the planet by driving inclusive growth, sustainable development, and well-being. This is the foundational normative anchor from which the other principles (transparency, accountability, robustness, etc.) derive. A is wrong — economic efficiency is not the OECD's stated primary objective; it is subordinate to broader societal well-being. C is wrong — regulatory harmonisation is a policy aspiration, not a stated OECD principle. D is wrong — the OECD framework does not call for prohibition of high-risk AI; it calls for risk management and responsible stewardship.",
+      bokRef: "II.D.1 — Understand the Organisation for Economic Co-operation and Development (OECD) principles, framework, policies and recommended practices for trustworthy AI"
+    },
+    {
+      id: "DII-IID-002", comp: "II.D", isRetrieval: false,
+      stem: "An organisation is implementing the NIST AI Risk Management Framework. The risk manager asks what the GOVERN function is intended to accomplish within the RMF core. Which answer correctly describes GOVERN's role?",
+      options: {
+        A: "GOVERN identifies and prioritises AI risks by analysing likelihood and impact",
+        B: "GOVERN establishes the organisational context, culture, and accountability structures that enable AI risk management across the other functions",
+        C: "GOVERN responds to AI incidents by activating the organisation's business continuity plan",
+        D: "GOVERN measures AI system performance using quantitative metrics before deployment"
+      },
+      correct: "B",
+      explanation: "B is correct. In the NIST AI RMF, GOVERN is the cross-cutting function that establishes the organisational culture, policies, roles, responsibilities, and accountability mechanisms that underpin the MAP, MEASURE, and MANAGE functions. It is not a sequential step but an enabling foundation. A is wrong — identifying and prioritising risks is the MAP function. C is wrong — incident response actions fall under MANAGE. D is wrong — performance measurement is part of MEASURE.",
+      bokRef: "II.D.2 — Understand the NIST AI Risk Management Framework and Playbook (e.g., core functions, categories and subcategories)"
+    },
+    {
+      id: "DII-IID-003", comp: "II.D", isRetrieval: false,
+      stem: "A multinational organisation wants to certify its AI management system to demonstrate conformance to an internationally recognised standard. The AI governance lead asks which ISO standard provides the requirements for an AI management system (AIMS) that is suitable for certification.",
+      options: {
+        A: "ISO/IEC 22989 — AI concepts and terminology",
+        B: "ISO/IEC 42001 — AI management system requirements",
+        C: "ISO/IEC 42005 — AI system impact assessment",
+        D: "ISO/IEC 27001 — information security management"
+      },
+      correct: "B",
+      explanation: "B is correct. ISO/IEC 42001 is the certifiable AI management system standard — it specifies requirements for establishing, implementing, maintaining, and continually improving an AIMS within an organisation. A is wrong — ISO/IEC 22989 provides AI concepts and terminology; it is not a management system standard and is not certifiable. C is wrong — ISO/IEC 42005 addresses AI system impact assessment, not the overarching management system. D is wrong — ISO/IEC 27001 governs information security management systems, not AI-specific management systems.",
+      bokRef: "II.D.3 — Understand the core ISO AI standards (i.e., 22989, 42001 and 42005)"
+    },
+    {
+      id: "DII-IID-004", comp: "II.D", isRetrieval: false,
+      stem: "An AI ethics board is evaluating an AI system intended for use in a critical infrastructure context. They reference ISO/IEC 42005 to guide their process. What is the primary purpose of an AI system impact assessment under ISO/IEC 42005?",
+      options: {
+        A: "To certify the AI system against a recognised international standard before deployment",
+        B: "To identify and evaluate the impacts an AI system may have on individuals, groups, and society, including positive and negative effects",
+        C: "To validate that the AI system's training data complies with GDPR data minimisation principles",
+        D: "To conduct a vulnerability assessment of the AI system's software supply chain"
+      },
+      correct: "B",
+      explanation: "B is correct. ISO/IEC 42005 provides guidance on AI system impact assessment — a structured process to identify, evaluate, and address the potential impacts (positive and negative, intended and unintended) of an AI system on individuals, groups, and broader society. A is wrong — 42005 is a guidance standard for impact assessment, not a certification standard; 42001 is the certifiable standard. C is wrong — GDPR data minimisation compliance is a legal obligation addressed separately from an AI impact assessment under 42005. D is wrong — software supply chain vulnerability assessment is a cybersecurity activity, not the subject of 42005.",
+      bokRef: "II.D.3 — Understand the core ISO AI standards (i.e., 22989, 42001 and 42005)"
+    },
+    {
+      id: "DII-IID-005", comp: "II.D", isRetrieval: false,
+      stem: "During an AI governance programme review, a team member argues that the NIST AI RMF is legally binding on all US federal agencies. How should the AI governance lead respond?",
+      options: {
+        A: "Correct — Executive Order 14110 mandated federal adoption of the NIST AI RMF as binding regulation",
+        B: "Incorrect — the NIST AI RMF is a voluntary framework; it provides guidance and practices but does not have the force of law",
+        C: "Partially correct — it is binding only for agencies that process personal data under the Privacy Act",
+        D: "Partially correct — it is binding only for high-risk AI systems as defined by NIST's own risk classification"
+      },
+      correct: "B",
+      explanation: "B is correct. The NIST AI RMF is a voluntary framework. NIST frameworks are guidance documents; they have no independent legal force. Agencies or organisations may choose to adopt them, and some regulations or contracts may reference them, but the RMF itself is not a binding regulation. A is wrong — EO 14110 directed NIST to develop AI safety guidance and required agencies to take certain actions, but it did not make the RMF itself legally binding regulation. C and D are wrong — the RMF does not have conditional binding application based on data type or risk level; it is uniformly voluntary.",
+      bokRef: "II.D.2 — Understand the NIST AI Risk Management Framework and Playbook (e.g., core functions, categories and subcategories)"
+    },
+    {
+      id: "DII-IIA-R01", comp: "II.A", isRetrieval: true,
+      stem: "Under EU data protection law, an organisation deploys an AI system that makes fully automated decisions about employee promotions with legal or similarly significant effects. What specific obligation does this trigger for the organisation as a data controller?",
+      options: {
+        A: "The organisation must obtain explicit consent from each employee and provide a mechanism to request human review of the automated decision",
+        B: "The organisation is prohibited from any automated decision-making in employment regardless of safeguards",
+        C: "The organisation must conduct a DPIA and appoint a DPO before any automated processing",
+        D: "The organisation must anonymise all data used in the automated decision before processing"
+      },
+      correct: "A",
+      explanation: "A is correct. GDPR Article 22 governs automated individual decision-making, including profiling, that produces legal or similarly significant effects. Where such processing occurs, the data controller must provide the data subject with the right to obtain human intervention, express their point of view, and contest the decision. One lawful basis for such processing is explicit consent, which comes with the obligation to provide those safeguards. B is wrong — automated decision-making is not categorically prohibited; it is conditional on lawful basis and appropriate safeguards. C is wrong — DPIA is required for high-risk processing (which automated employment decisions may trigger), but DPO appointment has separate thresholds and the question asks about the obligation triggered by the automated decision-making specifically. D is wrong — anonymisation removes data protection obligations entirely; it is not a required safeguard for automated decision-making under Article 22.",
+      bokRef: "II.A.3 — Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping)"
+    },
+    {
+      id: "DII-IIB-R01", comp: "II.B", isRetrieval: true,
+      stem: "A financial institution uses an AI model for mortgage underwriting. An applicant from a protected class is denied a mortgage, and data shows the model's denial rate for this class is significantly higher than for similarly situated applicants outside the class. Which body of law is most directly implicated?",
+      options: {
+        A: "Product liability law, because the AI model constitutes a defective product",
+        B: "Consumer protection law, because the denial constitutes an unfair and deceptive act",
+        C: "Nondiscrimination law, because the AI system's disparate impact in lending may violate fair lending statutes",
+        D: "Intellectual property law, because the training data may have included protected works"
+      },
+      correct: "C",
+      explanation: "C is correct. Nondiscrimination laws — including the US Fair Housing Act and Equal Credit Opportunity Act — prohibit discriminatory practices in mortgage lending, including practices with disparate impact on protected classes even without discriminatory intent. AI-driven underwriting that produces disparate outcomes is squarely within this legal risk domain. A is wrong — product liability concerns design and manufacturing defects causing physical or economic harm; disparate impact in lending is a discrimination law issue. B is wrong — consumer protection laws prohibit unfair and deceptive acts (e.g., false advertising, hidden fees); discriminatory underwriting is addressed by fair lending law. D is wrong — intellectual property law concerns training data rights, not the outcome of the model's lending decisions.",
+      bokRef: "II.B.2 — Understand how nondiscrimination laws apply to AI (e.g., in the employment, credit, lending, housing and insurance contexts)"
+    },
+    {
+      id: "DI-IC-R01", comp: "I.C", isRetrieval: true,
+      stem: "An AI governance professional is mapping the potential negative consequences of a deployed AI recommendation system that influences consumer purchasing behaviour at scale. Which concept from AI ethics and governance frameworks best describes the process of systematically identifying who may be harmed, in what ways, and with what severity?",
+      options: {
+        A: "Algorithmic auditing — testing model outputs for accuracy and performance drift",
+        B: "AI impact assessment — structured evaluation of an AI system's potential harms and benefits across affected stakeholders",
+        C: "Model validation — statistical testing of model fit and predictive power before deployment",
+        D: "Red-teaming — adversarial testing of a system's security vulnerabilities"
+      },
+      correct: "B",
+      explanation: "B is correct. AI impact assessment is the structured process of identifying and evaluating potential harms and benefits of an AI system across affected individuals, groups, and society — including mapping who may be harmed, how, and with what severity. This is a core concept in AI governance frameworks (including ISO/IEC 42005 and various national guidelines). A is wrong — algorithmic auditing focuses on model output testing for accuracy and fairness, not the broader stakeholder harm-mapping process. C is wrong — model validation is a technical statistical process assessing predictive performance, not a harm-identification exercise. D is wrong — red-teaming specifically probes adversarial security or safety failure modes; it is not a general stakeholder harm assessment process.",
+      bokRef: "I.C — Understand AI impacts, harms and benefits across stakeholders and society"
+    }
+  ]
+});
+</script>
+</body></html>
