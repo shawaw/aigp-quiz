@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 6 · AI Laws &amp; Standards</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#1a4a7a;--accent-light:#e8f0f8}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 6 · Week 1</span>
+    <span class="sc-meta">4 June 2026 · ~60 min</span>
+  </div>
+  <div class="sc-title">AI Laws &amp; Standards</div>
+  <div class="sc-meta">Domain II · Competencies II.C + II.D · Exam weight: 9–13 questions</div>
+</div>
+
+<!-- BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Performance Indicators (verbatim)</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-pi-list">
+      <div class="sc-pi"><span class="sc-pi-code">II.C.1</span> Understand the risk classification framework for AI (e.g., prohibited/high/limited/minimal risk) and what systems/uses fall into each category.</div>
+      <div class="sc-pi"><span class="sc-pi-code">II.C.2</span> Understand the key requirements around risk management, data governance, technical documentation, conformity/impact assessments and record keeping.</div>
+      <div class="sc-pi"><span class="sc-pi-code">II.C.3</span> Understand the key requirements around human oversight, transparency and notification, and quality management.</div>
+      <div class="sc-pi"><span class="sc-pi-code">II.C.4</span> Understand the distinct requirements for general-purpose AI models.</div>
+      <div class="sc-pi"><span class="sc-pi-code">II.C.5</span> Understand the enforcement framework and penalties for noncompliance.</div>
+      <div class="sc-pi"><span class="sc-pi-code">II.C.6</span> Understand the differences in requirements based on organizational context (e.g., providers, deployers, importers and distributors).</div>
+      <div class="sc-pi"><span class="sc-pi-code">II.D.1</span> Understand the Organisation for Economic Co-operation and Development (OECD) principles, framework, policies and recommended practices for trustworthy AI.</div>
+      <div class="sc-pi"><span class="sc-pi-code">II.D.2</span> Understand the NIST AI Risk Management Framework and Playbook (e.g., core functions, categories and subcategories).</div>
+      <div class="sc-pi"><span class="sc-pi-code">II.D.3</span> Understand the core ISO AI standards (i.e., 22989, 42001 and 42005).</div>
+    </div>
+  </div>
+</div>
+
+<!-- KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">CONCEPTS</span>
+    <span class="sc-section-title">Key Concepts</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">EU AI Act — Risk Classification Framework (II.C.1)</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p>The EU AI Act stratifies AI systems into four risk tiers. The tier determines which obligations apply — not the technology itself, but the <em>use case and context of deployment</em>.</p>
+        <div class="sc-why">Why it matters on the exam: Questions will give you a scenario (e.g., an AI screening CVs, an AI chatbot for insurance) and ask you to classify it. Always reason from use case, not model type.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">The four tiers</div>
+          <div class="sc-def"><span class="sc-term">Prohibited</span> — Banned outright. Examples: social scoring by public authorities, real-time remote biometric ID in public spaces (with narrow exceptions), subliminal manipulation, exploitation of vulnerable groups.</div>
+          <div class="sc-def"><span class="sc-term">High-Risk</span> — Permitted but heavily regulated. Includes AI in: critical infrastructure, education/vocational training, employment/HR, essential services (credit, insurance), law enforcement, migration/asylum, administration of justice. Also: safety components of regulated products.</div>
+          <div class="sc-def"><span class="sc-term">Limited-Risk</span> — Transparency obligations only. Chatbots must disclose AI nature. Deepfakes must be labelled. Emotion recognition systems must notify users.</div>
+          <div class="sc-def"><span class="sc-term">Minimal-Risk</span> — No specific obligations. AI spam filters, AI in video games. Encouraged but not required to follow voluntary codes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">High-Risk AI — Core Requirements (II.C.2 + II.C.3)</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p>High-risk AI systems must satisfy six requirement clusters before being placed on the EU market or put into service.</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">Risk Management System</span> — Continuous, iterative process throughout the lifecycle. Identify, analyse, evaluate and mitigate foreseeable risks.</div>
+          <div class="sc-def"><span class="sc-term">Data Governance</span> — Training, validation and testing data must meet quality criteria; bias examined; data gaps identified.</div>
+          <div class="sc-def"><span class="sc-term">Technical Documentation</span> — Must be drawn up before market placement and kept up to date. Enables conformity assessment.</div>
+          <div class="sc-def"><span class="sc-term">Record-Keeping / Logging</span> — Automatic logs to enable traceability, monitoring and post-market surveillance.</div>
+          <div class="sc-def"><span class="sc-term">Transparency &amp; Instructions for Use</span> — Deployers must receive clear instructions. End-users must be informed they are interacting with AI where relevant.</div>
+          <div class="sc-def"><span class="sc-term">Human Oversight</span> — Measures allowing humans to monitor, intervene, override or halt the system. Must be built in by the provider; operationalised by the deployer.</div>
+          <div class="sc-def"><span class="sc-term">Accuracy, Robustness &amp; Cybersecurity</span> — Performance levels specified in technical docs; resilience against errors and adversarial inputs.</div>
+          <div class="sc-def"><span class="sc-term">Quality Management System</span> — Providers must implement a QMS covering design, development, testing and post-market monitoring.</div>
+        </div>
+        <div class="sc-why">Exam trap: "Conformity assessment" for most high-risk AI is self-assessment (internal control). Third-party assessment is required only for biometric identification and certain safety-critical categories.</div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Role-Based Obligations — Provider vs Deployer (II.C.6)</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p>The EU AI Act allocates obligations differently depending on your role in the AI supply chain. A single organisation may hold multiple roles simultaneously.</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">Provider</span> — Develops and places the AI system on the market. Bears the heaviest obligations: technical documentation, conformity assessment, CE marking (where applicable), post-market monitoring, registration in EU database.</div>
+          <div class="sc-def"><span class="sc-term">Deployer</span> — Uses the AI system in a professional context. Must: use systems per provider instructions, implement human oversight measures, conduct a fundamental rights impact assessment (FRIA) where required, keep logs, inform employees and affected persons.</div>
+          <div class="sc-def"><span class="sc-term">Importer</span> — Places a third-country AI system on the EU market. Must verify conformity assessment was done; provider's obligations are met; technical documentation available.</div>
+          <div class="sc-def"><span class="sc-term">Distributor</span> — Makes the system available without modifying it. Must verify CE marking and declaration of conformity exist before distribution.</div>
+        </div>
+        <div class="sc-why">A deployer who modifies a high-risk AI system becomes a provider for that modified system — triggering full provider obligations. This is a common exam scenario.</div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">General-Purpose AI (GPAI) Models (II.C.4)</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p>GPAI models (e.g., large language models) are regulated separately from AI systems in the EU AI Act because they are built for multiple downstream uses.</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">All GPAI providers must</span> — Provide technical documentation and instructions for downstream providers; comply with EU copyright law; publish a summary of training data.</div>
+          <div class="sc-def"><span class="sc-term">GPAI with systemic risk</span> — Models trained with &gt;10²⁵ FLOPs face additional obligations: adversarial testing (red-teaming), serious incident reporting to the EU AI Office, cybersecurity measures, energy efficiency reporting.</div>
+          <div class="sc-def"><span class="sc-term">Open-source GPAI</span> — Generally lighter obligations; weights-released models may qualify. Systemic risk rules apply regardless of open-source status if the FLOP threshold is met.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Enforcement Framework &amp; Penalties (II.C.5)</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">Prohibited AI violations</span> — Up to €35 million or 7% of global annual turnover, whichever is higher.</div>
+          <div class="sc-def"><span class="sc-term">Other obligations violations</span> — Up to €15 million or 3% of global annual turnover.</div>
+          <div class="sc-def"><span class="sc-term">Incorrect information to authorities</span> — Up to €7.5 million or 1.5% of global annual turnover.</div>
+          <div class="sc-def"><span class="sc-term">SME/startup cap</span> — Lower of the two figures always applies; national authorities have discretion to reduce penalties for SMEs.</div>
+          <div class="sc-def"><span class="sc-term">Oversight architecture</span> — EU AI Office (Commission level) for GPAI. National competent authorities (NCAs) for AI systems. Market surveillance authorities enforce at member-state level.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">NIST AI Risk Management Framework (II.D.2)</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p>The NIST AI RMF (2023) is a voluntary, use-case agnostic framework for managing AI risks throughout the lifecycle. It uses four core functions structured into a "Core".</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">GOVERN</span> — Foundational. Establishes culture, policies, roles and accountability for risk management. Applies across the other three functions.</div>
+          <div class="sc-def"><span class="sc-term">MAP</span> — Identify and classify AI risks. Context setting: use case, stakeholders, affected individuals, risk categories.</div>
+          <div class="sc-def"><span class="sc-term">MEASURE</span> — Analyse and assess identified risks. Metrics, testing, evaluation methods, benchmarks.</div>
+          <div class="sc-def"><span class="sc-term">MANAGE</span> — Prioritise and treat risks. Implement controls, monitor outcomes, respond to incidents.</div>
+        </div>
+        <div class="sc-why">The AI RMF Playbook provides subcategory-level suggested actions for each function. GOVERN is not a fifth step — it runs in parallel with MAP, MEASURE, MANAGE. This distinction appears in exam questions.</div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">OECD AI Principles (II.D.1)</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p>The OECD Principles on AI (2019, updated 2024) are the most widely adopted international AI principles — referenced in the EU AI Act preamble and aligned with the G20 AI Principles.</p>
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">5 Principles for trustworthy AI</span> — (1) Inclusive growth, sustainable development and well-being; (2) Human-centred values and fairness; (3) Transparency and explainability; (4) Robustness, security and safety; (5) Accountability.</div>
+          <div class="sc-def"><span class="sc-term">5 Recommendations for policy</span> — Directed at governments: invest in R&amp;D, develop trusted data infrastructure, foster interoperable governance, build human capacity, enable international cooperation.</div>
+          <div class="sc-def"><span class="sc-term">OECD AI Policy Observatory</span> — Tracks national AI policies and strategies globally. Not a regulatory body — an information and monitoring function.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">ISO AI Standards (II.D.3)</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <div class="sc-defs">
+          <div class="sc-def"><span class="sc-term">ISO/IEC 22989</span> — AI concepts and terminology. The definitional standard — provides common language for all other AI standards. No certification against this standard.</div>
+          <div class="sc-def"><span class="sc-term">ISO/IEC 42001</span> — AI Management System (AIMS) standard. Certifiable. Defines requirements for establishing, implementing, maintaining and continually improving an AI management system. Analogous to ISO 27001 for InfoSec. Includes a control annex (Annex A).</div>
+          <div class="sc-def"><span class="sc-term">ISO/IEC 42005</span> — AI system impact assessment. Guidance on conducting impact assessments for AI systems — who is affected, what harms may arise, how to mitigate.</div>
+        </div>
+        <div class="sc-why">Exam shortcut: 22989 = language, 42001 = management system (certifiable), 42005 = impact assessment. If a question asks which standard an organisation would certify against, the answer is 42001.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">TABLES</span>
+    <span class="sc-section-title">Quick Comparison — EU AI Act Roles &amp; Standards</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead><tr><th>Role</th><th>Key obligations</th><th>Becomes provider when…</th></tr></thead>
+        <tbody>
+          <tr><td>Provider</td><td>Technical docs, conformity assessment, CE marking, QMS, post-market monitoring, EU DB registration</td><td>—</td></tr>
+          <tr><td>Deployer</td><td>Use per instructions, human oversight, FRIA (if required), log retention, inform affected persons</td><td>Substantially modifies the system</td></tr>
+          <tr><td>Importer</td><td>Verify conformity assessment done, docs available, provider obligations met</td><td>Places own name/mark on system</td></tr>
+          <tr><td>Distributor</td><td>Verify CE mark and declaration of conformity before distribution</td><td>Places own name/mark or substantially modifies</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sc-table-wrap" style="margin-top:1.2rem">
+      <table class="sc-table">
+        <thead><tr><th>Framework/Standard</th><th>Type</th><th>Voluntary?</th><th>Certifiable?</th><th>Primary focus</th></tr></thead>
+        <tbody>
+          <tr><td>NIST AI RMF</td><td>Framework</td><td>Yes</td><td>No</td><td>Risk management across lifecycle (GOVERN/MAP/MEASURE/MANAGE)</td></tr>
+          <tr><td>OECD AI Principles</td><td>Principles</td><td>Yes</td><td>No</td><td>High-level trustworthy AI; government policy recommendations</td></tr>
+          <tr><td>ISO 22989</td><td>Standard</td><td>Yes</td><td>No</td><td>Terminology and definitions</td></tr>
+          <tr><td>ISO 42001</td><td>Standard</td><td>Yes</td><td>Yes</td><td>AI management system requirements</td></tr>
+          <tr><td>ISO 42005</td><td>Standard</td><td>Yes</td><td>No</td><td>AI impact assessment guidance</td></tr>
+          <tr><td>EU AI Act</td><td>Regulation</td><td>No</td><td>N/A (mandatory)</td><td>Risk-tiered obligations; market access in EU</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">SCENARIO</span>
+    <span class="sc-section-title">Worked Scenario — HR AI Screening Tool</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">RetailCo, a mid-size EU retailer, purchases an AI-powered CV screening tool from TechVendor (a Singapore-based provider). RetailCo's HR team uses the tool to rank 500 applicants for warehouse roles. The vendor provides an API; RetailCo built the front-end layer and added custom scoring weights.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Role</div>
+      <div class="sc-scenario-text">You are RetailCo's AI governance lead. The General Counsel asks: "Are we a provider or a deployer, and what must we do before go-live?"</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Analysis</div>
+      <div class="sc-scenario-text">
+        Step 1 — Classify the use case. Employment screening is explicitly listed as high-risk under the EU AI Act (Annex III). The system affects individuals' access to employment — not minimal or limited risk.
+        <br><br>
+        Step 2 — Determine roles. TechVendor is the provider: they developed the model and placed it on the market. RetailCo is the deployer — using it in a professional context. However, RetailCo added custom scoring weights, which may constitute a "substantial modification." If so, RetailCo becomes a co-provider and inherits provider obligations for their modified version.
+        <br><br>
+        Step 3 — Deployer obligations (at minimum). RetailCo must: (a) use the system per TechVendor's instructions; (b) implement human oversight measures so HR can review and override any AI ranking; (c) conduct a Fundamental Rights Impact Assessment (FRIA) — required for deployers in employment contexts; (d) inform job applicants they are subject to AI-assisted screening (transparency obligation); (e) retain logs for the prescribed period.
+        <br><br>
+        Step 4 — If substantial modification applies. RetailCo must additionally: prepare technical documentation for their modified version; conduct a conformity assessment; register in the EU AI Act database; implement a Quality Management System.
+      </div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Outcome</div>
+      <div class="sc-scenario-text">Recommendation: engage TechVendor to clarify contractual allocation of obligations; have legal counsel assess whether the custom scoring weights constitute substantial modification; implement human oversight and FRIA before go-live regardless of role determination. <span class="sc-pi-ref">II.C.2 — key requirements around risk management, data governance, technical documentation, conformity/impact assessments and record keeping</span> · <span class="sc-pi-ref">II.C.6 — differences in requirements based on organizational context (providers, deployers, importers and distributors)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK RECALL -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">RECALL</span>
+    <span class="sc-section-title">Quick Recall — Click to Reveal</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc"><div class="sc-fc-q">What penalty tier applies to violations of prohibited AI rules under the EU AI Act? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">€35 million or 7% of global annual turnover — whichever is higher.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">A deployer substantially modifies a high-risk AI system. What is their new status? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">They become a provider for the modified system and must fulfil all provider obligations, including technical documentation, conformity assessment and registration.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What are the four NIST AI RMF core functions? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">GOVERN, MAP, MEASURE, MANAGE. GOVERN is foundational and runs in parallel with the other three — it is not a sequential step.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">Which ISO standard would an organisation certify against for their AI management system? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">ISO/IEC 42001 — the AI Management System standard. ISO 22989 and 42005 are not certifiable.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">At what FLOP threshold does a GPAI model acquire systemic-risk obligations under the EU AI Act? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">10²⁵ FLOPs used in training. Additional obligations include: adversarial testing, serious incident reporting to the EU AI Office, cybersecurity measures and energy efficiency reporting.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">Name the five OECD Principles on AI. <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">(1) Inclusive growth and well-being; (2) Human-centred values and fairness; (3) Transparency and explainability; (4) Robustness, security and safety; (5) Accountability.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What transparency obligation applies to a limited-risk AI chatbot? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">It must disclose to users that they are interacting with an AI system — unless this is obvious from context.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What does ISO 42005 cover? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">AI system impact assessment — guidance on identifying who is affected by an AI system, what harms may arise, and how to mitigate them.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- IAPP RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">LINKS</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank"><span class="sc-res-label">AIGP Body of Knowledge</span><span class="sc-res-desc">Official BOK v2.1 — authoritative source for all exam content</span></a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank"><span class="sc-res-label">IAPP Exam Preparation</span><span class="sc-res-desc">Official preparation resources and study guidance</span></a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank"><span class="sc-res-label">AIGP Study Guide</span><span class="sc-res-desc">Request the official IAPP study guide</span></a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank"><span class="sc-res-label">IAPP Certification Handbook</span><span class="sc-res-desc">Exam format, rules, and candidate guidance</span></a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>
