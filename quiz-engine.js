@@ -1,4 +1,4 @@
-// AIGP Quiz Engine v1.1
+// AIGP Quiz Engine v1.2
 // One-time asset on GitHub Pages. Referenced by every quiz HTML file.
 // Usage: <script src="quiz-engine.js"></script> then call initQuiz(config)
 //
@@ -6,6 +6,12 @@
 //   { day, week, comp, topic, filename, webhookUrl, questions[] }
 // question shape:
 //   { id, comp, isRetrieval, stem, options:{A,B,C,D}, correct, explanation, bokRef }
+//
+// v1.2 changes:
+//   - Review panel now shows full question stem (no 85-char truncation)
+//   - Webhook + localStorage now records bokRef as comp (granular PI tag)
+//     so Google Sheet column E shows e.g. "I.A.3 — opacity" not just "I.A"
+//   - qText in session payload is full stem (no 80-char cut)
 
 (function (global) {
   'use strict';
@@ -106,8 +112,8 @@
       ".dot-ok { background: #dcfce7; color: #15803d; }",
       ".dot-no { background: #fee2e2; color: #dc2626; }",
       ".dot-sk { background: #fef9c3; color: #854d0e; }",
-      ".qe-ri-preview { flex: 1; font-size: 0.86rem; color: #555; line-height: 1.4; }",
-      ".qe-ri-chev { font-size: 0.75rem; color: #bbb; transition: transform 0.18s; flex-shrink: 0; }",
+      ".qe-ri-preview { flex: 1; font-size: 0.86rem; color: #555; line-height: 1.5; }",
+      ".qe-ri-chev { font-size: 0.75rem; color: #bbb; transition: transform 0.18s; flex-shrink: 0; margin-left: 8px; }",
       ".qe-ri.open .qe-ri-chev { transform: rotate(180deg); }",
       ".qe-ri-body { padding: 0 14px 14px; border-top: 1px solid #f0f0f0; display: none; }",
       ".qe-ri.open .qe-ri-body { display: block; }",
@@ -162,10 +168,10 @@
 
       var chips = '<span class="chip chip-domain" style="background:' + qc.light + ';color:' + qc.dark + '">' + esc(q.comp) + '</span>';
       if (q.isRetrieval) chips += ' <span class="chip chip-retrieval">Retrieval</span>';
-      if (mc >= 2)       chips += ' <span class="chip chip-tricky">⛑ Tricky — missed ' + mc + '×</span>';
+      if (mc >= 2)       chips += ' <span class="chip chip-tricky">&#9873; Tricky &mdash; missed ' + mc + '&times;</span>';
 
       var banner = isFirstRetrieval
-        ? '<div class="qe-banner">Retrieval warm-up — these 5 questions strengthen memory of prior sessions before today\'s new content.</div>'
+        ? '<div class="qe-banner">Retrieval warm-up &mdash; these questions strengthen memory of prior sessions before today\'s new content.</div>'
         : '';
 
       var opts = Object.keys(q.options).map(function (k) {
@@ -185,7 +191,7 @@
         '<div class="qe-options">' + opts + '</div>' +
         '<div class="qe-nav">' +
           '<button class="btn btn-primary" id="qe-next" disabled>' +
-            (isLast ? 'Submit &amp; Review Results' : 'Next →') +
+            (isLast ? 'Submit &amp; Review Results' : 'Next &rarr;') +
           '</button>' +
         '</div>';
 
@@ -238,13 +244,13 @@
             day: cfg.day,
             week: cfg.week,
             domain: 'Domain ' + domainNum(q.comp),
-            comp: q.comp,
+            comp: q.bokRef || q.comp,   // v1.2: granular PI tag (e.g. "I.A.3 — opacity") not just "I.A"
             isRetrieval: !!q.isRetrieval,
             correct: answers[i] === q.correct,
             skipped: answers[i] === null,
             userAns: answers[i] || 'skipped',
             correctAns: q.correct,
-            qText: q.stem.substring(0, 80)
+            qText: q.stem   // v1.2: full stem, no 80-char truncation
           };
         })
       };
@@ -253,18 +259,19 @@
       postWebhook(sessionData);
 
       var label = score >= 80 ? 'Strong result'
-        : score >= 60 ? 'Passing — review your mistakes'
-        : 'Needs work — re-read the study card';
+        : score >= 60 ? 'Passing &mdash; review your mistakes'
+        : 'Needs work &mdash; re-read the study card';
 
+      // v1.2: full question stem shown in review panel (no 85-char truncation)
       var reviewItems = qs.map(function (q, i) {
         var ua = answers[i];
         var ok = ua === q.correct;
         var sk = ua === null;
         var dotCls = sk ? 'dot-sk' : ok ? 'dot-ok' : 'dot-no';
-        var dotIcon = sk ? '—' : ok ? '✓' : '✗';
+        var dotIcon = sk ? '&mdash;' : ok ? '&#10003;' : '&#10007;';
         var mc = missCount(q.id);
         var qc = colors(q.comp);
-        var trickyChip = mc >= 2 ? '<span class="chip chip-tricky" style="margin-right:4px">⛑ Tricky — missed ' + mc + '×</span>' : '';
+        var trickyChip = mc >= 2 ? '<span class="chip chip-tricky" style="margin-right:4px">&#9873; Tricky &mdash; missed ' + mc + '&times;</span>' : '';
         var ansRows;
         if (sk) {
           ansRows = '<div class="ans-row"><span class="ans-lbl">You answered:</span><span style="color:#d97706">Skipped</span></div><div class="ans-row"><span class="ans-lbl">Correct:</span><span class="ans-ok">' + q.correct + ': ' + esc(q.options[q.correct]) + '</span></div>';
@@ -273,17 +280,18 @@
         } else {
           ansRows = '<div class="ans-row"><span class="ans-lbl">You answered:</span><span class="ans-bad">' + ua + ': ' + esc(q.options[ua]) + '</span></div><div class="ans-row"><span class="ans-lbl">Correct:</span><span class="ans-ok">' + q.correct + ': ' + esc(q.options[q.correct]) + '</span></div>';
         }
-        return '<div class="qe-ri" id="ri' + i + '"><div class="qe-ri-toggle" onclick="qeToggle(' + i + ')"><div class="qe-ri-dot ' + dotCls + '">' + dotIcon + '</div><div class="qe-ri-preview">' + trickyChip + 'Q' + (i + 1) + ': ' + esc(q.stem.substring(0, 85)) + (q.stem.length > 85 ? '…' : '') + '</div><div class="qe-ri-chev">▼</div></div><div class="qe-ri-body"><div class="qe-ans-rows">' + ansRows + '</div><div class="qe-expl">' + esc(q.explanation) + '</div><div><span class="bok-tag" style="background:' + qc.light + ';color:' + qc.dark + '">BOK ' + esc(q.bokRef) + '</span></div></div></div>';
+        // Full stem in preview — no truncation
+        return '<div class="qe-ri" id="ri' + i + '"><div class="qe-ri-toggle" onclick="qeToggle(' + i + ')"><div class="qe-ri-dot ' + dotCls + '">' + dotIcon + '</div><div class="qe-ri-preview">' + trickyChip + 'Q' + (i + 1) + ': ' + esc(q.stem) + '</div><div class="qe-ri-chev">&#9660;</div></div><div class="qe-ri-body"><div class="qe-ans-rows">' + ansRows + '</div><div class="qe-expl">' + esc(q.explanation) + '</div><div><span class="bok-tag" style="background:' + qc.light + ';color:' + qc.dark + '">BOK ' + esc(q.bokRef) + '</span></div></div></div>';
       }).join('');
 
       var attemptNum = loadHistory().length;
       var saveNote = savedLocally
-        ? 'Saved to localStorage · Attempt #' + attemptNum + ' · ' + new Date().toLocaleString('en-SG', { timeZone: 'Asia/Singapore' })
-        : 'localStorage unavailable — results shown above only';
+        ? 'Saved to localStorage &middot; Attempt #' + attemptNum + ' &middot; ' + new Date().toLocaleString('en-SG', { timeZone: 'Asia/Singapore' })
+        : 'localStorage unavailable &mdash; results shown above only';
 
       root.innerHTML =
         headerHTML(title, sid, 100) +
-        '<div class="qe-results-top"><div class="qe-score-ring">' + score + '%</div><div class="qe-score-label">' + label + '</div><div class="qe-score-sub">Day ' + cfg.day + ' · ' + esc(cfg.topic) + ' · ' + qs.length + ' questions</div></div>' +
+        '<div class="qe-results-top"><div class="qe-score-ring">' + score + '%</div><div class="qe-score-label">' + label + '</div><div class="qe-score-sub">Day ' + cfg.day + ' &middot; ' + esc(cfg.topic) + ' &middot; ' + qs.length + ' questions</div></div>' +
         '<div class="qe-stats"><div class="stat stat-ok"><div class="stat-n">' + correct + '</div><div class="stat-l">Correct</div></div><div class="stat stat-no"><div class="stat-n">' + wrong + '</div><div class="stat-l">Wrong</div></div><div class="stat stat-sk"><div class="stat-n">' + skipped + '</div><div class="stat-l">Skipped</div></div></div>' +
         '<div class="qe-review-hd">Question Review</div>' +
         reviewItems +
