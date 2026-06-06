@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 6 · AI Laws &amp; Standards</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day: 6, week: 1, comp: "II.C+D", topic: "AI Laws & Standards",
+  filename: "AIGP_060626_Day6_AI-Laws-Standards_Quiz.html",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DII-IIC-001", comp: "II.C", isRetrieval: false,
+      stem: "A company deploys an AI system to automatically rank and shortlist job applicants before interviews. Under the EU AI Act risk framework, which classification applies?",
+      options: {
+        A: "Limited-risk, as ranked shortlisting with human interviewer review before any final hiring decision does not reach Annex III.",
+        B: "Minimal-risk, since employment recommendation tools are excluded from Annex III when final decisions remain with human managers.",
+        C: "Prohibited, because automated screening of job applicants violates Article 5 by removing meaningful human involvement entirely.",
+        D: "High-risk, as AI systems used for employment recruitment and worker management are explicitly listed under Annex III."
+      },
+      correct: "D",
+      explanation: "Employment recruitment AI is high-risk under Annex III regardless of human review — classification depends on the use case, not oversight presence. A and B are near-misses: students often argue that human review or advisory-only outputs downgrade the classification, but the Act classifies by use case. C is wrong: employment AI is not prohibited, only high-risk.",
+      bokRef: "II.C.1 — Understand the risk classification framework for AI (e.g., prohibited/high/limited/minimal risk) and what systems/uses fall into each category."
+    },
+    {
+      id: "DII-IIC-002", comp: "II.C", isRetrieval: false,
+      stem: "A fintech integrates an AI model to score individual creditworthiness and generate loan eligibility recommendations. Under the EU AI Act, which classification applies?",
+      options: {
+        A: "Prohibited, as AI systems that make binding financial assessments on individuals are banned under Article 5 of the Act.",
+        B: "High-risk, since AI used in creditworthiness assessment of natural persons is explicitly listed in Annex III.",
+        C: "Limited-risk, as credit scoring outputs are non-binding and human loan officers review all decisions before any final approval.",
+        D: "Minimal-risk, since creditworthiness AI is excluded from high-risk categories when adequate human oversight mechanisms are present."
+      },
+      correct: "B",
+      explanation: "Creditworthiness assessment AI for natural persons is explicitly Annex III high-risk (II.C.1). A is wrong: credit AI is not prohibited. C is a near-miss — human review of outputs does not downgrade the classification. D is wrong: the Act classifies by use case, not by the presence of oversight controls.",
+      bokRef: "II.C.1 — Understand the risk classification framework for AI (e.g., prohibited/high/limited/minimal risk) and what systems/uses fall into each category."
+    },
+    {
+      id: "DII-IIC-003", comp: "II.C", isRetrieval: false,
+      stem: "A provider is preparing to place a high-risk AI system on the EU market. Which combination of pre-market requirements must the provider fulfil under the EU AI Act?",
+      options: {
+        A: "Implement a risk management system, maintain technical documentation, and keep records enabling regulatory traceability throughout the system lifecycle.",
+        B: "Complete a public conformity assessment, publish a plain-language impact summary on their website, and notify deployers within 30 days.",
+        C: "Conduct a fundamental rights impact assessment, register with the national data protection authority, and obtain an independent conformity certificate.",
+        D: "Establish a post-market monitoring plan, submit technical files to the European AI Office, and pass independent third-party testing annually."
+      },
+      correct: "A",
+      explanation: "Providers of high-risk AI must implement a continuous risk management system, maintain technical documentation, and keep logs for traceability (II.C.2). B is a near-miss: conformity assessment is required, but publishing a public impact summary is not the standard provider obligation. C conflates deployer duties. D misstates the European AI Office's role.",
+      bokRef: "II.C.2 — Understand the key requirements around risk management, data governance, technical documentation, conformity/impact assessments and record keeping."
+    },
+    {
+      id: "DII-IIC-004", comp: "II.C", isRetrieval: false,
+      stem: "An organisation purchases a high-risk AI system from a provider and deploys it for HR decisions. Under the EU AI Act, which obligation belongs specifically to this deployer?",
+      options: {
+        A: "Implement a quality management system covering design, testing, and post-market monitoring throughout the system's operational lifecycle.",
+        B: "Prepare the technical documentation package and carry out the conformity assessment before placing the system on the EU market.",
+        C: "Conduct a fundamental rights impact assessment before deploying the system, if the deployer is a public body covered by the Act.",
+        D: "Register the AI system in the EU database and ensure CE marking is affixed prior to granting any access to users."
+      },
+      correct: "C",
+      explanation: "Under II.C.6, certain public body deployers of high-risk AI must conduct a fundamental rights impact assessment before deployment. A and B are provider obligations, not deployer obligations. D — database registration and CE marking are primarily provider duties, though deployers may have secondary registration obligations.",
+      bokRef: "II.C.6 — Understand the differences in requirements based on organizational context (e.g., providers, deployers, importers and distributors)."
+    },
+    {
+      id: "DII-IIC-005", comp: "II.C", isRetrieval: false,
+      stem: "A government agency proposes an AI system that scores citizens' social behaviour to determine eligibility for public housing subsidies. What does the EU AI Act require?",
+      options: {
+        A: "High-risk classification applies, requiring a risk management system, technical documentation, and a conformity assessment before deployment.",
+        B: "Limited-risk classification applies, as the system produces advisory scores reviewed by officials before any final subsidy decision.",
+        C: "The agency must notify the European AI Office and seek explicit approval before operating the system in any member state.",
+        D: "This use is prohibited under Article 5, as social scoring by public authorities causing unjustified detrimental treatment is banned."
+      },
+      correct: "D",
+      explanation: "Social scoring by public authorities that causes unjustified detrimental treatment of individuals is a prohibited AI practice under Article 5 (II.C.1). A is the classic near-miss: students misclassify social scoring as merely high-risk rather than prohibited. B and C misstate the legal status of this use case entirely.",
+      bokRef: "II.C.1 — Understand the risk classification framework for AI (e.g., prohibited/high/limited/minimal risk) and what systems/uses fall into each category."
+    },
+    {
+      id: "DII-IIC-006", comp: "II.C", isRetrieval: false,
+      stem: "A hospital deploys a high-risk AI system that flags patients for urgent clinical review. Under the EU AI Act, what human oversight obligation applies to the design of this system?",
+      options: {
+        A: "The system must be designed so human overseers can understand, intervene, override, or stop its operation during deployment.",
+        B: "A qualified clinician must independently verify every AI output before it enters any patient record or active care pathway.",
+        C: "The deployer must assign a Chief AI Officer to monitor performance and report quarterly findings to national health authorities.",
+        D: "The system must pause automatically and request explicit human approval before generating any output affecting individual patient care."
+      },
+      correct: "A",
+      explanation: "II.C.3 requires high-risk AI systems be designed to enable human overseers to understand, intervene, override, or stop the system. B is the key near-miss: oversight must be possible and meaningful, but independent verification of every single output is not the specific Act requirement. C and D impose obligations not stated in the Act.",
+      bokRef: "II.C.3 — Understand the key requirements around human oversight, transparency and notification, and quality management."
+    },
+    {
+      id: "DII-IIC-007", comp: "II.C", isRetrieval: false,
+      stem: "A company releases a general-purpose AI model to downstream developers via a public API. Under the EU AI Act, which transparency obligation must the GPAI provider fulfil?",
+      options: {
+        A: "Disclose the complete training dataset including all pre-training and fine-tuning data sources to every downstream API user.",
+        B: "Register the GPAI model in the EU database and obtain approval before granting API access to any third-party developers.",
+        C: "Publish technical documentation and make a training data summary available to downstream deployers and competent authorities.",
+        D: "Submit the model for mandatory evaluation by the European AI Office before initiating any commercial deployment or licensing."
+      },
+      correct: "C",
+      explanation: "GPAI providers must maintain technical documentation and publish a summary of training data (II.C.4). A is the near-miss: a summary is required, not full disclosure of all datasets — the distinction matters for practicality and IP. B and D impose pre-approval obligations that do not apply to all GPAI models under the Act.",
+      bokRef: "II.C.4 — Understand the distinct requirements for general-purpose AI models."
+    },
+    {
+      id: "DII-IIC-008", comp: "II.C", isRetrieval: false,
+      stem: "A market surveillance authority issues a formal non-compliance warning to a high-risk AI system provider who then fails to act. What enforcement outcome can the EU AI Act support?",
+      options: {
+        A: "The European AI Office imposes temporary market access restrictions pending the provider completing its annual conformity audit cycle.",
+        B: "National supervisory authorities may impose fines up to EUR 15 million or 3% of total worldwide annual turnover.",
+        C: "CE marking is automatically revoked by the notified body and all deployed systems must be recalled within a 90-day period.",
+        D: "The provider must submit to third-party audit and publicly disclose all identified deficiencies within six calendar months."
+      },
+      correct: "B",
+      explanation: "Under II.C.5, penalties for high-risk AI non-compliance reach EUR 15 million or 3% of global annual turnover, imposed by national supervisory authorities. A is a near-miss: market restrictions are possible, but the European AI Office is not the primary enforcement body for high-risk AI non-compliance. C and D describe actions not specified in the Act.",
+      bokRef: "II.C.5 — Understand the enforcement framework and penalties for noncompliance."
+    },
+    {
+      id: "DII-IIC-009", comp: "II.C", isRetrieval: false,
+      stem: "A provider of a high-risk AI system in the employment sector asks which conformity assessment route applies under the EU AI Act. What does the Act generally require?",
+      options: {
+        A: "Internal control assessment in most cases, with third-party notified body assessment required only for specific Annex I system categories.",
+        B: "Mandatory third-party assessment by a notified body for every high-risk AI system before it can be placed on the EU market.",
+        C: "Self-certification by the provider's compliance team, followed by database registration and notification to national supervisory authorities.",
+        D: "Assessment conducted by the European AI Office, which issues a binding compliance certificate valid for three years post-market entry."
+      },
+      correct: "A",
+      explanation: "For most Annex III high-risk AI systems, providers may use internal control assessment. Third-party notified body assessment is required for Annex I systems (AI in regulated products like medical devices) and certain specific Annex III categories. B is the near-miss: many candidates assume all high-risk AI needs notified body involvement, but this is not the default. C and D misstate the framework.",
+      bokRef: "II.C.2 — Understand the key requirements around risk management, data governance, technical documentation, conformity/impact assessments and record keeping."
+    },
+    {
+      id: "DII-IIC-010", comp: "II.C", isRetrieval: false,
+      stem: "A retailer deploys a high-risk AI system that interacts directly with individual consumers. Under the EU AI Act, which notification obligation applies to the deployer?",
+      options: {
+        A: "Notify the national market surveillance authority at least 15 days before activating the system for any consumer-facing interactions.",
+        B: "Obtain written informed consent from each consumer prior to any individual interaction with the high-risk AI system deployed.",
+        C: "Display a certification mark confirming the system passed a conformity assessment conducted by an accredited and approved notified body.",
+        D: "Inform consumers they are subject to or interacting with a high-risk AI system and provide meaningful information about it."
+      },
+      correct: "D",
+      explanation: "Under II.C.3, deployers must ensure consumers are informed when interacting with high-risk AI and receive meaningful information about the system. A is a near-miss: notification obligations exist but pre-activation notice to authorities in this form is not the standard consumer-facing requirement. B and C impose requirements not specified in the Act.",
+      bokRef: "II.C.3 — Understand the key requirements around human oversight, transparency and notification, and quality management."
+    },
+    {
+      id: "DII-IIC-011", comp: "II.C", isRetrieval: false,
+      stem: "A company imports a high-risk AI system from a non-EU provider and places it on the EU market under its own brand name. What obligation does the EU AI Act impose?",
+      options: {
+        A: "Independently conduct the conformity assessment and issue a new EU declaration of conformity replacing the original provider's declaration.",
+        B: "Take on full provider obligations including implementing a quality management system before completing any EU market entry process.",
+        C: "Verify the provider's conformity assessment is complete, technical documentation is in order, and CE marking is correctly affixed.",
+        D: "Register the AI system with the European AI Office and obtain explicit approval before distributing the system to any deployers."
+      },
+      correct: "C",
+      explanation: "Under II.C.6, importers must verify the provider completed the conformity assessment, that technical documentation exists, and that CE marking is affixed. A is wrong: importers verify; they do not redo assessments. B is a near-miss: placing under own brand does create provider-like obligations in some scenarios, but the importer's core duty here is verification. D misrepresents the registration process.",
+      bokRef: "II.C.6 — Understand the differences in requirements based on organizational context (e.g., providers, deployers, importers and distributors)."
+    },
+    {
+      id: "DII-IIC-012", comp: "II.C", isRetrieval: false,
+      stem: "A GPAI model provider is assessing whether their model reaches the systemic risk threshold under the EU AI Act. What is the primary proxy measure defined by the Act?",
+      options: {
+        A: "The model exceeds 100 billion parameters, a scale indicator associated with large language models posing disproportionate risks.",
+        B: "Training compute exceeds 10^25 FLOPs, which the EU AI Act uses as the proxy trigger for systemic risk classification.",
+        C: "The model is accessed by more than 10,000 downstream deployers, since wide distribution constitutes systemic risk under the Act.",
+        D: "The model caused at least one documented critical infrastructure incident, triggering mandatory systemic risk classification obligations."
+      },
+      correct: "B",
+      explanation: "The EU AI Act sets a compute threshold of 10^25 FLOPs as the proxy for GPAI systemic risk (II.C.4). A is the near-miss: parameter count is colloquially associated with model scale but is not the Act's specified threshold. C and D describe deployment volume and incident history, which are not the defined trigger.",
+      bokRef: "II.C.4 — Understand the distinct requirements for general-purpose AI models."
+    },
+    {
+      id: "DII-IIC-013", comp: "II.C", isRetrieval: false,
+      stem: "A provider of a high-risk AI system deployed in a medical device context asks how long records and logs must be retained under the EU AI Act. What applies?",
+      options: {
+        A: "At least 10 years after the system's last use, or longer if applicable sector-specific legislation imposes extended retention periods.",
+        B: "Five years from the date the system is last placed on the EU market, consistent with standard product documentation rules.",
+        C: "Three years after each annual conformity audit cycle, matching the technical documentation retention cycle for regulated products.",
+        D: "Seven years from the date of first deployment, aligning with the standard product liability retention period under EU commercial law."
+      },
+      correct: "A",
+      explanation: "Under II.C.2, records for high-risk AI must generally be retained for the system's operational lifetime plus at least 10 years; sector rules (e.g., medical devices) may extend this further. B, C, and D cite incorrect durations. B is the near-miss: five years sounds plausible but the Act specifies a longer retention period for high-risk systems.",
+      bokRef: "II.C.2 — Understand the key requirements around risk management, data governance, technical documentation, conformity/impact assessments and record keeping."
+    },
+    {
+      id: "DII-IIC-014", comp: "II.C", isRetrieval: false,
+      stem: "A national regulator suspects a high-risk AI system is causing harm to users in their jurisdiction. Under the EU AI Act enforcement framework, who has primary investigation authority?",
+      options: {
+        A: "The European AI Office investigates all incidents involving high-risk AI systems directly without referral from member state authorities.",
+        B: "The notified body that issued the conformity assessment leads the investigation and determines whether CE marking should be revoked.",
+        C: "Market surveillance authorities at the member state level hold primary authority to investigate high-risk AI non-compliance.",
+        D: "The provider's internal audit team conducts the initial investigation and submits findings to the European AI Office for validation."
+      },
+      correct: "C",
+      explanation: "Under II.C.5, market surveillance authorities at the member state level are the primary enforcement bodies for high-risk AI. A is the key near-miss: the European AI Office plays a coordination and GPAI oversight role, but MSAs lead high-risk AI investigations. B and D misattribute enforcement responsibility to bodies not designed for this purpose.",
+      bokRef: "II.C.5 — Understand the enforcement framework and penalties for noncompliance."
+    },
+    {
+      id: "DII-IID-015", comp: "II.D", isRetrieval: false,
+      stem: "An AI governance lead is implementing the NIST AI Risk Management Framework. Which statement correctly identifies the four core functions of the framework?",
+      options: {
+        A: "Identify, Protect, Detect, and Respond — adapted from the NIST Cybersecurity Framework and applied to AI risk management.",
+        B: "Govern, Map, Measure, and Manage — the four functions that structure how organisations address AI-related risks across the lifecycle.",
+        C: "Assess, Prioritise, Mitigate, and Monitor — the lifecycle stages defined by NIST specifically for managing AI model and system risks.",
+        D: "Plan, Implement, Evaluate, and Improve — a continuous improvement cycle aligned with ISO 9001 quality management principles."
+      },
+      correct: "B",
+      explanation: "The NIST AI RMF defines four core functions: Govern, Map, Measure, and Manage (II.D.2). A is the classic near-miss: Identify, Protect, Detect, Respond accurately names the Cybersecurity Framework's core functions — a confusion the exam exploits. C and D describe other frameworks entirely.",
+      bokRef: "II.D.2 — Understand the NIST AI Risk Management Framework and Playbook (e.g., core functions, categories and subcategories)."
+    },
+    {
+      id: "DII-IID-016", comp: "II.D", isRetrieval: false,
+      stem: "A compliance team is evaluating ISO 42001 for adoption in their AI governance programme. What is the primary focus of this standard?",
+      options: {
+        A: "ISO 42001 provides a formal taxonomy of AI terminology, defining concepts such as machine learning, inference, and training datasets.",
+        B: "ISO 42001 establishes risk assessment methodology for evaluating societal impacts of AI in autonomous decision-making scenarios.",
+        C: "ISO 42001 specifies technical accuracy requirements and minimum performance thresholds for AI systems intended for commercial deployment.",
+        D: "ISO 42001 specifies requirements for an AI management system, enabling organisations to develop, provide, or use AI responsibly."
+      },
+      correct: "D",
+      explanation: "ISO 42001 is an AI management system standard — it specifies requirements for organisations that develop, provide, or use AI (II.D.3). A describes ISO 22989, not 42001. A is the key near-miss for candidates who confuse the two ISO standards. B and C are not the scope of 42001.",
+      bokRef: "II.D.3 — Understand the core ISO AI standards (i.e., 22989, 42001 and 42005)."
+    },
+    {
+      id: "DII-IID-017", comp: "II.D", isRetrieval: false,
+      stem: "A policy team is aligning their AI strategy with the OECD AI Principles. Which principle is central to the OECD framework for trustworthy AI?",
+      options: {
+        A: "AI systems should be transparent and explainable so that stakeholders can understand, challenge, and scrutinise AI-driven outcomes.",
+        B: "AI systems must reach a minimum accuracy benchmark set by national regulators before deployment in any OECD member country.",
+        C: "AI developers must obtain express consent from all data subjects before using personal data in any model training process.",
+        D: "OECD member states must designate a single national AI authority responsible for pre-approving all commercial high-risk deployments."
+      },
+      correct: "A",
+      explanation: "Transparency and explainability is a core OECD AI Principle for trustworthy AI (II.D.1). B, C, and D are not OECD principles — they describe obligations from other frameworks or invented requirements. The OECD framework focuses on principles such as transparency, safety, accountability, and inclusive growth.",
+      bokRef: "II.D.1 — Understand the Organisation for Economic Co-operation and Development (OECD) principles, framework, policies and recommended practices for trustworthy AI."
+    },
+    {
+      id: "DII-IID-018", comp: "II.D", isRetrieval: false,
+      stem: "An AI risk manager is applying the NIST AI RMF Govern function in their organisation. Which activity falls specifically within this function?",
+      options: {
+        A: "Identifying AI risks by mapping system components, data flows, and potential failure modes across the development lifecycle systematically.",
+        B: "Quantifying AI risk by testing model outputs against benchmarks and evaluating bias, performance, and robustness metrics thoroughly.",
+        C: "Establishing organisational policies, accountability structures, and a risk culture to support responsible AI practices across all functions.",
+        D: "Deploying controls and tracking AI system behaviour in production through continuous monitoring and formal incident reporting processes."
+      },
+      correct: "C",
+      explanation: "The Govern function of the NIST AI RMF focuses on establishing accountability, policies, and organisational culture for responsible AI (II.D.2). A describes Map. B describes Measure. D describes Manage. A is the near-miss: mapping components sounds like governance but is a distinct NIST AI RMF function.",
+      bokRef: "II.D.2 — Understand the NIST AI Risk Management Framework and Playbook (e.g., core functions, categories and subcategories)."
+    },
+    {
+      id: "DII-IID-019", comp: "II.D", isRetrieval: false,
+      stem: "A standards manager must choose between referencing ISO 22989 and ISO 42001 in their AI governance policy. What is the key distinction between these two standards?",
+      options: {
+        A: "ISO 22989 establishes AI management system certification requirements, while ISO 42001 provides the conceptual vocabulary for AI.",
+        B: "ISO 22989 provides a conceptual framework and AI vocabulary, while ISO 42001 specifies requirements for an AI management system.",
+        C: "ISO 22989 applies to AI system providers only, while ISO 42001 applies exclusively to deployers in regulated industry sectors.",
+        D: "ISO 22989 is a voluntary guidance document with no certification path, while ISO 42001 is a mandatory EU standard with audits."
+      },
+      correct: "B",
+      explanation: "ISO 22989 is the AI concepts and terminology standard; ISO 42001 is the management system standard with certifiable requirements (II.D.3). A reverses the roles — the most common near-miss on this question. C and D mischaracterise scope and legal status; neither is a mandatory EU standard.",
+      bokRef: "II.D.3 — Understand the core ISO AI standards (i.e., 22989, 42001 and 42005)."
+    },
+    {
+      id: "DII-IID-020", comp: "II.D", isRetrieval: false,
+      stem: "A multinational company is incorporating the OECD AI framework into its global AI governance strategy. Which statement about the OECD framework is accurate?",
+      options: {
+        A: "The OECD framework is a binding treaty requiring member governments to implement provisions through national legislation within three years.",
+        B: "The OECD framework defines specific risk thresholds that member countries must incorporate into domestic AI regulatory regimes.",
+        C: "The OECD framework applies only to AI developers in private companies and does not cover public sector organisations at all.",
+        D: "The OECD framework provides non-binding principles and recommended practices for trustworthy AI, adopted by member and partner countries."
+      },
+      correct: "D",
+      explanation: "The OECD AI Principles are non-binding recommendations adopted by member and partner countries (II.D.1). A is the primary near-miss: the OECD framework is highly influential and widely referenced, which leads candidates to overstate its legal force. B and C misrepresent the scope and legal nature of the framework.",
+      bokRef: "II.D.1 — Understand the Organisation for Economic Co-operation and Development (OECD) principles, framework, policies and recommended practices for trustworthy AI."
+    },
+    {
+      id: "DI-IA-021", comp: "I.A", isRetrieval: true,
+      stem: "An organisation's AI hiring tool consistently rates candidates from certain ethnic backgrounds lower despite equal qualifications. Which AI risk type does this most directly illustrate?",
+      options: {
+        A: "Complexity and scalability risk, as large-scale AI systems amplify underlying processing errors across populations unevenly.",
+        B: "Misalignment risk, since the system's objective function diverges from the organisation's stated policy on equitable recruitment.",
+        C: "Ethics and bias risk, as the AI produces outputs that cause discriminatory harm to identifiable groups of individuals.",
+        D: "Opacity risk, because the AI's decision logic is not interpretable, preventing meaningful human audit of its discriminatory outputs."
+      },
+      correct: "C",
+      explanation: "This is a textbook example of ethics and bias risk under I.A.2 — the AI causes discriminatory harm to identifiable groups. B is the key near-miss: misalignment is conceptually adjacent, but the BOK distinguishes ethics and bias risk as the specific category for group-level discriminatory harm. D is plausible but opacity describes a characteristic, not the harm itself.",
+      bokRef: "I.A.2 — Identify the types of risks and harms posed by AI to individuals, groups, organizations and society (e.g., misalignment with objectives, ethics and bias risk, and complexity and scalability)."
+    },
+    {
+      id: "DI-IB-022", comp: "I.B", isRetrieval: true,
+      stem: "A company establishing its AI governance structure must assign formal accountability for AI risk decisions. Under I.B.1, which role most directly fulfils this requirement?",
+      options: {
+        A: "A designated AI governance owner with formal accountability for risk decisions who interfaces with the board on AI matters.",
+        B: "The Chief Data Officer, since data quality drives AI risk and data governance responsibilities naturally encompass AI oversight.",
+        C: "An independent AI ethics committee with authority to review all deployments and veto any high-risk system decisions made.",
+        D: "The Head of Legal, who holds AI compliance accountability because regulatory liability exposure stems directly from model deployment."
+      },
+      correct: "A",
+      explanation: "I.B.1 requires defining roles and responsibilities for AI governance stakeholders, including a designated owner with formal accountability. B, C, and D are near-misses: each assigns AI accountability to a function with partial relevance, but none is the defined governance owner role the BOK PI describes.",
+      bokRef: "I.B.1 — Define roles and responsibilities for AI governance stakeholders."
+    },
+    {
+      id: "DII-IIA-023", comp: "II.A", isRetrieval: true,
+      stem: "A company's AI model makes automated employment eligibility decisions for job candidates. Under existing data privacy law as applied to AI, which individual right is most relevant?",
+      options: {
+        A: "Right to data portability, enabling candidates to transfer personal data from the AI system to other recruitment platforms.",
+        B: "Right to erasure, requiring deletion of personal data used as AI inputs upon any request from the affected data subject.",
+        C: "Right to restriction, allowing data subjects to pause all AI processing of their data during any pending accuracy dispute.",
+        D: "Right not to be subject to solely automated decisions with significant effects, and to request meaningful human review."
+      },
+      correct: "D",
+      explanation: "II.A.3 covers obligations regarding automated decision making — individuals have the right not to be subject to solely automated decisions with significant effects and to request human review. A, B, and C describe other valid data subject rights, but none is as directly applicable to automated employment decision-making as the right covered in II.A.3.",
+      bokRef: "II.A.3 — Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping)."
+    },
+    {
+      id: "DII-IIB-024", comp: "II.B", isRetrieval: true,
+      stem: "A lending institution's AI model produces significantly higher loan rejection rates for a protected class, despite no intentional discriminatory design. What applies under II.B?",
+      options: {
+        A: "The system is lawful since no discriminatory intent was embedded in the model design or the feature selection process used.",
+        B: "Nondiscrimination laws apply to disparate impact, so the AI can breach anti-discrimination requirements even without intentional bias.",
+        C: "The institution must notify the data protection authority under breach notification requirements within 72 hours of discovering this outcome.",
+        D: "This is a data quality problem that the institution's internal data governance framework must resolve without any external obligation."
+      },
+      correct: "B",
+      explanation: "Under II.B.2, nondiscrimination laws apply to disparate impact — an AI system can violate anti-discrimination requirements without any intent to discriminate. A is the key near-miss: absence of intent does not equal legal compliance with nondiscrimination law. C conflates breach notification (a data privacy obligation) with discrimination liability. D is incorrect.",
+      bokRef: "II.B.2 — Understand how nondiscrimination laws apply to AI (e.g., in the employment, credit, lending, housing and insurance contexts)."
+    },
+    {
+      id: "DI-IC-025", comp: "I.C", isRetrieval: true,
+      stem: "A company procures a third-party AI system for customer service interactions. Under I.C.3, which action is most critical for managing this third-party AI risk?",
+      options: {
+        A: "Auditing the vendor's full training dataset before procurement to independently validate data quality and fitness for purpose.",
+        B: "Requiring the vendor to disclose all model weights and architecture documentation to verify transparency before procurement approval.",
+        C: "Implementing policies and contracts that define obligations, oversight rights, and risk allocation between the company and the vendor.",
+        D: "Assigning an internal AI specialist to replicate the vendor's model in-house to independently verify all procurement claims made."
+      },
+      correct: "C",
+      explanation: "I.C.3 specifically requires creating and implementing policies, assessments, and contracts to manage third-party risk. A and B are near-misses: both are legitimate due diligence activities, but contractual governance is the PI-level obligation the BOK specifies. D is not a standard governance requirement in the BOK.",
+      bokRef: "I.C.3 — Create, update and implement policies, assessments and contracts to manage third-party risk (e.g., procurement, supply chain, human resources and acceptable use)."
+    }
+  ]
+});
+</script>
+</body></html>
