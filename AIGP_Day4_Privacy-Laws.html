@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 4 · Privacy Laws &amp; AI</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#1a4a7a;--accent-light:#e8f0f8}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 4 · Week 1</span>
+    <span class="sc-meta">02 Jun 2026 &nbsp;·&nbsp; Domain II &nbsp;·&nbsp; Competency II.A &nbsp;·&nbsp; Exam weight 4–6 Qs &nbsp;·&nbsp; ~20 min</span>
+  </div>
+  <h1 class="sc-title">How Existing Privacy Laws Apply to AI</h1>
+</div>
+
+<!-- BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head"><span class="sc-section-label">II.A</span><span class="sc-section-title">BOK Performance Indicators</span></div>
+  <div class="sc-section-body">
+    <ol class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">II.A.1</span> Understand how transparency, choice, lawful basis and purpose limitation requirements apply to AI.</li>
+      <li class="sc-pi"><span class="sc-pi-code">II.A.2</span> Understand how data minimization and privacy by design requirements apply to AI.</li>
+      <li class="sc-pi"><span class="sc-pi-code">II.A.3</span> Understand how obligations on data controllers apply to AI (e.g., regarding privacy impact assessments, use of third-party processors, cross-border data transfers, data subject rights, automated decision making, incident management, breach notification and record keeping).</li>
+      <li class="sc-pi"><span class="sc-pi-code">II.A.4</span> Understand the requirements that apply to sensitive or special categories of data (e.g., biometrics).</li>
+    </ol>
+  </div>
+</div>
+
+<!-- KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Concepts</span><span class="sc-section-title">Key Concepts</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">1 · Transparency, Choice, Lawful Basis &amp; Purpose Limitation</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p><strong>Transparency</strong> requires organizations to tell individuals when and how AI uses their personal data, including when AI is making decisions about them.</p>
+        <p><strong>Choice</strong> means individuals must have genuine control, including the right to opt out of certain uses (especially profiling) and the right not to be subject to solely automated decisions with significant effects (GDPR Art. 22).</p>
+        <p><strong>Lawful basis</strong>: every processing activity must rest on a legal ground — consent, contract, legal obligation, vital interests, public task, or legitimate interests. AI-specific challenge: consent obtained years ago for a narrow purpose may not cover reuse in an AI model.</p>
+        <p><strong>Purpose limitation</strong>: data collected for one purpose cannot be freely repurposed for AI training. A compatibility assessment is required.</p>
+        <div class="sc-why">Why it matters for the exam: Questions frame scenarios where an organization repurposes customer data to train a model without re-obtaining consent or performing a compatibility assessment. The correct answer invokes purpose limitation, not just consent.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Precision vocabulary</div>
+          <div class="sc-def"><span class="sc-term">Lawful basis</span> — One of six GDPR Art. 6 grounds that legitimises personal data processing. Distinct from consent alone.</div>
+          <div class="sc-def"><span class="sc-term">Purpose limitation</span> — GDPR Art. 5(1)(b): data collected for specified, explicit, legitimate purposes may not be processed in a way incompatible with those purposes.</div>
+          <div class="sc-def"><span class="sc-term">Art. 22 (GDPR)</span> — Right not to be subject to a decision based solely on automated processing that produces legal or similarly significant effects; includes right to human review, explanation, and contest.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">2 · Data Minimization &amp; Privacy by Design</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p><strong>Data minimization</strong> (GDPR Art. 5(1)(c)) requires that personal data be adequate, relevant, and limited to what is necessary for the purpose.</p>
+        <p>Governance responses include synthetic data generation, differential privacy, federated learning, and strict data retention schedules.</p>
+        <p><strong>Privacy by Design (PbD)</strong> — the principle that privacy must be embedded proactively into system architecture from the outset, not added as a compliance afterthought. Applied to AI: PbD requires architecture decisions — selecting a model type that achieves the task with less personal data; implementing access controls at design stage.</p>
+        <div class="sc-why">Exam trap: PbD is not just a policy commitment — it requires implementation in the technical architecture. Choosing a model that doesn't need personal data at all is PbD. A privacy notice explaining data use is transparency, not PbD.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Precision vocabulary</div>
+          <div class="sc-def"><span class="sc-term">Privacy by Design</span> — Seven-principle framework (Cavoukian) requiring privacy as default and embedded in system architecture end-to-end.</div>
+          <div class="sc-def"><span class="sc-term">Federated learning</span> — Training technique where the model updates on local devices; raw data never centralised — a PbD data minimization mechanism.</div>
+          <div class="sc-def"><span class="sc-term">Differential privacy</span> — Mathematical technique adding calibrated noise to outputs so individual data cannot be inferred; reduces re-identification risk in AI outputs.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">3 · Data Controller Obligations Applied to AI</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p><strong>Privacy Impact Assessments (DPIAs)</strong>: GDPR Art. 35 mandates a DPIA before processing that is "likely to result in a high risk" to individuals. AI systems almost always trigger this: systematic profiling, automated decision-making, large-scale processing, novel technology, processing of special category data.</p>
+        <p><strong>Third-party processors</strong>: An organization using an AI SaaS vendor remains the data controller; the vendor is a processor. A Data Processing Agreement (DPA) is mandatory.</p>
+        <p><strong>Cross-border transfers</strong>: Training data flowing outside the EEA requires a transfer mechanism — adequacy decision, Standard Contractual Clauses (SCCs), Binding Corporate Rules (BCRs), or derogations.</p>
+        <p><strong>Breach notification</strong>: 72-hour notification to supervisory authority under GDPR. AI-specific breach types: model inversion attacks, membership inference.</p>
+        <div class="sc-why">Exam focus: The DPIA is the most tested item. Know the triggers, mandatory content, and who the DPO must consult.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Precision vocabulary</div>
+          <div class="sc-def"><span class="sc-term">DPIA</span> — Data Protection Impact Assessment; GDPR Art. 35 requirement before high-risk processing. Must include consultation with DPO and, where residual risk remains high, the supervisory authority.</div>
+          <div class="sc-def"><span class="sc-term">Data Processing Agreement (DPA)</span> — Mandatory contract between controller and processor under GDPR Art. 28.</div>
+          <div class="sc-def"><span class="sc-term">Standard Contractual Clauses (SCCs)</span> — EU Commission-approved contract clauses enabling lawful cross-border data transfers where no adequacy decision exists.</div>
+          <div class="sc-def"><span class="sc-term">Model inversion attack</span> — Attack that queries a model to reconstruct training data; constitutes a personal data breach if personal data is exposed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">4 · Sensitive &amp; Special Category Data in AI</span><span class="sc-chevron">▸</span></div>
+      <div class="sc-concept-body">
+        <p>GDPR Art. 9 creates a higher-protection tier for: racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data processed to uniquely identify a person, health data, sex life or sexual orientation. Processing is prohibited unless a specific Art. 9(2) exemption applies.</p>
+        <p><strong>Inference risk — the critical AI-specific issue</strong>: AI models can infer sensitive attributes from non-sensitive inputs. Even if you never collect health data directly, your model's outputs may constitute processing of special category data.</p>
+        <div class="sc-why">This is where the AIGP exam distinguishes candidates: the inference risk point. An organization claiming it doesn't process special category data because it doesn't collect it directly is wrong if its AI system infers or proxies those attributes.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Precision vocabulary</div>
+          <div class="sc-def"><span class="sc-term">Biometric data</span> — Personal data resulting from specific technical processing relating to physical, physiological or behavioural characteristics that allows unique identification of a natural person (GDPR Art. 4(14)).</div>
+          <div class="sc-def"><span class="sc-term">Inference risk</span> — The risk that an AI system derives or proxies sensitive attributes from non-sensitive inputs, effectively processing special category data without explicitly collecting it.</div>
+          <div class="sc-def"><span class="sc-term">Explicit consent (Art. 9)</span> — Higher standard than standard GDPR consent; must be a clear affirmative act specifically referencing the sensitive data processing.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Table</span><span class="sc-section-title">GDPR Obligations → AI-Specific Challenges</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead><tr><th>GDPR Obligation</th><th>Standard Application</th><th>AI-Specific Challenge</th><th>Governance Response</th></tr></thead>
+        <tbody>
+          <tr><td>Transparency (Art. 5/13/14)</td><td>Readable privacy notice</td><td>Explaining opaque model decisions in plain language</td><td>Explainable AI techniques; layered notices</td></tr>
+          <tr><td>Lawful basis (Art. 6)</td><td>Identify one of six grounds</td><td>Historical consent may not cover new AI processing</td><td>Compatibility assessment; fresh basis if needed</td></tr>
+          <tr><td>Purpose limitation (Art. 5(1)(b))</td><td>Specified, explicit purposes</td><td>Repurposing data for AI training</td><td>Compatibility test; document reasoning</td></tr>
+          <tr><td>Data minimization (Art. 5(1)(c))</td><td>Collect only what's needed</td><td>ML benefits from large, rich datasets</td><td>Synthetic data; federated learning; feature selection</td></tr>
+          <tr><td>DPIA (Art. 35)</td><td>Before high-risk processing</td><td>AI almost always triggers DPIA thresholds</td><td>Mandatory DPIA; consult DPO; revisit on change</td></tr>
+          <tr><td>Automated decisions (Art. 22)</td><td>Right to human review</td><td>AI scales decisions at speed — human review costly</td><td>Process for human escalation; meaningful review</td></tr>
+          <tr><td>Right to erasure (Art. 17)</td><td>Delete data on request</td><td>"Unlearning" from trained model technically hard</td><td>Model retraining pipelines; data segregation at design</td></tr>
+          <tr><td>Special category data (Art. 9)</td><td>Explicit consent or exemption</td><td>AI infers sensitive attributes from non-sensitive data</td><td>Inference risk assessment at design; proxy analysis</td></tr>
+          <tr><td>Cross-border transfer (Ch. V)</td><td>Adequacy / SCCs / BCRs</td><td>AI training pipelines span jurisdictions by default</td><td>Map data flows; apply transfer mechanism per leg</td></tr>
+          <tr><td>Breach notification (Art. 33)</td><td>72-hr supervisory authority notice</td><td>Novel AI breach types (model inversion, membership inference)</td><td>Include AI-specific scenarios in incident response plan</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Scenario</span><span class="sc-section-title">Worked Scenario — FinTech Credit Scoring Expansion</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block"><div class="sc-scenario-label">Situation</div><div class="sc-scenario-text">A FinTech lender operates an AI credit scoring model in Singapore, trained on historical loan applications, repayment history, device usage metadata, and social media activity scraped from public profiles. The company wants to expand to the EU. The model returns a binary approve/decline output with no explanation provided to applicants.</div></div>
+    <div class="sc-scenario-block"><div class="sc-scenario-label">Your Role</div><div class="sc-scenario-text">AI Governance Professional advising the FinTech on EU launch readiness. You have been asked to identify the privacy law compliance gaps.</div></div>
+    <div class="sc-scenario-block"><div class="sc-scenario-label">Analysis</div><div class="sc-scenario-text"><strong>Lawful basis and purpose limitation (II.A.1):</strong> Social media data was collected by third parties for entirely different purposes. Scraping and using it for credit scoring almost certainly fails purpose limitation.<br><br><strong>Data minimization and PbD (II.A.2):</strong> Device usage metadata is questionable for necessity. A PbD review should assess whether the model performance genuinely requires this feature category.<br><br><strong>DPIA and Art. 22 (II.A.3):</strong> The EU processing will require a DPIA. The binary output with no explanation violates Art. 22: applicants have the right to obtain an explanation, express their point of view, and request human review.<br><br><strong>Inference risk (II.A.4):</strong> Social media and device usage data may enable inference of health status, religion, or ethnicity — all Art. 9 special categories. An inference risk assessment is mandatory.</div></div>
+    <div class="sc-scenario-block"><div class="sc-scenario-label">Outcome</div><div class="sc-scenario-text">Recommended pre-launch actions: (1) Remove social media data from training set; (2) Complete DPIA before EU processing begins; (3) Build Art. 22-compliant human review and explanation process; (4) Conduct inference risk assessment on remaining features; (5) Establish SCCs for any data transfer from EU to Singapore for model processing.</div></div>
+    <div class="sc-pi-ref">Cited PIs: II.A.1 (lawful basis, purpose limitation) · II.A.2 (data minimization, PbD) · II.A.3 (DPIA, Art. 22, cross-border transfers) · II.A.4 (sensitive data inference)</div>
+  </div>
+</div>
+
+<!-- QUICK RECALL -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Recall</span><span class="sc-section-title">Quick Recall — Click to Reveal</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc"><div class="sc-fc-q">Under GDPR Art. 22, when does the right to human review of an AI decision apply? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">When the decision is based <em>solely</em> on automated processing AND produces legal or similarly significant effects on the individual.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What triggers a mandatory DPIA under GDPR for AI systems? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">Systematic profiling; automated processing with significant effects; large-scale special category data; novel technology with high residual risk. AI systems almost always meet at least one trigger.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What is the core tension between data minimization and AI/ML? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">GDPR Art. 5(1)(c) requires collecting only adequate, relevant, and necessary data — but ML model performance typically improves with more and richer data.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What does purpose limitation mean for repurposing data for AI training? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">Data originally collected for another purpose requires a compatibility assessment before reuse for AI training. An incompatible purpose requires a fresh lawful basis.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">Why can an organization not claim it avoids special category processing simply because it never collects health data directly? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">AI systems can infer sensitive attributes (health, religion, ethnicity) from non-sensitive inputs. The inference itself may constitute special category processing under GDPR Art. 9.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What distinguishes Privacy by Design from a privacy notice? <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">A privacy notice is a transparency obligation. PbD requires privacy embedded proactively in system architecture — technical measures built in from the start, not described after the fact.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">Name two AI-specific personal data breach types that would trigger the 72-hour GDPR notification obligation. <span class="sc-fc-icon">▾</span></div><div class="sc-fc-a">Model inversion attack (querying the model to reconstruct training data) and membership inference attack (determining whether a specific individual's data was in the training set).</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- IAPP RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Links</span><span class="sc-section-title">IAPP Resources</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank"><span class="sc-res-label">AIGP Body of Knowledge</span><span class="sc-res-desc">Official BOK — authoritative source for all PIs</span></a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank"><span class="sc-res-label">IAPP Exam Preparation</span><span class="sc-res-desc">Official prep resources and practice questions</span></a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script>
+</body></html>
