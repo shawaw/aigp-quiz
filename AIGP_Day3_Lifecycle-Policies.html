@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 3 · Lifecycle Policies</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#1a5c3a;--accent-light:#e8f5ee}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 3 · Week 1</span>
+    <span class="sc-meta">1 June 2026 · Domain I · ~30 min</span>
+  </div>
+  <h1 class="sc-title">I.C — Lifecycle Policies</h1>
+  <div class="sc-meta">Establish policies and procedures to apply throughout the AI life cycle · Exam weight: 6–8 questions</div>
+</div>
+
+<!-- BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Performance Indicators — I.C</span>
+  </div>
+  <div class="sc-section-body">
+    <ol class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">I.C.1</span> Create and implement policies to ensure oversight and accountability across all AI life cycle stages (e.g., use case assessment, risk management, ethics by design, data acquisition and use, model and system development, training and testing, deployment and monitoring, documentation and reporting, and incident management).</li>
+      <li class="sc-pi"><span class="sc-pi-code">I.C.2</span> Evaluate and update existing policies (e.g., data privacy, security, data governance and intellectual property) for AI.</li>
+      <li class="sc-pi"><span class="sc-pi-code">I.C.3</span> Create, update and implement policies, assessments and contracts to manage third-party risk (e.g., procurement, supply chain, human resources and acceptable use).</li>
+    </ol>
+  </div>
+</div>
+
+<!-- KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">CONCEPTS</span>
+    <span class="sc-section-title">Key Concepts</span>
+    <span class="sc-chevron">▶</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">AI Lifecycle Policy Coverage (I.C.1)</span></div>
+      <div class="sc-concept-body">
+        <p>Governance policies must span every stage of the AI lifecycle — not just deployment. The BOK specifies nine stages: use case assessment, risk management, ethics by design, data acquisition and use, model and system development, training and testing, deployment and monitoring, documentation and reporting, and incident management.</p>
+        <p class="sc-why">Why it matters: A policy gap at any single stage creates a governance blind spot. The exam tests whether you know lifecycle coverage is end-to-end, not deployment-only. A policy framework that skips the use-case gate or ignores incident management fails I.C.1.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key distinctions</div>
+          <div class="sc-def"><span class="sc-term">Ethics by design</span> — embedding fairness, safety and transparency requirements at the architecture stage, not post-hoc.</div>
+          <div class="sc-def"><span class="sc-term">Use case assessment</span> — the front-gate policy check before development begins: is this AI application appropriate, lawful, and aligned with organizational values?</div>
+          <div class="sc-def"><span class="sc-term">Incident management</span> — policies must define how AI-related harms, failures and near-misses are reported, investigated and remediated.</div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Adapting Existing Policies for AI (I.C.2)</span></div>
+      <div class="sc-concept-body">
+        <p>Existing organizational policies — data privacy, cybersecurity, data governance, intellectual property — were written before AI. They must be evaluated and updated to address AI-specific considerations: training data rights, model outputs as IP, re-identification risks from inference, adversarial attack vectors, and automated decision-making obligations.</p>
+        <p class="sc-why">Why it matters: The exam will present scenarios where an existing policy is applied to an AI context. You must identify whether it requires updating — not just whether it "applies." Assuming coverage without updating violates I.C.2.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Policy update triggers</div>
+          <div class="sc-def"><span class="sc-term">Data privacy → AI</span> — automated decision-making, purpose limitation for training data, re-identification risk from model outputs.</div>
+          <div class="sc-def"><span class="sc-term">IP policy → AI</span> — ownership of AI-generated outputs, rights to use third-party training data, open-source model licensing.</div>
+          <div class="sc-def"><span class="sc-term">Security policy → AI</span> — adversarial attack vectors: prompt injection, model inversion, data poisoning.</div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Third-Party AI Risk Governance (I.C.3)</span></div>
+      <div class="sc-concept-body">
+        <p>When AI involves third parties — vendors, cloud providers, data brokers, contractors — organizations must address risk through three instruments: policies (internal standards for vendor selection and engagement), assessments (diligence before and during relationships), and contracts (binding obligations on third parties).</p>
+        <p class="sc-why">Why it matters: The BOK scope covers four categories — procurement, supply chain, human resources, and acceptable use. Exam distractors often omit contractual obligations or limit scope to vendor procurement, ignoring HR (data labelers, contractors) and supply chain (upstream model providers).</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Third-party risk categories (BOK I.C.3)</div>
+          <div class="sc-def"><span class="sc-term">Procurement</span> — vendor AI capabilities, model provenance, training data rights; governed through selection policies and contract terms.</div>
+          <div class="sc-def"><span class="sc-term">Supply chain</span> — dependencies on upstream model providers and data suppliers; risks propagate downstream if not contractually addressed.</div>
+          <div class="sc-def"><span class="sc-term">Human resources</span> — contractors and gig workers used for data labeling, RLHF, red-teaming; must have acceptable use and confidentiality obligations.</div>
+          <div class="sc-def"><span class="sc-term">Acceptable use</span> — policy defining what employees and contractors may and may not do with AI tools provided by or to the organization.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">TABLE</span>
+    <span class="sc-section-title">Lifecycle Stage → Policy Requirement</span>
+    <span class="sc-chevron">▶</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead><tr><th>Lifecycle Stage (I.C.1)</th><th>Policy Must Address</th><th>Common Gap</th></tr></thead>
+        <tbody>
+          <tr><td>Use Case Assessment</td><td>Approval gate, ethical screen, risk classification</td><td>No formal gate — teams self-approve</td></tr>
+          <tr><td>Data Acquisition &amp; Use</td><td>Lawful basis, data quality, provenance, minimization</td><td>Training data rights assumed, not verified</td></tr>
+          <tr><td>Model Development</td><td>Architecture standards, ethics by design, documentation</td><td>Governance not involved until pre-launch</td></tr>
+          <tr><td>Training &amp; Testing</td><td>Bias testing, validation, performance thresholds</td><td>Testing only for accuracy, not fairness/safety</td></tr>
+          <tr><td>Deployment &amp; Monitoring</td><td>Rollout controls, drift detection, human oversight triggers</td><td>No post-deployment monitoring schedule</td></tr>
+          <tr><td>Incident Management</td><td>Reporting triggers, investigation, remediation, disclosure</td><td>AI incidents handled as IT incidents only</td></tr>
+          <tr><td>Third-Party (I.C.3)</td><td>Procurement assessment, contractual obligations, acceptable use</td><td>Contracts don't address AI-specific obligations</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">SCENARIO</span>
+    <span class="sc-section-title">Worked Scenario</span>
+    <span class="sc-chevron">▶</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block"><div class="sc-scenario-label">Situation</div><div class="sc-scenario-text">FinCo is deploying an AI-driven credit scoring model using a third-party data provider. The CISO flags that the existing data governance policy does not mention AI training data. Legal notes that the vendor contract has no clause about model retraining using FinCo customer data. The risk team wants to run a bias test but there is no testing policy in place.</div></div>
+    <div class="sc-scenario-block"><div class="sc-scenario-label">Role</div><div class="sc-scenario-text">You are the AI Governance lead. Identify which I.C obligations are unmet and recommend the remediation path before deployment proceeds.</div></div>
+    <div class="sc-scenario-block"><div class="sc-scenario-label">Analysis</div><div class="sc-scenario-text">Three I.C obligations are unmet. First, the existing data governance policy has not been updated for AI — violating I.C.2, which requires evaluating and updating existing policies for AI contexts. Second, there is no testing policy covering bias — violating I.C.1, which requires policies across training and testing stages and ethics by design. Third, the vendor contract does not address data use for model retraining — violating I.C.3, which requires contracts to manage third-party risk including procurement and supply chain.<br><br><span class="sc-pi-ref">I.C.1 — Create and implement policies to ensure oversight and accountability across all AI life cycle stages.</span><br><span class="sc-pi-ref">I.C.2 — Evaluate and update existing policies (e.g., data privacy, security, data governance and intellectual property) for AI.</span><br><span class="sc-pi-ref">I.C.3 — Create, update and implement policies, assessments and contracts to manage third-party risk (e.g., procurement, supply chain, human resources and acceptable use).</span></div></div>
+    <div class="sc-scenario-block"><div class="sc-scenario-label">Outcome</div><div class="sc-scenario-text">Deployment is paused. The data governance policy is updated to cover training data sourcing, quality standards, and purpose limitation. The vendor contract is amended to restrict customer data use to agreed purposes only and to include audit rights. A bias testing procedure is added to the AI development policy. The use case gate is formally documented. Deployment resumes with a monitoring schedule and incident management triggers defined.</div></div>
+  </div>
+</div>
+
+<!-- QUICK RECALL FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">RECALL</span>
+    <span class="sc-section-title">Quick Recall Flashcards</span>
+    <span class="sc-chevron">▶</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc"><div class="sc-fc-q">Name the nine AI lifecycle stages that I.C.1 requires policy coverage for. <span class="sc-fc-icon">▶</span></div><div class="sc-fc-a">Use case assessment · Risk management · Ethics by design · Data acquisition and use · Model and system development · Training and testing · Deployment and monitoring · Documentation and reporting · Incident management.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What does I.C.2 require you to do when AI is introduced to an organization that already has a data privacy policy? <span class="sc-fc-icon">▶</span></div><div class="sc-fc-a">Evaluate and update the existing policy for AI — not apply it unchanged. AI introduces new scenarios (training data rights, automated decisions, model-output re-identification) that a pre-AI policy does not address.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What three instruments must a third-party AI risk program deploy under I.C.3? <span class="sc-fc-icon">▶</span></div><div class="sc-fc-a">Policies · Assessments · Contracts.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">Name the four third-party risk categories in I.C.3. <span class="sc-fc-icon">▶</span></div><div class="sc-fc-a">Procurement · Supply chain · Human resources · Acceptable use.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">A company uses freelance data annotators for RLHF. Which I.C.3 category governs this relationship? <span class="sc-fc-icon">▶</span></div><div class="sc-fc-a">Human resources risk — contractors must be bound by acceptable use and confidentiality obligations in contracts.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">What does "ethics by design" mean in the context of I.C.1? <span class="sc-fc-icon">▶</span></div><div class="sc-fc-a">Embedding ethical requirements (fairness, safety, transparency) at the model and system design stage — not applying them retrospectively after development.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q">Which I.C PI is violated if an organization has AI deployment policies but no policy for what happens when the AI causes harm post-deployment? <span class="sc-fc-icon">▶</span></div><div class="sc-fc-a">I.C.1 — incident management is one of the nine required lifecycle stages for policy coverage.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- IAPP RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">LINKS</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">▶</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank"><span class="sc-res-label">AIGP Body of Knowledge</span><span class="sc-res-desc">Official BOK — authoritative source for all PIs</span></a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank"><span class="sc-res-label">Exam Preparation</span><span class="sc-res-desc">IAPP study resources and preparation guidance</span></a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank"><span class="sc-res-label">AIGP Study Guide</span><span class="sc-res-desc">Request the official IAPP study guide</span></a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank"><span class="sc-res-label">Certification Handbook</span><span class="sc-res-desc">Exam policies, scoring, and candidate handbook</span></a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>
