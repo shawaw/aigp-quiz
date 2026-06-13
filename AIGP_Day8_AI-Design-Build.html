@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 8 · AI Design &amp; Build</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a4a00;--accent-light:#fdf3de}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- 1. HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 8 · Week 2</span>
+    <span class="sc-meta">13 June 2026 &nbsp;|&nbsp; Domain III &nbsp;|&nbsp; Competency III.A &nbsp;|&nbsp; Exam weight: 6–8 Qs &nbsp;|&nbsp; ~35 min read</span>
+  </div>
+  <div class="sc-title">AI Design &amp; Build — Governing the Designing and Building of the AI System</div>
+</div>
+
+<!-- 2. BOK PERFORMANCE INDICATORS (always-open) -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">III.A Performance Indicators</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <ul class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">III.A.1</span> Define the business context and use case of the AI system.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.A.2</span> Perform or review an impact assessment on the AI system.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.A.3</span> Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.A.4</span> Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.A.5</span> Document the designing and building process (e.g., to establish compliance and manage risks).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3. KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Key Concepts — click to expand</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.A.1 — Business Context &amp; Use Case Definition</span></div>
+      <div class="sc-concept-body">
+        <p>Before any technical work begins, governance requires a clear articulation of <strong>why</strong> the system is being built and <strong>what</strong> it will do. This includes: the specific operational problem, the intended users, the target population, the expected outcomes, regulatory constraints, and success metrics.</p>
+        <div class="sc-why"><strong>Why it matters for the exam:</strong> The BOK treats use-case definition as a prerequisite gate — without it, impact assessment, architecture selection, and risk management lack a reference point. Exam scenarios will test whether you can distinguish this from an impact assessment (III.A.2) or documentation (III.A.5).</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Business context</span> — the organisational, operational, and regulatory environment in which the AI system will function.</div>
+          <div class="sc-def"><span class="sc-term">Use case</span> — the specific task the AI system is designed to perform, including the decision or prediction it will make and for whom.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.A.2 — Impact Assessment</span></div>
+      <div class="sc-concept-body">
+        <p>An impact assessment evaluates potential harms to individuals, groups, and society before the system is built. It examines fairness, privacy, safety, and rights implications. The BOK obligation is to <em>perform or review</em> — governance teams may commission third-party assessments but retain accountability for reviewing findings and acting on them.</p>
+        <div class="sc-why"><strong>Why it matters for the exam:</strong> The exam tests timing (design phase, not just deployment) and ownership (the governance team cannot simply accept an assessment; it must review it). Link to III.A.4: the impact assessment feeds the risk register.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Impact assessment</span> — a structured evaluation of potential adverse effects of an AI system on individuals, groups, organisations, and society.</div>
+          <div class="sc-def"><span class="sc-term">Residual risk</span> — risk remaining after mitigations are applied; must be accepted by an accountable owner.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.A.3 — Design &amp; Build Governance</span></div>
+      <div class="sc-concept-body">
+        <p>This is the broadest PI. It requires applying policies and ethical considerations across six design-phase activities:</p>
+        <p><strong>Purpose of AI</strong> — the stated reason for the system must be documented and govern design choices. <strong>Requirements gathering</strong> — functional, ethical, and regulatory requirements captured before architecture is fixed. <strong>Architecture and model selection</strong> — choice of model type, opacity, and deployment mode must be justified against governance requirements. <strong>Human oversight</strong> — the design must specify where and how humans intervene. <strong>Metric and threshold evaluation</strong> — performance thresholds trigger autonomous action or human escalation. <strong>Operational controls</strong> — access controls, rate limits, fallback procedures.</p>
+        <div class="sc-why"><strong>Why it matters for the exam:</strong> Scenarios will present one specific design activity and ask which III.A obligation it satisfies. Know the six sub-elements listed in the PI parenthetical. Stakeholder engagement and feedback is also listed here — not in III.A.4 (which covers stakeholder <em>mapping for risk</em>).</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Human oversight</span> — a design requirement specifying human review, approval, or override at defined decision points.</div>
+          <div class="sc-def"><span class="sc-term">Operational controls</span> — access policies, rate limits, fallback procedures, and consent mechanisms built into the system design.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.A.4 — Risk Identification &amp; Management</span></div>
+      <div class="sc-concept-body">
+        <p>The governance team must actively identify both internal risks (model limitations, data quality) and external risks (regulatory exposure, third-party dependencies) during design and build. The BOK names five specific tools:</p>
+        <p><strong>Probability/severity harms matrix</strong> — plots each risk on likelihood × severity axes to prioritise mitigations. <strong>Risk mitigation hierarchy</strong> — structured decision sequence: eliminate → reduce via engineering → manage via safeguards. <strong>Stakeholder mapping</strong> — identifies all affected parties and their interests/exposure. <strong>Use-case evaluation</strong> — tests whether the system's purpose remains valid as design evolves. <strong>Benchmarking and pre-deployment pilots</strong> — real-world testing before full rollout.</p>
+        <div class="sc-why"><strong>Why it matters for the exam:</strong> The exam will ask you to match a described activity to the correct tool. Stakeholder <em>mapping</em> here is risk-focused; stakeholder <em>engagement</em> in III.A.3 is design-feedback focused. Do not conflate them.</div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.A.5 — Documentation</span></div>
+      <div class="sc-concept-body">
+        <p>The entire design and build process must be documented contemporaneously — not reconstructed after the fact. Documentation purposes: (1) establish compliance evidence for regulators; (2) create a risk management baseline; (3) enable audit and incident investigation; (4) support future maintenance decisions.</p>
+        <div class="sc-why"><strong>Why it matters for the exam:</strong> Scenarios will describe a governance team producing records of design decisions, risk findings, or approvals. Map these to III.A.5. Note that III.A.5 covers design-phase documentation; III.B.5 covers training/testing documentation — keep them separate.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Design log</span> — contemporaneous record of key decisions, justifications, changes, risk findings, and approvals during design and build.</div>
+          <div class="sc-def"><span class="sc-term">Audit trail</span> — structured documentation enabling reconstruction of governance decisions for regulatory or legal review.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 4. COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Table</span>
+    <span class="sc-section-title">III.A.4 Risk Tools — Side-by-Side</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead>
+          <tr><th>Tool</th><th>What it produces</th><th>When used</th><th>Exam signal phrase</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Probability/Severity Harms Matrix</td>
+            <td>Prioritised risk register by likelihood × impact</td>
+            <td>Early design phase, after impact assessment</td>
+            <td>"plots risks on two axes", "prioritise mitigations"</td>
+          </tr>
+          <tr>
+            <td>Risk Mitigation Hierarchy</td>
+            <td>Ordered decision sequence: eliminate → reduce → safeguard</td>
+            <td>After risks are identified and prioritised</td>
+            <td>"first consider eliminating", "structured response sequence"</td>
+          </tr>
+          <tr>
+            <td>Stakeholder Mapping</td>
+            <td>Register of affected parties, interests, influence, and exposure</td>
+            <td>Early design, before finalising requirements</td>
+            <td>"identify all parties affected", "record interests and exposure"</td>
+          </tr>
+          <tr>
+            <td>Use-Case Evaluation</td>
+            <td>Confirmed or revised use-case scope as design evolves</td>
+            <td>Ongoing during design and build</td>
+            <td>"confirm purpose remains valid", "re-examine scope"</td>
+          </tr>
+          <tr>
+            <td>Benchmarking / Pre-deployment Pilot</td>
+            <td>Real-world performance data before full rollout</td>
+            <td>Late design/build, before production release</td>
+            <td>"controlled subset", "30-day trial", "operational benchmarks"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 5. WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Worked Scenario — AI Hiring Screening Tool</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Situation</span>
+      <span class="sc-scenario-text">TalentCo is building an AI screening tool that will score job applicants based on résumé text and video interview analysis. The governance lead is brought in at the start of the project.</span>
+    </div>
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Role</span>
+      <span class="sc-scenario-text">You are the AI governance lead. You must apply III.A obligations before any model development begins.</span>
+    </div>
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Analysis</span>
+      <span class="sc-scenario-text">
+        Step 1 — Use-case definition (III.A.1): Document that the system will score candidates for shortlisting, the users are HR managers, and the target population is all external applicants. Record applicable nondiscrimination and employment law constraints.<br><br>
+        Step 2 — Impact assessment (III.A.2): Conduct an assessment identifying risks of demographic bias in both the résumé model and the video-emotion analysis feature. Document severity (high) and likelihood (medium-high based on published research) for each risk.<br><br>
+        Step 3 — Design governance (III.A.3): Require human oversight — no candidate may be rejected solely by the AI; a qualified HR reviewer must confirm any rejection. Exclude emotion recognition from the architecture (model selection decision grounded in ethical considerations). Establish precision/recall thresholds that trigger escalation.<br><br>
+        Step 4 — Risk management (III.A.4): Plot remaining risks on a probability/severity matrix. Apply risk mitigation hierarchy: the emotion recognition risk is eliminated by excluding the feature; demographic bias risk is reduced via adversarial debiasing in training. Conduct a pre-deployment pilot with 500 historical applications and audit for disparate impact.<br><br>
+        Step 5 — Documentation (III.A.5): Record all design decisions, impact assessment findings, mitigations applied, pilot results, and approvals in the design log.
+      </span>
+    </div>
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Outcome</span>
+      <span class="sc-scenario-text">The tool launches with human-in-the-loop controls, documented design governance, and a compliant audit trail — satisfying all five III.A PIs.</span>
+    </div>
+    <span class="sc-pi-ref">BOK refs: III.A.1 — Define the business context and use case. &nbsp;|&nbsp; III.A.2 — Perform or review an impact assessment. &nbsp;|&nbsp; III.A.3 — Apply policies and ethical considerations (architecture, human oversight, model selection). &nbsp;|&nbsp; III.A.4 — Probability/severity matrix, risk mitigation hierarchy, pre-deployment pilot. &nbsp;|&nbsp; III.A.5 — Document the designing and building process.</span>
+  </div>
+</div>
+
+<!-- 6. QUICK RECALL FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall — click question to reveal answer</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> Which III.A PI requires documenting the problem being solved, intended users, and regulatory constraints before design begins?</div>
+        <div class="sc-fc-a">III.A.1 — Define the business context and use case of the AI system.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> A governance team commissions a third-party impact assessment. Is their obligation under III.A.2 satisfied by receiving the document?</div>
+        <div class="sc-fc-a">No. III.A.2 requires the team to <em>perform or review</em> the assessment — passive receipt is not enough. They must evaluate findings, mitigations, and residual risks.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> Name the six sub-elements of the III.A.3 parenthetical that the exam tests.</div>
+        <div class="sc-fc-a">Purpose of AI; requirements gathering; architecture and model selection; human oversight; metric and threshold evaluation (data analysis); stakeholder engagement and feedback; operational controls.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> What distinguishes stakeholder mapping (III.A.4) from stakeholder engagement (III.A.3)?</div>
+        <div class="sc-fc-a">Stakeholder <em>mapping</em> is a risk tool — it identifies who is affected and their exposure to harm. Stakeholder <em>engagement and feedback</em> is a design governance activity — it solicits input on design decisions.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> A team evaluates responses to a risk in this order: can we eliminate it; if not, reduce it; if not, manage it with safeguards. Which III.A.4 tool is this?</div>
+        <div class="sc-fc-a">Risk mitigation hierarchy.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> What are the two purposes of documentation under III.A.5?</div>
+        <div class="sc-fc-a">To establish compliance (provide evidence for regulators and auditors) and to manage risks (create a baseline for ongoing risk management and incident investigation).</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">?</span> Which III.A PI covers specifying performance thresholds that trigger human escalation?</div>
+        <div class="sc-fc-a">III.A.3 — metric and threshold evaluation is listed in the parenthetical of PI 3.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 7. IAPP RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Links</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank">
+        <span class="sc-res-label">AIGP Body of Knowledge</span>
+        <span class="sc-res-desc">Official BOK — authoritative source for all PIs</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank">
+        <span class="sc-res-label">AIGP Exam Preparation</span>
+        <span class="sc-res-desc">Study resources and preparation guidance from IAPP</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank">
+        <span class="sc-res-label">AIGP Study Guide Request</span>
+        <span class="sc-res-desc">Official IAPP study guide download</span>
+      </a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank">
+        <span class="sc-res-label">IAPP Certification Handbook</span>
+        <span class="sc-res-desc">Exam rules, policies, and domain weighting</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script>
+</body></html>
