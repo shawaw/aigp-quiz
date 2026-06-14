@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 10 · Data Governance &amp; Training</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a4a00;--accent-light:#fdf3de}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 10 · Week 2</span>
+    <span class="sc-meta">Domain III · Competency III.B · 6–8 exam questions · ~30 min</span>
+  </div>
+  <h1 class="sc-title">Data Governance &amp; Training</h1>
+  <div class="sc-meta">Govern the collection and use of data in training and testing the AI model and system</div>
+</div>
+
+<!-- BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Performance Indicators — III.B</span>
+  </div>
+  <div class="sc-section-body">
+    <ol class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">III.B.1</span> Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.B.2</span> Establish and document data lineage and provenance.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.B.3</span> Plan and perform training and testing of the AI model and system (e.g., unit, integration, validation, performance, security, bias and interpretability).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.B.4</span> Identify and manage issues and risks during training and testing of the AI model and system.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.B.5</span> Document the training and testing process (e.g., to validate results, establish compliance and manage risks).</li>
+    </ol>
+  </div>
+</div>
+
+<!-- KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Key Concepts</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Data Governance Requirements (III.B.1)</span></div>
+      <div class="sc-concept-body">
+        <p>Before any data enters a training pipeline, the AI governance team must establish and follow requirements covering two distinct dimensions: <strong>legal rights</strong> and <strong>data quality</strong>.</p>
+        <p class="sc-why">Exam trap: Questions test whether you can distinguish a data quality problem from a legal rights problem — they require different governance responses. High-quality data with no lawful basis cannot be used; lawfully acquired data that is low-quality should not be used.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Lawful rights to collect</span> — having a legal basis (licence, consent, legitimate interest, etc.) to acquire and use data for the specific AI purpose. Purpose-specific: rights for one use do not transfer to another.</div>
+          <div class="sc-def"><span class="sc-term">Data quality</span> — accuracy, completeness, and consistency of the dataset.</div>
+          <div class="sc-def"><span class="sc-term">Fit-for-purpose</span> — the dataset is appropriate for the intended model task. A high-quality dataset for one use case may be unfit for another.</div>
+          <div class="sc-def"><span class="sc-term">Data quantity</span> — sufficient volume to train a statistically valid model without overfitting or underfitting.</div>
+          <div class="sc-def"><span class="sc-term">Integrity</span> — data has not been corrupted, altered, or tampered with during storage or transfer.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Data Lineage &amp; Provenance (III.B.2)</span></div>
+      <div class="sc-concept-body">
+        <p>Data lineage tracks <em>how</em> data moved through the pipeline — where it was collected, what transformations were applied, and who had access. Provenance answers <em>where did this data originate</em> and who owned it.</p>
+        <p class="sc-why">Both are prerequisites for audit and compliance. If a model is later challenged for bias or copyright infringement, lineage records are the forensic trail. No lineage = no root cause analysis.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Lineage</span> — end-to-end documentation of data movement, transformations, and processing steps through the pipeline.</div>
+          <div class="sc-def"><span class="sc-term">Provenance</span> — the origin and ownership history of a dataset, including any licences or rights attached at source.</div>
+          <div class="sc-def"><span class="sc-term">Chain of custody</span> — who handled the data at each stage; critical for IP claims and privacy law compliance.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Training &amp; Testing Types (III.B.3)</span></div>
+      <div class="sc-concept-body">
+        <p>The BOK enumerates seven distinct testing types. Each targets a different failure mode. Governance requires all relevant types to be planned and performed — not just performance testing.</p>
+        <p class="sc-why">High-value exam questions describe a scenario where one test type is missing and ask which governance gap this represents. Know precisely what each type catches.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Seven BOK-enumerated testing types</div>
+          <div class="sc-def"><span class="sc-term">Unit</span> — validates individual model components or functions in isolation.</div>
+          <div class="sc-def"><span class="sc-term">Integration</span> — verifies components work correctly when assembled into the full system.</div>
+          <div class="sc-def"><span class="sc-term">Validation</span> — confirms the model solves the intended business problem (are we building the right thing?).</div>
+          <div class="sc-def"><span class="sc-term">Performance</span> — measures accuracy, precision, recall, latency, and throughput under load.</div>
+          <div class="sc-def"><span class="sc-term">Security</span> — probes for adversarial vulnerabilities, data poisoning, model inversion, and prompt injection.</div>
+          <div class="sc-def"><span class="sc-term">Bias</span> — detects differential performance across demographic or protected groups.</div>
+          <div class="sc-def"><span class="sc-term">Interpretability</span> — assesses whether model decisions can be explained to regulators, users, or auditors.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Risks During Training &amp; Testing (III.B.4)</span></div>
+      <div class="sc-concept-body">
+        <p>Risk management during the training and testing phase is distinct from deployment risk. Issues identified here are cheaper to fix than post-deployment — and they propagate into the deployed model if missed.</p>
+        <p class="sc-why">Exam questions test whether you can classify which risk category a training-phase incident falls into and identify the correct governance response. Category matters because different risks require different mitigations.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key risk categories</div>
+          <div class="sc-def"><span class="sc-term">Data quality risk</span> — corrupt, incomplete, or mislabelled training data producing unreliable model outputs.</div>
+          <div class="sc-def"><span class="sc-term">Bias risk</span> — underrepresentation of subgroups in training data causing differential model performance across groups.</div>
+          <div class="sc-def"><span class="sc-term">Data leakage</span> — test set information bleeding into training, producing falsely optimistic performance metrics.</div>
+          <div class="sc-def"><span class="sc-term">Overfitting</span> — model memorises training data and fails to generalise, discovered during validation testing.</div>
+          <div class="sc-def"><span class="sc-term">Model/data drift</span> — real-world data distribution shifts away from the training distribution post-deployment, causing degradation.</div>
+          <div class="sc-def"><span class="sc-term">Poisoning attacks</span> — adversarial manipulation of training data to embed backdoors or introduce targeted bias.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Documenting Training &amp; Testing (III.B.5)</span></div>
+      <div class="sc-concept-body">
+        <p>Documentation at this stage serves three explicit BOK purposes: <strong>validate results</strong>, <strong>establish compliance</strong>, and <strong>manage risks</strong>. Under the EU AI Act, technical documentation covering training data, testing methodology, and performance metrics is a compliance requirement independent of model performance.</p>
+        <p class="sc-why">A model can pass all tests and still be non-compliant if documentation is absent or insufficient. The documentation obligation applies equally to automated ML pipelines — there is no automation exemption.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key documentation artefacts</div>
+          <div class="sc-def"><span class="sc-term">Model card</span> — standardised document covering model purpose, training data, evaluation results, limitations, and intended use.</div>
+          <div class="sc-def"><span class="sc-term">Datasheet for datasets</span> — documents dataset composition, collection process, labelling methodology, and known limitations.</div>
+          <div class="sc-def"><span class="sc-term">Testing log</span> — records each test run: hyperparameters, metrics achieved, pass/fail criteria, and tester identity.</div>
+          <div class="sc-def"><span class="sc-term">Bias audit report</span> — formal record of fairness evaluation methods, subgroup performance breakdown, and any remediation steps taken.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Table</span>
+    <span class="sc-section-title">Testing Types vs. Governance Purpose</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead>
+          <tr><th>Test Type</th><th>Primary Question Answered</th><th>Governance Risk Caught</th><th>BOK PI</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Unit</td><td>Does this component work alone?</td><td>Component defects before integration</td><td>III.B.3</td></tr>
+          <tr><td>Integration</td><td>Do all components work together?</td><td>Interface failures and pipeline errors</td><td>III.B.3</td></tr>
+          <tr><td>Validation</td><td>Are we building the right model?</td><td>Misalignment with intended use case</td><td>III.B.3</td></tr>
+          <tr><td>Performance</td><td>How accurate and fast is it?</td><td>Insufficient accuracy for the risk level</td><td>III.B.3, III.B.4</td></tr>
+          <tr><td>Security</td><td>Can it be attacked or manipulated?</td><td>Adversarial inputs, poisoning, inversion</td><td>III.B.3, III.B.4</td></tr>
+          <tr><td>Bias</td><td>Does it treat all groups fairly?</td><td>Discriminatory outputs, regulatory liability</td><td>III.B.3, III.B.4</td></tr>
+          <tr><td>Interpretability</td><td>Can decisions be explained?</td><td>Non-compliance with explainability obligations</td><td>III.B.3, III.B.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Worked Scenario</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">A financial services firm is building a credit-scoring model using three years of historical loan data sourced from an acquired subsidiary. The data science team has completed performance testing (AUC-ROC: 0.87) and is ready to deploy. The AI governance officer flags two issues: (1) the subsidiary's data was collected under a privacy policy that predated the acquisition and did not contemplate AI scoring use; (2) no bias testing has been performed across protected demographic groups.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Role</div>
+      <div class="sc-scenario-text">You are the AI governance officer advising the model development team on what must be resolved before deployment can proceed.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Analysis</div>
+      <div class="sc-scenario-text">Issue 1 is a data governance failure under <span class="sc-pi-ref">III.B.1</span> — the firm has not established lawful rights to use this data for AI credit scoring. The original consent did not cover this purpose, creating both a privacy law violation (purpose limitation under II.A.1) and potential contractual risk. Data lineage documentation under <span class="sc-pi-ref">III.B.2</span> would have surfaced this earlier by recording the provenance and licensing terms of the acquired dataset. Issue 2 is a testing gap under <span class="sc-pi-ref">III.B.3</span> — bias testing is explicitly required. Under nondiscrimination law (II.B.2), a credit-scoring model with disparate impact carries significant regulatory liability. Risk management under <span class="sc-pi-ref">III.B.4</span> requires identifying this as a pre-deployment risk, not a post-deployment discovery.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Outcome</div>
+      <div class="sc-scenario-text">Deployment is halted. The team must: (1) obtain a legal opinion on whether the acquired data can be used for this purpose, and re-consent or exclude data where rights are unclear (III.B.1); (2) document data provenance as part of the lineage record (III.B.2); (3) conduct bias testing across protected attributes and document all findings (III.B.3, III.B.5). The corrected documentation becomes part of the compliance record required by technical documentation obligations under II.C.2.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall — Click to Reveal</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+
+      <div class="sc-fc">
+        <div class="sc-fc-q">What two dimensions must III.B.1 data governance requirements address? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Lawful rights to collect and use data AND data quality, quantity, integrity, and fit-for-purpose assessment.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the difference between data lineage and data provenance? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Provenance = where data originated and its ownership history. Lineage = how data moved and was transformed throughout the pipeline. Provenance is about origin; lineage is about journey.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q">Name all seven testing types listed in III.B.3 in order. <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Unit, integration, validation, performance, security, bias, interpretability. Mnemonic: "Uncle Ivan Validates Performance — Security, Bias, Interpretability."</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is data leakage and why is it a III.B.4 training-phase risk? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Test set information bleeds into training or feature engineering, producing falsely optimistic performance metrics. A flawed model appears to meet thresholds — the governance failure is undetected until deployment.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q">What three purposes does III.B.5 documentation explicitly serve? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Validate results, establish compliance, and manage risks.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q">Which testing type under III.B.3 addresses whether model decisions can be explained to a regulator? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Interpretability testing.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q">Does III.B.5 documentation apply to automated ML pipelines that self-select models? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Yes. There is no automation exemption. The obligation to document the training and testing process applies regardless of whether the process is human-led or automated.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- IAPP RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Links</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank">
+        <span class="sc-res-label">AIGP Body of Knowledge</span>
+        <span class="sc-res-desc">Official BOK page — competency framework and updates</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank">
+        <span class="sc-res-label">Exam Preparation</span>
+        <span class="sc-res-desc">IAPP official preparation resources and study guides</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank">
+        <span class="sc-res-label">AIGP Study Guide</span>
+        <span class="sc-res-desc">Request the official IAPP AIGP study guide</span>
+      </a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank">
+        <span class="sc-res-label">Certification Handbook</span>
+        <span class="sc-res-desc">Exam format, scoring, policies and candidate guidance</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>
