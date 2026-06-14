@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 10 · Data Governance &amp; Training</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day: 10, week: 2, comp: "III.B", topic: "Data Governance & Training",
+  filename: "AIGP_Day10_Data-Governance-Training_Quiz.html",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DIII-IIIB-001", comp: "III.B", isRetrieval: false,
+      stem: "An AI governance officer reviewing a third-party dataset for an HR recommendation model finds that individuals consented to data use for 'marketing analytics' only. The model will use the same data to score candidates for hiring. Which action is most consistent with III.B.1?",
+      options: {
+        A: "Proceed with training since the data was lawfully collected by the original party and any commercial purpose is covered by a general business consent.",
+        B: "Pause training and obtain a legal assessment on whether using the data for HR scoring falls within the scope of the original marketing consent.",
+        C: "Anonymise the dataset before training, which resolves any purpose limitation concerns and satisfies the lawful use requirement under data governance.",
+        D: "Conduct bias testing first to confirm fairness across applicant groups, then proceed with training once the model meets performance thresholds."
+      },
+      correct: "B",
+      explanation: "III.B.1 requires assessing and documenting lawful rights to use data for the specific AI purpose. Consent for 'marketing analytics' is purpose-specific; using the same data for HR scoring requires a separate lawful basis or fresh consent. Option A is wrong because lawfulness of the original collection does not confer rights for a different purpose — consent is purpose-limited under privacy law. Option C is wrong because anonymisation addresses privacy risk but does not resolve the absence of a lawful basis for this new use. Option D is wrong because bias testing (III.B.3 Plan and perform training and testing) addresses fairness, not the threshold legal question of whether the data can be used at all.",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose)."
+    },
+    {
+      id: "DIII-IIIB-002", comp: "III.B", isRetrieval: false,
+      stem: "A financial regulator requests documentation showing the origin of a model's training data, all transformations applied before training began, and the identity of each party who handled the data. Which III.B competency most directly governs the team's ability to produce this evidence?",
+      options: {
+        A: "Establishing and documenting data lineage and provenance, which tracks the full origin, handling, and transformation history of the dataset used for training.",
+        B: "Assessing data quality and fit-for-purpose to verify the dataset was appropriate for the model's intended use and met minimum quality thresholds.",
+        C: "Documenting the training and testing process to validate results and establish compliance records for regulatory submission requirements.",
+        D: "Planning integration testing to confirm that data pipelines transmitted the dataset between systems without corruption or data loss events."
+      },
+      correct: "A",
+      explanation: "III.B.2 specifically requires establishing and documenting data lineage (how data moved and was transformed) and provenance (origin and ownership). The regulator's three questions map directly to these constructs. Option B is wrong because data quality assessment (III.B.1 Establish and follow the requirements for data governance) answers whether the data was good, not where it came from or who handled it. Option C is wrong because training process documentation (III.B.5 Document the training and testing process) covers testing logs and results, not pre-training data custody. Option D is wrong because integration testing (III.B.3 Plan and perform training and testing) verifies system component interaction, not data chain documentation.",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance."
+    },
+    {
+      id: "DIII-IIIB-003", comp: "III.B", isRetrieval: false,
+      stem: "A governance officer reviewing a healthcare AI model that achieved 94% overall accuracy in performance testing argues that additional testing is required before deployment. Which specific testing gap most directly violates III.B.3?",
+      options: {
+        A: "The model has not undergone unit testing to verify that individual model components function correctly when evaluated in isolation from the full system.",
+        B: "The team has not conducted integration testing to confirm the model interfaces correctly with hospital information systems and patient record databases.",
+        C: "The team has not conducted bias testing to detect whether the model performs differently across patient demographic or protected characteristic groups.",
+        D: "The model has not undergone security testing to identify vulnerabilities to adversarial inputs, data poisoning, or model inversion attack methods."
+      },
+      correct: "C",
+      explanation: "III.B.3 explicitly requires bias testing as part of the training and testing plan. In a healthcare context, differential performance across demographic groups constitutes both a patient safety risk and a nondiscrimination law risk under II.B.2 (Understand how nondiscrimination laws apply to AI). High overall accuracy can mask significant underperformance for minority subgroups. Option A (unit testing) addresses component-level correctness, not demographic fairness. Option B (integration testing) verifies system interfaces, not disparate impact. Option D (security testing) addresses adversarial attack resilience — also critical, but the scenario's most salient governance gap given the healthcare demographic context is the absence of bias testing.",
+      bokRef: "III.B.3 — Plan and perform training and testing of the AI model and system (e.g., unit, integration, validation, performance, security, bias and interpretability)."
+    },
+    {
+      id: "DIII-IIIB-004", comp: "III.B", isRetrieval: false,
+      stem: "During testing of a fraud detection model, performance metrics on the test set are significantly higher than on the held-out validation set. The data scientist suspects test set samples were used during feature selection. What risk category does this represent under III.B.4?",
+      options: {
+        A: "Overfitting risk, where the model memorised the training distribution and cannot generalise to novel fraud patterns it has never encountered before.",
+        B: "Bias risk, where the test set over-represents certain fraud types, skewing aggregate performance metrics and masking demographic disparities.",
+        C: "Data quality risk, where inconsistencies between the test and validation datasets indicate corrupt or mislabelled records in the test data partition.",
+        D: "Data leakage risk, where test set information contaminated the feature engineering process and produced falsely optimistic performance metrics on evaluation."
+      },
+      correct: "D",
+      explanation: "III.B.4 requires identifying and managing risks during training and testing. The scenario describes data leakage — test set information bled into the feature engineering step, inflating test metrics beyond what the model can achieve on genuinely unseen data. Option A (overfitting) occurs when a model memorises training data without test contamination; overfitting appears as a gap between training accuracy and validation accuracy, not between test and validation accuracy. Option B (bias risk under III.B.4) involves differential performance across demographic groups, not artificially inflated aggregate metrics. Option C (data quality risk under III.B.4) involves corruption or labelling errors, not cross-partition contamination from test into training.",
+      bokRef: "III.B.4 — Identify and manage issues and risks during training and testing of the AI model and system."
+    },
+    {
+      id: "DIII-IIIB-005", comp: "III.B", isRetrieval: false,
+      stem: "An AI team wishes to augment its training dataset with publicly available images scraped from retail websites. Legal counsel has not confirmed whether the terms of service permit use of this data for AI model training. Which action is most consistent with III.B.1?",
+      options: {
+        A: "Pause dataset augmentation until legal counsel confirms lawful rights exist to use the scraped images specifically for AI model training purposes.",
+        B: "Proceed with training since public availability of the images establishes that no IP rights restrict their commercial use for AI training pipelines.",
+        C: "Remove personally identifiable information from the scraped images before training to resolve any legal concerns about the use of this data.",
+        D: "Limit augmented data to images where machine-readable robots.txt files do not restrict crawling, which establishes an adequate lawful basis for training."
+      },
+      correct: "A",
+      explanation: "III.B.1 requires assessing and documenting lawful rights before data enters the training pipeline. Public availability does not establish a right to use data for AI training — terms of service, copyright, and database rights may independently restrict this use. Option B is wrong because publicly accessible does not mean legally available for AI training; court decisions and IP law apply regardless of public availability. Option C is wrong because removing PII addresses only privacy law exposure, not the underlying question of whether IP rights or contractual terms permit this use. Option D is wrong because robots.txt is a technical access convention, not a legal licence — compliance with it does not establish a lawful basis under IP or contract law.",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose)."
+    },
+    {
+      id: "DIII-IIIB-006", comp: "III.B", isRetrieval: false,
+      stem: "An AI governance audit reveals a production model was trained on data from a subsidiary divested three years prior. The team cannot determine whether data rights transferred during the divestiture. Which practice would most directly have prevented this failure under III.B.2?",
+      options: {
+        A: "Conducting bias testing during training to detect performance disparities attributable to the divested subsidiary's distinctive customer base characteristics.",
+        B: "Implementing data minimisation practices to ensure only minimum necessary data from each source was included in the training set before use.",
+        C: "Documenting data provenance and lineage at time of acquisition, including ownership status and rights associated with each identified data source.",
+        D: "Performing data quality assessments to evaluate the integrity and fit-for-purpose of each data source before incorporating it into the training pipeline."
+      },
+      correct: "C",
+      explanation: "III.B.2 requires establishing and documenting data lineage and provenance — including origin, ownership, and rights attached to each dataset. Had provenance been documented at acquisition, the team would have a record of whether data rights were retained through the divestiture. Option A (bias testing, III.B.3 Plan and perform training and testing) addresses fairness, not data rights or chain of custody. Option B (data minimisation) is a privacy principle under II.A.2 (Understand how data minimization and privacy by design requirements apply to AI) that limits data volume, but does not document ownership or rights. Option D (data quality assessment under III.B.1) addresses whether data is accurate and fit for purpose, not who owns it.",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance."
+    },
+    {
+      id: "DIII-IIIB-007", comp: "III.B", isRetrieval: false,
+      stem: "An AI governance officer notes that an insurance pricing model produces significantly different premiums for customers with near-identical risk profiles, with no clear explanation for the variation. Which testing type under III.B.3 most directly addresses this concern?",
+      options: {
+        A: "Bias testing, which evaluates whether the model produces systematically different outputs across legally protected demographic groups such as age or gender.",
+        B: "Interpretability testing, which assesses whether the model's decision logic can be explained and whether similar inputs produce consistent, explainable outputs.",
+        C: "Validation testing, which confirms the model is solving the right business problem and produces recommendations consistent with the firm's underwriting policy.",
+        D: "Performance testing, which measures accuracy and consistency metrics across the full dataset to identify statistical anomalies in individual pricing predictions."
+      },
+      correct: "B",
+      explanation: "III.B.3 includes interpretability testing, which assesses whether the model's decision logic can be explained. When near-identical risk profiles produce significantly different premiums, this is an interpretability failure — the model cannot demonstrate consistent, explainable decision rules. This is distinct from bias testing (Option A), which evaluates differential outcomes across protected demographic groups, not unexplained variation across similar profiles. Option C (validation testing) confirms the model addresses the right business problem at a macro level, not that individual decisions are explainable. Option D (performance testing) measures aggregate accuracy and would not surface unexplained individual-level variation as a distinct governance issue.",
+      bokRef: "III.B.3 — Plan and perform training and testing of the AI model and system (e.g., unit, integration, validation, performance, security, bias and interpretability)."
+    },
+    {
+      id: "DIII-IIIB-008", comp: "III.B", isRetrieval: false,
+      stem: "An AI model trained on 10 years of historical hiring decisions learns to systematically score down candidates from certain universities. Post-hoc analysis confirms the historical hiring data itself reflected discriminatory human decisions. Under III.B.4, which risk category does this most directly represent?",
+      options: {
+        A: "Data quantity risk, where insufficient training examples from certain universities caused the model to underweight those candidate profiles in its scoring.",
+        B: "Overfitting risk, where the model memorised idiosyncratic historical hiring patterns rather than learning generalizable signals of candidate quality.",
+        C: "Interpretability risk, where the model's decision logic cannot be explained to regulators or hiring managers reviewing individual candidate assessments.",
+        D: "Bias risk embedded in training labels, where historical human discrimination encoded into the label variable is learned and amplified by the AI model."
+      },
+      correct: "D",
+      explanation: "III.B.4 requires identifying and managing risks during training. The scenario describes label bias — a training-phase bias risk where the target variable (historical hiring decisions) reflects discriminatory patterns, causing the model to learn and replicate discrimination. Option A (data quantity risk) involves insufficient volume rather than biased content in the labels. Option B (overfitting under III.B.4) means memorising training noise, not learning discriminatory patterns embedded in the labels themselves — these are distinct failure modes. Option C (interpretability risk) describes inability to explain decisions, which may be a secondary concern, but the primary governance classification under III.B.4 is the discriminatory signal in the training labels.",
+      bokRef: "III.B.4 — Identify and manage issues and risks during training and testing of the AI model and system."
+    },
+    {
+      id: "DIII-IIIB-009", comp: "III.B", isRetrieval: false,
+      stem: "A company proposes to use customer data collected under consent for 'product improvement' to train an AI model for customer segmentation and targeted pricing. Under III.B.1, which analysis is correct?",
+      options: {
+        A: "The team must assess whether targeted pricing falls within the 'product improvement' consent scope and may need additional consent or a separate lawful basis before proceeding.",
+        B: "The team may proceed because internal use of data collected from one's own customers satisfies lawful use requirements for any internal AI application.",
+        C: "The team must assess data quality and fit-for-purpose under III.B.1, since the governance issue here arises from dataset characteristics rather than consent scope.",
+        D: "The team should first conduct an impact assessment under III.A.2 Perform or review an impact assessment on the AI system before evaluating any data governance questions."
+      },
+      correct: "A",
+      explanation: "III.B.1 requires assessing lawful rights to use data for the specific AI purpose. 'Product improvement' is purpose-specific consent; customer segmentation and targeted pricing is a materially different purpose requiring either a new legal basis or fresh consent. Option B is wrong because internal use does not override purpose limitation — the lawful basis must cover the specific use, not merely the identity of the data controller. Option C is wrong because data quality (also in III.B.1) is not the primary concern here; the issue is legal rights, and an assessment of rights precedes a quality assessment. Option D is wrong because while an impact assessment (III.A.2) may also be warranted, the threshold III.B.1 obligation is to establish lawful rights before proceeding — this step cannot be deferred to follow an impact assessment.",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose)."
+    },
+    {
+      id: "DIII-IIIB-010", comp: "III.B", isRetrieval: false,
+      stem: "Six months after deployment, an AI model begins producing outputs that diverge significantly from its initial deployment behaviour. The team cannot determine whether the cause is a change in training data, a model retraining event, or a preprocessing pipeline modification. Which III.B practice would most directly enable root-cause identification?",
+      options: {
+        A: "Maintaining documentation of the testing process under III.B.5, which records model versions and the performance metrics achieved at each evaluation stage.",
+        B: "Conducting validation testing under III.B.3 on the current model to compare outputs against the original validation dataset and detect performance drift.",
+        C: "Maintaining data lineage records under III.B.2, which document each transformation, retraining event, and data source change made throughout the pipeline.",
+        D: "Conducting a data quality assessment under III.B.1 to determine whether current training data has degraded in quality relative to the original training corpus."
+      },
+      correct: "C",
+      explanation: "III.B.2 requires establishing and documenting data lineage, which includes recording transformations, processing steps, and changes made to the pipeline over time. Lineage records allow the team to trace what changed — whether training data, a preprocessing step, or a retraining event caused the divergence. Option A (III.B.5 Document the training and testing process) records performance at discrete testing points but does not capture the causal chain of pipeline changes between training runs. Option B (validation testing under III.B.3) can detect that drift has occurred but cannot explain its root cause without lineage records. Option D (data quality assessment under III.B.1) addresses quality at a point in time, not the causal history of changes that produced the divergence.",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance."
+    },
+    {
+      id: "DIII-IIIB-011", comp: "III.B", isRetrieval: false,
+      stem: "A red team testing an intrusion detection AI model discovers that specially crafted network packets reliably cause the model to classify malicious traffic as benign. Which testing type under III.B.3 most directly should have identified this vulnerability before deployment?",
+      options: {
+        A: "Bias testing, which would have evaluated whether the model's detection performance varies systematically across different network traffic sources or user categories.",
+        B: "Security testing, which probes for adversarial vulnerabilities including crafted inputs designed to evade model classification and bypass detection logic.",
+        C: "Performance testing, which measures overall model accuracy, precision, and recall across a representative sample of network traffic including known attack signatures.",
+        D: "Interpretability testing, which would have revealed the model's decision boundaries and exposed susceptibility to manipulation through examination of classification logic."
+      },
+      correct: "B",
+      explanation: "III.B.3 explicitly lists security testing as a required testing type, which addresses adversarial vulnerabilities and attacks — including adversarial inputs designed to evade model classification. The scenario describes a classic adversarial evasion attack. Option A (bias testing) evaluates differential performance across groups, not susceptibility to deliberate evasion by crafted inputs. Option C (performance testing) measures aggregate accuracy on representative samples but would not systematically include deliberately adversarial inputs probing edge cases. Option D (interpretability testing) examines explainability of decision logic, not robustness to targeted adversarial manipulation.",
+      bokRef: "III.B.3 — Plan and perform training and testing of the AI model and system (e.g., unit, integration, validation, performance, security, bias and interpretability)."
+    },
+    {
+      id: "DIII-IIIB-012", comp: "III.B", isRetrieval: false,
+      stem: "A text classification model performs at 91% accuracy during testing but degrades to 67% accuracy within four months of deployment. Root cause analysis reveals the 2022 training corpus no longer reflects current language patterns and topic distributions. Under III.B.4, which risk category does this most directly represent?",
+      options: {
+        A: "Data quality risk, where inaccuracies or labelling errors in the original 2022 training corpus produced a model that was unable to generalise across data distributions.",
+        B: "Overfitting risk, where the model memorised 2022-specific language patterns and failed to learn underlying features that would have supported generalisation over time.",
+        C: "Data leakage risk, where 2022 test set data contaminated the training process and produced falsely optimistic accuracy metrics during the original testing phase.",
+        D: "Model and data drift risk, where the distribution of real-world inputs has shifted away from the training distribution, causing progressive performance degradation over time."
+      },
+      correct: "D",
+      explanation: "III.B.4 requires identifying and managing risks during training and testing. The scenario describes model/data drift — the underlying data distribution has changed since training, causing the model to perform poorly on current inputs. This risk should have been identified during testing through temporal validation (testing on more recent data) and mitigated through a scheduled retraining plan. Option A (data quality risk) involves corrupt or mislabelled data in the original corpus, not distribution shift. Option B (overfitting) occurs when a model memorises training data; the symptom is high training accuracy but low test accuracy, not post-deployment temporal degradation. Option C (data leakage) describes test contamination producing inflated testing metrics, not gradual post-deployment drift.",
+      bokRef: "III.B.4 — Identify and manage issues and risks during training and testing of the AI model and system."
+    },
+    {
+      id: "DIII-IIIB-013", comp: "III.B", isRetrieval: false,
+      stem: "A medical device company proposes to use patient data from a completed clinical trial to train a diagnostic AI model. The original consent permitted use only for 'research related to the trial condition.' The proposed model will diagnose a broader set of conditions. Under III.B.1, which action is required?",
+      options: {
+        A: "Assess whether diagnosing additional conditions exceeds the original consent scope, and seek ethics board approval and participant re-consent where required before training.",
+        B: "Proceed with training under the research exemption since the data was already de-identified and the trial consent broadly covered any scientific research purpose.",
+        C: "Assess whether the dataset is sufficient in quality and quantity for the expanded diagnostic task, then document quality findings before beginning model training.",
+        D: "Conduct an impact assessment under III.A.2 Perform or review an impact assessment to evaluate the expanded-use risks before undertaking any data governance analysis."
+      },
+      correct: "A",
+      explanation: "III.B.1 requires establishing lawful rights to use data for the specific AI purpose. Consent scoped to 'research related to the trial condition' does not cover a broader diagnostic application. In clinical research, ethics board approval and participant re-consent are typically required for new or materially expanded uses. Option B is wrong because de-identification does not override purpose limitation under research ethics or data protection law, and a general 'research' consent does not cover all scientific purposes. Option C is wrong because data quality assessment (also part of III.B.1) is secondary — if there is no lawful right to use the data, quality assessment is irrelevant. Option D is wrong because the impact assessment (III.A.2) is a separate governance step; the immediate III.B.1 obligation to confirm lawful rights must be satisfied first.",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose)."
+    },
+    {
+      id: "DIII-IIIB-014", comp: "III.B", isRetrieval: false,
+      stem: "An auditor finds that a loan decision model's card identifies only one data source when training data was actually drawn from three distinct sources combined through an undocumented preprocessing step. Which III.B requirement was most directly violated?",
+      options: {
+        A: "III.B.5 Document the training and testing process, since model cards must record the full methodology used to produce the trained model including all data sources.",
+        B: "III.B.2 Establish and document data lineage and provenance, since all data sources and their combination must be recorded as part of the data chain documentation.",
+        C: "III.B.1 Establish and follow data governance requirements, since the team failed to assess the quality and fit-for-purpose of each constituent data source independently.",
+        D: "III.B.3 Plan and perform training and testing, since integration testing should have verified that data from multiple sources combined correctly without introducing errors."
+      },
+      correct: "B",
+      explanation: "III.B.2 requires documenting data lineage and provenance — including all data sources, how they were combined, and what transformations were applied. Omitting two of three sources and the preprocessing step is a direct III.B.2 violation. Option A (III.B.5 Document the training and testing process) concerns documenting testing methodology and results, not the pre-training data source chain — the failure here is about data origins and combination, which is lineage. Option C (III.B.1) concerns assessing data quality and lawful rights — separate obligations from documenting lineage. Option D (III.B.3 integration testing) tests whether combined data flows correctly through the system; the governance failure here is the absence of documentation, not the absence of a technical test.",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance."
+    },
+    {
+      id: "DIII-IIIB-015", comp: "III.B", isRetrieval: false,
+      stem: "A generative AI customer support model passes performance and bias testing. During a limited pilot, users discover that specific prompts cause the model to reproduce confidential product roadmap information memorised from its training data. Which testing type under III.B.3 should have detected this during training?",
+      options: {
+        A: "Validation testing, which confirms the model is solving the intended customer support use case and does not produce outputs inconsistent with the business objective.",
+        B: "Bias testing, which evaluates whether certain user groups can more easily extract sensitive training data from the model through targeted prompting strategies.",
+        C: "Interpretability testing, which assesses whether the model's generation logic is transparent and can identify which training data influenced specific output responses.",
+        D: "Security testing, which probes for adversarial vulnerabilities including model inversion attacks and extraction of memorised training data through targeted prompts."
+      },
+      correct: "D",
+      explanation: "III.B.3 requires security testing, which includes probing for adversarial vulnerabilities such as model inversion and training data extraction. The described vulnerability — prompts extracting memorised training data — is a well-known security risk in generative AI that red-team security testing is designed to detect. Option A (validation testing) confirms the model addresses the right use case, not that it is secure against data extraction. Option B (bias testing) evaluates fairness across groups, not information security vulnerabilities. Option C (interpretability testing) assesses explainability; while some interpretability tools can identify which training data influenced outputs, interpretability testing is not designed to detect adversarial data extraction attacks.",
+      bokRef: "III.B.3 — Plan and perform training and testing of the AI model and system (e.g., unit, integration, validation, performance, security, bias and interpretability)."
+    },
+    {
+      id: "DIII-IIIB-016", comp: "III.B", isRetrieval: false,
+      stem: "During testing of a predictive maintenance model, the team discovers that 30% of training labels were applied by two technicians who disagreed on the definition of 'failure' in 40% of cases. Under III.B.4, which risk category does this most directly represent?",
+      options: {
+        A: "Bias risk, where inconsistent human labellers from different departments introduced systematic performance differences across equipment types or operating conditions.",
+        B: "Data leakage risk, where labeller disagreements caused inconsistencies between the training and test sets that produced inflated performance metrics during evaluation.",
+        C: "Data quality risk, where inconsistent and unreliable training labels reduce the reliability of model predictions and undermine the model's fitness for production use.",
+        D: "Overfitting risk, where the model memorised the specific labelling inconsistencies in training data rather than learning genuine patterns of equipment failure behaviour."
+      },
+      correct: "C",
+      explanation: "III.B.4 requires identifying and managing risks during training. Inconsistent labels constitute a data quality risk — the target variable is unreliable, directly undermining prediction reliability. This is a labelling integrity issue under III.B.1 (data integrity) that becomes a training-phase risk under III.B.4. Option A (bias risk) applies when inconsistencies produce differential performance across protected groups or equipment categories, not simply unreliable labels in general. Option B (data leakage) involves test set contaminating training — inconsistent labelling is a different phenomenon affecting label reliability, not cross-partition contamination. Option D (overfitting under III.B.4) describes a model memorising noise, but the primary governance classification is data quality risk because the labels themselves are the defective element.",
+      bokRef: "III.B.4 — Identify and manage issues and risks during training and testing of the AI model and system."
+    },
+    {
+      id: "DIII-IIIB-017", comp: "III.B", isRetrieval: false,
+      stem: "A compliance officer requests detailed test run records including hyperparameters used, metrics achieved at each run, and pass/fail criteria applied. The team can only produce a high-level summary performance report. Which obligation under III.B.5 has not been met?",
+      options: {
+        A: "Documenting the training and testing process to establish compliance, which requires records sufficient to demonstrate regulatory requirements were met and not just summary performance outcomes.",
+        B: "Planning and performing the required testing types under III.B.3 Plan and perform training and testing, since the absence of detailed records indicates required tests may not have been conducted properly.",
+        C: "Conducting data quality assessments under III.B.1 Establish and follow data governance requirements, since compliance submissions require evidence the training data met required standards.",
+        D: "Establishing data lineage records under III.B.2 Establish and document data lineage and provenance, since regulators require documentation of data sources in addition to testing outcomes."
+      },
+      correct: "A",
+      explanation: "III.B.5 requires documenting the testing process 'to validate results, establish compliance and manage risks.' Summary reports are insufficient for regulatory compliance — the compliance purpose requires granular records showing specific tests, criteria applied, and metrics achieved per run. Option B (III.B.3 Plan and perform training and testing) is wrong because absence of documentation does not prove tests were not conducted; the failure is incomplete documentation, not necessarily absent testing. Option C (III.B.1 data quality) is a separate obligation from testing process documentation. Option D (III.B.2 data lineage) is also required but addresses the data chain, not the testing process records that the regulator specifically requested.",
+      bokRef: "III.B.5 — Document the training and testing process (e.g., to validate results, establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIB-018", comp: "III.B", isRetrieval: false,
+      stem: "An AI team's model card for an image classification model describes the training dataset and intended use but does not include testing methodology, evaluation metrics, or known limitations. Which aspect of III.B.5 is most directly unaddressed?",
+      options: {
+        A: "The requirement to validate results, since evaluation metrics are absent from the model card and there is no record confirming the model met performance thresholds.",
+        B: "The requirement to document the testing process to establish compliance and enable risk management through disclosure of methodology, metrics, and known limitations.",
+        C: "The requirement to plan and perform testing under III.B.3 Plan and perform training and testing, since omitting methodology from the card indicates required tests may not have been executed.",
+        D: "The requirement to document data lineage under III.B.2 Establish and document data lineage and provenance, since model cards must include the full transformation history of the training dataset."
+      },
+      correct: "B",
+      explanation: "III.B.5 requires documenting the training and testing process 'to validate results, establish compliance and manage risks.' A model card omitting testing methodology, metrics, and limitations fails the compliance and risk management purposes — downstream users and regulators cannot assess how the model was validated or what risks it carries. Option A is narrower — validating results is one of three III.B.5 purposes; the full obligation also covers compliance and risk management, which the omission of methodology and limitations specifically fails. Option C is wrong because omitting documentation from the card does not prove tests were not conducted; the failure is incomplete documentation, not absent testing. Option D (III.B.2 lineage) is a separate obligation; a model card's primary III.B.5 function concerns the testing process, not the pre-training data chain.",
+      bokRef: "III.B.5 — Document the training and testing process (e.g., to validate results, establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIB-019", comp: "III.B", isRetrieval: false,
+      stem: "A company's automated ML platform trains and selects models without producing detailed logs of individual training runs, hyperparameter configurations, or intermediate performance metrics. Under III.B.5, which conclusion is most accurate?",
+      options: {
+        A: "The company is compliant because automated systems are exempt from manual documentation requirements, provided a final model card is produced for the selected model.",
+        B: "The company should conduct additional bias testing under III.B.3 Plan and perform training and testing to compensate, since fairness records are the highest-priority compliance output.",
+        C: "The company is partially compliant because data lineage records under III.B.2 can substitute for training run logs when combined with a final model performance report.",
+        D: "The company has a compliance gap because III.B.5 requires documenting the training and testing process to validate results and manage risks, regardless of whether the process is automated."
+      },
+      correct: "D",
+      explanation: "III.B.5 requires documenting the training and testing process without exempting automated systems. The documentation obligation exists to validate results, establish compliance, and manage risks — purposes that apply equally whether a human or an automated system selected the model. Automated ML pipelines must be configured to produce audit-adequate logs. Option A is wrong because there is no automation exemption in III.B.5; governance requirements apply to the process regardless of who or what executes it. Option B is wrong because additional bias testing does not substitute for required process documentation — they address different compliance obligations. Option C is wrong because data lineage (III.B.2) documents the data chain, not the training process itself; these are distinct records serving different compliance purposes.",
+      bokRef: "III.B.5 — Document the training and testing process (e.g., to validate results, establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIB-020", comp: "III.B", isRetrieval: false,
+      stem: "An AI team's testing log for a model trained six months ago contains only the final overall accuracy metric with no breakdown by demographic group or subgroup performance. A bias audit is now required. Under III.B.5, what is the most accurate conclusion?",
+      options: {
+        A: "The team has met III.B.5 obligations because the testing log exists and records the testing outcome, even without the granularity needed for a demographic breakdown.",
+        B: "The team can reconstruct the bias audit from production monitoring data, since continuous monitoring under III.C.2 Conduct continuous monitoring can substitute for training-phase testing records.",
+        C: "The team has a III.B.5 gap because documenting the testing process to manage risks requires records at the granularity needed to assess known risk categories, including bias.",
+        D: "The team has a III.B.3 gap rather than a III.B.5 gap, since missing demographic data indicates bias testing was not performed rather than being performed but not documented."
+      },
+      correct: "C",
+      explanation: "III.B.5 requires documentation 'to validate results, establish compliance and manage risks.' Bias is an enumerated risk in III.B.3 and III.B.4. Documentation that omits subgroup performance cannot validate that bias risks were assessed or managed — it fails the risk management purpose of III.B.5 regardless of whether bias testing was actually conducted. Option A is wrong because existence of a minimal log does not satisfy III.B.5 if its content is insufficient to address known risk categories. Option B is wrong because post-deployment monitoring (III.C.2 Conduct continuous monitoring of the AI system) is not a substitute for training-phase documentation; these serve different governance purposes at different lifecycle stages. Option D may also be correct if testing was genuinely not performed, but the question asks for the most accurate conclusion about the documentation obligation, and III.B.5 is the requirement directly violated by insufficient documentation granularity.",
+      bokRef: "III.B.5 — Document the training and testing process (e.g., to validate results, establish compliance and manage risks)."
+    }
+  ]
+});
+</script>
+</body></html>
