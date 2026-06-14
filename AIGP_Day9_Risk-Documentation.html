@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 9 · Risk-Documentation</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a4a00;--accent-light:#fdf3de}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 9 · Week 2</span>
+    <span class="sc-meta">June 14 2026 · 35 min read</span>
+  </div>
+  <div class="sc-title">III.A — Govern the Designing and Building of the AI System</div>
+  <div class="sc-meta">Focus: Risk Identification &amp; Documentation &nbsp;|&nbsp; Exam weight: 6–8 questions &nbsp;|&nbsp; Domain III (highest weight)</div>
+</div>
+
+<!-- BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">III.A Performance Indicators (verbatim)</span>
+  </div>
+  <div class="sc-section-body">
+    <ol class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">III.A.1</span> Define the business context and use case of the AI system.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.A.2</span> Perform or review an impact assessment on the AI system.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.A.3</span> Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.A.4</span> Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.A.5</span> Document the designing and building process (e.g., to establish compliance and manage risks).</li>
+    </ol>
+  </div>
+</div>
+
+<!-- KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Risk Identification Tools and Documentation</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Probability/Severity Harms Matrix (III.A.4)</span></div>
+      <div class="sc-concept-body">
+        <p>The BOK names the probability/severity harms matrix as a primary tool for identifying and managing risks during AI design. It requires rating each identified harm on two axes: likelihood of occurrence and magnitude of impact. The cross-product drives prioritisation — high-probability, high-severity harms receive the most mitigation investment.</p>
+        <div class="sc-why">Why it matters on the exam: questions present a scenario with multiple potential harms and ask which approach is most aligned with III.A.4. The answer always involves structured, rated evaluation of harms — not a qualitative narrative or a simple risk register.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key distinctions</div>
+          <div class="sc-def"><span class="sc-term">Internal risks</span> — data quality gaps, model bias, team skill gaps, misaligned success metrics</div>
+          <div class="sc-def"><span class="sc-term">External risks</span> — regulatory non-compliance, third-party model behaviour, supply-chain data provenance, adversarial misuse</div>
+          <div class="sc-def"><span class="sc-term">Contributing factors</span> — the underlying conditions (e.g., insufficient training data diversity) that amplify a risk's probability or severity</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Risk Mitigation Hierarchy (III.A.4)</span></div>
+      <div class="sc-concept-body">
+        <p>A risk mitigation hierarchy ranks intervention options by effectiveness. In AI governance the BOK-implied hierarchy runs from elimination (remove the risky use case) through redesign (change architecture to remove the failure mode), then controls (technical or procedural safeguards), then monitoring (detect if a risk materialises), down to disclosure and residual risk acceptance at the bottom. Higher tiers are preferred over lower ones.</p>
+        <div class="sc-why">Exam trap: a question may offer "implement monitoring" as a distractor when elimination or redesign is available. The hierarchy says you apply controls in order — do not default to the easier lower-tier option when a more effective one is feasible.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Hierarchy levels (highest to lowest effectiveness)</div>
+          <div class="sc-def"><span class="sc-term">1. Eliminate</span> — Remove the feature, use case, or data that creates the risk</div>
+          <div class="sc-def"><span class="sc-term">2. Redesign</span> — Change the model architecture or system design to make the risk structurally impossible</div>
+          <div class="sc-def"><span class="sc-term">3. Engineering controls</span> — Technical safeguards (output filters, confidence thresholds, human-in-the-loop gates)</div>
+          <div class="sc-def"><span class="sc-term">4. Administrative controls</span> — Policies, training, access restrictions, acceptable-use agreements</div>
+          <div class="sc-def"><span class="sc-term">5. Monitor and disclose</span> — Ongoing detection plus transparency obligations; residual risk accepted</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Stakeholder Mapping and Use-Case Evaluation (III.A.4)</span></div>
+      <div class="sc-concept-body">
+        <p>Stakeholder mapping identifies all parties affected by or involved in the AI system — developers, deployers, end-users, regulators, and impacted third parties. It reveals who bears each risk and who must be engaged to validate the use-case scope. Use-case evaluation then stress-tests the intended application against realistic edge cases and misuse scenarios to surface additional risks before design is locked.</p>
+        <div class="sc-why">These two tools are often combined in scenario questions: a governance officer discovers that the original use-case scope doesn't account for a population segment — the correct action is use-case re-evaluation (III.A.4), not simply updating documentation (III.A.5).</div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Benchmarking and Pre-Deployment Pilots (III.A.4)</span></div>
+      <div class="sc-concept-body">
+        <p>Benchmarking compares model performance against established baselines, peer models, or regulatory standards before finalising the design. Pre-deployment pilots and testing (unit, integration, performance, bias, security) run the system in a controlled environment before production release. Both are explicitly listed as III.A.4 tools — they reduce the probability of harms materialising post-launch.</p>
+        <div class="sc-why">Distinguish from III.C.3 (periodic audits, red teaming post-deployment). Benchmarking and pilots happen during design and build — if a question says "before release" or "during development", the answer is III.A.4, not III.C.</div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Documentation of the Design and Build Process (III.A.5)</span></div>
+      <div class="sc-concept-body">
+        <p>III.A.5 requires documenting the designing and building process with two explicit purposes: (1) to establish compliance — demonstrating that policies, ethical considerations, and regulatory requirements were applied; and (2) to manage risks — creating an evidence trail that enables risk review, audit, and remediation. Documentation is not a post-hoc reporting exercise; it is a risk management tool produced in parallel with design decisions.</p>
+        <div class="sc-why">The exam tests whether you know BOTH purposes. An answer that says "documentation supports regulatory compliance" is partially right but incomplete. An answer that says "documentation enables ongoing risk management and compliance accountability" captures both III.A.5 purposes. Also distinguish: III.A.5 (design/build docs) vs. III.B.5 (training/testing docs) vs. III.C.4 (incident documentation).</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">What to document under III.A.5</div>
+          <div class="sc-def"><span class="sc-term">Design decisions</span> — architecture choices, model type rationale, trade-offs considered</div>
+          <div class="sc-def"><span class="sc-term">Risk assessments</span> — harms matrix outputs, risk mitigation options evaluated and selected</div>
+          <div class="sc-def"><span class="sc-term">Policy application</span> — evidence that ethical considerations, data governance, and human oversight requirements were applied</div>
+          <div class="sc-def"><span class="sc-term">Stakeholder engagement</span> — records of consultations, feedback received, and how it shaped design</div>
+          <div class="sc-def"><span class="sc-term">Impact assessment outputs</span> — findings and remediation commitments from III.A.2</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Table</span>
+    <span class="sc-section-title">III.A.4 Risk Tools vs. Purpose and Output</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead><tr><th>Tool (III.A.4)</th><th>Primary purpose</th><th>Output / artefact</th><th>Exam trigger phrase</th></tr></thead>
+        <tbody>
+          <tr><td>Probability/severity harms matrix</td><td>Rate and prioritise potential harms by likelihood × impact</td><td>Ranked harm register with severity ratings</td><td>"Systematically assess harms before development"</td></tr>
+          <tr><td>Risk mitigation hierarchy</td><td>Select the most effective intervention for each harm</td><td>Mitigation plan with selected tier per risk</td><td>"Choose the most effective control" / "prefer elimination"</td></tr>
+          <tr><td>Stakeholder mapping</td><td>Identify all affected parties and their risk exposure</td><td>Stakeholder register with risk ownership</td><td>"Identify who bears each risk"</td></tr>
+          <tr><td>Use-case evaluation</td><td>Stress-test intended use against edge cases and misuse</td><td>Refined use-case scope with residual risk flags</td><td>"Scope creep / unanticipated use" scenarios</td></tr>
+          <tr><td>Benchmarking</td><td>Compare model against baselines or regulatory standards</td><td>Benchmark report confirming performance thresholds</td><td>"Before design is finalised" / "during development"</td></tr>
+          <tr><td>Pre-deployment pilots and testing</td><td>Validate system in controlled environment before production</td><td>Pilot results, defect log, go/no-go recommendation</td><td>"Before release" / "controlled environment"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">AI-Assisted Hiring Tool — Risk Identification and Documentation</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">RetailCo is designing an AI system to screen CVs and rank job applicants for warehouse positions. The HR director has approved the business case and the data science team has begun architecture scoping. Legal and HR business partners have been identified as stakeholders. The governance team must now govern the design phase before any model is built.</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Role</div>
+      <div class="sc-scenario-text">You are the AI governance lead. Your mandate is to ensure III.A.4 and III.A.5 are applied before the team finalises model selection.</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Analysis</div>
+      <div class="sc-scenario-text">
+        <strong>Step 1 — Stakeholder mapping (III.A.4):</strong> Extend the stakeholder list beyond HR and Legal to include applicants (data subjects and potential harm recipients), line managers (end-users), regulators (employment and data protection authorities), and advocacy groups for protected categories. Each stakeholder group has a different risk profile.
+        <br><br>
+        <strong>Step 2 — Harms matrix (III.A.4):</strong> Identify potential harms: (a) discriminatory ranking by gender or ethnicity — probability HIGH given training data likely reflects historical hiring patterns; severity HIGH given legal exposure and harm to individuals; (b) false negatives rejecting qualified candidates — probability MEDIUM; severity MEDIUM; (c) CV parsing errors for non-standard formats — probability MEDIUM; severity LOW. The matrix immediately flags harm (a) as the highest priority mitigation target.
+        <br><br>
+        <strong>Step 3 — Risk mitigation hierarchy (III.A.4):</strong> For harm (a), evaluate options top-down: elimination (remove the ranking feature entirely) — possible but would negate the tool's purpose; redesign (use an architecture that explicitly excludes protected-attribute proxies) — feasible; engineering controls (bias detection thresholds, demographic parity checks) — add as a second layer. Do not default to monitoring alone.
+        <br><br>
+        <strong>Step 4 — Documentation (III.A.5):</strong> Record all decisions: stakeholder list rationale, harms matrix with probability/severity ratings, mitigation options considered and selected, and which policies (non-discrimination, data governance) were applied. This documentation serves both compliance (demonstrating policy adherence) and risk management (enabling future audit and remediation).
+        <span class="sc-pi-ref">III.A.4 — Identify and manage internal and external risks; III.A.5 — Document the designing and building process</span>
+      </div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Outcome</div>
+      <div class="sc-scenario-text">The governance team's harms matrix identifies discrimination risk as requiring redesign-level mitigation — not just a monitoring dashboard. The documentation package created during design (not after launch) provides an audit trail that satisfies both regulatory requirements and the organisation's internal risk management framework.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- QUICK RECALL -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Flashcards — Click to reveal</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">Q</span>III.A.4 lists six named tools. Name them.</div>
+        <div class="sc-fc-a">Probability/severity harms matrix · risk mitigation hierarchy · stakeholder mapping · use-case evaluation · benchmarking · pre-deployment pilots and testing.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">Q</span>What are the two explicit purposes of documentation under III.A.5?</div>
+        <div class="sc-fc-a">To establish compliance AND to manage risks. Both must appear in a complete answer — neither alone is sufficient.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">Q</span>How does the risk mitigation hierarchy rank elimination vs. monitoring?</div>
+        <div class="sc-fc-a">Elimination is the highest tier (most effective). Monitoring and disclosure is the lowest tier. Always prefer the highest feasible tier.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">Q</span>What distinguishes benchmarking (III.A.4) from red teaming (III.C.3)?</div>
+        <div class="sc-fc-a">Benchmarking happens during design and build — before deployment. Red teaming under III.C.3 is a periodic post-deployment assessment. The key distinction is timing: design phase vs. operational phase.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">Q</span>What distinguishes stakeholder mapping (III.A.4) from stakeholder engagement (III.A.3)?</div>
+        <div class="sc-fc-a">Mapping identifies who the stakeholders are and their risk exposure. Engagement (III.A.3) is the active consultation and feedback process with those stakeholders during design. Map first, engage second.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">Q</span>An AI team finds a potential harm. Should they document it during design or after launch?</div>
+        <div class="sc-fc-a">During design (III.A.5). Documentation is produced in parallel with design decisions — it is a risk management tool, not a post-deployment report. Waiting until after launch violates III.A.5.</div>
+      </div>
+
+      <div class="sc-fc">
+        <div class="sc-fc-q"><span class="sc-fc-icon">Q</span>What makes use-case evaluation different from defining the business context (III.A.1)?</div>
+        <div class="sc-fc-a">III.A.1 defines the approved, intended use case. III.A.4 use-case evaluation stress-tests that scope against edge cases, off-label uses, and misuse scenarios to identify additional risks — it is a risk tool applied to the already-defined use case.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- IAPP LINKS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Resources</span>
+    <span class="sc-section-title">IAPP Reference Links</span>
+    <span class="sc-chevron">▸</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank"><span class="sc-res-label">AIGP Body of Knowledge</span><span class="sc-res-desc">Official BOK — authoritative source for all PIs</span></a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank"><span class="sc-res-label">AIGP Exam Preparation</span><span class="sc-res-desc">Practice resources and preparation guidance</span></a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank"><span class="sc-res-label">AIGP Study Guide</span><span class="sc-res-desc">Official IAPP study guide (request form)</span></a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank"><span class="sc-res-label">IAPP Certification Handbook</span><span class="sc-res-desc">Exam policies, structure, and domain weights</span></a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>

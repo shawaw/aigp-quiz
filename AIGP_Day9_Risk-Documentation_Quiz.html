@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Quiz — Day 9 · Risk-Documentation</title>
+</head>
+<body>
+<div id="quiz-root"></div>
+<script src="quiz-engine.js"></script>
+<script>
+initQuiz({
+  day: 9, week: 2, comp: "III.A", topic: "Risk-Documentation",
+  filename: "AIGP_Day9_Risk-Documentation_Quiz.html",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DIII-IIIA-021", comp: "III.A", isRetrieval: false,
+      stem: "A fintech company is designing an AI credit-scoring model. The governance team must systematically evaluate potential harms before architecture selection begins. Which action is most directly prescribed by III.A.4?",
+      options: {
+        A: "Document the approved business context and use-case scope so all design decisions remain aligned with the stated organisational objective.",
+        B: "Apply a probability/severity harms matrix to rate each potential harm by its likelihood and the magnitude of its impact on customers.",
+        C: "Review existing data privacy and intellectual property policies to identify which updates are required before training data is collected.",
+        D: "Engage stakeholders from legal, data science, and operations teams to gather requirements and agree on performance evaluation criteria."
+      },
+      correct: "B",
+      explanation: "B is correct. III.A.4 Identify and manage internal and external risks explicitly names the probability/severity harms matrix as the tool for assessing harms during design. A describes III.A.1 Define the business context — distinct from risk identification. C describes I.C.2 Evaluate and update existing policies. D describes III.A.3 stakeholder engagement and requirements gathering, not risk identification using a structured harms matrix.",
+      bokRef: "III.A.4 — Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing)."
+    },
+    {
+      id: "DIII-IIIA-022", comp: "III.A", isRetrieval: false,
+      stem: "A senior executive asks why the AI governance team is producing design documentation now rather than after the system launches. Which answer most accurately reflects III.A.5?",
+      options: {
+        A: "Design documentation establishes compliance evidence and enables ongoing risk management — it is a governance tool produced during design, not after launch.",
+        B: "Documentation produces the technical specification that developers use to ensure the system accurately matches the approved design blueprint.",
+        C: "Post-deployment audit teams need design documentation to establish baseline benchmarks for comparing live system performance over time.",
+        D: "Regulators require design records as the primary submission verifying that the system was built within approved governance parameters."
+      },
+      correct: "A",
+      explanation: "A is correct. III.A.5 Document the designing and building process cites two explicit purposes: to establish compliance and to manage risks. Both require documentation produced during design — it is not a post-launch activity. B describes documentation as a developer artifact, not a governance tool. C describes a monitoring use case covered by III.C.3 Conduct periodic assessments. D is partially true but incomplete — regulatory compliance is one purpose; risk management is the second purpose that A correctly captures.",
+      bokRef: "III.A.5 — Document the designing and building process (e.g., to establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIA-023", comp: "III.A", isRetrieval: false,
+      stem: "An AI team is selecting a model architecture for a medical triage application. Which consideration is most directly required by III.A.3's mandate to apply ethical considerations to designing and building the AI system?",
+      options: {
+        A: "The architecture must minimise inference latency so that clinical staff receive triage recommendations within defined operational time constraints.",
+        B: "The architecture must demonstrate benchmark performance exceeding the organisation's accuracy threshold before the design is formally approved.",
+        C: "Human oversight mechanisms must be built into the architecture so clinicians can review, override, and correct any AI triage recommendation.",
+        D: "The architecture must support data minimisation by restricting model inputs to only the clinically necessary patient attributes."
+      },
+      correct: "C",
+      explanation: "C is correct. III.A.3 explicitly lists human oversight as an ethical consideration to apply when designing and building the AI system. In a high-stakes medical context, embedding override capability is the direct application of this requirement. A addresses performance engineering, not an ethical requirement. B describes benchmarking, which belongs to III.A.4 tools. D describes data minimisation, which is a data governance principle under II.A.2 and III.B.1 — not a design-phase ethical consideration under III.A.3.",
+      bokRef: "III.A.3 — Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls)."
+    },
+    {
+      id: "DIII-IIIA-024", comp: "III.A", isRetrieval: false,
+      stem: "An AI content-moderation model is found to risk incorrectly suppressing legitimate political speech. Applying III.A.4's risk mitigation hierarchy, which option should the team consider first?",
+      options: {
+        A: "Deploy a monitoring dashboard to detect and flag cases where political content is incorrectly removed after the system launches.",
+        B: "Require content reviewers to manually re-check all moderation decisions on posts flagged as political content before removal.",
+        C: "Apply an output filter that intercepts automated removal decisions on political content for secondary human review before action.",
+        D: "Redesign the model's feature set and training corpus to exclude political-speech proxies, making the failure mode structurally impossible."
+      },
+      correct: "D",
+      explanation: "D is correct. The risk mitigation hierarchy in III.A.4 requires the team to apply the highest feasible tier first. Redesign eliminates the failure mode at the architecture level — the most effective tier. C applies an engineering control, which is lower in the hierarchy. B is an administrative control, lower still. A (monitoring) is the lowest tier and should only be used when all higher tiers are infeasible. The exam frequently offers monitoring as a distractor when redesign is available.",
+      bokRef: "III.A.4 — Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing)."
+    },
+    {
+      id: "DIII-IIIA-025", comp: "III.A", isRetrieval: false,
+      stem: "An internal audit team reviews the documentation package for a fraud-detection AI system. Which content most directly satisfies III.A.5?",
+      options: {
+        A: "The post-deployment performance report showing precision and recall metrics from the first three months of live system operation.",
+        B: "Records of harms matrix findings, mitigation options selected, design decisions made, and policies applied during the design phase.",
+        C: "The data lineage map showing training data sources, transformations, and quality assessments conducted before model training began.",
+        D: "The model card describing the system's intended use, known limitations, and performance benchmarks for downstream deployers."
+      },
+      correct: "B",
+      explanation: "B is correct. III.A.5 requires documentation of the designing and building process — specifically to establish compliance and manage risks. B captures the risk decisions and policy application from the design phase. A is a post-deployment report, not a design-phase record. C describes data documentation covered by III.B.2 Establish and document data lineage and III.B.5 Document the training and testing process. D describes the model card required under III.C.1 Assess readiness and prepare for release.",
+      bokRef: "III.A.5 — Document the designing and building process (e.g., to establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIA-026", comp: "III.A", isRetrieval: false,
+      stem: "A healthcare AI team identifies physicians and hospital administrators as stakeholders for a patient care prioritisation model. Which gap does III.A.4 stakeholder mapping require them to address?",
+      options: {
+        A: "Patients and regulators must also be mapped, as they are direct risk bearers from AI-driven prioritisation decisions and hold governance authority.",
+        B: "Data scientists and ML engineers must be added because their implementation risks represent internal contributing factors to system performance.",
+        C: "External legal counsel must be included to assess whether regulatory compliance requirements are met before the design is finalised.",
+        D: "Procurement and vendor representatives must be mapped because third-party data suppliers introduce external risks to the system."
+      },
+      correct: "A",
+      explanation: "A is correct. III.A.4 stakeholder mapping requires identifying all parties affected by or involved with the AI system, including those who bear the primary risk — in this case, patients (who receive care decisions) and regulators (who have governance authority over clinical AI). The team has only identified internal operators. B and D describe internal and supply-chain risks, which are valid but secondary; the critical gap is the omission of those who bear direct harm. C conflates stakeholder mapping with a separate legal review step.",
+      bokRef: "III.A.4 — Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing)."
+    },
+    {
+      id: "DIII-IIIA-027", comp: "III.A", isRetrieval: false,
+      stem: "An AI team designing an employee-attrition prediction model finds that the model achieves 85% overall accuracy but only 73% precision on the highest-risk employee segment. Which action most directly reflects III.A.3's requirement to apply metric and threshold evaluation?",
+      options: {
+        A: "Deploy the model and establish a monitoring programme to track segment-level precision and address performance gaps after launch.",
+        B: "Document the precision gap in the design record and escalate it to senior leadership as a residual risk for acceptance.",
+        C: "Evaluate whether 73% precision is acceptable for this segment and redesign or retrain the model if the threshold is not met.",
+        D: "Expand training data with additional high-risk-segment records and retrain the model to improve both overall and segment-level accuracy."
+      },
+      correct: "C",
+      explanation: "C is correct. III.A.3 requires metric and threshold evaluation as part of designing and building the AI system. The threshold must be evaluated and, if not met, the design must be revised before proceeding. A defers threshold compliance to post-deployment monitoring — this inverts the correct governance sequence. B documents a known shortfall without resolving it, which does not satisfy the III.A.3 obligation to apply best practices. D is a reasonable technical action, but it is a means to an end (meeting the threshold) rather than the governance step itself.",
+      bokRef: "III.A.3 — Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls)."
+    },
+    {
+      id: "DIII-IIIA-028", comp: "III.A", isRetrieval: false,
+      stem: "An AI product recommendation engine is scoped to suggest items within a user's current browsing category. Post-design analysis shows the model generates cross-category suggestions when browsing data is sparse. Which III.A.4 tool most directly addresses this finding?",
+      options: {
+        A: "A probability/severity harms matrix to rate the harm potential and likelihood of cross-category recommendations for data-sparse users.",
+        B: "A use-case evaluation to stress-test the original scope against edge conditions and identify risks from unintended system behaviour.",
+        C: "A stakeholder mapping exercise to determine which impacted users require disclosure of cross-category recommendation risks.",
+        D: "A benchmarking study comparing cross-category recommendation rates against industry peers operating under similar data-sparse conditions."
+      },
+      correct: "B",
+      explanation: "B is correct. Use-case evaluation (III.A.4) is the tool designed to stress-test the approved use-case scope against edge conditions, off-label uses, and unintended behaviours — precisely what this scenario describes. A (harms matrix) rates known harms but does not surface scope-boundary issues. C (stakeholder mapping) identifies affected parties but does not resolve scope creep. D (benchmarking) compares performance against peers but does not evaluate whether the system is operating within its approved use-case boundary.",
+      bokRef: "III.A.4 — Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing)."
+    },
+    {
+      id: "DIII-IIIA-029", comp: "III.A", isRetrieval: false,
+      stem: "A governance audit finds that an AI content-filtering system's design rationale and risk mitigation decisions were only captured in a post-deployment report, not during the build phase. Which finding most accurately identifies the III.A.5 gap?",
+      options: {
+        A: "The team failed to produce a model card before deployment, which would have captured performance limitations for downstream deployers.",
+        B: "The team did not perform a formal impact assessment during design, leaving bias and fairness risks unidentified until after launch.",
+        C: "Post-deployment reporting is not a substitute for training and testing documentation required under III.B.5 Document the training process.",
+        D: "The team did not document the design process during the build phase, preventing the documentation from fulfilling its risk-management purpose."
+      },
+      correct: "D",
+      explanation: "D is correct. III.A.5 requires documentation to be produced during the designing and building process — concurrent with decisions — precisely because its risk-management purpose requires it to capture decisions as they are made. Documentation produced only after deployment cannot enable real-time risk management. A describes the model card under III.C.1 Assess readiness and prepare for release. B describes the impact assessment under III.A.2. C conflates III.A.5 with III.B.5 Document the training and testing process.",
+      bokRef: "III.A.5 — Document the designing and building process (e.g., to establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIA-030", comp: "III.A", isRetrieval: false,
+      stem: "An AI team has designed a document classification model for legal discovery and is about to finalise the architecture. The governance team recommends one additional activity before sign-off. Which activity is most consistent with III.A.4?",
+      options: {
+        A: "Benchmark the model's classification accuracy against established legal-discovery baselines and performance standards before finalising the architecture.",
+        B: "Submit the model specification to external legal counsel to confirm the system does not create unacceptable downstream liability.",
+        C: "Present the architecture to the board's AI oversight committee for formal approval before the technical build phase commences.",
+        D: "Run the model in shadow mode alongside the existing manual process for 90 days to collect real-world performance data."
+      },
+      correct: "A",
+      explanation: "A is correct. III.A.4 explicitly lists benchmarking as a risk management tool applied during the designing and building phase — before design is finalised. Benchmarking compares the model against established baselines to confirm it meets performance standards. B is a legal review step, not a named III.A.4 activity. C is a governance approval step not tied to III.A.4. D describes a shadow pilot, which could align with III.A.4 pre-deployment pilots, but shadow deployment for 90 days occurs after architecture finalisation, not before — and requires deployment infrastructure to already exist.",
+      bokRef: "III.A.4 — Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing)."
+    },
+    {
+      id: "DIII-IIIA-031", comp: "III.A", isRetrieval: false,
+      stem: "An AI system is designed to flag insurance claims for immediate automatic payment suspension. The governance team reviews the design against III.A.3. Which design requirement is most directly implicated?",
+      options: {
+        A: "The system must include a data lineage module documenting all claim data sources, quality checks, and provenance assessments.",
+        B: "The design must include a benchmarking component comparing the system's fraud-detection rates against peer systems in similar markets.",
+        C: "The design must incorporate human oversight mechanisms so that trained investigators can review and override automated suspension decisions.",
+        D: "The system documentation must capture all design decisions and risk mitigation steps in a compliance log produced during the build."
+      },
+      correct: "C",
+      explanation: "C is correct. III.A.3 requires applying human oversight as an ethical consideration when designing the AI system. Automatic payment suspension without human review creates significant harm potential — III.A.3 requires that oversight mechanisms be designed in from the start. A describes data lineage documentation under III.B.2 Establish and document data lineage. B describes benchmarking, a III.A.4 risk management tool. D describes III.A.5 documentation of the design process.",
+      bokRef: "III.A.3 — Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls)."
+    },
+    {
+      id: "DIII-IIIA-032", comp: "III.A", isRetrieval: false,
+      stem: "A public-sector agency is designing an AI model to screen benefits applications. Before full national rollout, the governance team recommends an activity to reduce harm risk under III.A.4. Which recommendation is most appropriate?",
+      options: {
+        A: "Conduct a final review of the business context and use-case definition to confirm the system remains aligned with current policy.",
+        B: "Run a pre-deployment pilot in a single regional office to validate the system in a controlled environment before national launch.",
+        C: "Complete an impact assessment 90 days after full rollout to evaluate actual harm outcomes for benefits applicants affected.",
+        D: "Publish a model card describing the system's intended use and limitations to applicants and advocacy groups before deployment."
+      },
+      correct: "B",
+      explanation: "B is correct. III.A.4 explicitly names pre-deployment pilots and testing as a risk management tool for the designing and building phase. Running a controlled pilot before full rollout is the direct application of this requirement. A describes re-validating the business context under III.A.1, not a risk-reduction tool. C describes a post-deployment impact assessment — this occurs after launch, not before, and falls under IV.A.4 or III.C monitoring activities. D describes a model card and transparency disclosure under III.C.6 Make public disclosures.",
+      bokRef: "III.A.4 — Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing)."
+    },
+    {
+      id: "DIII-IIIA-033", comp: "III.A", isRetrieval: false,
+      stem: "An internal audit team needs to reconstruct the risk decisions and policies applied when an AI model was built two years ago. Which document most directly satisfies their III.A.5 need?",
+      options: {
+        A: "The model's operational dashboard showing accuracy and reliability metrics across its two-year deployment period.",
+        B: "Post-deployment stakeholder review minutes recording issues raised and responses provided during the system's live operation.",
+        C: "The incident register documenting model failures and the corrective actions taken during the first year of deployment.",
+        D: "Design-phase records capturing harms matrix outputs, mitigation decisions, architecture rationale, and policies applied during the build."
+      },
+      correct: "D",
+      explanation: "D is correct. III.A.5 requires documentation of the designing and building process — specifically to establish compliance and manage risks. Only D contains the design-phase records that would allow auditors to reconstruct risk decisions. A is a post-deployment operational record. B contains post-deployment stakeholder minutes, not design-phase governance records. C is an incident register under III.C.4 Manage and document incidents — a post-deployment artefact. All three wrong options describe post-launch materials; III.A.5 requires concurrent design-phase documentation.",
+      bokRef: "III.A.5 — Document the designing and building process (e.g., to establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIA-034", comp: "III.A", isRetrieval: false,
+      stem: "An AI governance review of a hiring-screening model finds that affected job applicants were not consulted during design. Which III.A.3 element does this most directly violate?",
+      options: {
+        A: "The requirement to incorporate stakeholder engagement and feedback into the designing and building process, including input from affected parties.",
+        B: "The requirement to document the design process to establish compliance, including evidence of all risk assessments conducted.",
+        C: "The requirement to apply data minimisation principles so that only attributes necessary for the screening decision are processed.",
+        D: "The requirement to perform an impact assessment identifying potential harms before the architecture is finalised and the build begins."
+      },
+      correct: "A",
+      explanation: "A is correct. III.A.3 explicitly lists stakeholder engagement and feedback as a requirement when applying best practices to designing and building the AI system. Applicants are the primary affected stakeholders and their omission is a direct III.A.3 gap. B describes III.A.5 documentation — a different PI. C describes data minimisation under II.A.2 Understand how data minimisation applies to AI. D describes III.A.2 Perform or review an impact assessment — again, a different PI.",
+      bokRef: "III.A.3 — Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls)."
+    },
+    {
+      id: "DIII-IIIA-035", comp: "III.A", isRetrieval: false,
+      stem: "A customer-service chatbot design review identifies three potential harms: (1) occasional incorrect product information, (2) inadvertent customer account-detail disclosure, and (3) slower response times during peak load. Using III.A.4's probability/severity harms matrix, which harm receives the highest mitigation priority?",
+      options: {
+        A: "Incorrect product information, because it affects most customer interactions and generates reputational risk across the organisation's customer base.",
+        B: "Slower response times during peak load, because they simultaneously degrade service quality for the greatest number of concurrent users.",
+        C: "Inadvertent account-detail disclosure, because the magnitude of harm to each individual affected is high even when frequency is lower.",
+        D: "All three harms share equal priority because the harms matrix requires every identified harm to be evaluated at the same level."
+      },
+      correct: "C",
+      explanation: "C is correct. The probability/severity harms matrix rates harms on two axes: likelihood and magnitude. Account-detail disclosure has high severity (privacy violation, potential regulatory breach, individual financial harm) even if its frequency is lower than product information errors. The matrix prioritises by likelihood × severity — high-severity harms with even moderate probability outrank high-frequency, low-severity events. A and B describe high-frequency but lower-severity harms. D is wrong — the matrix is specifically designed to differentiate priority, not assign equal weight.",
+      bokRef: "III.A.4 — Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing)."
+    },
+    {
+      id: "DIII-IIIA-036", comp: "III.A", isRetrieval: false,
+      stem: "After completing the design of an AI loan-underwriting model, the governance team defines the III.A.5 documentation scope. Which items fall within III.A.5's requirements?",
+      options: {
+        A: "Training data lineage records, data quality assessments, and validation results from unit and integration testing during model training.",
+        B: "Post-deployment incident logs, monitoring dashboards, and operational review records from the system's live compliance programme.",
+        C: "The model card and conformity assessment report prepared for deployers and regulators at the time of the system's release.",
+        D: "Risk decisions from the harms matrix, policies and ethical considerations applied, and architecture rationale from the design phase."
+      },
+      correct: "D",
+      explanation: "D is correct. III.A.5 requires documenting the designing and building process — the harms matrix decisions, policies applied, and design rationale are exactly the content produced during this phase. A describes documentation under III.B.5 Document the training and testing process — a separate PI. B describes post-deployment documentation under III.C.4 Manage and document incidents. C describes the model card and conformity assessment required under III.C.1 Assess readiness and prepare for release.",
+      bokRef: "III.A.5 — Document the designing and building process (e.g., to establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIA-037", comp: "III.A", isRetrieval: false,
+      stem: "An AI model is being designed to route customer complaints to service agents. The governance team ensures operational controls are applied per III.A.3. Which control is most directly required?",
+      options: {
+        A: "Implement a quarterly audit schedule to verify that complaint routing decisions remain aligned with current service policies.",
+        B: "Build access logging into the system so that all routing decisions and agent assignments are captured for audit and accountability.",
+        C: "Run a use-case evaluation to surface edge-case complaint types that the routing model may handle incorrectly or inconsistently.",
+        D: "Establish a cross-functional committee to review and approve all routing policy changes before they are incorporated into the system."
+      },
+      correct: "B",
+      explanation: "B is correct. III.A.3 requires applying operational controls when designing and building the AI system. Access logging that captures routing decisions and assignments is a direct operational control — it creates accountability and auditability within the system design itself. A describes a post-deployment audit activity under III.C.3 Conduct periodic assessments. C describes use-case evaluation, which is a III.A.4 risk identification tool, not an operational control. D describes a governance committee process, which is an organisational control rather than a design-embedded operational control.",
+      bokRef: "III.A.3 — Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls)."
+    },
+    {
+      id: "DIII-IIIA-038", comp: "III.A", isRetrieval: false,
+      stem: "A company is building an AI model using a third-party foundation model fine-tuned on proprietary customer data. The governance team applies III.A.4 to identify external risks. Which risk is most distinctly external?",
+      options: {
+        A: "The third-party foundation model may contain training data that introduces copyright-infringing outputs, creating external legal exposure the team cannot fully control.",
+        B: "The internal data science team may lack sufficient expertise to fine-tune the foundation model without degrading its baseline performance.",
+        C: "The proprietary customer training data may contain inaccuracies or outdated records that reduce prediction quality and model reliability.",
+        D: "The foundation model's architecture may not suit the customer task, requiring costly redesign once performance gaps become apparent."
+      },
+      correct: "A",
+      explanation: "A is correct. External risks (III.A.4) arise from outside the organisation's direct control. A third-party foundation model's training data and its copyright implications are external — the team cannot audit or modify the upstream training corpus. B describes an internal contributing factor (team capability). C describes a risk from the internal customer dataset. D describes an architecture mismatch risk that, while related to third-party selection, is primarily an internal design decision risk that the team can evaluate and resolve before build.",
+      bokRef: "III.A.4 — Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing)."
+    },
+    {
+      id: "DIII-IIIA-039", comp: "III.A", isRetrieval: false,
+      stem: "During design of a predictive policing AI model, the governance team finds the training data overrepresents arrests from lower-income postal codes. Which action is most aligned with III.A.3's requirement to apply best practices to AI system design?",
+      options: {
+        A: "Document the imbalance as a known risk in the design record and escalate it to senior leadership for formal risk acceptance.",
+        B: "Continue with the current dataset and deploy post-deployment monitoring to detect geographically correlated bias in model predictions.",
+        C: "Conduct data analysis to understand the imbalance's source, then address it through re-sampling or data augmentation before model training.",
+        D: "Escalate to the legal team to assess whether the imbalance creates regulatory exposure before any further design steps are taken."
+      },
+      correct: "C",
+      explanation: "C is correct. III.A.3 requires applying data analysis as a best practice during the designing and building phase. Identifying a data imbalance requires understanding its root cause and correcting it before training — this is the application of III.A.3. A documents without resolving, which does not constitute applying best practices. B defers correction to post-deployment monitoring, which inverts the governance sequence required by III.A.3. D is a reasonable escalation step but is not itself the application of data analysis best practices to the design.",
+      bokRef: "III.A.3 — Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls)."
+    },
+    {
+      id: "DIII-IIIA-040", comp: "III.A", isRetrieval: false,
+      stem: "A governance function asks the team to clarify the difference between III.A.5 design documentation and the model card required under III.C.1. Which statement most accurately distinguishes them?",
+      options: {
+        A: "Both III.A.5 documentation and the III.C.1 model card record identical design decisions and risk steps — there is no meaningful distinction between them.",
+        B: "III.A.5 documentation is produced for regulators as a compliance filing; the III.C.1 model card is an internal governance record for audit.",
+        C: "III.A.5 documentation captures post-deployment performance findings; the III.C.1 model card records pre-deployment architecture decisions and design rationale.",
+        D: "III.A.5 documentation is produced during design to establish compliance and manage risks; the III.C.1 model card is prepared at release to communicate system details to deployers."
+      },
+      correct: "D",
+      explanation: "D is correct. III.A.5 documentation is produced concurrently with the design and build process — its purpose is compliance and risk management during development. The model card under III.C.1 is prepared at the point of release to production and serves to communicate the system's intended use, limitations, and evaluation results to deployers. The distinction is both timing (design phase vs. release) and audience (internal risk management vs. external deployers). A is wrong — they serve different purposes, audiences, and timings. B inverts the primary audiences. C inverts the timing of each document.",
+      bokRef: "III.A.5 — Document the designing and building process (e.g., to establish compliance and manage risks)."
+    },
+    {
+      id: "DIII-IIIA-R021", comp: "III.A", isRetrieval: true,
+      stem: "A technology company is deploying an AI model to automate performance reviews for employees across 12 countries. The governance team debates whether an impact assessment is required. Which condition most directly triggers the obligation under III.A.2?",
+      options: {
+        A: "The AI system makes or significantly influences decisions about individuals, creating potential for harm that the impact assessment is designed to surface.",
+        B: "The system operates across multiple jurisdictions, and each country's data protection authority requires a separate assessment filing before the system is used.",
+        C: "The company's legal team has not yet confirmed whether automated performance decisions constitute automated decision-making under applicable regulations.",
+        D: "The model is externally procured rather than internally built, which shifts the impact assessment obligation to the third-party provider."
+      },
+      correct: "A",
+      explanation: "A is correct. III.A.2 Perform or review an impact assessment on the AI system is triggered by the system's potential to cause harm through its decisions or recommendations — particularly when individuals are affected. A performance-review AI making consequential employment decisions is precisely the context where III.A.2 applies. B describes a regulatory filing step that may follow an assessment but does not define the III.A.2 trigger. C describes a legal determination step that may inform the assessment but is not the III.A.2 trigger itself. D is wrong — III.A.2 applies to whoever is designing or deploying the system; the obligation cannot be fully delegated to a third-party provider.",
+      bokRef: "III.A.2 — Perform or review an impact assessment on the AI system."
+    },
+    {
+      id: "DIII-IIIA-R022", comp: "III.A", isRetrieval: true,
+      stem: "An AI governance team is scoping the content of an impact assessment for a credit-decisioning AI model. Which elements are most appropriately within the scope of a III.A.2 impact assessment?",
+      options: {
+        A: "Training data sources, data lineage records, and quality assessments confirming the dataset meets fit-for-purpose and integrity requirements.",
+        B: "Potential harms to affected applicants, fairness implications of the model's outputs, and the adequacy of proposed mitigation measures.",
+        C: "Post-deployment monitoring plan, incident response procedures, and the schedule for periodic model performance audits after launch.",
+        D: "Vendor contract terms, third-party liability clauses, and the SLA provisions governing the model supplier's ongoing obligations."
+      },
+      correct: "B",
+      explanation: "B is correct. An impact assessment under III.A.2 evaluates potential harms and risks of the AI system — specifically the harm to individuals and groups from the system's decisions, fairness concerns, and whether proposed mitigations are adequate. A describes data governance documentation under III.B.1 Establish data governance requirements. C describes post-deployment governance activities under III.C.2 and III.C.4 — these belong after launch, not in a pre-build impact assessment. D describes third-party risk assessment under I.C.3 and IV.B.1 Identify and evaluate key terms in vendor agreements.",
+      bokRef: "III.A.2 — Perform or review an impact assessment on the AI system."
+    },
+    {
+      id: "DIII-IIIA-R023", comp: "III.A", isRetrieval: true,
+      stem: "A governance team reviews an AI impact assessment that was completed for a loan-approval system. Which finding would indicate the assessment most effectively fulfils III.A.2?",
+      options: {
+        A: "The assessment confirms that the model's training data is sufficiently large and the architecture selected is state-of-the-art for financial decisioning tasks.",
+        B: "The assessment documents the system's predicted annual cost savings and the projected reduction in manual processing time for loan officers.",
+        C: "The assessment identifies specific harms to applicant groups, rates their likelihood and severity, and proposes mitigations with clear ownership.",
+        D: "The assessment confirms that the system complies with all applicable data privacy regulations and was reviewed by the legal and compliance team."
+      },
+      correct: "C",
+      explanation: "C is correct. A III.A.2 impact assessment is effective when it identifies specific harms to affected parties, evaluates their likelihood and severity, and proposes mitigations — this is the full risk-surfacing function the assessment is designed to perform. A evaluates technical quality but not harm to individuals — that is not the purpose of an impact assessment. B describes a business case document, not a harm assessment. D describes a compliance review — important, but compliance confirmation alone does not constitute an impact assessment that surfaces and mitigates harms.",
+      bokRef: "III.A.2 — Perform or review an impact assessment on the AI system."
+    },
+    {
+      id: "DIII-IIIA-R024", comp: "III.A", isRetrieval: true,
+      stem: "A company's data science team has completed an AI model design and argues that because they built the model, they are best placed to review the impact assessment themselves. Which response best reflects III.A.2 governance practice?",
+      options: {
+        A: "The team's self-review is appropriate because they have the deepest technical understanding of the model's design decisions and failure modes.",
+        B: "The review is acceptable provided the team documents their self-assessment process and submits it to the board for ratification.",
+        C: "The review requires the data science team lead to sign off on the assessment findings before it is submitted to the governance function.",
+        D: "The impact assessment should be reviewed by parties independent of the design team to ensure objectivity and surface risks the builders may overlook."
+      },
+      correct: "D",
+      explanation: "D is correct. III.A.2 requires the impact assessment to be performed or reviewed — 'reviewed' implies independent oversight of findings, not self-assessment by the same team that produced the design. A design team reviewing its own impact assessment creates a conflict of interest and risks missing the harms they are least likely to see. A and C both rely on the design team alone and do not provide the independent review that III.A.2 governance practice requires. B adds board ratification but still relies on self-assessment as the primary review mechanism.",
+      bokRef: "III.A.2 — Perform or review an impact assessment on the AI system."
+    },
+    {
+      id: "DIII-IIIA-R025", comp: "III.A", isRetrieval: true,
+      stem: "An AI team proposes conducting the impact assessment for a patient-triage system after the model is built but before it is deployed. A governance officer challenges this timing. Which argument best supports the governance officer's position under III.A.2?",
+      options: {
+        A: "Impact assessments cannot be meaningfully completed until the model exists and can be tested, so post-build timing is both appropriate and necessary.",
+        B: "III.A.2 requires the assessment before design decisions are locked, so that its findings can actually influence the architecture and mitigations selected.",
+        C: "Regulators require impact assessment submissions at least six months before deployment, making a post-build assessment non-compliant with filing deadlines.",
+        D: "The impact assessment must be repeated after every model update, so completing it once after build is insufficient regardless of when it was first done."
+      },
+      correct: "B",
+      explanation: "B is correct. III.A.2 requires performing or reviewing an impact assessment on the AI system as part of governing the designing and building phase — meaning the assessment should inform design decisions, not merely confirm them after the model is already built. An assessment completed post-build cannot change the architectural choices already made, defeating its risk-management purpose. A inverts the correct sequence. C makes a specific regulatory claim not stated in the BOK and is a distractor. D describes re-assessment obligations, which are valid but do not address the timing question raised in the scenario.",
+      bokRef: "III.A.2 — Perform or review an impact assessment on the AI system."
+    }
+  ]
+});
+</script>
+</body></html>
