@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 12 · Release &amp; Monitoring</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a4a00;--accent-light:#fdf3de}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- 1. HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 12 · Week 2</span>
+    <span class="sc-meta">16 June 2026 · Domain III · Exam weight: 8–10 questions · ~45 min</span>
+  </div>
+  <h1 class="sc-title">III.C — Govern the Release, Monitoring and Maintenance of the AI System</h1>
+</div>
+
+<!-- 2. BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head"><span class="sc-section-label">BOK</span><span class="sc-section-title">Performance Indicators</span></div>
+  <div class="sc-section-body">
+    <ul class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">III.C.1</span> Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.2</span> Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.3</span> Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.4</span> Manage and document incidents, issues and risks.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.5</span> Collaborate with cross-functional stakeholders to understand why incidents arise from AI systems (e.g., brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.6</span> Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3. KEY CONCEPTS -->
+
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Concept 1</span><span class="sc-section-title">Release Readiness &amp; Model Cards (III.C.1)</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">What release readiness requires</span></div>
+      <div class="sc-concept-body">
+        <p>Before an AI system enters production, the governance professional must confirm three pillars are satisfied: technical readiness (performance thresholds met, bias checks cleared), documentation readiness (model card complete), and conformity readiness (regulatory or standards requirements fulfilled — e.g., EU AI Act conformity assessment for high-risk systems). Release is a gate, not a handoff.</p>
+        <p class="sc-why">Why it matters on the exam: III.C.1 names two specific examples — the model card and conformity requirements. Questions will present release packages missing one of these and ask what the governance professional should do. The correct answer is always to block release until both are present.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Model card</span> A structured, standardised disclosure document accompanying an AI model that records its intended use, performance metrics across demographic groups, known limitations, and evaluation conditions. Created at release, not after.</div>
+          <div class="sc-def"><span class="sc-term">Conformity assessment</span> A formal verification process used under the EU AI Act and similar frameworks that confirms a high-risk AI system meets applicable legal and technical requirements before market placement.</div>
+          <div class="sc-def"><span class="sc-term">Release gate</span> An organisational control point where defined criteria must be met before deployment proceeds. The governance professional enforces this gate — it is not advisory.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Concept 2</span><span class="sc-section-title">Continuous Monitoring, Maintenance &amp; Retraining (III.C.2)</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">What continuous monitoring covers — and what it drives</span></div>
+      <div class="sc-concept-body">
+        <p>Continuous monitoring is always-on operational tracking of the deployed system: output quality, performance metrics, input data distribution, and anomalous patterns. Its purpose is not merely to watch — it drives the maintenance schedule. When thresholds are breached or drift is detected, monitoring triggers retraining or updates. The schedule for maintenance, updates, and retraining must be established upfront, not improvised after degradation is observed.</p>
+        <p class="sc-why">Why it matters on the exam: The exam distinguishes continuous monitoring (III.C.2) from periodic assessment (III.C.3). Continuous monitoring is automated and ongoing; periodic assessment is scheduled and episodic. A scenario involving performance degradation detected by a dashboard alert is always III.C.2. An audit or red team exercise is always III.C.3.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Data drift</span> A shift in the statistical properties of input data, diverging from the training distribution. Detectable through continuous monitoring; triggers retraining.</div>
+          <div class="sc-def"><span class="sc-term">Model drift</span> Degradation in model performance over time as the relationship between inputs and outputs changes. The primary trigger for scheduled retraining under III.C.2.</div>
+          <div class="sc-def"><span class="sc-term">Retraining</span> Updating the AI model using new or refreshed data to restore performance. Must be governed by a defined schedule and triggered by monitoring thresholds — not ad hoc.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Concept 3</span><span class="sc-section-title">Periodic Assessment: Audits, Red Teaming &amp; Threat Modeling (III.C.3)</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Periodic vs. continuous — the critical distinction</span></div>
+      <div class="sc-concept-body">
+        <p>Periodic assessment under III.C.3 is episodic, deeper evaluation — scheduled and deliberately resourced. The BOK lists four examples: audits (systemic compliance and performance review), red teaming (adversarial probing for vulnerabilities and biases), threat modeling (systematic risk mapping producing a threat register), and security testing (penetration tests and infrastructure hardening). None of these can run continuously because they require specialist setup, deliberate access, and often disrupt normal operations.</p>
+        <p class="sc-why">Why it matters on the exam: If a question asks what to do when an organisation wants to find adversarial vulnerabilities or unknown edge cases — that is III.C.3 (red teaming). If it asks what to do when a performance dashboard shows degradation — that is III.C.2. The exam will mix these scenarios and test whether you map them to the right PI.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Red teaming</span> A structured adversarial exercise where a specialist team probes the AI system from an attacker's perspective to find exploitable flaws, biases, or edge-case failures not visible in normal monitoring.</div>
+          <div class="sc-def"><span class="sc-term">Threat modeling</span> A systematic process to identify, classify, and prioritise threats to an AI system's security and reliability, producing a threat register that informs security updates and risk decisions.</div>
+          <div class="sc-def"><span class="sc-term">AI audit</span> A formal, often independent review of an AI system's documentation, processes, and outputs against governance requirements and performance standards. Scheduled at defined intervals.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Concept 4</span><span class="sc-section-title">Incident Management &amp; Cross-Functional Root Cause (III.C.4 &amp; III.C.5)</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Manage + document + diagnose — three distinct obligations</span></div>
+      <div class="sc-concept-body">
+        <p>III.C.4 has two equal components: manage incidents (contain harm, escalate, remediate, verify fix) AND document them (maintain a formal log capturing what, when, who, cause, and resolution). Closing a ticket is not the same as documenting an incident. The governance professional owns the log, not the engineering team.</p>
+        <p>III.C.5 adds the diagnostic layer: AI incidents typically have cross-functional root causes. The BOK names five: brittleness (catastrophic failure on slightly different inputs), lack of robustness (failure outside training distribution), lack of quality data (training data deficiencies), insufficient testing (gaps in the test suite), and model or data drift (performance degradation over time). The governance lead must convene data scientists, risk, legal, and operations to diagnose accurately — not accept the first technical explanation offered.</p>
+        <p class="sc-why">Why it matters on the exam: Questions will test whether you distinguish the management obligation (III.C.4) from the diagnostic collaboration obligation (III.C.5), and whether you can classify a failure correctly among the five root causes. Brittleness = immediate catastrophic failure on slightly different input. Drift = gradual degradation over time. Insufficient testing = process gap. These are not interchangeable.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Root cause vocabulary (III.C.5)</div>
+          <div class="sc-def"><span class="sc-term">Brittleness</span> A model's tendency to fail catastrophically on inputs that differ only slightly from training data — a small perturbation produces a large, disproportionate error.</div>
+          <div class="sc-def"><span class="sc-term">Lack of robustness</span> The system's inability to maintain acceptable performance across the full range of real-world conditions, including adversarial inputs or distributional shifts.</div>
+          <div class="sc-def"><span class="sc-term">Model or data drift</span> Gradual degradation over time as the relationship between inputs and outputs changes (model drift) or as input data distribution shifts away from training (data drift).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Concept 5</span><span class="sc-section-title">Transparency Obligations &amp; Public Disclosures (III.C.6)</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Three external disclosures — audience determines which applies</span></div>
+      <div class="sc-concept-body">
+        <p>III.C.6 covers external disclosures only — directed at regulators, deployers, or the public, not internal stakeholders. The BOK names three examples: technical documentation (filed with regulators — covers architecture, training data, risk management, accuracy, human oversight), instructions for use to deployers (enabling downstream responsible deployment — a provider obligation), and post-market monitoring plans (forward-looking commitment to ongoing surveillance and defined review cycles).</p>
+        <p>On the exam, the audience is the key discriminator. A question about what a provider must give its enterprise customers points to instructions for use. A question about what is filed with a regulator points to technical documentation. A question about demonstrating ongoing accountability after deployment points to the post-market monitoring plan.</p>
+        <p class="sc-why">Why it matters: Many AI laws make failure to disclose a standalone violation — separate from any underlying system defect. Governance professionals must know what goes to whom, when, and in what form.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key terms</div>
+          <div class="sc-def"><span class="sc-term">Instructions for use</span> Documentation from AI provider to deployer specifying how to use the system safely and within its intended scope. A legal requirement under the EU AI Act for high-risk systems. Directed at deployers, not the public.</div>
+          <div class="sc-def"><span class="sc-term">Post-market monitoring plan</span> A forward-looking disclosure committing the organisation to ongoing surveillance of the deployed system, with defined review cycles, performance thresholds, and escalation triggers.</div>
+          <div class="sc-def"><span class="sc-term">Technical documentation</span> Regulatory disclosure covering system architecture, training data, risk management, accuracy metrics, and human oversight mechanisms. Filed to demonstrate legal compliance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Reference</span><span class="sc-section-title">Continuous Monitoring vs. Periodic Assessment</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead>
+          <tr><th>Dimension</th><th>Continuous Monitoring (III.C.2)</th><th>Periodic Assessment (III.C.3)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Frequency</td><td>Always-on, real-time or near-real-time</td><td>Scheduled intervals (quarterly, annual)</td></tr>
+          <tr><td>Trigger</td><td>Automated thresholds and alerts</td><td>Calendar schedule or governance review cycle</td></tr>
+          <tr><td>Activities</td><td>Performance dashboards, drift detection, anomaly alerts</td><td>Audits, red teaming, threat modeling, security testing</td></tr>
+          <tr><td>Who runs it</td><td>Operations / MLOps with governance oversight</td><td>Governance / risk / security, often with external specialists</td></tr>
+          <tr><td>Primary output</td><td>Retraining decisions, maintenance schedules, incident triggers</td><td>Audit report, red team findings, threat register</td></tr>
+          <tr><td>Exam signal</td><td>"Dashboard alert", "performance threshold", "drift detected"</td><td>"Annual audit", "red team exercise", "threat modeling"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 5. WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Scenario</span><span class="sc-section-title">Credit Scoring AI: Post-Launch Governance Failure</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">A regional bank deploys a credit scoring AI in Q1. By Q3, approval rates for one demographic segment have dropped 15%. No monitoring alerts have fired. Customer complaints are being logged informally by branch managers but not centrally tracked. The bank's regulator has requested a post-market monitoring report.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Analysis</div>
+      <div class="sc-scenario-text">Three governance failures are visible. The approval rate shift should have triggered an alert — its absence is a failure of <span class="sc-pi-ref">III.C.2</span>. Complaints logged informally without central tracking means incidents are not being managed or documented as required by <span class="sc-pi-ref">III.C.4</span>. The 15% demographic drop requires cross-functional diagnosis from data science, risk, and legal under <span class="sc-pi-ref">III.C.5</span>. The regulator's request for a post-market monitoring report points to an additional gap under <span class="sc-pi-ref">III.C.6</span> — the bank should have had a plan in place from launch.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Outcome</div>
+      <div class="sc-scenario-text">Immediate: establish a central incident register and formalise the complaint log. Convene a cross-functional root cause review. Near-term: deploy a monitoring dashboard with demographic parity alerts and defined thresholds. Produce the post-market monitoring plan for the regulator. III.C failures are most often process and organisational failures — not just technical ones.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">Quick Recall</span><span class="sc-section-title">Flashcards</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc">
+        <div class="sc-fc-q">What two artefacts does III.C.1 specifically name as release readiness requirements? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Model card (intended use, performance across groups, limitations, evaluation conditions) and satisfying conformity requirements (regulatory/standards compliance verification).</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the key distinction between III.C.2 and III.C.3? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">III.C.2 is continuous monitoring — always-on, automated, threshold-driven. III.C.3 is periodic assessment — scheduled, episodic, specialist-led (audits, red teaming, threat modeling, security testing).</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Name the five root causes of AI system incidents listed in III.C.5. <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Name the three transparency disclosures in III.C.6 and their primary audiences. <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Technical documentation (regulators), instructions for use (deployers), and post-market monitoring plans (regulators and public).</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What does III.C.4 require beyond just fixing an incident? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Documentation — a maintained log capturing what occurred, when, who was involved, what caused it, and what was done to resolve it. Management (fixing) alone is insufficient.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Brittleness vs. model drift — what is the precise distinction? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Brittleness is immediate catastrophic failure on inputs slightly different from training data. Model drift is gradual performance degradation over time as the world changes.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">When does continuous monitoring under III.C.2 trigger retraining? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">When defined performance thresholds are breached — typically from model drift or data drift detected by the monitoring system. Must follow a pre-defined schedule, not be ad hoc.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. IAPP LINKS -->
+<div class="sc-section">
+  <div class="sc-section-head"><span class="sc-section-label">IAPP</span><span class="sc-section-title">Reference Links</span><span class="sc-chevron">▸</span></div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank"><span class="sc-res-label">AIGP Body of Knowledge</span><span class="sc-res-desc">Official BOK — authoritative source for all exam content</span></a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank"><span class="sc-res-label">IAPP Exam Preparation</span><span class="sc-res-desc">Official preparation resources and study guidance</span></a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank"><span class="sc-res-label">AIGP Study Guide</span><span class="sc-res-desc">IAPP official study guide request</span></a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank"><span class="sc-res-label">Certification Handbook</span><span class="sc-res-desc">IAPP certification policies, exam structure and procedures</span></a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>

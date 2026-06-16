@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIGP Day 12 Quiz — Release &amp; Monitoring</title>
+<script src="quiz-engine.js"></script>
+<script>
+const QUIZ_DATA = {
+  day: 12, week: 2, comp: "III.C", topic: "Release & Monitoring",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DIII-IIIC-001", pi: "III.C.1", comp: "III.C", isRetrieval: false,
+      stem: "An AI governance professional at a fintech company is preparing a credit scoring model for production release. The model passed all technical performance thresholds and bias tests last week. Which artefact must be created specifically to document the model's intended use, performance across demographic groups, and known limitations before the release gate is approved?",
+      options: {
+        A: "A data governance policy that maps the training data sources and establishes quality standards for ongoing data inputs to the credit scoring model",
+        B: "A model card that discloses intended use, performance metrics across demographic groups, known limitations, and evaluation conditions for this release",
+        C: "An impact assessment that identifies risks to individuals, groups, and society posed by the credit scoring model at the point of deployment",
+        D: "A conformity assessment report that verifies the model complies with all applicable financial services regulatory requirements before market placement"
+      },
+      correct: "B",
+      bokRef: "III.C.1 — Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).",
+      explanation: "B is correct. III.C.1 Assess readiness and prepare for release specifically cites creating the model card as a release preparation activity. A model card is the structured artefact disclosing intended use, performance across demographic groups, limitations, and evaluation conditions — the transparency record for the model at point of release. A is a data governance policy under III.B.1 Data Governance, not a release artefact. C describes an impact assessment performed earlier under III.A.2 Perform or review an impact assessment during design and build — not a release gate document. D describes a conformity assessment, also part of III.C.1, but is the regulatory process, not the documentation artefact the question asks for."
+    },
+    {
+      id: "DIII-IIIC-002", pi: "III.C.2", comp: "III.C", isRetrieval: false,
+      stem: "A bank deploys a fraud detection AI in January. By August, the operations team reports that the model's false negative rate has been creeping upward over several months without triggering any alerts. Which governance failure does this scenario most directly illustrate?",
+      options: {
+        A: "The absence of continuous monitoring with defined performance thresholds that would detect degradation and trigger maintenance or retraining decisions",
+        B: "The failure to conduct a pre-release audit that would have identified the model's tendency to degrade over the months following initial deployment",
+        C: "Inadequate cross-functional collaboration during root cause analysis, preventing the team from identifying the model drift before it became operationally significant",
+        D: "A missing post-market monitoring plan that should have been disclosed to regulators within ninety days of the system's initial deployment into production"
+      },
+      correct: "A",
+      bokRef: "III.C.2 — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.",
+      explanation: "A is correct. III.C.2 Conduct continuous monitoring requires always-on tracking with thresholds that trigger alerts. A false negative rate creeping upward without firing any alerts is a direct failure of the continuous monitoring function in III.C.2. B incorrectly points to a pre-release audit — III.C.3 periodic assessments are conducted post-deployment, not pre-release. C describes cross-functional root cause analysis under III.C.5 — the response after an incident is detected, not the detection mechanism itself. D refers to a post-market monitoring plan disclosure under III.C.6, which is a transparency artefact, not the operational monitoring system."
+    },
+    {
+      id: "DIII-IIIC-003", pi: "III.C.3", comp: "III.C", isRetrieval: false,
+      stem: "A governance professional at a healthcare AI company is planning the post-deployment oversight programme for a diagnostic support system. She wants to identify adversarial inputs and potential attack vectors before they are exploited by bad actors. Which periodic assessment activity under III.C.3 should she schedule?",
+      options: {
+        A: "Data drift monitoring using automated statistical tests run daily against incoming patient data to detect distribution shifts from the training population",
+        B: "A formal internal audit of the system's documentation to verify that all regulatory requirements are satisfied and compliance records are current",
+        C: "A red team exercise where a specialist team probes the system adversarially to find exploitable vulnerabilities, biases, or edge-case failures",
+        D: "A retraining cycle using newly collected patient data to update the model's parameters and restore baseline performance metrics to target levels"
+      },
+      correct: "C",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      explanation: "C is correct. Red teaming is explicitly listed under III.C.3 as a periodic assessment activity. It is adversarial by design, uses specialist expertise, and is scheduled episodically — it fits precisely the goal of finding adversarial inputs and attack vectors. A describes data drift monitoring under III.C.2 Conduct continuous monitoring — automated and always-on, not a periodic assessment. B is an internal audit, also listed under III.C.3, but audits focus on compliance conformance and documentation review, not adversarial vulnerability discovery. D describes retraining under III.C.2 as a maintenance activity — not a periodic assessment."
+    },
+    {
+      id: "DIII-IIIC-004", pi: "III.C.4", comp: "III.C", isRetrieval: false,
+      stem: "A deployed customer service AI produces a harmful response that causes reputational damage. The engineering team fixes the root cause within 48 hours. The product manager closes the ticket and declares the incident resolved. What additional obligation under III.C.4 has NOT been fulfilled?",
+      options: {
+        A: "Scheduling a red team exercise to find similar vulnerabilities in other areas of the system before the next production release cycle begins",
+        B: "Notifying affected customers and regulators within the prescribed timeframe as required by applicable data protection legislation in the jurisdiction",
+        C: "Convening a cross-functional review with data science, legal, and risk stakeholders to determine whether model drift caused the harmful output",
+        D: "Formally documenting the incident in a maintained log capturing what occurred, when, who was involved, the cause, and how it was resolved"
+      },
+      correct: "D",
+      bokRef: "III.C.4 — Manage and document incidents, issues and risks.",
+      explanation: "D is correct. III.C.4 requires both managing and documenting incidents. Fixing the root cause and closing the ticket satisfies management, but documentation — maintaining a formal incident log with what, when, who, cause, and resolution — was not fulfilled. Closing a ticket is not governance documentation. A refers to red teaming under III.C.3 Periodic assessment, appropriate follow-on but not a III.C.4 obligation. B covers breach notification under II.A.3 data privacy law, a separate legal obligation not the III.C.4 documentation requirement. C describes cross-functional root cause analysis under III.C.5, a valid step but not the specific gap the question identifies."
+    },
+    {
+      id: "DIII-IIIC-005", pi: "III.C.5", comp: "III.C", isRetrieval: false,
+      stem: "A deployed hiring recommendation AI begins producing skewed shortlists three months post-launch. Monitoring alerts fire. Data scientists suspect model drift; HR reports that applicant demographics shifted significantly this quarter; legal flags that training data included proxy variables for protected characteristics. Which action best reflects the cross-functional obligation under III.C.5?",
+      options: {
+        A: "Immediately suspend the AI system and revert to manual hiring processes until a full external audit under III.C.3 Periodic assessment can be completed",
+        B: "Facilitate a structured root cause analysis with data science, HR, legal, and risk to determine whether drift, data quality, or insufficient testing is the cause",
+        C: "Escalate directly to the board and notify regulators, since the involvement of protected characteristics triggers mandatory reporting under nondiscrimination laws",
+        D: "Commission a new impact assessment to re-evaluate the system's risk profile and update the model card before any further deployment decisions are made"
+      },
+      correct: "B",
+      bokRef: "III.C.5 — Collaborate with cross-functional stakeholders to understand why incidents arise from AI systems (e.g., brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift).",
+      explanation: "B is correct. III.C.5 requires cross-functional collaboration specifically to understand why incidents arise — covering brittleness, robustness, quality data, testing, and model or data drift. The scenario presents multiple plausible causes requiring input from data science, HR, legal, and risk together to diagnose accurately. A is an operational response decision, not the III.C.5 governance obligation. C refers to regulatory notification under II.B Nondiscrimination laws, which may apply separately but is not the cross-functional collaboration obligation. D is an impact assessment under III.A.2 Perform or review an impact assessment, appropriate as a follow-on but not the primary obligation during active incident response."
+    },
+    {
+      id: "DIII-IIIC-006", pi: "III.C.1", comp: "III.C", isRetrieval: false,
+      stem: "A medical device company is preparing a high-risk AI diagnostic system for market placement in the EU. Development and testing are complete. The compliance officer says the system cannot be released until specific regulatory obligations under the EU AI Act are formally satisfied. Which release readiness element does this most directly invoke under III.C.1?",
+      options: {
+        A: "Satisfying the conformity assessment requirements that verify the high-risk AI system meets applicable legal and technical standards before market placement",
+        B: "Completing the data governance documentation establishing lawful rights to use the diagnostic training data and confirming the data quality standards applied",
+        C: "Finalising the post-market monitoring plan committing the organisation to ongoing surveillance, defined review cycles, and escalation procedures post-deployment",
+        D: "Publishing the model card that discloses the system's intended medical use, performance metrics across patient groups, limitations, and evaluation methodology"
+      },
+      correct: "A",
+      bokRef: "III.C.1 — Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).",
+      explanation: "A is correct. III.C.1 explicitly references satisfying conformity requirements as a release readiness activity. For high-risk AI under the EU AI Act, this means completing the conformity assessment before market placement — exactly what the compliance officer is enforcing. B describes data governance documentation under III.B.1 Data Governance, completed during development. C describes a post-market monitoring plan under III.C.6, a transparency obligation, not a pre-release conformity requirement. D describes the model card, also under III.C.1, but the question asks about the regulatory obligation blocking release — which is conformity assessment, not model card creation."
+    },
+    {
+      id: "DIII-IIIC-007", pi: "III.C.2", comp: "III.C", isRetrieval: false,
+      stem: "A retail recommendation AI's continuous monitoring dashboard shows that the statistical distribution of user purchase data has shifted substantially over two months as the company entered a new market. Accuracy has dropped below the defined performance threshold. What governance response should III.C.2 trigger at this point?",
+      options: {
+        A: "A formal red team exercise targeting the recommendation engine to identify adversarial inputs that may be exploiting the new market's different data characteristics",
+        B: "An immediate system suspension pending a new impact assessment to evaluate whether the performance drop constitutes a high-risk condition for users in the new market",
+        C: "A retraining cycle using updated data from the new market, executed as part of the maintenance plan triggered by the monitoring threshold being breached",
+        D: "An external audit of the model's documentation to verify that the model card and technical documentation reflect the new market context and updated performance profile"
+      },
+      correct: "C",
+      bokRef: "III.C.2 — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.",
+      explanation: "C is correct. III.C.2 requires continuous monitoring AND a schedule for maintenance, updates, and retraining. When monitoring detects a threshold breach from data drift entering a new market, the prescribed response is to trigger the retraining cycle defined in the maintenance plan. A refers to red teaming under III.C.3 Periodic assessment — adversarial and episodic, not the response to drift-driven degradation. B suggests suspension and a new impact assessment — disproportionate when the monitoring system is working and the response is retraining. D refers to documentation updates, which may follow retraining but is not the primary triggered response under III.C.2."
+    },
+    {
+      id: "DIII-IIIC-008", pi: "III.C.6", comp: "III.C", isRetrieval: false,
+      stem: "A SaaS company has developed a content moderation AI and is licensing it to enterprise clients. Under III.C.6 transparency obligations, which specific disclosure must the SaaS provider make available to its enterprise customers to enable responsible downstream use?",
+      options: {
+        A: "A post-market monitoring plan showing the SaaS provider's internal review cycles, performance thresholds, and escalation triggers for the content moderation system",
+        B: "A conformity assessment certificate confirming the content moderation tool satisfies all applicable regulatory requirements in the jurisdictions where deployers operate",
+        C: "A model card disclosing the tool's training data composition, performance across content categories, known false positive rates, and the evaluation methodology used",
+        D: "Instructions for use providing enterprise deployers guidance on how to deploy the content moderation tool safely, appropriately, and within its intended operational scope"
+      },
+      correct: "D",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      explanation: "D is correct. III.C.6 explicitly names instructions for use to deployers as a transparency obligation. For a SaaS provider licensing to enterprise clients, providing instructions for use is the obligation directed at the downstream deployer audience. A is also under III.C.6 (post-market monitoring plan) but is typically a regulatory or public filing, not deployer-specific usage guidance. B describes a conformity assessment certificate under III.C.1 release requirements, not a III.C.6 transparency disclosure. C describes a model card under III.C.1, created at release, not an ongoing deployer-directed transparency obligation."
+    },
+    {
+      id: "DIII-IIIC-009", pi: "III.C.3", comp: "III.C", isRetrieval: false,
+      stem: "An AI governance professional is designing oversight for a deployed insurance underwriting model. She wants to verify annually that the model's decisions remain free from systemic bias and conform to regulatory requirements across all lines of business. Which activity best fulfils this under III.C?",
+      options: {
+        A: "Implementing automated fairness dashboards that track bias metrics daily and send alerts when indicators exceed predefined thresholds across all lines of business",
+        B: "Conducting a formal annual audit of the model's decisions, documentation, and processes to assess conformance with governance requirements and regulatory bias standards",
+        C: "Scheduling quarterly retraining cycles that incorporate new underwriting data to ensure the model's parameters reflect current market conditions and regulatory standards",
+        D: "Publishing annual technical documentation to regulators reporting on model performance, any incidents in the period, and any changes to the underwriting methodology"
+      },
+      correct: "B",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      explanation: "B is correct. III.C.3 Conduct periodic activities explicitly includes audits. An annual formal audit examining decisions, documentation, and processes for bias and compliance conformance is a III.C.3 periodic assessment — structured, episodic, and governance-focused. A describes continuous monitoring under III.C.2 — automated daily tracking is always-on and threshold-driven, not a periodic assessment. C describes retraining under III.C.2 as a maintenance activity — not a compliance assessment. D describes transparency disclosures under III.C.6 — reporting to regulators is not a performance/reliability/safety assessment."
+    },
+    {
+      id: "DIII-IIIC-010", pi: "III.C.5", comp: "III.C", isRetrieval: false,
+      stem: "A deployed document classification AI performs at 94% accuracy in testing but degrades to 71% in production within two weeks. Investigation finds that production documents use slightly different header formatting than the training samples. Under III.C.5, which root cause best characterises this failure?",
+      options: {
+        A: "Brittleness — the model fails catastrophically on inputs differing only slightly from training data, with a minor structural variation causing a disproportionate accuracy collapse",
+        B: "Model drift — the model's parameters have shifted over time in production, causing the statistical relationship between inputs and outputs to gradually degrade",
+        C: "Lack of quality data — the training corpus contained corrupted or mislabelled documents preventing the model from learning robust classification patterns in the first place",
+        D: "Insufficient testing — the test suite lacked enough document diversity and volume to surface the header formatting sensitivity before the system was deployed to production"
+      },
+      correct: "A",
+      bokRef: "III.C.5 — Collaborate with cross-functional stakeholders to understand why incidents arise from AI systems (e.g., brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift).",
+      explanation: "A is correct. Brittleness in III.C.5 is catastrophic failure on inputs differing only slightly from training data. A 94% to 71% collapse triggered solely by different header formatting is the hallmark of brittleness — a small variation producing a disproportionate failure. B is model drift — gradual degradation over time, not an immediate failure on a slightly different input. C is lack of quality data — explains poor baseline performance, not a sudden drop on a specific variation. D is insufficient testing — a valid process failure, but brittleness is the root cause mechanism; insufficient testing is the process gap that allowed it through."
+    },
+    {
+      id: "DIII-IIIC-011", pi: "III.C.4", comp: "III.C", isRetrieval: false,
+      stem: "Continuous monitoring of a deployed patient triage AI detects that the system has been consistently assigning lower urgency scores to elderly patients with a specific symptom profile for six days. The medical director is notified. Under III.C.4, what is the AI governance professional's primary immediate obligation?",
+      options: {
+        A: "Suspend the AI system immediately and roll back to the previous model version while convening a cross-functional stakeholder review under III.C.5",
+        B: "Commission a red team exercise to determine whether the anomaly reflects an adversarial manipulation of the patient data input pipeline",
+        C: "Initiate formal incident management — containing the harm, escalating to affected stakeholders, and beginning documentation of the incident in the maintained log",
+        D: "Notify the relevant healthcare regulator within the required timeframe, attaching the model card and the most recent monitoring report as supporting evidence"
+      },
+      correct: "C",
+      bokRef: "III.C.4 — Manage and document incidents, issues and risks.",
+      explanation: "C is correct. III.C.4 requires both managing and documenting incidents. The primary immediate obligation is to activate incident management: contain the harm, escalate to affected stakeholders, and begin formal documentation. A describes a plausible operational response but frames it as the immediate obligation — III.C.4 requires activating governance process, not prescribing a specific technical action. B is red teaming under III.C.3 Periodic assessment, not an incident response tool. D covers regulatory notification, which may follow but depends on applicable law timelines — not the primary immediate III.C.4 obligation."
+    },
+    {
+      id: "DIII-IIIC-012", pi: "III.C.2", comp: "III.C", isRetrieval: false,
+      stem: "A logistics company deploys a route optimisation AI and establishes a monitoring programme. Six months later, the governance lead finds that monitoring only tracks whether the system is running — no performance thresholds are defined and no retraining schedule has been established. Which specific requirement of III.C.2 is missing?",
+      options: {
+        A: "The requirement to conduct periodic audits of route optimisation decisions to verify they remain aligned with current regulatory and safety requirements",
+        B: "The requirement to make public disclosures about the system's operational parameters and any changes to monitoring methodology to affected external stakeholders",
+        C: "The requirement to perform a conformity assessment before any system update to production to ensure continued compliance with applicable regulatory standards",
+        D: "The requirement to establish a regular schedule for maintenance, updates, and retraining alongside meaningful continuous monitoring of the system's performance"
+      },
+      correct: "D",
+      bokRef: "III.C.2 — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.",
+      explanation: "D is correct. III.C.2 has two components: conduct continuous monitoring AND establish a schedule for maintenance, updates, and retraining. The scenario shows monitoring that lacks performance thresholds — not meaningful — and no maintenance or retraining schedule. Both gaps map directly to III.C.2. A refers to periodic audits under III.C.3 Periodic assessment, a separate requirement. B refers to public disclosures under III.C.6, not an operational monitoring obligation. C refers to conformity assessments under III.C.1 Release readiness — a pre-release check, not an ongoing monitoring requirement."
+    },
+    {
+      id: "DIII-IIIC-013", pi: "III.C.1", comp: "III.C", isRetrieval: false,
+      stem: "A governance professional reviews the release package for an NLP loan approval AI. Technical testing is complete, the risk assessment is approved, and bias tests are clear. She refuses to approve release. Which artefact specifically named in III.C.1 is most likely missing from the release package?",
+      options: {
+        A: "The data lineage and provenance document tracing the origin, transformation history, and version record of all training and validation data used",
+        B: "The model card disclosing the system's intended use, performance across borrower demographic groups, known limitations, and evaluation conditions",
+        C: "The impact assessment documenting identified risks to loan applicants, including fairness risks and potential for algorithmic harm at the population level",
+        D: "The cross-functional stakeholder sign-off confirming that legal, compliance, and business leadership have reviewed and accepted the model's residual risks"
+      },
+      correct: "B",
+      bokRef: "III.C.1 — Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).",
+      explanation: "B is correct. III.C.1 specifically names creating the model card as a release preparation activity. With technical testing, risk assessment, and bias tests complete, the model card is the named release artefact that would be missing. A is a data lineage document under III.B.2 Data Governance, completed during training and testing — not a release gate document. C describes an impact assessment under III.A.2 Perform or review an impact assessment, completed during design and build. D describes a stakeholder approval process — not the named artefact in III.C.1."
+    },
+    {
+      id: "DIII-IIIC-014", pi: "III.C.6", comp: "III.C", isRetrieval: false,
+      stem: "The EU AI Act requires AI system providers to submit documentation to notified bodies and make certain materials publicly available to demonstrate ongoing compliance after a high-risk system is placed on the market. Which transparency obligation under III.C.6 does this describe?",
+      options: {
+        A: "Publishing technical documentation covering system architecture, training data, risk management, accuracy metrics, and human oversight mechanisms to regulatory bodies",
+        B: "Providing instructions for use to deployers specifying how the system should be operated, the tested conditions, and the boundaries of its safe and intended operation",
+        C: "Disclosing post-market monitoring plans committing the organisation to defined review cycles, performance thresholds, and escalation procedures after system deployment",
+        D: "Completing a conformity assessment that formally verifies the system satisfies applicable legal and technical requirements before market placement in the EU"
+      },
+      correct: "A",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      explanation: "A is correct. III.C.6 names technical documentation as the first transparency obligation example. Under the EU AI Act, technical documentation filed with regulatory bodies covers architecture, training data, risk management, accuracy, and human oversight. B describes instructions for use to deployers, also under III.C.6, but directed at deployers not regulators. C describes post-market monitoring plans, the third III.C.6 example — forward-looking commitments, not the regulatory documentation filed. D describes a conformity assessment under III.C.1 Release readiness — a pre-market compliance check, not a post-market transparency disclosure."
+    },
+    {
+      id: "DIII-IIIC-015", pi: "III.C.3", comp: "III.C", isRetrieval: false,
+      stem: "An AI governance team is conducting periodic oversight of a deployed identity verification system. A specialist is hired to systematically map how the system could fail, be attacked, or be misused — prioritising those risks by likelihood and impact. The output will be a risk register informing the next security update cycle. Which III.C.3 activity does this describe?",
+      options: {
+        A: "A red team exercise where adversarial testers attempt to trick the identity verification system into misclassifications using manipulated or edge-case inputs",
+        B: "A security penetration test in which external testers attempt to compromise the system's infrastructure and data pipeline through known vulnerability exploits",
+        C: "Threat modeling — a systematic process to identify, classify, and prioritise threats to the system's security and reliability, producing a risk register",
+        D: "A formal audit of the identity verification system's documentation and processes to assess conformance with identity governance and data protection standards"
+      },
+      correct: "C",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      explanation: "C is correct. The scenario describes threat modeling precisely: systematic mapping of how a system could fail, be attacked, or misused, prioritised by likelihood and impact, producing a risk register. III.C.3 explicitly names threat modeling. A is red teaming — adversarial hands-on testing using manipulated inputs, not a systematic risk mapping exercise producing a register. B is security penetration testing — probes for exploitable infrastructure vulnerabilities, distinct from risk mapping. D is a formal audit — reviews documentation and processes for compliance conformance, not systematic threat identification."
+    },
+    {
+      id: "DIII-IIIC-016", pi: "III.C.5", comp: "III.C", isRetrieval: false,
+      stem: "A deployed AI system for legal document review correctly classifies 97% of documents in normal operation. When a new client submits contracts with slightly different clause numbering conventions, accuracy drops to 43% with no other changes. The governance team convenes under III.C.5 to diagnose root cause. What is the most precise characterisation of the failure?",
+      options: {
+        A: "Model drift, as the model's internal parameters have gradually shifted over time in response to changes in the distribution of incoming legal documents",
+        B: "Lack of quality data, as the training corpus lacked sufficient examples of the clause numbering variations used across different legal jurisdictions and contract types",
+        C: "Insufficient testing, because the test suite should have included documents with varied clause numbering to validate model robustness before deployment",
+        D: "Brittleness, because the model fails catastrophically on inputs differing only slightly from training data — a minor formatting variation causing a severe accuracy collapse"
+      },
+      correct: "D",
+      bokRef: "III.C.5 — Collaborate with cross-functional stakeholders to understand why incidents arise from AI systems (e.g., brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift).",
+      explanation: "D is correct. Brittleness in III.C.5 is catastrophic failure on inputs differing only slightly from training data. A 97% to 43% collapse from different clause numbering conventions is the canonical example: small superficial variation, disproportionate failure. A is model drift — gradual degradation over time, not an immediate failure on a slightly different input. B is lack of quality data — explains poor baseline performance, not a sudden drop on a specific variation when the model performs well otherwise. C is insufficient testing — a process failure, but brittleness is the root cause mechanism."
+    },
+    {
+      id: "DIII-IIIC-017", pi: "III.C.2", comp: "III.C", isRetrieval: false,
+      stem: "Continuous monitoring for a deployed e-commerce pricing AI detects that the statistical distribution of competitor price inputs has shifted significantly over three weeks, diverging from the training distribution. Performance metrics remain within threshold for now, but the trend is accelerating. Under III.C.2, what governance response is most appropriate at this stage?",
+      options: {
+        A: "Suspend the AI system immediately and conduct a new impact assessment to evaluate whether the distributional shift creates new risks before allowing the system to resume",
+        B: "Escalate the drift signal to the maintenance programme, review the retraining schedule, and prepare to initiate a retraining cycle before performance breaches the defined threshold",
+        C: "Commission a formal external audit of the model's training data to determine whether the original data collection practices remain appropriate given the observed market shift",
+        D: "File an updated post-market monitoring report with the regulator disclosing the distributional shift and outlining the organisation's planned response measures in detail"
+      },
+      correct: "B",
+      bokRef: "III.C.2 — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.",
+      explanation: "B is correct. III.C.2 requires continuous monitoring AND a schedule for maintenance, updates, and retraining. The scenario shows an early drift signal where performance has not yet breached threshold — the appropriate proactive response is to escalate to the maintenance programme and prepare a retraining cycle before a breach occurs. A suspending the system is disproportionate; performance remains within threshold. C commissioning an external audit is a III.C.3 Periodic assessment activity, not the operational maintenance response to a drift signal. D filing a regulatory report is a III.C.6 transparency obligation, not an operational maintenance response."
+    },
+    {
+      id: "DIII-IIIC-018", pi: "III.C.4", comp: "III.C", isRetrieval: false,
+      stem: "A deployed HR AI incorrectly screens out qualified candidates due to a model error. The engineering team remediates the root cause within 48 hours. After remediation, the governance team asks: what must incident documentation capture under III.C.4? Which answer is most complete and accurate?",
+      options: {
+        A: "What occurred and when, who was involved, what caused the incident, and what actions were taken to manage and resolve it — preserved in a formal maintained incident log",
+        B: "The number of affected candidates, demographic breakdown of those impacted, root cause classification under III.C.5, and the updated model card reflecting the model fix",
+        C: "The monitoring alert that triggered the review, performance metrics at time of detection, the retraining schedule triggered, and the new monitoring threshold settings applied",
+        D: "The cross-functional meeting minutes, the red team report identifying the vulnerability class, and the post-market monitoring plan updated to reflect the new residual risk"
+      },
+      correct: "A",
+      bokRef: "III.C.4 — Manage and document incidents, issues and risks.",
+      explanation: "A is correct. III.C.4 requires managing and documenting incidents. Documentation must capture: what occurred, when, who was involved, the cause, and what was done to resolve it — the core content of a governance incident log. B contains useful detail but focuses on demographic impact and model card updates — not what III.C.4 specifically requires in the incident log. C focuses on monitoring metrics and retraining — relevant to III.C.2 Continuous monitoring records, not III.C.4 incident documentation. D references red team reports and post-market monitoring plan updates — III.C.3 and III.C.6 artefacts, not III.C.4 incident log content."
+    },
+    {
+      id: "DIII-IIIC-019", pi: "III.C.6", comp: "III.C", isRetrieval: false,
+      stem: "An AI provider builds a high-risk recruitment AI and licenses it to three enterprise clients who customise and deploy it for their own hiring processes. The provider's legal team confirms that transparency obligations require specific disclosure directed at the enterprise clients — not regulators or the public — about how to use the system appropriately. Which III.C.6 obligation applies?",
+      options: {
+        A: "Technical documentation filed with the relevant regulatory body disclosing system architecture, training data, and risk management measures for the high-risk AI classification",
+        B: "A post-market monitoring plan made available to the enterprise clients documenting the provider's review cycles, performance thresholds, and escalation procedures",
+        C: "Instructions for use provided to the enterprise deployers specifying how to deploy the recruitment AI safely, within its intended scope, and with appropriate human oversight",
+        D: "A model card created during release readiness that discloses the recruitment AI's performance across demographic groups, limitations, and evaluation conditions to all users"
+      },
+      correct: "C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      explanation: "C is correct. III.C.6 explicitly names instructions for use to deployers. The scenario specifies disclosure directed at enterprise clients (deployers) about appropriate use — instructions for use. A is technical documentation, also under III.C.6, but directed at regulatory bodies, not deployer clients. B is a post-market monitoring plan, also under III.C.6, but is a forward-looking operational commitment, not deployer-specific usage guidance. D is a model card under III.C.1 Release readiness, not the ongoing deployer-directed instructions the question asks about."
+    },
+    {
+      id: "DIII-IIIC-020", pi: "III.C.1", comp: "III.C", isRetrieval: false,
+      stem: "An AI governance lead reviews the release package for a predictive policing AI. Technical performance is strong, but the model card has not been completed and the jurisdiction's conformity assessment has not been finalised. The engineering team is ready to deploy immediately. What is the governance lead's responsibility under III.C.1?",
+      options: {
+        A: "Approve deployment conditionally, noting the documentation gaps and requiring the model card and conformity assessment to be completed within thirty days post-launch",
+        B: "Block the release until both the model card is complete and conformity requirements are satisfied — these are release readiness conditions, not post-deployment obligations",
+        C: "Escalate to the board and recommend suspending the entire AI programme until governance policies are updated to require model cards for all AI systems across the organisation",
+        D: "Require only the conformity assessment before release, since the model card can be completed post-deployment using live production data to populate the performance metrics accurately"
+      },
+      correct: "B",
+      bokRef: "III.C.1 — Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).",
+      explanation: "B is correct. III.C.1 frames both creating the model card and satisfying conformity requirements as release readiness conditions — completed before production, not after. A conditional approval treats III.C.1 requirements as post-deployment obligations, contradicting the PI. C escalating to the board is disproportionate — this is standard release gate enforcement. D suggesting the model card can wait is incorrect: model cards document intended use and performance before deployment; post-deployment data would not fulfil the pre-release transparency purpose."
+    },
+    {
+      id: "DIII-IIIB-R-001", pi: "III.B.2", comp: "III.B", isRetrieval: true,
+      stem: "An AI governance professional is reviewing data documentation for a financial crime detection model. She wants to ensure that for every dataset used in training, the organisation can trace its origin, all transformations applied, and which version was used at each training run. What governance requirement is she applying?",
+      options: {
+        A: "Data quality assessment under III.B.1 Data Governance, which requires evaluating data integrity, fit-for-purpose, and quantity before the model enters the training phase",
+        B: "Data minimization principles under II.A Privacy Laws, which require that only the minimum data necessary for the stated financial crime detection purpose is used",
+        C: "Impact assessment documentation under III.A.2 Perform or review an impact assessment, which requires identifying data inputs that contribute to risks in the model",
+        D: "Data lineage and provenance documentation under III.B.2, which establishes the origin, transformation history, and version record of all data used in training"
+      },
+      correct: "D",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance.",
+      explanation: "D is correct. III.B.2 Data Governance requires establishing and documenting data lineage and provenance — tracing where data came from, how it was transformed, and which version was used. A is data quality assessment under III.B.1, which evaluates data fitness and integrity, not origin and transformation history. B is a privacy principle under II.A Privacy Laws — data minimization is a legal obligation, not a lineage documentation requirement. C is impact assessment documentation under III.A.2, which addresses risk identification during design and build, not data traceability records."
+    },
+    {
+      id: "DIII-IIIB-R-002", pi: "III.B.2", comp: "III.B", isRetrieval: true,
+      stem: "A data science team retrains a customer churn model using a dataset from a third-party data broker. Three months later the model produces discriminatory outputs. The governance team cannot determine what was in the third-party dataset, whether consent was obtained, or what transformations were applied before training. Which III.B.2 failure directly enabled this situation?",
+      options: {
+        A: "Failure to establish and document data provenance for the third-party dataset — the organisation has no record of the data's origin, ownership, or processing history before training",
+        B: "Failure to conduct a data quality assessment under III.B.1, which would have identified that the third-party dataset contained proxy variables for protected characteristics",
+        C: "Failure to perform a privacy impact assessment under II.A.3, which would have revealed whether the data broker's processing of personal data complied with applicable law",
+        D: "Failure to document the training process under III.B.5, which requires capturing the datasets used, methodology applied, and validation results of each training run"
+      },
+      correct: "A",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance.",
+      explanation: "A is correct. III.B.2 requires establishing and documenting data lineage and provenance. Provenance covers a dataset's origin, ownership, and processing history — if the governance team cannot determine what was in the dataset, whether consent was obtained, or what transformations were applied, provenance was never documented. B is a data quality assessment under III.B.1 — evaluates data fitness, not origin and processing history. C is a privacy impact assessment under II.A.3 Privacy Laws — relevant to legal compliance but not the III.B.2 provenance documentation failure. D is training process documentation under III.B.5 Document the training and testing process — records what was done during training, not where the data came from."
+    },
+    {
+      id: "DIII-IIIB-R-003", pi: "III.B.2", comp: "III.B", isRetrieval: true,
+      stem: "An auditor asks an AI company to show evidence that it can trace the origin and transformation history of all training data used across its deployed models. The governance lead provides a diagram showing the current state of the data pipeline. The auditor is not satisfied. What is missing?",
+      options: {
+        A: "A data quality report demonstrating all datasets were assessed for accuracy, completeness, and fit-for-purpose before being approved for use in any model training",
+        B: "A data governance policy establishing the organisation's rules for data collection, use, retention, and disposal across all AI development activities and systems",
+        C: "Documented data lineage records tracing each dataset's origin, all transformations applied, and the specific versions used at each training run across all deployed models",
+        D: "Technical documentation filed with regulators showing model architecture, training methodology, and performance metrics for each of the organisation's deployed AI systems"
+      },
+      correct: "C",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance.",
+      explanation: "C is correct. III.B.2 requires establishing AND documenting data lineage and provenance. The auditor's request is for traceability across all deployed models — the current-state diagram shows the system now, not the historical record of origin, transformation, and versioning across all training runs. Lineage documentation must be persistent and traceable, not a point-in-time diagram. A is a data quality report under III.B.1 — assesses fitness and integrity, not origin and transformation history. B is a data governance policy under III.B.1 — establishes rules, not the specific lineage records the auditor needs. D is technical documentation filed with regulators under III.C.6 — a transparency disclosure, not internal data lineage records."
+    },
+    {
+      id: "DIII-IIIB-R-004", pi: "III.B.2", comp: "III.B", isRetrieval: true,
+      stem: "A healthcare AI company's hospital readmission model was trained on data from three hospitals collected between 2018 and 2022. A new version is now being developed. Governance requires documenting the data's entire history so future developers can understand what shaped the original model and how the data changed from collection to training. Which III.B.2 concept does this most directly serve?",
+      options: {
+        A: "Data quality assessment, ensuring future developers can verify the original dataset's integrity, completeness, and fitness for hospital readmission prediction tasks",
+        B: "Data minimization, confirming that only the minimum necessary patient data from the three hospitals was collected during the 2018 to 2022 period for the original model",
+        C: "Informed consent documentation, establishing that all patients across the three hospitals consented to their data being used for AI model training under the applicable framework",
+        D: "Data lineage documentation, tracing the origin from three hospitals, all collection and transformation steps, and the exact data state used at each training run performed"
+      },
+      correct: "D",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance.",
+      explanation: "D is correct. Data lineage under III.B.2 is the record enabling future developers to understand what data shaped the model and how it was transformed — the complete history from collection through to training. A is data quality assessment under III.B.1 — evaluates fitness and integrity, not the historical transformation trace. B is data minimization under II.A.2 Privacy Laws — a legal principle for limiting data collection, not a III.B.2 lineage requirement. C is consent documentation under II.A.1 or II.A.3 Privacy Laws — covers legal basis for data use, not lineage traceability records."
+    },
+    {
+      id: "DIII-IIIB-R-005", pi: "III.B.2", comp: "III.B", isRetrieval: true,
+      stem: "During a regulatory inspection, an AI company is asked to demonstrate where every piece of training data came from and show all processing steps that transformed raw data into the final training set. The company can produce data quality reports and testing results but cannot reconstruct the data transformation chain. What is the specific III.B.2 gap?",
+      options: {
+        A: "The company lacks a data governance policy that would have required data steward sign-off at each stage of the data collection and preparation process before use",
+        B: "The company failed to document data lineage — specifically the provenance and transformation chain recording the processing steps from raw data to the final training set",
+        C: "The company failed to validate training data under III.B.3 Plan and perform training and testing, which requires confirming the training set meets the model's requirements",
+        D: "The company failed to document the training process under III.B.5 Document the training and testing process, capturing validation results and compliance evidence for each run"
+      },
+      correct: "B",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance.",
+      explanation: "B is correct. III.B.2 requires documenting data lineage and provenance — specifically the transformation chain from raw data to the final training set. Being unable to reconstruct the transformation chain is the defining failure of III.B.2 lineage documentation. A refers to a data governance policy under III.B.1 — the gap is in documentation records, not policy existence. C refers to training and testing validation under III.B.3 — tests data quality against model requirements, not the upstream transformation chain. D refers to training process documentation under III.B.5 — records what happened during training runs, not the upstream transformation chain from raw data."
+    }
+  ]
+};
+document.addEventListener('DOMContentLoaded', function() { initQuiz(QUIZ_DATA); });
+</script>
+</head>
+<body><div id="quiz-root"></div></body>
+</html>
