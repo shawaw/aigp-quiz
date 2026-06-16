@@ -1,208 +1,261 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIGP Day 11 — Testing &amp; Documentation</title>
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 11 · Testing &amp; Documentation</title>
 <link rel="stylesheet" href="aigp-studycard.css">
-<style>
-  :root {
-    --accent-dark: #7a4a00;
-    --accent-light: #fdf3de;
-  }
-</style>
+<style>:root{--accent-dark:#7a4a00;--accent-light:#fdf3de}</style>
 </head>
-<body>
-<div class="card-container">
+<body><div class="sc-wrap">
 
-  <header class="card-header">
-    <div class="day-badge">Day 11 · Week 2</div>
-    <h1>Testing &amp; Documentation</h1>
-    <p class="competency-tag">III.B — Govern the collection and use of data in training and testing the AI model and system</p>
-    <p class="exam-weight">Exam weight: 6–8 questions · Domains III &amp; IV combined = highest weight band</p>
-  </header>
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 11 · Week 2</span>
+    <span class="sc-meta">Domain III · Competency III.B · 6–8 exam questions · ~30 min</span>
+  </div>
+  <h1 class="sc-title">Testing &amp; Documentation</h1>
+  <div class="sc-meta">Govern the collection and use of data in training and testing the AI model and system</div>
+</div>
 
-  <section class="section">
-    <h2>Performance Indicators (verbatim, BOK v2.1)</h2>
-    <ol class="pi-list">
-      <li><strong>III.B.1</strong> Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose).</li>
-      <li><strong>III.B.2</strong> Establish and document data lineage and provenance.</li>
-      <li><strong>III.B.3</strong> Plan and perform training and testing of the AI model and system (e.g., unit, integration, validation, performance, security, bias and interpretability).</li>
-      <li><strong>III.B.4</strong> Identify and manage issues and risks during training and testing of the AI model and system.</li>
-      <li><strong>III.B.5</strong> Document the training and testing process (e.g., to validate results, establish compliance and manage risks).</li>
+<!-- BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Performance Indicators — III.B</span>
+  </div>
+  <div class="sc-section-body">
+    <ol class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">III.B.1</span> Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.B.2</span> Establish and document data lineage and provenance.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.B.3</span> Plan and perform training and testing of the AI model and system (e.g., unit, integration, validation, performance, security, bias and interpretability).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.B.4</span> Identify and manage issues and risks during training and testing of the AI model and system.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.B.5</span> Document the training and testing process (e.g., to validate results, establish compliance and manage risks).</li>
     </ol>
-    <p class="pi-note">Day 11 focuses: testing methodology depth (III.B.3), risk taxonomy in practice (III.B.4), and documentation adequacy standards (III.B.5). Complements Day 10 which emphasised data governance (III.B.1) and lineage (III.B.2).</p>
-  </section>
+  </div>
+</div>
 
-  <section class="section">
-    <h2>Concept 1 — Testing Sequencing and the "Right Order" Rule (III.B.3)</h2>
-    <p>The seven testing types in III.B.3 are not interchangeable steps — sequencing failures are a common exam trap. The governance logic follows a logical dependency chain:</p>
-    <div class="concept-block">
-      <p><strong>Unit testing</strong> confirms each isolated model component functions correctly. You cannot detect interface problems until individual parts work independently.</p>
-      <p><strong>Integration testing</strong> verifies that assembled components interface correctly — including failure modes when connected systems don't transmit data as expected. Run after unit testing.</p>
-      <p><strong>Validation testing</strong> answers "are we building the right model?" — confirming the model addresses the defined business problem across its full operational scope. This must precede performance testing. A model cannot be meaningfully performance-tested until its use case is validated.</p>
-      <p><strong>Performance testing</strong> answers "how well does the model do what it does?" — measuring accuracy, throughput, latency, and reliability. Only meaningful once use-case fit is validated.</p>
-      <p><strong>Security testing</strong> probes adversarial vulnerabilities: training data extraction (memorisation attacks), model inversion, adversarial input manipulation, and prompt injection in generative models. For models trained on sensitive or proprietary data, this is not optional.</p>
-      <p><strong>Bias testing</strong> evaluates whether the model produces systematically different outcomes across protected or demographic groups — and at what granularity (not just aggregate metrics).</p>
-      <p><strong>Interpretability testing</strong> assesses whether specific decisions can be explained to regulators, users, or affected individuals. High aggregate accuracy does not substitute for individual-decision explainability.</p>
-    </div>
-    <div class="exam-tip">
-      <strong>Exam trap:</strong> When a question describes a team "skipping" a testing type and asks what the gap is, identify the type based on what the scenario is missing — not what comes next chronologically. The question is usually about scope, not sequence.
-    </div>
-    <div class="mnemonic">
-      <strong>Mnemonic (Day 10 carryover — reinforce):</strong> <em>"Uncle Ivan Validates Performance — Security, Bias, Interpretability"</em><br>
-      <span>Unit → Integration → Validation → Performance → Security → Bias → Interpretability</span>
-    </div>
-  </section>
+<!-- KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Key Concepts</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
 
-  <section class="section">
-    <h2>Concept 2 — Validation vs Performance: The Most Misapplied Distinction (III.B.3)</h2>
-    <p>The exam will present scenarios where a model achieves high performance metrics and ask whether testing is complete. The most common trap is conflating metric quality with use-case validation.</p>
-    <div class="comparison-table">
-      <table>
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Testing Sequencing and the "Right Order" Rule (III.B.3)</span></div>
+      <div class="sc-concept-body">
+        <p>The seven testing types in III.B.3 follow a logical dependency chain — each type presupposes the previous stages are complete. Sequencing failures are a high-value exam trap.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Seven BOK-enumerated testing types in sequence</div>
+          <div class="sc-def"><span class="sc-term">Unit</span> — validates each isolated model component. Cannot detect interface problems until individual parts work independently.</div>
+          <div class="sc-def"><span class="sc-term">Integration</span> — verifies assembled components interface correctly, including failure modes when connected systems fail to transmit data. Run after unit testing.</div>
+          <div class="sc-def"><span class="sc-term">Validation</span> — confirms the model addresses the defined business problem across its full operational scope. Must precede performance testing — you cannot meaningfully assess "how well" until you confirm "what for."</div>
+          <div class="sc-def"><span class="sc-term">Performance</span> — measures accuracy, throughput, latency, and reliability. Only meaningful once use-case fit is validated.</div>
+          <div class="sc-def"><span class="sc-term">Security</span> — probes adversarial vulnerabilities: training data extraction (memorisation attacks), model inversion, adversarial input manipulation, prompt injection in generative models. Not optional for models trained on sensitive data.</div>
+          <div class="sc-def"><span class="sc-term">Bias</span> — evaluates differential outcomes across protected or demographic groups at granular (not just aggregate) level.</div>
+          <div class="sc-def"><span class="sc-term">Interpretability</span> — assesses whether specific decisions can be explained to regulators, users, or affected individuals. High aggregate accuracy does not substitute for individual-decision explainability.</div>
+        </div>
+        <div class="sc-defs" style="margin-top:10px">
+          <div class="sc-defs-title">Mnemonic</div>
+          <div class="sc-def"><em>"Uncle Ivan Validates Performance — Security, Bias, Interpretability"</em></div>
+        </div>
+        <p class="sc-why">Exam trap: When a question describes a team "skipping" a testing type and asks what the gap is, identify the type based on what the scenario is missing — not what comes next chronologically. The question is usually about scope, not sequence.</p>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Validation vs Performance: The Most Misapplied Distinction (III.B.3)</span></div>
+      <div class="sc-concept-body">
+        <p>The exam will present scenarios where a model achieves high performance metrics and ask whether testing is complete. The most common trap is conflating metric quality with use-case validation.</p>
+        <div class="sc-table-wrap" style="margin:12px 0">
+          <table class="sc-table">
+            <thead>
+              <tr><th>Testing Type</th><th>Core Question</th><th>What It Does Not Answer</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Validation</strong></td><td>Are we building the right model for the right problem across the full operational scope?</td><td>Does not measure accuracy, speed, fairness, or security</td></tr>
+              <tr><td><strong>Performance</strong></td><td>How accurately, quickly, and reliably does the model perform its function?</td><td>Does not confirm use-case fit, fairness, or explainability</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sc-why">Validation failures often manifest as coverage gaps: a test set drawn from only one sub-population, environment, or time window cannot validate a model intended for broader use. The 96% accuracy is real — but for whom, when, and where?</p>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Risk Taxonomy During Training and Testing (III.B.4)</span></div>
+      <div class="sc-concept-body">
+        <p>III.B.4 requires identifying AND managing risks — suppressing a finding is a management failure even when the identification was correct. The four main risk categories the exam targets:</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key risk categories</div>
+          <div class="sc-def"><span class="sc-term">Data quality risk</span> — corrupt, mislabelled, or swapped-field training records producing unreliable outputs from the start. Governed jointly by III.B.1 (data integrity) and III.B.4.</div>
+          <div class="sc-def"><span class="sc-term">Bias risk</span> — systematic performance differences across demographic or protected-attribute groups. Suppressing a bias finding and proceeding to deployment is a III.B.4 violation, not merely an ethics concern.</div>
+          <div class="sc-def"><span class="sc-term">Distribution shift / drift risk</span> — real-world inputs after deployment differ from training distribution. Three sub-types the exam tests: (1) temporal shift (post-pandemic borrower behaviour); (2) equipment/source shift (community clinic vs academic hospital imaging); (3) policy-induced shift (hospital discharge criteria change). Governance response: temporal validation, representativeness review, retraining trigger planning.</div>
+          <div class="sc-def"><span class="sc-term">Data leakage risk</span> — test data contamination of training produces falsely optimistic metrics. Distinct from drift: leakage inflates test performance; drift causes post-deployment degradation without inflated test metrics.</div>
+        </div>
+        <p class="sc-why">Distinguishing drift from overfitting (exam trap): Overfitting produces poor generalisation immediately visible in validation testing. Drift produces good test performance then post-deployment degradation — the model was well-fitted to the training distribution; the world changed. The timeline (when does performance degrade?) is the diagnostic.</p>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Documentation Adequacy: The Three-Purpose Standard (III.B.5)</span></div>
+      <div class="sc-concept-body">
+        <p>III.B.5 requires documentation sufficient to fulfil three distinct purposes. The exam tests whether a described artefact meets all three — or only some.</p>
+        <div class="sc-table-wrap" style="margin:12px 0">
+          <table class="sc-table">
+            <thead>
+              <tr><th>Purpose</th><th>What It Requires</th><th>What Does Not Satisfy It</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Validate results</strong></td><td>Records sufficient to reproduce and verify what the model achieved in testing</td><td>Summary metrics without run configurations or selection criteria</td></tr>
+              <tr><td><strong>Establish compliance</strong></td><td>Records demonstrating lawful data use, testing scope, and risk assessment for regulators</td><td>Internal slide decks, vague data-source labels ("internal company data")</td></tr>
+              <tr><td><strong>Manage risks</strong></td><td>Risk-category-specific records (bias results by subgroup, security findings, drift triggers)</td><td>Aggregate performance metrics without risk-category breakdown</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sc-why">A management summary slide deck may validate results in a business sense, but it cannot establish compliance or enable operational risk management. The three purposes require different levels of technical granularity.</p>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">Retraining Is a New Training Event (III.B.5)</span></div>
+      <div class="sc-concept-body">
+        <p>Each retraining cycle is a new training and testing event — the documentation obligations under III.B.5 apply fully to each cycle, not only to the original training. If training data changes, the lineage record (III.B.2) must be updated. Stale documentation from the original cycle cannot validate, establish compliance for, or enable risk management of a model now trained on different data.</p>
+        <p class="sc-why">III.B vs III.C boundary (exam trap): Retraining the model → III.B (training and testing). Monitoring the deployed model without retraining → III.C (release, monitoring and maintenance). A question asking "which PI governs quarterly retraining" is asking about III.B, not III.C.2.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TESTING TYPES TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Table</span>
+    <span class="sc-section-title">Seven Testing Types — Purpose and Governance Risk</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
         <thead>
-          <tr>
-            <th>Testing Type</th>
-            <th>Core Question</th>
-            <th>What It Does Not Answer</th>
-          </tr>
+          <tr><th>Test Type</th><th>Primary Question Answered</th><th>Governance Risk Caught</th><th>BOK PI</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>Validation</strong></td>
-            <td>Are we building the right model for the right problem across the full operational scope?</td>
-            <td>Does not measure accuracy, speed, fairness, or security</td>
-          </tr>
-          <tr>
-            <td><strong>Performance</strong></td>
-            <td>How accurately, quickly, and reliably does the model perform its function?</td>
-            <td>Does not confirm use-case fit, fairness, or explainability</td>
-          </tr>
+          <tr><td>Unit</td><td>Does this component work alone?</td><td>Component defects before integration</td><td>III.B.3</td></tr>
+          <tr><td>Integration</td><td>Do all components work together?</td><td>Interface failures and pipeline errors</td><td>III.B.3</td></tr>
+          <tr><td>Validation</td><td>Are we building the right model?</td><td>Misalignment with intended use case</td><td>III.B.3</td></tr>
+          <tr><td>Performance</td><td>How accurate and fast is it?</td><td>Insufficient accuracy for the risk level</td><td>III.B.3, III.B.4</td></tr>
+          <tr><td>Security</td><td>Can it be attacked or manipulated?</td><td>Adversarial inputs, memorisation attacks, poisoning</td><td>III.B.3, III.B.4</td></tr>
+          <tr><td>Bias</td><td>Does it treat all groups fairly?</td><td>Discriminatory outputs, regulatory liability</td><td>III.B.3, III.B.4</td></tr>
+          <tr><td>Interpretability</td><td>Can decisions be explained?</td><td>Non-compliance with explainability obligations</td><td>III.B.3, III.B.5</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Validation failures often manifest as coverage gaps: a test set drawn from only one sub-population, environment, or time window cannot validate a model intended for broader use. The 96% accuracy is real — but for whom, when, and where?</p>
-  </section>
+  </div>
+</div>
 
-  <section class="section">
-    <h2>Concept 3 — Risk Taxonomy During Training and Testing (III.B.4)</h2>
-    <p>III.B.4 requires identifying AND managing risks — suppressing a finding is a management failure even when the identification was correct. The four main risk categories the exam targets:</p>
-    <div class="concept-block">
-      <p><strong>Data quality risk:</strong> Corrupt, mislabelled, or swapped-field training records. Produces unreliable model outputs from the start. Governed jointly by III.B.1 (data integrity) and III.B.4.</p>
-      <p><strong>Bias risk:</strong> Systematic performance differences across demographic or protected-attribute groups. Must be identified in testing (III.B.3) and managed before deployment (III.B.4). Suppressing a bias finding and proceeding to deployment is a III.B.4 violation — not merely an ethics concern.</p>
-      <p><strong>Distribution shift / drift risk:</strong> The real-world input distribution after deployment differs from training data. Three sub-types the exam tests: (1) temporal shift (post-pandemic borrower behaviour); (2) equipment/source shift (community clinic vs academic hospital imaging); (3) policy-induced shift (hospital discharge criteria change). Governance response: temporal validation, representativeness review of test sets, and retraining trigger planning.</p>
-      <p><strong>Data leakage risk:</strong> Test data contamination of training produces falsely optimistic metrics. Distinct from drift — leakage inflates test performance; drift causes post-deployment degradation without inflated test metrics.</p>
+<!-- WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Worked Scenario — TechDrive Autonomous Vehicle Lane Detection</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">TechDrive Ltd develops an AI model for autonomous vehicle lane detection. The model is tested on 10,000 hours of highway driving data (flat roads, clear lane markings, daylight) and achieves 99.7% accuracy. The team declares it ready for nationwide deployment covering urban streets, roundabouts, and construction zones.</div>
     </div>
-    <div class="exam-tip">
-      <strong>Distinguishing drift from overfitting (exam trap):</strong> Overfitting produces poor generalisation immediately visible in validation testing. Drift produces good test performance and then post-deployment degradation — the model was well-fitted to the training distribution; the world changed. The timeline (when does performance degrade?) is the diagnostic.
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Spot Three III.B Governance Failures</div>
+      <div class="sc-scenario-text">
+        <p><strong>1. III.B.3 Validation failure:</strong> The test set covers only highway conditions. Validation testing must confirm the model solves the intended problem — lane detection across all operational environments — before performance metrics are accepted. 99.7% accuracy on highways does not validate suitability for urban or construction-zone deployment.</p>
+        <p><strong>2. III.B.4 Distribution shift risk not identified:</strong> The team did not flag that urban environments, roundabouts, and construction zones represent distribution shift from the training data. This risk should have been identified and tested against before deployment was approved.</p>
+        <p><strong>3. III.B.5 Documentation gap:</strong> A model card recording only "99.7% accuracy — highway test dataset" does not establish compliance (no record of operational scope limitations) or enable risk management (no documentation of excluded environments). A regulator or deployer relying on this card cannot assess deployment suitability for urban use.</p>
+      </div>
     </div>
-  </section>
-
-  <section class="section">
-    <h2>Concept 4 — Documentation Adequacy: The Three-Purpose Standard (III.B.5)</h2>
-    <p>III.B.5 requires documentation sufficient to fulfil three distinct purposes. The exam tests whether a described documentation artefact meets all three — or only some:</p>
-    <div class="comparison-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Purpose</th>
-            <th>What It Requires</th>
-            <th>What Does Not Satisfy It</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Validate results</strong></td>
-            <td>Records sufficient to reproduce and verify what the model achieved in testing</td>
-            <td>Summary metrics without run configurations or selection criteria</td>
-          </tr>
-          <tr>
-            <td><strong>Establish compliance</strong></td>
-            <td>Records demonstrating lawful data use, testing scope, and risk assessment for regulators</td>
-            <td>Internal slide decks, vague data-source labels ("internal company data")</td>
-          </tr>
-          <tr>
-            <td><strong>Manage risks</strong></td>
-            <td>Risk-category-specific records (bias results by subgroup, security findings, drift triggers)</td>
-            <td>Aggregate performance metrics without risk-category breakdown</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Governance Response</div>
+      <div class="sc-scenario-text">Pause deployment. Expand test set to include urban, roundabout, and construction zone scenarios. Conduct validation testing against full operational scope. Update documentation to record testing scope and known limitations. Only after validation across all intended environments is the model deployable.</div>
     </div>
-    <p>A management summary slide deck may validate results in a business sense, but it cannot establish compliance or enable operational risk management. The three purposes require different levels of technical granularity.</p>
-  </section>
+  </div>
+</div>
 
-  <section class="section">
-    <h2>Concept 5 — Retraining Is a New Training Event (III.B.5)</h2>
-    <p>A recurring exam pattern: a model is retrained periodically (quarterly, annually) but only the performance metric in the model card is updated. The key governance point is that each retraining cycle is a new training and testing event — the documentation obligations under III.B.5 apply fully to each cycle, not only to the original training.</p>
-    <p>If the training data changes, the lineage record (III.B.2) must be updated. If testing was performed, its methodology and results must be documented (III.B.5). Stale documentation from the original training cycle cannot validate, establish compliance for, or enable risk management of a model now trained on different data.</p>
-    <p>Separately: retraining is a III.B event. Post-deployment monitoring without retraining is a III.C event. The exam will present both — the lifecycle stage determines which competency applies.</p>
-    <div class="exam-tip">
-      <strong>III.B vs III.C boundary:</strong> Retraining the model → III.B (training and testing). Monitoring the deployed model without retraining → III.C (release, monitoring and maintenance). A question asking "which PI governs quarterly retraining" is asking about III.B, not III.C.2.
-    </div>
-  </section>
+<!-- FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall — Click to Reveal</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
 
-  <section class="section">
-    <h2>Worked Scenario — Autonomous Vehicle Lane Detection</h2>
-    <div class="scenario-block">
-      <p><strong>Situation:</strong> TechDrive Ltd develops an AI model for autonomous vehicle lane detection. The model is tested on 10,000 hours of highway driving data (flat roads, clear lane markings, daylight) and achieves 99.7% accuracy. The team declares it ready for nationwide deployment covering urban streets, roundabouts, and construction zones.</p>
-      <p><strong>Spot three III.B governance failures:</strong></p>
-      <ol>
-        <li><strong>III.B.3 Validation failure:</strong> The test set covers only highway conditions. Validation testing must confirm the model solves the intended problem — lane detection across all operational environments — before performance metrics are accepted. 99.7% accuracy on highways does not validate suitability for urban or construction-zone deployment.</li>
-        <li><strong>III.B.4 Distribution shift risk not identified:</strong> The team did not identify that urban environments, roundabouts, and construction zones represent distribution shift from the training data. The risk should have been flagged and tested against before deployment.</li>
-        <li><strong>III.B.5 Documentation gap:</strong> If the model card records only "99.7% accuracy — highway test dataset," it does not establish compliance (no record of operational scope limitations) or enable risk management (no documentation of what environments were excluded). A regulator or deployer relying on this card cannot assess deployment suitability for urban use.</li>
-      </ol>
-      <p><strong>Governance response:</strong> Pause deployment. Expand test set to include urban, roundabout, and construction zone scenarios. Conduct validation testing against full operational scope. Update documentation to record scope of testing and known limitations. Only after validation across all intended environments is the model deployable.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Flashcards</h2>
-    <div class="flashcard-grid">
-
-      <div class="flashcard">
-        <div class="flashcard-q">What does validation testing confirm that performance testing does not?</div>
-        <div class="flashcard-a">Validation confirms the model is solving the right problem across its full operational scope (use-case fit). Performance measures how well it does that task. You cannot meaningfully assess performance until use-case fit is validated.</div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What does validation testing confirm that performance testing does not? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Validation confirms the model is solving the right problem across its full operational scope (use-case fit). Performance measures how well it does that task. You cannot meaningfully assess performance until use-case fit is validated.</div>
       </div>
 
-      <div class="flashcard">
-        <div class="flashcard-q">A team conducts bias testing and finds the model disadvantages one group. They proceed to deployment without disclosing the finding. Which PI is violated?</div>
-        <div class="flashcard-a">III.B.4 — Identify AND manage risks. Identification without management (disclosure, mitigation, or escalation) is a direct III.B.4 violation. Suppressing a finding is a risk management failure.</div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">A team conducts bias testing and finds the model disadvantages one group. They proceed to deployment without disclosing the finding. Which PI is violated? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">III.B.4 — Identify AND manage risks. Identification without management (disclosure, mitigation, or escalation) is a direct III.B.4 violation. Suppressing a finding is a risk management failure.</div>
       </div>
 
-      <div class="flashcard">
-        <div class="flashcard-q">What is the difference between data drift and overfitting in terms of when performance degrades?</div>
-        <div class="flashcard-a">Overfitting: poor generalisation visible immediately in validation testing. Drift: good test performance, then post-deployment degradation — the model fit its training distribution well; the world changed.</div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the difference between data drift and overfitting in terms of when performance degrades? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Overfitting: poor generalisation visible immediately in validation testing. Drift: good test performance, then post-deployment degradation — the model fit its training distribution well; the world changed.</div>
       </div>
 
-      <div class="flashcard">
-        <div class="flashcard-q">A model card says "trained on internal company data." Which III.B.5 purpose(s) does this vague description fail to satisfy?</div>
-        <div class="flashcard-a">All three — it cannot validate results (no data composition to verify), cannot establish compliance (insufficient for regulators assessing lawful use), and cannot manage risks (no lineage information to diagnose future issues).</div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">A model card says "trained on internal company data." Which III.B.5 purpose(s) does this vague description fail to satisfy? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">All three — it cannot validate results (no data composition to verify), cannot establish compliance (insufficient for regulators assessing lawful use), and cannot manage risks (no lineage information to diagnose future issues).</div>
       </div>
 
-      <div class="flashcard">
-        <div class="flashcard-q">Which testing type under III.B.3 specifically addresses training data memorisation and extraction in generative AI models?</div>
-        <div class="flashcard-a">Security testing — which probes adversarial vulnerabilities including model inversion and training data extraction. A chatbot that reproduces other users' personal data from training is a security testing failure (III.B.3), not an integration failure.</div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Which testing type under III.B.3 specifically addresses training data memorisation and extraction in generative AI models? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Security testing — which probes adversarial vulnerabilities including model inversion and training data extraction. A chatbot that reproduces other users' personal data from training is a security testing failure (III.B.3), not an integration failure.</div>
       </div>
 
-      <div class="flashcard">
-        <div class="flashcard-q">A model is retrained quarterly. Only the performance metric is updated in the model card. What is the III.B.5 governance issue?</div>
-        <div class="flashcard-a">Each retraining is a new training event. III.B.5 documentation obligations apply fully to each cycle — the training data, methodology, and testing results for each cycle must be documented. Stale original documentation cannot validate results or establish compliance for the new model version.</div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">A model is retrained quarterly. Only the performance metric is updated in the model card. What is the III.B.5 governance issue? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Each retraining is a new training event. III.B.5 documentation obligations apply fully to each cycle — training data, methodology, and testing results for each cycle must be documented. Stale original documentation cannot validate results or establish compliance for the new model version.</div>
       </div>
 
-      <div class="flashcard">
-        <div class="flashcard-q">What is the difference between data leakage risk and distribution shift risk?</div>
-        <div class="flashcard-a">Data leakage: test set contamination of training produces inflated test metrics visible before deployment. Distribution shift: real-world inputs after deployment diverge from training distribution — test metrics look fine, performance degrades post-deployment.</div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the difference between data leakage risk and distribution shift risk? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Data leakage: test set contamination of training produces inflated test metrics visible before deployment. Distribution shift: real-world inputs after deployment diverge from training distribution — test metrics look fine, performance degrades post-deployment.</div>
       </div>
 
     </div>
-  </section>
+  </div>
+</div>
 
-  <section class="section nav-section">
-    <a href="AIGP_Day10_Data-Governance-Training.html" class="nav-link">← Day 10: Data Governance &amp; Training</a>
-    <a href="AIGP_Day11_Testing-Documentation_Quiz.html" class="nav-link primary">Take Day 11 Quiz →</a>
-  </section>
+<!-- NAVIGATION -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Links</span>
+    <span class="sc-section-title">Navigation</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="AIGP_Day10_Data-Governance-Training.html">
+        <span class="sc-res-label">&#8592; Day 10: Data Governance &amp; Training</span>
+        <span class="sc-res-desc">Review data governance, lineage, provenance (III.B.1, III.B.2)</span>
+      </a>
+      <a class="sc-res-link" href="AIGP_Day11_Testing-Documentation_Quiz.html">
+        <span class="sc-res-label">Take Day 11 Quiz &#8594;</span>
+        <span class="sc-res-desc">25 questions · III.B · Testing &amp; Documentation · includes retrieval</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 </div>
-</body>
-</html>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>

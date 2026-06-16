@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AIGP Day 11 Quiz — Testing &amp; Documentation</title>
+<script src="quiz-engine.js"></script>
 <script>
 const QUIZ_DATA = {
   day: 11,
@@ -364,17 +365,8 @@ const QUIZ_DATA = {
     }
   ]
 };
-
-window.onload = function() {
-  if (typeof initQuiz === 'function') {
-    initQuiz(QUIZ_DATA);
-  } else {
-    document.body.innerHTML = '<p style="padding:2rem;color:red;">Error: quiz-engine.js not loaded. Make sure quiz-engine.js is in the same directory.</p>';
-  }
-};
+initQuiz(QUIZ_DATA);
 </script>
 </head>
-<body>
-<script src="quiz-engine.js"></script>
-</body>
+<body></body>
 </html>
