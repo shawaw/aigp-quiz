@@ -141,7 +141,7 @@ const QUIZ_DATA = {
     },
     {
       id: "DIII-IIIB-030",
-      pi: "III.B.4",
+      pi: "III.B.3",
       stem: "A medical image AI trained on three academic hospitals' data performs well during testing but degrades significantly at a community clinic whose imaging equipment produces different pixel density characteristics. Under III.B.4, which risk does this represent?",
       options: {
         A: "Bias risk — the model performs differently across patient populations served by academic versus community hospitals, reflecting demographic differences in the training dataset composition.",
@@ -365,7 +365,7 @@ const QUIZ_DATA = {
     }
   ]
 };
-initQuiz(QUIZ_DATA);
+document.addEventListener('DOMContentLoaded', function() { initQuiz(QUIZ_DATA); });
 </script>
 </head>
 <body><div id="quiz-root"></div></body>
