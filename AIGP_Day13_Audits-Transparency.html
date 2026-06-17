@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 13 · Audits &amp; Transparency</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a4a00;--accent-light:#fdf3de}</style>
+</head>
+<body><div class="sc-wrap">
+
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 13 · Week 2</span>
+    <span class="sc-meta">17 June 2026 · ~45 min</span>
+  </div>
+  <h1 class="sc-title">Audits &amp; Transparency</h1>
+  <div class="sc-meta">Domain III · Competency III.C &nbsp;|&nbsp; Exam weight: 8–10 questions</div>
+</div>
+
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">III.C — Performance Indicators (verbatim)</span>
+  </div>
+  <div class="sc-section-body">
+    <ol class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">III.C.1</span> Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.2</span> Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.3</span> Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.4</span> Manage and document incidents, issues and risks.</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.5</span> Collaborate with cross-functional stakeholders to understand why incidents arise from AI systems (e.g., brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift).</li>
+      <li class="sc-pi"><span class="sc-pi-code">III.C.6</span> Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).</li>
+    </ol>
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Key Concepts</span>
+    <span class="sc-chevron">&#9662;</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.C.3 — Periodic Assessment Activities</span></div>
+      <div class="sc-concept-body">
+        <p>Continuous monitoring (III.C.2) tracks real-time operational performance. Periodic assessment (III.C.3) is a separate, structured obligation — it proactively tests and evaluates the system at defined intervals, not just when alerts fire. The two obligations coexist; neither replaces the other.</p>
+        <p class="sc-why">Why it matters on the exam: Candidates frequently conflate monitoring and periodic assessment. The exam tests whether you can assign the right activity to the right PI and distinguish the purpose of each.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Activities under III.C.3</div>
+          <div class="sc-def"><span class="sc-term">Audits</span> — Structured, independent reviews of system performance, compliance, and governance documentation against defined criteria. Scheduled, not continuous.</div>
+          <div class="sc-def"><span class="sc-term">Red teaming</span> — Adversarial simulation where a team acts as attackers to find exploitable vulnerabilities, misuse pathways, or failure modes that internal testing missed.</div>
+          <div class="sc-def"><span class="sc-term">Threat modeling</span> — Systematic identification and evaluation of potential attack vectors and failure modes. Typically revisited at periodic intervals or when the system changes significantly.</div>
+          <div class="sc-def"><span class="sc-term">Security testing</span> — Formal testing of resistance to adversarial inputs, injection attacks, and infrastructure vulnerabilities.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.C.6 — Transparency Obligations &amp; Public Disclosures</span></div>
+      <div class="sc-concept-body">
+        <p>III.C.6 governs what the AI developer or provider must make externally available. The BOK enumerates three specific categories. Absent any one of them, the obligation is unmet. This is distinct from internal documentation obligations (III.A.5, III.B.5) and from regulatory breach notification under privacy law (II.A.3).</p>
+        <p class="sc-why">Why it matters on the exam: Questions test whether you know the exact scope of III.C.6 and can identify which element is missing in a scenario — particularly instructions for use to deployers, which is the most commonly absent element when deployers misapply a model.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Required public disclosures under III.C.6</div>
+          <div class="sc-def"><span class="sc-term">Technical documentation</span> — Architecture, training approach, evaluation methodology, and known limitations. Must be disclosed, not treated as purely proprietary.</div>
+          <div class="sc-def"><span class="sc-term">Instructions for use to deployers</span> — Operational constraints, intended use scope, and risk mitigations that deployers need to integrate the system correctly. The most frequently missing element in exam scenarios involving misapplication.</div>
+          <div class="sc-def"><span class="sc-term">Post-market monitoring plans</span> — The provider's plan for tracking system performance, safety signals, and emerging risks after release. Required before issues arise, not only in response to them.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.C.4 &amp; III.C.5 — Incident Management and Root Cause Analysis</span></div>
+      <div class="sc-concept-body">
+        <p>III.C.4 requires documenting incidents regardless of resolution status — there is no carve-out for minor or self-resolving incidents. III.C.5 requires cross-functional collaboration to understand root causes, not just technical investigation in isolation.</p>
+        <p class="sc-why">Why it matters on the exam: A common exam trap presents a resolved incident and asks whether documentation is still required (it is, under III.C.4). Separately, scenarios present unexplained performance failures and ask you to identify the correct root cause category from the BOK list.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Root causes enumerated in III.C.5</div>
+          <div class="sc-def"><span class="sc-term">Brittleness</span> — Model fails outside a narrow training distribution; collapses on edge cases not seen in training.</div>
+          <div class="sc-def"><span class="sc-term">Lack of robustness</span> — Model is susceptible to adversarial inputs or distribution shifts that exploit architectural weaknesses.</div>
+          <div class="sc-def"><span class="sc-term">Lack of quality data</span> — Training or inference data is incomplete, biased, or corrupt, producing systematic errors.</div>
+          <div class="sc-def"><span class="sc-term">Insufficient testing</span> — Pre-deployment testing failed to cover production scenarios — a design-phase failure surfacing operationally.</div>
+          <div class="sc-def"><span class="sc-term">Model or data drift</span> — The statistical relationship between inputs and outputs has shifted since training; the real world has changed while the model has not.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Table</span>
+    <span class="sc-section-title">Continuous Monitoring vs. Periodic Assessment</span>
+    <span class="sc-chevron">&#9662;</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead>
+          <tr><th>Dimension</th><th>Continuous Monitoring (III.C.2)</th><th>Periodic Assessment (III.C.3)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cadence</td><td>Real-time, always-on</td><td>Scheduled intervals (quarterly, annual)</td></tr>
+          <tr><td>Purpose</td><td>Track operational performance; detect drift and anomalies</td><td>Proactively test safety, reliability, adversarial exposure</td></tr>
+          <tr><td>Activities</td><td>Dashboards, alert thresholds, metric logging</td><td>Audits, red teaming, threat modeling, security testing</td></tr>
+          <tr><td>Trigger</td><td>Continuous; alerts fire on threshold breach</td><td>Scheduled or event-driven (post-incident, major update)</td></tr>
+          <tr><td>Output</td><td>Performance logs, alerts, retraining signals</td><td>Audit reports, red team findings, security test results</td></tr>
+          <tr><td>Exam trap</td><td>Assuming monitoring alone satisfies all III.C obligations</td><td>Confusing with incident response (III.C.4) or monitoring (III.C.2)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Worked Scenario — Pharma Diagnostic AI</span>
+    <span class="sc-chevron">&#9662;</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">A pharmaceutical company releases an AI diagnostic support tool to hospital deployers. Technical documentation is published, but no instructions for use and no post-market monitoring plan are issued. Six months post-deployment, hospitals report unexpected diagnostic errors in a specific patient subpopulation. Investigation reveals the training data no longer reflects the demographic mix of current patient intake.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Role</div>
+      <div class="sc-scenario-text">You are the AI Governance Lead responsible for III.C compliance across the product lifecycle.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Analysis</div>
+      <div class="sc-scenario-text">At release, the company had two unmet obligations under <span class="sc-pi-ref">III.C.6</span>: instructions for use to deployers and a post-market monitoring plan were not published. Hospitals therefore had no documented operational constraints and no monitoring protocol from the provider. The errors constitute an incident under <span class="sc-pi-ref">III.C.4</span> — requiring documentation regardless of whether the issue is subsequently resolved. The root cause under <span class="sc-pi-ref">III.C.5</span> is model or data drift. A periodic audit or red teaming exercise under <span class="sc-pi-ref">III.C.3</span> conducted before the demographic shift became acute might have surfaced the vulnerability earlier.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Outcome</div>
+      <div class="sc-scenario-text">Corrective action must: (1) publish instructions for use and post-market monitoring plan retroactively per <span class="sc-pi-ref">III.C.6</span>; (2) document the incident, its impact, and residual risks per <span class="sc-pi-ref">III.C.4</span>; (3) facilitate cross-functional root cause investigation per <span class="sc-pi-ref">III.C.5</span>; (4) schedule a red team exercise and formal audit per <span class="sc-pi-ref">III.C.3</span> for the next product cycle. The missing instructions for use was the single most preventable failure.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall (click to reveal)</span>
+    <span class="sc-chevron">&#9662;</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc">
+        <div class="sc-fc-q">What three items must be publicly disclosed under III.C.6?<span class="sc-fc-icon">&#8595;</span></div>
+        <div class="sc-fc-a">Technical documentation, instructions for use to deployers, and post-market monitoring plans.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">How does red teaming differ from security testing under III.C.3?<span class="sc-fc-icon">&#8595;</span></div>
+        <div class="sc-fc-a">Red teaming simulates adversarial misuse by acting as an attacker. Security testing uses formal methodology to probe infrastructure and input vulnerabilities. Both are periodic assessment activities under III.C.3.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Does III.C.4 require incident documentation if the incident is fully resolved?<span class="sc-fc-icon">&#8595;</span></div>
+        <div class="sc-fc-a">Yes. III.C.4 requires managing and documenting incidents, issues and risks. There is no exemption for resolved incidents.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Name the five root causes of AI incidents listed in III.C.5.<span class="sc-fc-icon">&#8595;</span></div>
+        <div class="sc-fc-a">Brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the key distinction between III.C.2 and III.C.3?<span class="sc-fc-icon">&#8595;</span></div>
+        <div class="sc-fc-a">III.C.2 is continuous monitoring (real-time, alert-driven). III.C.3 is periodic structured assessment (scheduled, proactive) — audits, red teaming, threat modeling, security testing.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">When a deployer misapplies an AI system beyond its intended scope, which III.C.6 element was most likely missing?<span class="sc-fc-icon">&#8595;</span></div>
+        <div class="sc-fc-a">Instructions for use to deployers — these specify operational constraints, intended scope, and risk mitigations that prevent misapplication.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What does a model card document, per III.C.1?<span class="sc-fc-icon">&#8595;</span></div>
+        <div class="sc-fc-a">Intended use, performance characteristics, and limitations — enabling informed deployment decisions.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What triggers a retraining schedule review under III.C.2?<span class="sc-fc-icon">&#8595;</span></div>
+        <div class="sc-fc-a">Changed operating conditions (macroeconomic shifts, demographic changes, product updates) — not only when alert thresholds are breached. The schedule itself must remain fit for purpose.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Links</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">&#9662;</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank">
+        <span class="sc-res-label">AIGP Body of Knowledge</span>
+        <span class="sc-res-desc">Official BOK — authoritative source for all competencies and PIs</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank">
+        <span class="sc-res-label">IAPP Exam Preparation</span>
+        <span class="sc-res-desc">Official preparation guidance and resources</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank">
+        <span class="sc-res-label">AIGP Study Guide</span>
+        <span class="sc-res-desc">Request the official IAPP AIGP study guide</span>
+      </a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank">
+        <span class="sc-res-label">Certification Handbook</span>
+        <span class="sc-res-desc">IAPP certification policies, exam structure, and registration</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>

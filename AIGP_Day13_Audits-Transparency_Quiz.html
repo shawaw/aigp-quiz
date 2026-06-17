@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIGP Day 13 Quiz — Audits &amp; Transparency</title>
+<script src="quiz-engine.js"></script>
+<script>
+const QUIZ_DATA = {
+  day: 13, week: 2, comp: "III.C", topic: "Audits & Transparency",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DIII-IIIC-001", pi: "III.C.3", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      stem: "A bank uses an AI credit scoring model. The risk team proposes scheduling an annual independent audit. The governance lead argues this is insufficient for a high-risk system and recommends adding a further periodic activity targeting adversarial misuse risk specifically. Which activity MOST directly addresses that concern?",
+      options: {
+        A: "Increase audit frequency to semi-annual reviews covering the same scope as the current annual audit",
+        B: "Conduct red teaming exercises to simulate adversarial attacks and identify exploitable vulnerabilities in the scoring model",
+        C: "Expand the monitoring dashboard to include real-time alerts for score distribution anomalies across applicant segments",
+        D: "Require model retraining every six months using refreshed applicant data to reduce the risk of demographic drift"
+      },
+      correct: "B",
+      explanation: "Red teaming (III.C.3 Conduct periodic activities) directly targets adversarial misuse by simulating external attacks — this is distinct from audit frequency (A), which covers the same scope. Expanding monitoring dashboards (C) is a III.C.2 Conduct continuous monitoring activity, not a periodic adversarial test. Retraining (D) addresses model or data drift, not adversarial exposure."
+    },
+    {
+      id: "DIII-IIIC-002", pi: "III.C.6", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      stem: "A software vendor deploys a large language model to enterprise customers. The vendor has published comprehensive technical documentation. A regulator requests the post-market monitoring plan. The vendor argues post-market monitoring is an internal operational matter, not a public disclosure. Which BOK position best addresses this argument?",
+      options: {
+        A: "III.C.6 explicitly lists post-market monitoring plans as a required public disclosure alongside technical documentation and instructions for use to deployers",
+        B: "III.C.2 requires establishing a regular schedule for maintenance and retraining, which is satisfied by the vendor's internal monitoring programme",
+        C: "III.A.5 requires documenting the design and build process, which includes monitoring methodology as part of the development record",
+        D: "II.C.3 covers transparency and notification requirements under AI-specific law, making disclosure subject to regulatory classification thresholds"
+      },
+      correct: "A",
+      explanation: "III.C.6 Make public disclosures explicitly names post-market monitoring plans as a required disclosure — A states this directly. III.C.2 Conduct continuous monitoring (B) is an operational obligation, not a disclosure requirement. III.A.5 Document the designing and building process (C) covers internal design records. II.C.3 Human oversight, transparency and notification (D) addresses AI Act requirements, not the BOK governance PI."
+    },
+    {
+      id: "DIII-IIIC-003", pi: "III.C.3", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      stem: "An autonomous vehicle manufacturer uses AI for pedestrian detection. The AI governance team is planning a quarterly security assessment and the CISO proposes threat modeling as one component. Which of the following best describes the primary purpose of threat modeling within a III.C.3 periodic assessment programme?",
+      options: {
+        A: "To verify that the model's training data meets quality and provenance requirements established during data governance activities",
+        B: "To create the model card and conformity documentation required before the system is approved for production release",
+        C: "To define the maintenance schedule and retraining cadence for the pedestrian detection model over the next operating period",
+        D: "To systematically identify potential attack vectors and failure modes that could compromise the AI system's safety"
+      },
+      correct: "D",
+      explanation: "Threat modeling under III.C.3 Conduct periodic activities systematically identifies attack vectors and failure modes — D captures this directly. Verifying training data quality (A) is III.B.1 Establish data governance requirements. Creating a model card (B) is III.C.1 Assess release readiness. Defining maintenance schedules (C) is III.C.2 Conduct continuous monitoring."
+    },
+    {
+      id: "DIII-IIIC-004", pi: "III.C.6", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      stem: "A foundation model provider supplies an LLM to multiple enterprise deployers. Technical documentation has been published and a post-market monitoring plan is available. However, deployers frequently apply the model outside its intended scope, causing errors. Which unmet III.C.6 obligation is most directly implicated?",
+      options: {
+        A: "Establishing a post-market monitoring schedule that tracks deployer-reported complaints and downstream performance degradation",
+        B: "Publishing internal red team findings so deployers can assess known adversarial vulnerabilities before integration",
+        C: "Issuing instructions for use to deployers specifying the model's intended operational scope and risk mitigations",
+        D: "Updating the model card to include a list of prohibited use cases identified through post-deployment monitoring feedback"
+      },
+      correct: "C",
+      explanation: "III.C.6 Make public disclosures explicitly requires instructions for use to deployers — this is the disclosure that specifies scope and risk mitigations. The stem says documentation and monitoring plans exist; instructions for use are the gap. Post-market monitoring tracking (A) is already covered. Red team findings (B) are not enumerated as a required III.C.6 disclosure. Model card updates (D) address III.C.1, not the deployer instructions gap."
+    },
+    {
+      id: "DIII-IIIC-005", pi: "III.C.4", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.4 — Manage and document incidents, issues and risks.",
+      stem: "A healthcare AI system flags a patient as low-risk for readmission, but the patient is hospitalised 48 hours later. The clinical team identifies this as an AI-related incident. The system has been checked and is now performing within normal parameters. The governance team debates whether formal documentation is required given the incident is effectively resolved. What does III.C.4 require?",
+      options: {
+        A: "Documentation is required only if the incident caused patient harm that exceeds the materiality threshold defined in the organisation's incident response policy",
+        B: "The incident must be managed and documented including its details, impact, and the risks identified, regardless of whether it has since been resolved",
+        C: "Documentation can be deferred to the next quarterly incident review since the immediate risk has been addressed and the system is stable",
+        D: "Formal documentation is only required if the incident triggers a regulatory reporting obligation under the applicable healthcare AI regulation"
+      },
+      correct: "B",
+      explanation: "III.C.4 Manage and document incidents, issues and risks contains no carve-out for resolved incidents. B states the obligation correctly. A (materiality threshold) is not in III.C.4. C (deferral) conflicts with the requirement to manage and document — not merely log at the next review cycle. D (regulatory trigger) confuses a separate legal obligation with the BOK governance requirement."
+    },
+    {
+      id: "DIII-IIIC-006", pi: "III.C.3", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      stem: "A fintech company operates an AI fraud detection system processing millions of transactions daily. The audit committee asks whether continuous monitoring is sufficient. The governance lead recommends adding periodic security testing. What is the primary distinction that justifies adding security testing as a separate obligation?",
+      options: {
+        A: "Continuous monitoring tracks operational performance in real time, while periodic security testing proactively identifies vulnerabilities through structured adversarial assessment",
+        B: "Continuous monitoring is conducted by external auditors on a quarterly basis, while security testing is performed by the internal development team annually",
+        C: "Continuous monitoring is limited to detecting model drift and data anomalies, while security testing is limited to cybersecurity penetration of the infrastructure",
+        D: "Continuous monitoring generates alerts reviewed by the operations team, while security testing generates a compliance certificate reviewed by the regulator"
+      },
+      correct: "A",
+      explanation: "III.C.2 Conduct continuous monitoring is real-time operational tracking; III.C.3 periodic security testing is a structured, proactive vulnerability assessment — A captures this distinction. B incorrectly assigns internal/external roles not stated in the BOK. C is partially correct but too narrow — III.C.3 covers audits, red teaming, and threat modeling, not only penetration testing. D introduces a compliance certificate concept absent from the BOK."
+    },
+    {
+      id: "DIII-IIIC-007", pi: "III.C.6", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      stem: "An AI governance professional at a medical device company is preparing the annual compliance review. The regulator has requested the post-market monitoring plan for a diagnostic AI tool. The company argues this plan is an internal operational document and not subject to external disclosure. Which BOK competency most directly contradicts this position?",
+      options: {
+        A: "III.B.5 Document the training and testing process to validate results, establish compliance and manage risks",
+        B: "III.A.5 Document the designing and building process to establish compliance and manage risks",
+        C: "III.C.6 Make public disclosures to meet transparency obligations including technical documentation and post-market monitoring plans",
+        D: "IV.C.4 Document incidents, issues, risks and post-market monitoring plans for deployed AI systems"
+      },
+      correct: "C",
+      explanation: "III.C.6 Make public disclosures explicitly names post-market monitoring plans as a required external disclosure — C directly contradicts the company's position. III.B.5 Document training and testing (A) governs internal training records. III.A.5 Document designing and building (B) covers internal design documentation. IV.C.4 Document incidents and risks (D) applies to the deployer governance context, not the developer release context."
+    },
+    {
+      id: "DIII-IIIC-008", pi: "III.C.5", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.5 — Collaborate with cross-functional stakeholders to understand why incidents arise from AI systems (e.g., brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift).",
+      stem: "An NLP customer service model begins generating factually incorrect responses. The engineering team attributes it to model drift, the data team argues data quality degradation, and the legal team is focused on reputational exposure. The governance team must determine how to proceed under III.C.5. What is the most appropriate action?",
+      options: {
+        A: "Escalate immediately to the CEO to ensure executive accountability for a definitive root cause determination and communications response",
+        B: "Accept the engineering team's model drift conclusion since model drift is the most technically documented cause of NLP degradation",
+        C: "Suspend the model pending an independent external audit to eliminate legal liability while the root cause remains disputed",
+        D: "Facilitate structured collaboration across engineering, data, and legal stakeholders to collectively understand why the incident arose"
+      },
+      correct: "D",
+      explanation: "III.C.5 Collaborate with cross-functional stakeholders specifically requires bringing together the relevant parties to understand root causes — D is the direct application. CEO escalation (A) may be warranted but does not satisfy the cross-functional collaboration obligation. Deferring to engineering alone (B) ignores the multi-stakeholder requirement. Suspending pending external audit (C) may be appropriate risk management but does not address the III.C.5 obligation."
+    },
+    {
+      id: "DIII-IIIC-009", pi: "III.C.3", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      stem: "A generative AI product team has completed bias testing and is planning pre-launch activities. The compliance lead recommends a red team exercise. A product manager objects, arguing that bias testing already covers adversarial scenarios. What is the most accurate response to the product manager?",
+      options: {
+        A: "The product manager is correct — bias testing covers fairness and adversarial harms comprehensively and satisfies all pre-launch assessment requirements",
+        B: "Red teaming specifically simulates adversarial misuse by external actors, which is a distinct objective from bias testing of model output fairness",
+        C: "Red teaming is only required when the model is classified as high-risk under applicable AI law; for lower-risk systems it remains optional",
+        D: "Bias testing and red teaming have substantial methodological overlap so the compliance lead should quantify the incremental risk coverage before recommending"
+      },
+      correct: "B",
+      explanation: "III.C.3 Conduct periodic activities includes red teaming (adversarial simulation) as a distinct requirement from bias testing (which addresses fairness under III.B.3 Plan and perform training and testing). B correctly distinguishes their objectives. A is wrong — bias testing does not cover adversarial misuse. C incorrectly conditions III.C.3 red teaming on high-risk classification. D falsely implies substantial overlap between the two activities."
+    },
+    {
+      id: "DIII-IIIC-010", pi: "III.C.1", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.1 — Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).",
+      stem: "A team is finalising the release of a computer vision model for retail shelf analytics. The governance checklist requires a model card to be completed before release. Which of the following best describes what the model card documents at this stage?",
+      options: {
+        A: "The model's intended use, performance characteristics, and limitations to support informed deployment and integration decisions",
+        B: "A certification that the model has passed all regulatory conformity requirements and is approved for submission to an external authority",
+        C: "An audit trail confirming that data lineage and provenance were properly established during the training data collection phase",
+        D: "The incident response and escalation procedures that will govern the model's operational lifecycle after production release"
+      },
+      correct: "A",
+      explanation: "III.C.1 Assess readiness requires creating the model card — model cards document intended use, performance characteristics, and limitations to support informed deployment decisions. A is correct. B describes conformity certification (also III.C.1, but that is not what a model card is). C describes data lineage documentation under III.B.2 Establish and document data lineage. D describes incident management procedures under III.C.4 Manage and document incidents."
+    },
+    {
+      id: "DIII-IIIC-011", pi: "III.C.6", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      stem: "A regulator auditing an AI hiring tool asks the company for technical documentation on the model's architecture and evaluation methodology. The company treats this documentation as proprietary IP and declines. Under III.C.6, how should the governance team advise the company?",
+      options: {
+        A: "Technical documentation is classified as proprietary intellectual property and the company may lawfully refuse disclosure on IP grounds alone",
+        B: "The company should provide a redacted summary to the regulator, protecting commercially sensitive architectural details while demonstrating good faith",
+        C: "Providing technical documentation to meet transparency obligations is a required disclosure under III.C.6 and cannot be withheld solely on IP grounds",
+        D: "The company should first obtain legal advice to determine whether the regulator has sufficient statutory authority to compel the specific documentation requested"
+      },
+      correct: "C",
+      explanation: "III.C.6 Make public disclosures requires providing technical documentation as part of the transparency obligation — C correctly states that IP grounds alone do not override this. A (refuse on IP grounds) conflicts directly with III.C.6. B (redacted summary) may be a practical negotiation outcome but the obligation exists and C is the BOK-grounded answer. D (legal advice) deflects the governance obligation rather than addressing it."
+    },
+    {
+      id: "DIII-IIIC-012", pi: "III.C.2", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.2 — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.",
+      stem: "A retail demand forecasting model was deployed eight months ago with monitoring covering accuracy and latency. A significant macroeconomic shock has since altered consumer patterns. No monitoring alert thresholds have been breached. Should the governance team take action, and if so, why?",
+      options: {
+        A: "No action is required because the monitoring system has not flagged any threshold breaches, confirming the model is performing within acceptable bounds",
+        B: "The model should be taken offline immediately for retraining since macroeconomic shocks are known to cause model drift in demand forecasting systems",
+        C: "The governance team should commission an independent audit to verify the monitoring system itself is functioning correctly given the absence of alerts",
+        D: "The governance team should review whether the monitoring thresholds and retraining schedule remain appropriate given the materially changed operating environment"
+      },
+      correct: "D",
+      explanation: "III.C.2 Conduct continuous monitoring requires establishing a regular schedule for maintenance, updates and retraining. A materially changed environment is a trigger to assess whether the schedule and thresholds remain fit for purpose — not only whether alerts have fired. A (no action) conflates the absence of alerts with confirmation of fitness. B (immediate offline) is too prescriptive without analysis. C (audit the monitoring system) introduces a step not warranted by the facts."
+    },
+    {
+      id: "DIII-IIIC-013", pi: "III.C.3", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      stem: "An insurance company's AI underwriting model has operated for two years with continuous monitoring but no formal audit. The head of AI governance is building the internal case for introducing periodic audits. Which argument is BEST grounded in III.C.3?",
+      options: {
+        A: "Periodic audits are required to satisfy data subject rights under data privacy law, making them a compliance necessity in the insurance sector",
+        B: "Periodic audits are part of the obligation to conduct structured assessments of AI system performance, reliability and safety at defined intervals",
+        C: "Periodic audits replace continuous monitoring during the audit window and provide a more accurate view of model performance than real-time metrics",
+        D: "Periodic audit reports generate documentation that directly satisfies the post-market monitoring plan disclosure requirement under III.C.6"
+      },
+      correct: "B",
+      explanation: "III.C.3 Conduct periodic activities explicitly requires structured assessments including audits — B is the direct BOK argument. A conflates audit obligations with data subject rights under II.A Understanding privacy laws; these are distinct. C is wrong — audits complement continuous monitoring and do not replace it. D conflates audit output with the III.C.6 transparency disclosure requirement."
+    },
+    {
+      id: "DIII-IIIC-014", pi: "III.C.5", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.5 — Collaborate with cross-functional stakeholders to understand why incidents arise from AI systems (e.g., brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift).",
+      stem: "An AI customer churn prediction model begins significantly underperforming. Investigation reveals the model was trained on historical customer behaviour that no longer reflects current patterns following a product redesign eight months ago. Under III.C.5, which root cause category most accurately describes this failure?",
+      options: {
+        A: "Model or data drift, where the statistical relationship between inputs and outputs has diverged from the training distribution due to real-world changes",
+        B: "Brittleness, where the model was designed with overly narrow constraints that make it fail on any input outside the original training scope",
+        C: "Lack of robustness, where adversarial inputs introduced after the product redesign are exploiting a weakness in the model's feature architecture",
+        D: "Insufficient testing, where the pre-deployment test suite failed to cover the range of customer behaviour scenarios that emerged post-redesign"
+      },
+      correct: "A",
+      explanation: "III.C.5 lists model or data drift as a root cause — the training data no longer reflects current patterns due to a real-world change (product redesign). A is correct. Brittleness (B) implies narrow design constraints causing failure on edge cases, not a data distribution shift. Lack of robustness (C) implies adversarial exploitation, not environmental change. Insufficient testing (D) describes a pre-deployment failure; the stem describes an operational drift that emerged after deployment."
+    },
+    {
+      id: "DIII-IIIC-015", pi: "III.C.6", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      stem: "A cloud AI provider licenses a text classification API to business customers. Comprehensive technical documentation and a post-market monitoring plan have been published. Despite this, enterprise customers frequently apply the model to use cases outside its design scope, causing quality failures. Under III.C.6, which obligation is most likely unmet?",
+      options: {
+        A: "Conducting mandatory red teaming of each customer integration to verify the model is being applied within its intended operational scope",
+        B: "Publishing the results of adversarial security testing so customers can independently assess the model's robustness to misuse scenarios",
+        C: "Issuing clear instructions for use to deployers specifying the model's intended scope, operational constraints, and relevant risk mitigations",
+        D: "Updating the model card to include a curated list of prohibited use cases identified through post-deployment customer feedback"
+      },
+      correct: "C",
+      explanation: "III.C.6 Make public disclosures requires instructions for use to deployers — the element that specifies scope and mitigations. The stem confirms technical documentation and monitoring plans exist; instructions for use is the gap causing misapplication. Customer-specific red teaming (A) is not a provider III.C.6 obligation. Adversarial test results (B) are not enumerated as a required III.C.6 disclosure. Model card updates (D) relate to III.C.1 release readiness, not III.C.6 deployer instructions."
+    },
+    {
+      id: "DIII-IIIC-016", pi: "III.C.4", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.4 — Manage and document incidents, issues and risks.",
+      stem: "A logistics AI system causes delivery delays affecting 3,000 customers due to a map data integration failure. The incident is resolved within 24 hours and normal operations resume. The governance team debates whether formal incident documentation is required given full resolution. What does III.C.4 require in this situation?",
+      options: {
+        A: "Documentation is required only when the incident caused customer-facing harm that exceeds a materiality threshold defined in the governance policy",
+        B: "Documentation is required only if a regulatory body has mandated incident reporting for this category of AI system under applicable law",
+        C: "Documentation is not required because the incident was fully contained and resolved without any residual operational risk to the organisation",
+        D: "The incident, its root cause, impact, and any residual risks must be documented regardless of whether the issue has been resolved"
+      },
+      correct: "D",
+      explanation: "III.C.4 Manage and document incidents, issues and risks contains no exemption for resolved, contained, or low-impact incidents. D states the obligation correctly. A (materiality threshold), B (regulatory trigger), and C (resolution carve-out) all introduce conditions not present in III.C.4 — the obligation applies to all incidents."
+    },
+    {
+      id: "DIII-IIIC-017", pi: "III.C.3", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).",
+      stem: "An AI governance team at a cybersecurity firm is designing the periodic assessment programme for an AI threat-detection system. The team is debating whether to prioritise threat modeling or red teaming first. What is the most accurate distinction between these two activities under III.C.3?",
+      options: {
+        A: "Threat modeling systematically identifies and evaluates potential attack vectors through structured analysis, while red teaming tests those vectors through active adversarial simulation",
+        B: "Threat modeling is a one-time activity conducted at system design and never revisited, while red teaming is a continuous monitoring activity integrated into daily operations",
+        C: "Red teaming focuses on internal architectural weaknesses, while threat modeling focuses on external regulatory threats and compliance gaps in governance documentation",
+        D: "Threat modeling produces a risk registry used for internal governance reporting, while red teaming generates a compliance certificate submitted to the relevant regulator"
+      },
+      correct: "A",
+      explanation: "III.C.3 Conduct periodic activities lists both. Threat modeling systematically identifies attack vectors through analysis (often design-phase but revisited periodically); red teaming actively simulates those attacks through adversarial execution. A captures this distinction accurately. B is wrong — threat modeling is not a one-time activity. C conflates cybersecurity and compliance concepts incorrectly. D introduces a compliance certificate concept absent from the BOK."
+    },
+    {
+      id: "DIII-IIIC-018", pi: "III.C.6", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      stem: "An AI governance professional is reviewing what must be publicly disclosed for a high-risk AI system under III.C.6. A junior colleague proposes a list that includes model performance dashboards, internal red team reports, and bias audit findings. Which combination is MOST accurately grounded in the explicit III.C.6 requirements?",
+      options: {
+        A: "Model performance metrics, training data sources, and internal audit findings covering the past 12 months of operation",
+        B: "Technical documentation, instructions for use to deployers, and post-market monitoring plans",
+        C: "Incident logs, red team findings, and conformity assessment certificates issued by an approved notified body",
+        D: "Data lineage records, bias test results, and third-party vendor audit reports covering supply chain risks"
+      },
+      correct: "B",
+      explanation: "III.C.6 Make public disclosures enumerates exactly three required disclosures: technical documentation, instructions for use to deployers, and post-market monitoring plans. B matches the PI text directly. A, C, and D each include items that may be good governance practice but are not explicitly enumerated in III.C.6 — the exam tests knowledge of the PI's exact scope."
+    },
+    {
+      id: "DIII-IIIC-019", pi: "III.C.2", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.2 — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.",
+      stem: "A content moderation AI deployed by a social media platform shows a consistent but gradual decline in precision for a specific content category over six weeks. The decline is within alert thresholds and no automated notification has been triggered. Under III.C.2, what action is most appropriate for the governance team?",
+      options: {
+        A: "Continue monitoring without intervention until the metric formally breaches the defined alert threshold before initiating any maintenance or retraining",
+        B: "Immediately retrain the model on the full historical dataset to restore baseline precision performance as quickly as possible",
+        C: "Trigger a review of whether the retraining cadence should be brought forward given the consistent downward trend, even absent a threshold breach",
+        D: "Escalate the trend to cross-functional stakeholders under III.C.5 to investigate root causes before determining whether retraining is warranted"
+      },
+      correct: "C",
+      explanation: "III.C.2 Conduct continuous monitoring requires establishing a schedule for maintenance, updates and retraining. A consistent trend is a governance signal to review whether the schedule remains adequate — C applies this correctly. A (wait for threshold breach) treats monitoring mechanically rather than proactively. B (immediate full retrain) is premature without a schedule review. D applies III.C.5 Collaborate with cross-functional stakeholders, which addresses incident root causes, not schedule management."
+    },
+    {
+      id: "DIII-IIIC-020", pi: "III.C.1", isRetrieval: false, comp: "III.C",
+      bokRef: "III.C.1 — Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).",
+      stem: "A company has completed development of an AI credit assessment system. Before release, the compliance team identifies that a conformity assessment is required under applicable law. A product manager suggests the engineering team should handle this as a technical evaluation. Under III.C.1, how should the governance team respond?",
+      options: {
+        A: "Agree with the product manager — conformity assessments are technical evaluations owned by engineering and fall outside the governance function's remit",
+        B: "Confirm that conformity assessments are only required for high-risk AI under applicable law, and verify the risk classification before proceeding",
+        C: "Initiate a red team exercise first to identify adversarial vulnerabilities, then use the findings as input to the conformity assessment filing",
+        D: "Assert governance ownership of the release readiness assessment and ensure all conformity requirements are satisfied before the system enters production"
+      },
+      correct: "D",
+      explanation: "III.C.1 Assess readiness and prepare for release into production — including satisfying conformity requirements — is a governance obligation, not solely an engineering task. D correctly asserts governance ownership. A (engineering owns it) misassigns responsibility. B (verify risk classification first) may be a valid step but is not the primary response implied by III.C.1. C (red team before conformity) applies III.C.3 Conduct periodic activities at the wrong point in the workflow."
+    },
+    {
+      id: "DIII-IIIB-021", pi: "III.B.2", isRetrieval: true, comp: "III.B",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance.",
+      stem: "A financial services regulator audits an AI credit model and requests evidence that training data can be traced from its original sources through all transformation steps to the final training set. The company has extensive data quality reports but no structured lineage documentation. Which governance obligation most directly requires the lineage capability the regulator is asking for?",
+      options: {
+        A: "III.B.2 Establish and document data lineage and provenance, which requires a traceable audit trail from data origin through all transformations to the training set",
+        B: "III.B.1 Establish and follow requirements for data governance, which covers lawful rights to collect data and assessment of data quality, quantity, integrity and fit-for-purpose",
+        C: "III.A.5 Document the designing and building process, which includes data analysis and architecture decisions made during the model development phase",
+        D: "II.A.3 Understand obligations on data controllers, which includes record keeping requirements applicable to automated decision making systems"
+      },
+      correct: "A",
+      explanation: "III.B.2 Establish and document data lineage and provenance is the specific PI requiring traceable audit trails from origin through transformations. A is correct. III.B.1 Data governance (B) covers lawful rights, quality and integrity — not lineage. III.A.5 Document designing and building (C) covers design decisions, not the data transformation chain. II.A.3 Data controller obligations (D) is a privacy law requirement, not the AI governance data lineage PI."
+    },
+    {
+      id: "DIII-IIIB-022", pi: "III.B.2", isRetrieval: true, comp: "III.B",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance.",
+      stem: "A data scientist argues that comprehensive data quality checks satisfy all data governance requirements for the AI training pipeline. The governance lead disagrees, citing III.B.2 as a distinct obligation. What is the most accurate basis for the governance lead's position?",
+      options: {
+        A: "Data quality checks are more important than lineage documentation because they directly determine model performance and have a stronger impact on regulatory compliance",
+        B: "Data lineage and provenance documentation is a separate obligation from data quality, requiring evidence of data origin and the history of all transformations applied",
+        C: "III.B.2 covers both data quality and lineage as an integrated requirement, so comprehensive quality checks would satisfy the provenance obligation as well",
+        D: "Provenance documentation is only required for training data sourced from external or third-party vendors, not for internally generated data warehouse records"
+      },
+      correct: "B",
+      explanation: "III.B.2 Establish and document data lineage and provenance is a distinct PI from III.B.1 (which covers quality, quantity, integrity, and fit-for-purpose). They are separate obligations. B correctly identifies this distinction. A inverts the priorities incorrectly. C misreads III.B.2 — quality metrics do not constitute lineage or provenance documentation. D introduces a third-party carve-out absent from the BOK."
+    },
+    {
+      id: "DIII-IIIB-023", pi: "III.B.2", isRetrieval: true, comp: "III.B",
+      bokRef: "III.B.2 — Establish and document data lineage and provenance.",
+      stem: "During a post-incident review, a team discovers that an AI model's degraded performance traces to a data transformation error introduced three months earlier. The error went undetected because no audit trail existed for the data pipeline. Which III.B obligation would have most directly enabled earlier detection of the transformation error?",
+      options: {
+        A: "III.B.3 Plan and perform training and testing, which would have detected the transformation error through unit and integration testing of the data pipeline",
+        B: "III.B.4 Identify and manage issues and risks during training and testing, which requires flagging anomalies detected in the data processing pipeline",
+        C: "III.B.2 Establish and document data lineage and provenance, which creates an auditable record of all transformations applied to the data",
+        D: "III.B.5 Document the training and testing process, which requires capturing all parameters and configuration decisions made during each training run"
+      },
+      correct: "C",
+      explanation: "A documented data lineage and provenance record (III.B.2 Establish and document data lineage and provenance) creates an auditable trail of all transformations — this would have enabled the team to trace the error to the point of introduction. III.B.3 Plan and perform training and testing (A) covers testing protocols but not pipeline lineage documentation. III.B.4 Identify and manage risks (B) covers risk management during testing, not lineage tracking. III.B.5 Document training and testing (D) captures training parameters, not data transformation history."
+    },
+    {
+      id: "DIII-IIIC-024", pi: "III.C.6", isRetrieval: true, comp: "III.C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      stem: "A healthcare AI developer releases a diagnostic support tool. Technical documentation has been published. However, no post-market monitoring plan has been issued. A hospital deployer requests the plan before proceeding with integration. The developer argues the plan is an internal operational document protected by commercial confidentiality. What does III.C.6 require?",
+      options: {
+        A: "Provide the plan confidentially to the hospital under a non-disclosure agreement since it contains sensitive performance benchmarking data",
+        B: "Advise the hospital that post-market monitoring is the deployer's operational responsibility once the tool is integrated into clinical workflows",
+        C: "Confirm that publishing technical documentation already satisfies all III.C.6 requirements and no additional disclosures are needed",
+        D: "Prepare and publish the post-market monitoring plan as a required public disclosure under III.C.6 alongside technical documentation and instructions for use"
+      },
+      correct: "D",
+      explanation: "III.C.6 Make public disclosures explicitly enumerates post-market monitoring plans as a required transparency disclosure — not an optional or confidential document. D is correct. Providing it under NDA (A) contradicts the public disclosure requirement. Shifting responsibility to the deployer (B) misassigns the developer's III.C.6 obligation. Claiming technical documentation alone is sufficient (C) is wrong — III.C.6 requires all three enumerated disclosures."
+    },
+    {
+      id: "DIII-IIIC-025", pi: "III.C.6", isRetrieval: true, comp: "III.C",
+      bokRef: "III.C.6 — Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).",
+      stem: "An AI provider publishes technical documentation and a post-market monitoring plan for its NLP model. An enterprise deployer integrates the model into a legal document review workflow, causing errors because the model was designed for informal consumer text, not formal legal language. Which element of III.C.6 was most likely absent from the provider's disclosures?",
+      options: {
+        A: "Post-market monitoring plans specifying the performance thresholds the deployer should track and report during enterprise integration",
+        B: "Instructions for use to deployers describing the model's intended scope, linguistic design constraints, and enterprise use limitations",
+        C: "Technical documentation detailing the model architecture, training corpus characteristics, and known performance limitations",
+        D: "A conformity assessment confirming the model's design scope and identifying use cases where the model has not been validated"
+      },
+      correct: "B",
+      explanation: "The deployer misapplied the model beyond its design scope — legal document review vs. consumer text. Instructions for use to deployers (III.C.6 Make public disclosures) are precisely the disclosure that specifies intended scope and operational constraints, preventing this misapplication. B is the most directly absent element. Post-market monitoring plans (A) were published. Technical documentation (C) was published. Conformity assessment (D) relates to III.C.1 Assess readiness, not III.C.6 transparency disclosures."
+    }
+  ]
+};
+document.addEventListener('DOMContentLoaded', function() { initQuiz(QUIZ_DATA); });
+</script>
+</head>
+<body><div id="quiz-root"></div></body>
+</html>
