@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 14 · Week 2 Review</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a4a00;--accent-light:#fdf3de}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 14 · Week 2 · 18 Jun 2026</span>
+  </div>
+  <div class="sc-title">Domain III Review — Governing AI Development</div>
+  <div class="sc-meta">Competencies III.A · III.B · III.C &nbsp;|&nbsp; Exam weight: 20–26 questions &nbsp;|&nbsp; ~40 min read</div>
+</div>
+
+<!-- SECTION 1: BOK PIs (always open) -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Performance Indicators — Domains III.A · III.B · III.C</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-pi-list">
+      <div class="sc-pi"><span class="sc-pi-code">III.A.1</span> Define the business context and use case of the AI system.</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.A.2</span> Perform or review an impact assessment on the AI system.</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.A.3</span> Apply the policies, procedures, best practices and ethical considerations to designing and building the AI system (e.g., purpose of AI, requirements gathering, architecture and model selection, human oversight, data analysis, metric and threshold evaluation, stakeholder engagement and feedback, and operational controls).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.A.4</span> Identify and manage the internal and external risks and contributing factors related to designing and building the AI model and system (e.g., using probability/severity harms matrix, using a risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, and pre-deployment pilots and testing).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.A.5</span> Document the designing and building process (e.g., to establish compliance and manage risks).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.B.1</span> Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.B.2</span> Establish and document data lineage and provenance.</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.B.3</span> Plan and perform training and testing of the AI model and system (e.g., unit, integration, validation, performance, security, bias and interpretability).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.B.4</span> Identify and manage issues and risks during training and testing of the AI model and system.</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.B.5</span> Document the training and testing process (e.g., to validate results, establish compliance and manage risks).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.C.1</span> Assess readiness, and prepare for release into production (e.g., creating the model card and satisfying conformity requirements).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.C.2</span> Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining.</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.C.3</span> Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.C.4</span> Manage and document incidents, issues and risks.</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.C.5</span> Collaborate with cross-functional stakeholders to understand why incidents arise from AI systems (e.g., brittleness, lack of robustness, lack of quality data, insufficient testing, and model or data drift).</div>
+      <div class="sc-pi"><span class="sc-pi-code">III.C.6</span> Make public disclosures to meet transparency obligations (e.g., technical documentation, instructions for use to deployers and post-market monitoring plans).</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: Key Concepts -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Domain III — Three Governance Stages</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.A — Govern the Design &amp; Build Stage</span></div>
+      <div class="sc-concept-body">
+        <p>III.A governs the earliest phase of AI development — before a single training run occurs. Its five PIs form a logical sequence: define the problem (III.A.1) → assess impact (III.A.2) → apply governance to design decisions (III.A.3) → identify and manage design risks (III.A.4) → document everything (III.A.5).</p>
+        <div class="sc-why">Why it matters for the exam: III.A.3 is the most frequently tested PI. It covers a long list of design-phase activities where governance applies — architecture selection, human oversight design, stakeholder engagement, metric thresholds. Any question about "should governance apply to X in the design phase" almost certainly cites III.A.3. III.A.4 is tested through risk hierarchy scenarios — the BOK expects you to know that governance applies a structured elimination → reduction → controls hierarchy before accepting residual risk.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key precision points</div>
+          <div class="sc-def"><span class="sc-term">III.A.2 timing:</span> Impact assessment happens during design, not only at deployment. It covers harms to individuals, groups, organizations, and society.</div>
+          <div class="sc-def"><span class="sc-term">III.A.4 tools:</span> Probability/severity harms matrix, risk mitigation hierarchy, stakeholder mapping, use-case evaluation, benchmarking, pre-deployment pilots.</div>
+          <div class="sc-def"><span class="sc-term">III.A.5 purpose:</span> Exactly two stated purposes — to establish compliance and manage risks. Not "audit trail" or "regulatory submission."</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.B — Govern Data, Training &amp; Testing</span></div>
+      <div class="sc-concept-body">
+        <p>III.B covers everything that happens with data once design is approved — rights, provenance, training, and the full test suite. III.B.1 and III.B.2 deal with data rights and traceability before touching the model. III.B.3 through III.B.5 govern the training and testing process itself.</p>
+        <div class="sc-why">Why it matters for the exam: III.B.3's list of test types is a top exam target — candidates drop points by treating bias and interpretability testing as optional or regulatory add-ons. The BOK states them as required types alongside unit and performance tests. III.B.4 pairs with III.B.5: identifying an issue during testing is not enough — you must manage it and document the outcome.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key precision points</div>
+          <div class="sc-def"><span class="sc-term">III.B.1 lawful rights:</span> "Assess and document lawful rights to collect and use data" — both elements required. Not just GDPR compliance; the BOK sets its own standard.</div>
+          <div class="sc-def"><span class="sc-term">III.B.2 lineage vs quality:</span> Lineage/provenance (III.B.2) is where data came from and how it moved. Quality/fit-for-purpose (III.B.1) is whether it's suitable. These are distinct requirements.</div>
+          <div class="sc-def"><span class="sc-term">III.B.3 full test list:</span> Unit · Integration · Validation · Performance · Security · Bias · Interpretability. Security and interpretability are frequently missed.</div>
+          <div class="sc-def"><span class="sc-term">III.B.5 purpose:</span> To validate results, establish compliance and manage risks — three stated purposes vs III.A.5's two.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">III.C — Govern Release, Monitoring &amp; Maintenance</span></div>
+      <div class="sc-concept-body">
+        <p>III.C carries the highest exam weight of Domain III (8–10 questions). It governs the system from the moment before release through ongoing operation. The six PIs span readiness (III.C.1), ongoing monitoring (III.C.2), periodic deep assessment (III.C.3), incident governance (III.C.4 + III.C.5), and external transparency (III.C.6).</p>
+        <div class="sc-why">Why it matters for the exam: III.C.2 is the most common weak point — candidates confuse it with III.C.3. The distinction: III.C.2 is continuous and scheduled (everyday monitoring, regular retraining cadence); III.C.3 is periodic and structured (formal audits, red team exercises, threat modeling). III.C.4 and III.C.5 are frequently paired in scenario questions — you must identify the incident (III.C.4) AND conduct cross-functional root cause analysis (III.C.5). Passing an AI team's internal conclusion of "working as designed" is not sufficient for III.C.5.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key precision points</div>
+          <div class="sc-def"><span class="sc-term">III.C.2 vs III.C.3:</span> III.C.2 = continuous + schedule-driven. III.C.3 = periodic + structured (audits, red teaming, threat modeling, security testing). Both are required; neither substitutes for the other.</div>
+          <div class="sc-def"><span class="sc-term">III.C.5 root cause examples:</span> Brittleness, lack of robustness, lack of quality data, insufficient testing, model drift, data drift. These terms appear verbatim on the exam.</div>
+          <div class="sc-def"><span class="sc-term">III.C.6 recipients:</span> Public disclosures include technical documentation and instructions for use to deployers — not just end users. Post-market monitoring plans are explicitly included.</div>
+          <div class="sc-def"><span class="sc-term">Model card (III.C.1):</span> Created at release readiness stage, not during design. Satisfying conformity requirements is paired with model card creation in the same PI.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 3: Comparison Table -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Compare</span>
+    <span class="sc-section-title">Domain III Governance Lifecycle</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead>
+          <tr><th>Dimension</th><th>III.A — Design &amp; Build</th><th>III.B — Data, Training &amp; Testing</th><th>III.C — Release, Monitoring &amp; Maintenance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>When it applies</td><td>Before any data or training work begins</td><td>After design approval, during model development</td><td>From release readiness through end of life</td></tr>
+          <tr><td>Primary governance act</td><td>Define → Assess → Apply policies → Manage risks → Document</td><td>Govern data rights → Trace lineage → Test fully → Manage findings → Document</td><td>Assess readiness → Monitor continuously → Audit periodically → Manage incidents → Disclose</td></tr>
+          <tr><td>Key risk tool</td><td>Probability/severity matrix; risk mitigation hierarchy</td><td>Bias testing; interpretability testing; issue management</td><td>Red teaming; threat modeling; audits; monitoring schedule</td></tr>
+          <tr><td>Documentation purpose</td><td>Establish compliance and manage risks (III.A.5)</td><td>Validate results, establish compliance and manage risks (III.B.5)</td><td>Transparency, incident records, post-market monitoring plans (III.C.4, III.C.6)</td></tr>
+          <tr><td>Human oversight role</td><td>Applied in architecture/model selection decisions (III.A.3)</td><td>Applied during test validation and stakeholder review</td><td>Applied via monitoring, incident escalation, and public disclosure obligations</td></tr>
+          <tr><td>Impact assessment</td><td>Performed or reviewed during design (III.A.2)</td><td>Informed by test results; findings feed back to assessment</td><td>Updated through periodic audits and monitoring findings (III.C.3)</td></tr>
+          <tr><td>Third-party relevance</td><td>Vendor data, model providers, and architecture partners</td><td>Data provenance chains; third-party dataset rights (III.B.1, III.B.2)</td><td>Instructions for use to deployers; post-market plans (III.C.6)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: Worked Scenario -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Loan Approval AI — Full Lifecycle Governance Review</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">A regional bank builds and deploys a machine learning system to approve or decline consumer loan applications. You are the AI governance lead reviewing governance coverage at each lifecycle stage. Six months post-deployment, three complaints arrive alleging systematic decline of qualified applicants from one postal district.</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Design Stage — III.A findings</div>
+      <div class="sc-scenario-text">The design team defined the use case and built a probability/severity harms matrix, but the impact assessment addressed only credit risk — not demographic harms. Human oversight was designed as a second-review flag triggered only above a certain loan amount, leaving low-value applications fully automated. <span class="sc-pi-ref">III.A.2</span> required the impact assessment to cover harms to individuals and groups; restricting scope to credit risk missed the demographic harm dimension. <span class="sc-pi-ref">III.A.3</span> required human oversight to be embedded as a design principle, not a threshold exception.</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Training and Testing Stage — III.B findings</div>
+      <div class="sc-scenario-text">The team sourced historical loan data from an acquired bank without verifying lawful rights of use under the new entity's policies. The test suite included unit and performance tests, but not bias tests. When validation accuracy was 3% lower than training accuracy, the team logged the gap but shipped anyway. <span class="sc-pi-ref">III.B.1</span> required assessing and documenting lawful rights before using the acquired data. <span class="sc-pi-ref">III.B.3</span> required bias testing as an explicit test type. <span class="sc-pi-ref">III.B.4</span> required managing the accuracy gap issue — logging without action violated the "manage" obligation.</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Post-Deployment Stage — III.C findings</div>
+      <div class="sc-scenario-text">Six months in, no monitoring schedule was in place — the team checked performance "when someone asked." The three complaints were forwarded to the product team and no incident record was created. When the governance lead convenes a cross-functional review, the AI team says the model "performed as trained." <span class="sc-pi-ref">III.C.2</span> required a regular monitoring and retraining schedule from day one. <span class="sc-pi-ref">III.C.4</span> required managing and documenting complaints as incidents. <span class="sc-pi-ref">III.C.5</span> required cross-functional root cause analysis — "performing as trained" does not discharge this obligation when demographic harm has been flagged.</div>
+    </div>
+
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Outcome</div>
+      <div class="sc-scenario-text">Good governance would have caught the demographic impact gap at III.A.2, required bias testing at III.B.3, and triggered an immediate incident record and cross-functional review at III.C.4 and III.C.5. Each stage of Domain III provides a checkpoint — failing any one of them can compound into a post-deployment compliance crisis. The bank now faces regulatory scrutiny that a well-executed governance lifecycle would have surfaced and addressed internally.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 5: Flashcards -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall — 8 Cards</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc"><div class="sc-fc-q"><span class="sc-fc-icon">?</span>III.A.4 references a "risk mitigation hierarchy." What sequence does it imply?</div><div class="sc-fc-a">Elimination first, then reduction, then controls — residual risk is accepted only after higher-order mitigations are considered.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q"><span class="sc-fc-icon">?</span>What does III.A.5 identify as the two purposes of design documentation?</div><div class="sc-fc-a">To establish compliance and manage risks. Verbatim from the BOK — not "audit trail" or "regulatory reporting."</div></div>
+      <div class="sc-fc"><div class="sc-fc-q"><span class="sc-fc-icon">?</span>What seven test types does III.B.3 specify?</div><div class="sc-fc-a">Unit · Integration · Validation · Performance · Security · Bias · Interpretability. All seven are required — none are optional or purely regulatory add-ons.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q"><span class="sc-fc-icon">?</span>What does III.B.2 require, and how is it different from III.B.1?</div><div class="sc-fc-a">III.B.2 requires establishing and documenting data lineage and provenance (where data came from and how it moved). III.B.1 requires assessing lawful rights and data quality/fitness — these are distinct obligations.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q"><span class="sc-fc-icon">?</span>What does III.C.1 require before releasing an AI system to production?</div><div class="sc-fc-a">Assess readiness, create the model card, and satisfy conformity requirements. All three are in III.C.1 — the model card is a BOK requirement, not just a best practice.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q"><span class="sc-fc-icon">?</span>What is the precise distinction between III.C.2 and III.C.3?</div><div class="sc-fc-a">III.C.2 = continuous monitoring with a regular schedule for maintenance, updates, and retraining. III.C.3 = periodic structured assessments: audits, red teaming, threat modeling, and security testing. Both are required independently.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q"><span class="sc-fc-icon">?</span>III.C.5 lists five factors explaining why incidents arise. What are they?</div><div class="sc-fc-a">Brittleness · Lack of robustness · Lack of quality data · Insufficient testing · Model or data drift. These terms appear verbatim in the BOK and on the exam.</div></div>
+      <div class="sc-fc"><div class="sc-fc-q"><span class="sc-fc-icon">?</span>What does III.C.6 require to be disclosed, and to whom?</div><div class="sc-fc-a">Technical documentation, instructions for use to deployers, and post-market monitoring plans. Deployers are explicitly named recipients — not just end users or regulators.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: Resources -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Links</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank"><span class="sc-res-label">AIGP Body of Knowledge</span><span class="sc-res-desc">Official BOK — authoritative source for all PIs</span></a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank"><span class="sc-res-label">Exam Preparation Hub</span><span class="sc-res-desc">IAPP study resources and prep materials</span></a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank"><span class="sc-res-label">AIGP Study Guide</span><span class="sc-res-desc">Official IAPP study guide request</span></a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank"><span class="sc-res-label">Certification Handbook</span><span class="sc-res-desc">Exam policies, structure, and candidate guidance</span></a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>
