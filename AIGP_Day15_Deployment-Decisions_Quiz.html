@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIGP Day 15 Quiz — Deployment Decisions (IV.A)</title>
+<script src="quiz-engine.js"></script>
+<script>
+const QUIZ_DATA = {
+  day: 15, week: 3, comp: "IV.A", topic: "Deployment Decisions",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DIV-IVA-001", pi: "IV.A.1", isRetrieval: false, comp: "IV.A",
+      stem: "A retail bank is deploying an AI chatbot to handle loan pre-qualification inquiries. During evaluation, the governance team discovers that frontline staff have not received structured training on how to interpret the chatbot's outputs or escalate edge cases where the recommendation conflicts with their judgment. Which aspect of deployment context evaluation is most directly at risk?",
+      options: {
+        A: "Performance requirements, because untrained staff cannot measure the chatbot's accuracy against the defined precision and recall thresholds required for loan decisions",
+        B: "Data availability, because staff knowledge gaps signal that the training dataset may not accurately reflect real-world operational conditions",
+        C: "Workforce readiness, because staff must be able to operate the system, interpret its outputs, and exercise meaningful human oversight through escalation",
+        D: "Business objectives, because the chatbot cannot achieve its pre-qualification goals without a workforce trained to act on its recommendations appropriately"
+      },
+      correct: "C",
+      explanation: "IV.A.1 Understand the context of the AI use case lists workforce readiness as a distinct evaluation dimension — specifically the capacity to operate the system, interpret outputs, and escalate appropriately. This is a human oversight gap, not a performance metric or data gap. A is wrong because performance requirements concern technical thresholds defined before deployment, not staff measurement capability. B is wrong because staff training gaps do not indicate a dataset quality issue. D conflates business objectives (what the AI is meant to achieve) with the workforce's ability to support it — these are separate IV.A.1 dimensions.",
+      bokRef: "IV.A.1 — Understand the context of the AI use case (e.g., business objectives, performance requirements, data availability, ethical considerations and workforce readiness)."
+    },
+    {
+      id: "DIV-IVA-002", pi: "IV.A.1", isRetrieval: false, comp: "IV.A",
+      stem: "An AI governance professional reviews a proposal to deploy a predictive maintenance system at a manufacturing plant. The system requires real-time sensor data from 12 production lines, but the plant currently collects data from only 4 lines, with the remaining 8 not yet instrumented. What is the most immediate deployment context concern?",
+      options: {
+        A: "Data availability, because the required inputs are not yet accessible to support the system's performance and coverage requirements across all production lines",
+        B: "Workforce readiness, because operators need to be trained to manage a 12-line monitoring system before deployment can safely proceed",
+        C: "Ethical considerations, because monitoring only 4 of 12 lines may produce inequitable safety outcomes for workers on unmonitored lines",
+        D: "Business objectives, because partial sensor coverage may not deliver sufficient return on investment to justify the AI deployment cost"
+      },
+      correct: "A",
+      explanation: "IV.A.1 Understand the context of the AI use case identifies data availability as the dimension covering whether required inputs are accessible in the right format at the required volume. With 8 of 12 lines not instrumented, the data the system needs to function does not exist — this is the blocking concern. B is a real consideration but secondary to the structural data gap. C is a plausible ethical framing but is not the most immediate concern when the system literally cannot operate across its required scope. D is a business case concern, not a governance deployment evaluation finding.",
+      bokRef: "IV.A.1 — Understand the context of the AI use case (e.g., business objectives, performance requirements, data availability, ethical considerations and workforce readiness)."
+    },
+    {
+      id: "DIV-IVA-003", pi: "IV.A.2", isRetrieval: false, comp: "IV.A",
+      stem: "A healthcare organisation is choosing between a classic machine learning model (logistic regression) and a generative AI model for triaging patient symptoms. The governance team notes that the logistic regression model produces coefficients that clinicians can directly inspect and verify for each decision. Which model type characteristic makes the classic model preferable from an explainability governance standpoint?",
+      options: {
+        A: "Classic ML models are generally smaller in size, making them faster to retrain when patient population distributions shift over time",
+        B: "Classic ML models produce deterministic, inspectable outputs that support clinician oversight and generate auditable decision rationale",
+        C: "Generative models require substantially larger training datasets, making the classic model the lower-risk data governance selection",
+        D: "Classic ML models are proprietary by nature, giving the healthcare organisation full control over the model's internal decision boundaries"
+      },
+      correct: "B",
+      explanation: "IV.A.2 Understand the differences in AI model types contrasts classic and generative AI along several governance-relevant dimensions. Classic models produce deterministic outputs with inspectable parameters — this directly supports clinician oversight (IV.A.1 workforce readiness) and generates the audit trail required for regulated healthcare decisions. A is a near-miss: smaller size is often true and does support retraining agility, but size is not the explainability-specific reason. C is wrong because data volume requirements are not the distinguishing explainability factor. D is wrong because model type (classic vs. generative) does not determine proprietary vs. open-source status.",
+      bokRef: "IV.A.2 — Understand the differences in AI model types (e.g., classic vs. generative, proprietary vs. open source, small vs. large, and language vs. multimodal capabilities)."
+    },
+    {
+      id: "DIV-IVA-004", pi: "IV.A.3", isRetrieval: false, comp: "IV.A",
+      stem: "A logistics company wants to deploy an AI route optimisation system in delivery vehicles operating in areas with unreliable cellular connectivity. The vendor offers both cloud-hosted and edge-deployed versions of the same model. Which of the following most accurately describes the governance tradeoff of selecting edge deployment?",
+      options: {
+        A: "Edge deployment eliminates vendor dependency entirely by removing the need for cloud infrastructure, reducing third-party risk across the supply chain",
+        B: "Cloud deployment creates data sovereignty violations in every international market the company operates in, making edge the only compliant option",
+        C: "Edge deployment always produces higher model accuracy because data is processed closer to the source with lower transmission latency",
+        D: "Edge deployment keeps data local and reduces latency, but introduces model version management challenges as patches may not reach all nodes reliably"
+      },
+      correct: "D",
+      explanation: "IV.A.3 Understand the differences in AI deployment options identifies cloud vs. on-premise vs. edge as distinct options with different governance profiles. Edge deployment's governance advantage is local data processing and low latency; its governance risk is that model updates — including bias corrections — may not propagate consistently to distributed nodes. D captures both sides accurately. A is wrong because edge still may require vendor infrastructure for updates and monitoring. B overstates the sovereignty issue — cloud can address sovereignty with appropriate DPAs and regional data centres. C is wrong because proximity does not inherently improve model accuracy.",
+      bokRef: "IV.A.3 — Understand the differences in AI deployment options (e.g., cloud vs. on-premise vs. edge, and using the AI model as is or with fine-tuning, retrieval augmented generation, agentic architectures, or other techniques to improve performance and fit)."
+    },
+    {
+      id: "DIV-IVA-005", pi: "IV.A.4", isRetrieval: false, comp: "IV.A",
+      stem: "A financial services firm is deploying an AI credit-scoring model developed by a third-party vendor for US consumer lending. The firm intends to use it for small business loan decisions in Southeast Asia. The vendor has provided a completed impact assessment covering the US consumer context. What should the AI governance professional recommend?",
+      options: {
+        A: "Ask the vendor to extend their existing impact assessment to cover the new geography and customer segment before deployment proceeds",
+        B: "Proceed with deployment, as the vendor's completed impact assessment satisfies the deployer's governance obligations for the AI system",
+        C: "Conduct a separate deployer impact assessment because the use case, user population, legal context, and risk profile differ from the vendor's evaluation",
+        D: "Commission a technical performance audit of the model on Southeast Asian credit data as the primary governance step before assessing impact"
+      },
+      correct: "C",
+      explanation: "IV.A.4 Perform or review an impact assessment on the selected AI system requires the deployer to conduct its own assessment when the deployment context differs materially from the vendor's. Different use case (SME vs. consumer), different population (Southeast Asian vs. US), and different legal landscape (local anti-discrimination law) all create a distinct risk profile not covered by the vendor's IA. A is a near-miss — asking the vendor to extend their IA sounds reasonable, but the deployer cannot outsource its own governance obligation; the deployer must own the assessment for its context. B is wrong — a vendor IA is never automatically sufficient for a materially different deployment. D addresses technical performance but is not the primary governance step under IV.A.4.",
+      bokRef: "IV.A.4 — Perform or review an impact assessment on the selected AI system."
+    },
+    {
+      id: "DIV-IVA-006", pi: "IV.A.1", isRetrieval: false, comp: "IV.A",
+      stem: "During an AI deployment readiness review, a product team presents performance requirements for a new AI fraud detection system. They have specified a target precision of 88% but have not defined acceptable recall rates, false negative tolerances, or latency thresholds for real-time transaction screening. What should the governance professional conclude?",
+      options: {
+        A: "Performance requirements are incompletely defined, as precision alone is insufficient without recall, false negative tolerance, and latency thresholds for a real-time fraud use case",
+        B: "The 88% precision target is adequate because governance frameworks require only one quantifiable performance metric to proceed with deployment approval",
+        C: "Workforce readiness should be assessed first, since fraud analysts in practice will determine acceptable thresholds through operational experience post-deployment",
+        D: "Data availability must be confirmed before performance thresholds can be set, making the current performance review premature and inappropriate"
+      },
+      correct: "A",
+      explanation: "IV.A.1 Understand the context of the AI use case requires performance requirements to be fully defined before deployment. For a fraud detection system, precision alone is insufficient — recall determines how many actual fraud cases are missed (false negatives), which carry direct financial and regulatory risk, while latency thresholds are critical for real-time screening viability. B is wrong — no governance framework accepts a single metric as complete for a consequential use case. C is a near-miss — workforce readiness is a separate IV.A.1 dimension and should not substitute for pre-deployment performance specification. D is a near-miss — data availability is evaluated concurrently, not as a prerequisite that makes performance specification premature.",
+      bokRef: "IV.A.1 — Understand the context of the AI use case (e.g., business objectives, performance requirements, data availability, ethical considerations and workforce readiness)."
+    },
+    {
+      id: "DIV-IVA-007", pi: "IV.A.2", isRetrieval: false, comp: "IV.A",
+      stem: "A government agency is evaluating an open-source LLM for drafting policy summaries. Legal counsel flags that the model's training data origin is poorly documented and may include copyrighted government documents from other jurisdictions collected without verifiable consent or permission. Which governance concern does this most directly raise for the open-source model selection?",
+      options: {
+        A: "Open-source models lack dedicated vendor support, which may prevent the agency from meeting incident response timelines under applicable regulations",
+        B: "Open-source models expose the deployer to intellectual property and data provenance liability when training data origins are unclear or unverified",
+        C: "Open-source models cannot be fine-tuned for government domain tasks without engaging external vendor support and expertise",
+        D: "Open-source models consistently underperform proprietary models on government language tasks because they are trained on insufficient domain-specific data"
+      },
+      correct: "B",
+      explanation: "IV.A.2 Understand the differences in AI model types identifies proprietary vs. open-source as a governance-relevant distinction. With open-source models, the deployer assumes full responsibility for the model's training data provenance — if that data includes copyrighted or non-consensually collected material, the deployer bears the IP and data rights liability, not a vendor. A is a near-miss — vendor support gaps are a real governance concern with open-source models, but the stem specifically identifies training data origin as the flagged risk, making B the direct answer. C is wrong — open-source models can be fine-tuned independently. D is wrong — performance claims require evidence and are not a universal governance principle.",
+      bokRef: "IV.A.2 — Understand the differences in AI model types (e.g., classic vs. generative, proprietary vs. open source, small vs. large, and language vs. multimodal capabilities)."
+    },
+    {
+      id: "DIV-IVA-008", pi: "IV.A.3", isRetrieval: false, comp: "IV.A",
+      stem: "A pharmaceutical company deploys an LLM-based literature review assistant. The model frequently cites outdated research because its training data has a fixed cutoff date. The governance team evaluates retrieval augmented generation (RAG) versus full fine-tuning as solutions. What is the primary governance rationale for preferring RAG in this scenario?",
+      options: {
+        A: "Fine-tuning is substantially more expensive than RAG, making it harder to justify from a cost-benefit governance and resource stewardship perspective",
+        B: "RAG models produce more concise outputs, which reduces the risk of hallucinated content appearing in regulatory and scientific submissions",
+        C: "Fine-tuning requires the company to accept full liability under data training laws for all content used in the retraining dataset",
+        D: "RAG grounds model responses in retrieved source documents, reducing hallucination and keeping the model's knowledge current without requiring retraining"
+      },
+      correct: "D",
+      explanation: "IV.A.3 Understand the differences in AI deployment options includes RAG as a technique to improve performance and fit. RAG addresses the knowledge currency problem by grounding each response in retrieved documents rather than parametric memory — this directly reduces hallucination and keeps outputs current without the cost or liability implications of retraining. D captures both the mechanism and the governance benefit. A is a near-miss — cost is a real factor but not the primary governance rationale. C is a near-miss — fine-tuning does increase deployer liability for training data, but framing this as a legal prohibition is too strong and not the reason RAG is preferred for this specific knowledge-currency problem. B is wrong — output length is not a distinguishing governance factor between RAG and fine-tuning.",
+      bokRef: "IV.A.3 — Understand the differences in AI deployment options (e.g., cloud vs. on-premise vs. edge, and using the AI model as is or with fine-tuning, retrieval augmented generation, agentic architectures, or other techniques to improve performance and fit)."
+    },
+    {
+      id: "DIV-IVA-009", pi: "IV.A.4", isRetrieval: false, comp: "IV.A",
+      stem: "An insurance company prepares an impact assessment for an AI underwriting model. The assessment thoroughly covers direct impacts on applicants who are declined coverage. The governance team's legal advisor notes that the model's outputs will also be used by reinsurers to price catastrophe risk pools — a downstream use not mentioned in the assessment. Which aspect of the impact assessment is most likely incomplete?",
+      options: {
+        A: "The assessment should include a technical performance evaluation disaggregated by all applicant demographic segments to satisfy fairness requirements",
+        B: "The assessment should quantify the financial exposure to the organisation from incorrect model outputs across all lines of business",
+        C: "The assessment must cover secondary and downstream uses of the model's outputs, not only direct impacts on primary applicants",
+        D: "The assessment should benchmark the AI model's accuracy against the human underwriter decisions it replaces to establish comparative baseline performance"
+      },
+      correct: "C",
+      explanation: "IV.A.4 Perform or review an impact assessment on the selected AI system requires the assessment to capture who is affected and how — including secondary and downstream uses of the model's outputs. Reinsurers using the outputs to price catastrophe risk pools is a downstream use that creates distinct harms (mispriced systemic risk) not captured by assessing only direct applicant impacts. A is a near-miss — demographic disaggregation is a legitimate IA component but is not the gap the legal advisor identified. D is a near-miss — baseline benchmarking is good practice but not the gap identified in the scenario. B is wrong — financial exposure quantification for the organisation is a business risk metric, not the primary purpose of an impact assessment.",
+      bokRef: "IV.A.4 — Perform or review an impact assessment on the selected AI system."
+    },
+    {
+      id: "DIV-IVA-010", pi: "IV.A.1", isRetrieval: false, comp: "IV.A",
+      stem: "A logistics company is deploying an AI workforce scheduling system that optimises shift assignments. A governance review finds the system's recommendations systematically assign less desirable overnight shifts to workers with caregiving responsibilities because 'flexibility' is encoded as a binary constraint favouring availability over all hours. Which element of use case context evaluation does this finding most directly implicate?",
+      options: {
+        A: "Ethical considerations, because the deployment must be evaluated for alignment with fairness and non-discrimination principles before going live",
+        B: "Performance requirements, because the scheduling accuracy metric does not incorporate a fairness dimension to capture disparate impact across worker groups",
+        C: "Data availability, because the caregiving status data needed to audit or correct the model's outputs is not collected by the HR information system",
+        D: "Business objectives, because equitable shift distribution may conflict with the cost-minimisation and scheduling efficiency objectives set by management"
+      },
+      correct: "A",
+      explanation: "IV.A.1 Understand the context of the AI use case includes ethical considerations as a deployment context dimension — specifically whether the system aligns with fairness principles for affected individuals. The finding that the system systematically disadvantages workers with caregiving responsibilities is a fairness and non-discrimination concern that must be assessed before deployment. B is a near-miss — performance metric design is related but the root governance finding is an ethical one, not a metric specification gap. C is a near-miss — data collection for auditing is a real secondary concern but not the primary finding raised by the scenario. D is a near-miss — objective tension is real but does not override the ethical evaluation requirement.",
+      bokRef: "IV.A.1 — Understand the context of the AI use case (e.g., business objectives, performance requirements, data availability, ethical considerations and workforce readiness)."
+    },
+    {
+      id: "DIV-IVA-011", pi: "IV.A.2", isRetrieval: false, comp: "IV.A",
+      stem: "A hospital network is choosing between a small, specialised radiology AI (trained on 500,000 chest X-rays, achieving 97% sensitivity on chest pathologies) and a large foundation model with broad medical imaging capabilities across multiple body systems. The specialised model cannot generalise to other imaging types. Which governance consideration most favours the specialised model for a chest radiology department?",
+      options: {
+        A: "Smaller models are always less expensive to maintain over time, reducing total cost of ownership throughout the model's operational lifecycle",
+        B: "Specialised models trained on domain-specific datasets typically deliver more predictable, auditable performance within their clearly defined operational scope",
+        C: "Large foundation models require more training data to operate, creating proportionally greater data governance complexity and consent management obligations",
+        D: "Foundation models are prohibited from use in regulated healthcare settings because their training data provenance cannot be independently verified by the deployer"
+      },
+      correct: "B",
+      explanation: "IV.A.2 Understand the differences in AI model types — small vs. large — has direct governance implications. A specialised model trained on domain-specific data performs predictably within its defined scope, produces auditable outputs, and limits the scope of failure modes. For a radiology department with a single use case (chest pathologies), this predictability is a governance advantage over a broad model whose behaviour across many modalities introduces opacity and unpredictability. A is a near-miss — 'always' is too strong; cost profile varies by context. D is wrong — it makes an overreaching claim that foundation models are prohibited in regulated healthcare, which is not accurate. C is wrong — data volume does not automatically create proportionally greater governance complexity.",
+      bokRef: "IV.A.2 — Understand the differences in AI model types (e.g., classic vs. generative, proprietary vs. open source, small vs. large, and language vs. multimodal capabilities)."
+    },
+    {
+      id: "DIV-IVA-012", pi: "IV.A.3", isRetrieval: false, comp: "IV.A",
+      stem: "A company deploys an agentic AI system that autonomously executes multi-step procurement workflows — identifying suppliers, generating RFPs, evaluating responses, and submitting purchase orders — with minimal human review at each step. The governance team must identify the primary risk that distinguishes this agentic architecture from conventional AI deployments. What is it?",
+      options: {
+        A: "Agentic systems require substantially more computational resources, triggering environmental compliance reporting obligations in certain regulatory jurisdictions",
+        B: "Agentic systems routinely interface with external vendor APIs, creating cross-border data transfer risks that must be assessed under applicable privacy law",
+        C: "Agentic systems process unstructured supplier data, making it difficult to define measurable performance thresholds before deployment commences",
+        D: "Agentic systems can execute cascading autonomous actions across multiple steps, requiring stronger human oversight controls including the ability to interrupt or halt operations"
+      },
+      correct: "D",
+      explanation: "IV.A.3 Understand the differences in AI deployment options explicitly includes agentic architectures as a deployment option with distinct governance implications. The defining governance risk of agentic systems is multi-step autonomous action with limited human intervention — a decision error at step one cascades through subsequent automated steps, compounding harm before any human oversight can intervene. This requires pre-deployment controls including interrupt and halt mechanisms. B is a near-miss — API data transfer is a real secondary concern, but it applies to many AI architectures, not distinctively to agentic ones. C is a near-miss — performance definition is harder for agentic systems but is not the distinguishing primary risk. A is clearly wrong — compute requirements are not the defining governance concern.",
+      bokRef: "IV.A.3 — Understand the differences in AI deployment options (e.g., cloud vs. on-premise vs. edge, and using the AI model as is or with fine-tuning, retrieval augmented generation, agentic architectures, or other techniques to improve performance and fit)."
+    },
+    {
+      id: "DIV-IVA-013", pi: "IV.A.4", isRetrieval: false, comp: "IV.A",
+      stem: "An e-commerce company acquires a third-party AI product recommendation engine and plans to deploy it for customer-facing upselling. The vendor's documentation includes an impact assessment confirming equitable performance across demographic groups in the vendor's test dataset. The governance professional is asked whether the deployer must conduct an additional impact assessment. What is the correct answer?",
+      options: {
+        A: "No, because the vendor's assessment covers the primary performance and equity dimensions that deployers are required to evaluate under AI governance frameworks",
+        B: "No, because deployers are only required to conduct impact assessments when deploying proprietary AI models they developed themselves, not third-party systems",
+        C: "Yes, because the deployer's customer population, deployment context, and use purpose may differ materially from the conditions under which the vendor conducted their assessment",
+        D: "Yes, but only when the recommendation engine processes sensitive personal data categories such as purchase history linked to inferred health or financial status"
+      },
+      correct: "C",
+      explanation: "IV.A.4 Perform or review an impact assessment on the selected AI system requires the deployer to assess the AI system in its actual deployment context. A vendor IA covers the vendor's test conditions — it does not substitute for the deployer's obligation to evaluate impacts in the deployer's specific customer population and operational environment. The e-commerce company's customers, data inputs, and business context may differ materially from the vendor's test dataset. A is a near-miss — the vendor's IA is necessary input but is not sufficient to discharge the deployer's obligations when context differs. D is a near-miss — sensitive data creates heightened obligations but the deployer IA requirement is not conditional on sensitive data; it applies whenever deployment context differs. B is clearly wrong.",
+      bokRef: "IV.A.4 — Perform or review an impact assessment on the selected AI system."
+    },
+    {
+      id: "DIV-IVA-014", pi: "IV.A.2", isRetrieval: false, comp: "IV.A",
+      stem: "A media company evaluates a multimodal AI model that processes both text and images to automate content moderation decisions. The governance team identifies that the model's behaviour when inputs span both modalities simultaneously is noticeably less predictable than its performance on text-only or image-only inputs evaluated separately. Which governance concern does this most directly raise?",
+      options: {
+        A: "Multimodal models introduce opacity risks because interactions between input modalities can produce emergent behaviours that are harder to test, audit, and explain",
+        B: "Multimodal models require larger training datasets, creating consent and data minimisation risks under applicable privacy and data governance requirements",
+        C: "Multimodal models are proprietary by nature, which prevents the organisation from inspecting model weights or verifying the internal decision logic",
+        D: "Multimodal models perform inconsistently across different languages, creating disparate impact risks for non-English language content moderation decisions"
+      },
+      correct: "A",
+      explanation: "IV.A.2 Understand the differences in AI model types includes language vs. multimodal as a governance-relevant dimension. When text and image inputs interact, the model can produce emergent behaviours not predictable from either modality's performance in isolation — this is an opacity and reliability governance concern directly tied to what the stem describes. A captures this precisely. B is a near-miss — dataset size and consent are real concerns but are not what the stem identifies as the observed problem. C is wrong — multimodal does not determine proprietary vs. open-source status. D is a near-miss — language performance variation is a real multimodal concern but is not what the stem identifies.",
+      bokRef: "IV.A.2 — Understand the differences in AI model types (e.g., classic vs. generative, proprietary vs. open source, small vs. large, and language vs. multimodal capabilities)."
+    },
+    {
+      id: "DIV-IVA-015", pi: "IV.A.3", isRetrieval: false, comp: "IV.A",
+      stem: "A multinational bank deploys an AI fraud detection system processing transaction data from customers across 30 countries. The vendor's standard offering routes all transaction data through servers in a single jurisdiction. The governance team raises data residency concerns for several markets where local law requires transaction data to remain within the country of origin. Which deployment approach most directly addresses this concern?",
+      options: {
+        A: "Implement cloud deployment with comprehensive data processing agreements executed in each jurisdiction, relying on contractual mechanisms to satisfy residency requirements",
+        B: "Evaluate on-premise or regional cloud deployment that keeps each market's transaction data within its jurisdiction of origin rather than routing it to a central server",
+        C: "Deploy the fraud detection model as an edge solution on customer banking devices, eliminating server-side data residency issues for all markets simultaneously",
+        D: "Require the vendor to replicate all transaction data storage across data centres in all 30 markets, ensuring each jurisdiction's data is stored locally"
+      },
+      correct: "B",
+      explanation: "IV.A.3 Understand the differences in AI deployment options — cloud vs. on-premise vs. edge — directly addresses data residency as a governance consideration. When data residency law requires data to remain in-country, routing all data through a single external jurisdiction is non-compliant regardless of contractual mechanisms. On-premise or regional cloud deployment keeps data within each jurisdiction's boundaries. A is a near-miss — DPAs are a necessary governance tool but do not resolve hard residency requirements in all jurisdictions; some laws require physical data location within the country. C is a near-miss — edge on customer devices is not operationally feasible for fraud detection, which requires server-side transaction analysis. D is a near-miss — data replication across 30 markets may resolve residency but is an extreme vendor requirement not typically achievable; B is the more direct governance recommendation.",
+      bokRef: "IV.A.3 — Understand the differences in AI deployment options (e.g., cloud vs. on-premise vs. edge, and using the AI model as is or with fine-tuning, retrieval augmented generation, agentic architectures, or other techniques to improve performance and fit)."
+    },
+    {
+      id: "DIV-IVA-016", pi: "IV.A.1", isRetrieval: false, comp: "IV.A",
+      stem: "Before deploying an AI-powered customer service system, the governance team conducts a workforce readiness assessment. They find that customer service agents were briefed about the tool in a team meeting but have not received structured training on when and how to override the AI's recommendation, or how to escalate cases where they disagree with its output. What is the key governance gap identified?",
+      options: {
+        A: "The AI system's performance requirements have not been validated against real customer service workflow conditions prior to deployment approval",
+        B: "Data availability for continuous improvement may be insufficient if agents are not capturing override decisions for model retraining and monitoring",
+        C: "Ethical considerations have not been incorporated into the AI system's decision logic before deployment, creating potential bias exposure",
+        D: "Staff lack the operational training required to exercise meaningful human oversight over the AI system's outputs and recommendations"
+      },
+      correct: "D",
+      explanation: "IV.A.1 Understand the context of the AI use case includes workforce readiness as a dimension that specifically covers the capacity of staff to operate the system, interpret its outputs, and exercise human oversight through escalation and override. A briefing is not structured training — agents cannot meaningfully oversee a system they have not been trained to challenge or escalate from. A is a near-miss — performance validation is a real governance concern but a separate IV.A.1 dimension not identified in the scenario. B is a near-miss — override data capture is a monitoring concern (closer to III.C.2) rather than the deployment readiness gap identified. C is wrong — the gap is in staff capability, not in the system's decision logic.",
+      bokRef: "IV.A.1 — Understand the context of the AI use case (e.g., business objectives, performance requirements, data availability, ethical considerations and workforce readiness)."
+    },
+    {
+      id: "DIV-IVA-017", pi: "IV.A.4", isRetrieval: false, comp: "IV.A",
+      stem: "A telecommunications company deploys an AI churn prediction model to identify customers likely to cancel service. Three months post-deployment, the marketing team proposes using the model's outputs to automatically trigger service downgrades for customers flagged as low-value — a use not covered in the original impact assessment. What must the AI governance professional recommend?",
+      options: {
+        A: "Retrain the model on updated data that incorporates the new marketing use case before expanding its application to service downgrading decisions",
+        B: "Assess whether the automatic downgrading use case constitutes regulated automated decision-making under applicable privacy and data protection law",
+        C: "Conduct a new or updated impact assessment to evaluate the secondary use and the potential harms to customers affected by automated downgrades",
+        D: "Review the vendor contract to confirm that the model's licensing terms and permitted use scope extend to customer service downgrading decisions"
+      },
+      correct: "C",
+      explanation: "IV.A.4 Perform or review an impact assessment on the selected AI system requires an updated or new IA when the scope of use changes materially post-deployment. Service downgrading is a consequential secondary use — customers who were not subjects of the original IA scope (churn prediction for retention purposes) now face direct adverse action. The original IA did not evaluate this harm pathway. C is the primary governance obligation. B is a near-miss — a privacy law review is also warranted and may follow the IA, but the IA is the broader governance instrument that IV.A.4 requires first. D is a near-miss — contract review is a relevant check under IV.B Perform key activities to assess the AI system but is not the primary IV.A.4 obligation. A is wrong — retraining does not substitute for an impact assessment on a new use case.",
+      bokRef: "IV.A.4 — Perform or review an impact assessment on the selected AI system."
+    },
+    {
+      id: "DIV-IVA-018", pi: "IV.A.3", isRetrieval: false, comp: "IV.A",
+      stem: "A utilities company deploys an AI fault detection system on remote infrastructure nodes using edge computing. Six months after deployment, the governance team discovers that a critical model update — correcting a fault classification bias affecting a specific equipment type — has not been deployed to 40% of edge nodes because intermittent connectivity prevented the update from reaching those locations. What governance challenge does this illustrate?",
+      options: {
+        A: "Edge deployment creates model version management challenges, because patches and critical updates may not propagate consistently across distributed nodes with limited connectivity",
+        B: "The original impact assessment was insufficient because it failed to evaluate fault classification accuracy across all infrastructure equipment types before deployment",
+        C: "The vendor's update delivery mechanism does not meet the reliability standards required for critical infrastructure AI deployment under applicable regulations",
+        D: "On-premise deployment should have been selected instead of edge, as centralised server infrastructure enables uniform and verifiable software update management"
+      },
+      correct: "A",
+      explanation: "IV.A.3 Understand the differences in AI deployment options identifies edge deployment's model version management as a distinct governance challenge — nodes that operate with limited connectivity cannot reliably receive updates, meaning different nodes may run different model versions including uncorrected, biased versions. This is a known and foreseeable edge deployment risk that must be addressed in the deployment governance plan. C is a near-miss — the vendor's mechanism may be functioning correctly; the problem is architectural (edge connectivity), not vendor failure. D is a near-miss — on-premise vs. edge is a valid contrast, but D overstates the case by calling on-premise the correct choice without recognising that edge's local data advantages may still justify its selection with appropriate version management controls. B is wrong — the IA is not the instrument that addresses update propagation architecture.",
+      bokRef: "IV.A.3 — Understand the differences in AI deployment options (e.g., cloud vs. on-premise vs. edge, and using the AI model as is or with fine-tuning, retrieval augmented generation, agentic architectures, or other techniques to improve performance and fit)."
+    },
+    {
+      id: "DIV-IVA-019", pi: "IV.A.2", isRetrieval: false, comp: "IV.A",
+      stem: "A startup builds a customer support chatbot using an open-source LLM and deploys it to 50,000 users. A legal review reveals the base model's training data included customer service transcripts scraped from competitor websites without documented consent or permission from the data owners. What is the primary governance risk the startup faces from this model selection?",
+      options: {
+        A: "The open-source model's absence of dedicated vendor support increases incident response times compared to a proprietary model with contractual SLAs",
+        B: "The startup may bear liability for intellectual property violations and data rights infringements embedded in the model's training data provenance",
+        C: "Open-source model licensing requires the startup to publish its model weights publicly, creating a competitive reverse-engineering security risk",
+        D: "The chatbot's probabilistic output behaviour means it cannot satisfy the deterministic accuracy guarantees required by enterprise service agreements"
+      },
+      correct: "B",
+      explanation: "IV.A.2 Understand the differences in AI model types — proprietary vs. open source — identifies training data provenance liability as a distinguishing governance risk of open-source models. When a deployer builds on an open-source model with questionable training data origins, the deployer assumes responsibility for any IP violations or data rights infringements in that training data — there is no vendor to share or absorb the liability. A is a near-miss — vendor support gaps are a real open-source governance concern but are not the risk the legal review identified. C is wrong — open-source licensing requirements vary; not all require publishing weights. D is wrong — probabilistic outputs are a characteristic of all LLMs, not a distinctive risk arising from this model's training data issue.",
+      bokRef: "IV.A.2 — Understand the differences in AI model types (e.g., classic vs. generative, proprietary vs. open source, small vs. large, and language vs. multimodal capabilities)."
+    },
+    {
+      id: "DIV-IVA-020", pi: "IV.A.4", isRetrieval: false, comp: "IV.A",
+      stem: "An impact assessment was completed for an AI hiring screener prior to its initial deployment for entry-level roles. Twelve months later, the company expands its use of the screener to senior leadership positions (a population not included in the original assessment) and extends operations to two new jurisdictions with different anti-discrimination laws than the original deployment context. What is the most appropriate governance action?",
+      options: {
+        A: "Contact the authors of the original impact assessment and request that they extend their documentation to reflect the new population and jurisdictions",
+        B: "Conduct a targeted technical audit to verify that the model's performance metrics are consistent and equitable across the expanded senior leadership population",
+        C: "Request that the AI vendor provide an updated conformity assessment reflecting the regulatory requirements of the two new jurisdictions",
+        D: "Perform a new or updated impact assessment covering the expanded use case, user population, and the legal requirements of all applicable jurisdictions"
+      },
+      correct: "D",
+      explanation: "IV.A.4 Perform or review an impact assessment on the selected AI system requires a new or updated assessment when deployment scope changes materially. Expanding to senior leadership (different population, higher-stakes decisions) and two new jurisdictions (different anti-discrimination legal requirements) constitutes a material change that the original IA did not evaluate. The deployer must own this assessment — it cannot be delegated to the vendor or the original assessment authors. A is wrong — the deployer cannot outsource its IA obligation to the original authors; the deployer is responsible. B is a near-miss — technical auditing is a component of a thorough assessment but does not substitute for a comprehensive IA. C is a near-miss — vendor conformity assessment is relevant input (closer to II.C framework requirements) but does not discharge the deployer's IV.A.4 obligation.",
+      bokRef: "IV.A.4 — Perform or review an impact assessment on the selected AI system."
+    },
+    {
+      id: "DIV-IIIB-021", pi: "III.B.1", isRetrieval: true, comp: "III.B",
+      stem: "An AI team is preparing to train a credit risk model using customer transaction data collected under a standard banking services agreement. A governance review questions whether the lawful basis under which the data was originally collected extends to its use for AI model training — a purpose not explicitly referenced in the original collection notice. What is the most appropriate first step under III.B.1?",
+      options: {
+        A: "Proceed with training because banking services agreements are generally understood to implicitly authorise all derivative internal data uses by the financial institution",
+        B: "Consult the AI risk register to determine whether the use of transaction data for model training has been flagged as a prior incident or governance concern",
+        C: "Assess whether the original collection lawful basis and purpose limitation extend to AI model training, and update collection notices and consent mechanisms if they do not",
+        D: "Commission an independent third-party data audit to verify that all customer records meet the minimum data quality and completeness standards required for ML model training"
+      },
+      correct: "C",
+      explanation: "III.B.1 Data Governance — Establish and follow the requirements for data governance requires the team to assess and document lawful rights to collect and use data before training begins. Purpose limitation is a foundational data governance principle: data collected for banking services cannot automatically be repurposed for AI model training without evaluating whether the original lawful basis and privacy notices support that extended use. C directly addresses this requirement. A is a near-miss — implicit coverage is a common assumption but is legally incorrect in most data protection frameworks; purpose limitation must be explicitly evaluated. D is a near-miss — data quality assessment is also part of III.B.1, but lawful basis must be resolved first because it determines whether training can proceed at all. B is clearly wrong.",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose)."
+    },
+    {
+      id: "DIV-IIIB-022", pi: "III.B.1", isRetrieval: true, comp: "III.B",
+      stem: "A retail company is building an AI demand forecasting model using sales data from 200 store locations. During a data governance review, the team discovers that 15 locations use a non-standard point-of-sale system that records transactions in an incompatible format, causing 8% of records to be systematically mislabeled. What does III.B.1 require the governance team to address first?",
+      options: {
+        A: "Assess and document the data quality issue, evaluating whether the mislabeled records are fit-for-purpose for demand forecasting model training given the nature and scope of the labeling errors",
+        B: "Replace all 15 non-standard point-of-sale systems before initiating any model training activities to eliminate the data quality risk at its source",
+        C: "Discard the 8% of mislabeled records immediately to preserve overall dataset integrity and prevent contamination of the model's training outputs",
+        D: "Notify all data subjects whose transaction records were mislabeled, treating the mislabeling as a data integrity incident requiring breach notification under applicable law"
+      },
+      correct: "A",
+      explanation: "III.B.1 Data Governance requires assessing data quality, quantity, integrity and fit-for-purpose as part of the data governance requirements. The first step is to assess and document the quality issue — understand its nature, scope, and impact on the intended training purpose — before deciding on remediation. C is a near-miss — discarding records is one possible outcome of the assessment, but III.B.1 requires assessment and documentation first; immediate discard without evaluation bypasses the governance obligation to understand the issue. B is wrong — system replacement is an infrastructure decision that follows the governance assessment, not the first step. D is wrong — mislabeling in a training dataset does not automatically constitute a data breach triggering subject notification.",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose)."
+    },
+    {
+      id: "DIV-IIIB-023", pi: "III.B.1", isRetrieval: true, comp: "III.B",
+      stem: "A healthcare AI team trains a diagnostic model using patient records from three hospital networks, each using different clinical coding standards. The team proposes harmonising the data through automated mapping, but acknowledges that 5% of records cannot be reliably mapped to a common standard. What should the governance professional recommend under III.B.1's fit-for-purpose standard?",
+      options: {
+        A: "Exclude all three hospital datasets and procure a commercially licensed standardised medical dataset to ensure all training data meets a consistent coding quality level",
+        B: "Document the mapping methodology and the 5% unmappable gap, and evaluate whether the unmapped records materially affect the model's fitness for its intended diagnostic purpose",
+        C: "Proceed with automated mapping for the 95% of successfully mapped records and train the model, noting the 5% limitation in the model card at the time of deployment",
+        D: "Commission a third-party data quality certification before training begins to independently confirm that the harmonised dataset meets applicable medical AI standards"
+      },
+      correct: "B",
+      explanation: "III.B.1 Data Governance requires assessing data quality and fit-for-purpose — this is an active evaluation obligation, not just a documentation exercise. The team must assess whether the 5% unmapped gap is material to the diagnostic purpose. If the unmapped records are concentrated in specific clinical conditions the model will encounter in production, the gap is material and must be addressed before training. B directly applies the fit-for-purpose standard by requiring assessment of materiality. C is a near-miss — proceeding and noting the limitation in the model card is better than ignoring the issue, but III.B.1 requires an explicit fit-for-purpose evaluation before training, not post-deployment disclosure. D is a near-miss — third-party certification may strengthen governance but III.B.1 requires the team to conduct the fit-for-purpose assessment internally; it cannot be fully delegated. A is wrong — excluding all datasets without evaluation is not what the PI requires.",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose)."
+    },
+    {
+      id: "DIV-IIIC-024", pi: "III.C.2", isRetrieval: true, comp: "III.C",
+      stem: "Six months after deploying an AI loan decisioning system, the governance team notices the model's approval rate for a specific demographic group has shifted 4 percentage points from its validated baseline. The system has no automated monitoring alerts configured for distributional or approval rate shifts. What does III.C.2 most directly require the organisation to address?",
+      options: {
+        A: "Immediately retrain the model on updated data to correct the demographic approval rate shift before any additional loan decisions are processed by the system",
+        B: "File a report with the relevant financial regulator within 72 hours of detecting the potential disparate impact shift in approval rates",
+        C: "Establish continuous monitoring of the AI system with defined performance thresholds and a regular schedule for maintenance, updates, and retraining",
+        D: "Conduct a post-deployment impact assessment to quantify the cumulative harm caused by the demographic approval rate shift during the six months since deployment"
+      },
+      correct: "C",
+      explanation: "III.C.2 Release, Monitoring and Maintenance — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining. The governance gap here is structural: the system has no monitoring alerts, meaning shifts go undetected. III.C.2 requires continuous monitoring with defined thresholds and a regular maintenance and retraining schedule — addressing the architecture of oversight, not only the immediate symptom. A is a near-miss — retraining may be the appropriate remediation, but III.C.2's primary requirement is to establish the monitoring and maintenance framework that would detect and trigger such retraining systematically. D is a near-miss — post-deployment IA is a reasonable follow-on action but is not the primary requirement that III.C.2 establishes. B is wrong — 72-hour regulatory reporting is not a standard III.C.2 requirement.",
+      bokRef: "III.C.2 — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining."
+    },
+    {
+      id: "DIV-IIIC-025", pi: "III.C.2", isRetrieval: true, comp: "III.C",
+      stem: "A company's AI governance policy mandates that its deployed NLP content classifier will be retrained on a fixed annual schedule regardless of real-time performance data. During a quarterly review, the AI team reports that the classifier's precision has dropped from 94% to 71% over three months, driven by emerging slang and terminology not present in the training corpus. What does III.C.2 imply about the organisation's retraining policy?",
+      options: {
+        A: "The annual retraining schedule complies with III.C.2 because it establishes a regular schedule as the performance indicator explicitly requires",
+        B: "The team should document the performance degradation and submit a budget request for more frequent retraining to be approved at the next annual board review cycle",
+        C: "A 23-percentage-point precision drop is within the expected operational variance for NLP models, and no governance action is required until the annual retraining date",
+        D: "The retraining policy should include performance-based triggers alongside the calendar schedule so that material model drift prompts action before the annual cycle"
+      },
+      correct: "D",
+      explanation: "III.C.2 Release, Monitoring and Maintenance requires both continuous monitoring and a regular schedule for maintenance, updates and retraining. The PI's reference to 'regular schedule' does not mean calendar-only — continuous monitoring implies that material performance degradation must trigger maintenance action. A retraining policy that ignores a 23-point precision drop for up to a year does not satisfy the continuous monitoring obligation. D correctly identifies that the policy must include performance-based triggers alongside periodic schedules to be III.C.2 compliant. A is a near-miss — a schedule does exist, but III.C.2's monitoring requirement means the schedule must be responsive to observed performance, not only calendar-based. C is wrong — a 23-point precision drop is not operational variance; it is material model drift requiring governance action. B is wrong — waiting for board approval is not consistent with continuous monitoring obligations.",
+      bokRef: "III.C.2 — Conduct continuous monitoring of the AI system, and establish a regular schedule for maintenance, updates and retraining."
+    }
+  ]
+};
+document.addEventListener('DOMContentLoaded', function() { initQuiz(QUIZ_DATA); });
+</script>
+</head>
+<body><div id="quiz-root"></div></body>
+</html>

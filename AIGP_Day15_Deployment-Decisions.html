@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 15 · Deployment Decisions</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a1a1a;--accent-light:#fceae8}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 15 · Week 3</span>
+    <span class="sc-meta">20 Jun 2026 · Domain IV · 6–8 exam questions · ~35 min</span>
+  </div>
+  <div class="sc-title">IV.A — Evaluate Key Factors and Risks for AI Deployment Decisions</div>
+</div>
+
+<!-- BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Performance Indicators — IV.A (verbatim)</span>
+  </div>
+  <div class="sc-section-body">
+    <ol class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">IV.A.1</span> Understand the context of the AI use case (e.g., business objectives, performance requirements, data availability, ethical considerations and workforce readiness).</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.A.2</span> Understand the differences in AI model types (e.g., classic vs. generative, proprietary vs. open source, small vs. large, and language vs. multimodal capabilities).</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.A.3</span> Understand the differences in AI deployment options (e.g., cloud vs. on-premise vs. edge, and using the AI model as is or with fine-tuning, retrieval augmented generation, agentic architectures, or other techniques to improve performance and fit).</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.A.4</span> Perform or review an impact assessment on the selected AI system.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Key Concepts</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.A.1 — AI Use Case Context</span></div>
+      <div class="sc-concept-body">
+        <p>Before any deployment decision, a governance professional evaluates five dimensions of context that determine whether an AI system is appropriate for the intended use. Each dimension is a distinct governance checkpoint, not a vague aspiration.</p>
+        <div class="sc-why">Why it matters for the exam: Questions test whether you can identify which dimension is implicated by a given scenario. "Workforce readiness" is the most commonly confused with "performance requirements" — workforce readiness concerns the people operating the system, not the system's technical metrics.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">The five dimensions</div>
+          <div class="sc-def"><span class="sc-term">Business objectives</span> — what problem the AI solves and what success looks like. Misalignment here means the system may perform well technically but fail organisationally.</div>
+          <div class="sc-def"><span class="sc-term">Performance requirements</span> — measurable thresholds: accuracy, recall, precision, latency, throughput. Must be defined before deployment, not after.</div>
+          <div class="sc-def"><span class="sc-term">Data availability</span> — whether the required data is accessible, in the right format, at the required volume. A system cannot operate if its inputs do not exist.</div>
+          <div class="sc-def"><span class="sc-term">Ethical considerations</span> — alignment with fairness, non-discrimination, privacy, and responsible AI principles. Flags potential harms before they materialise.</div>
+          <div class="sc-def"><span class="sc-term">Workforce readiness</span> — staff capacity to operate the system, interpret its outputs, escalate edge cases, and exercise meaningful human oversight. The human side of deployment.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.A.2 — AI Model Types and Governance Implications</span></div>
+      <div class="sc-concept-body">
+        <p>Model type selection is not purely a technical decision. Each type carries distinct governance obligations related to explainability, IP risk, data provenance, and operational control.</p>
+        <div class="sc-why">Why it matters for the exam: The exam tests whether you understand governance consequences of model choice — not just technical differences. Know the governance tradeoff for each pairing, especially proprietary vs. open-source and classic vs. generative.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key pairings and their governance implications</div>
+          <div class="sc-def"><span class="sc-term">Classic ML vs. Generative AI</span> — Classic models produce deterministic, inspectable outputs (coefficients, decision trees) that support audit trails and clinician/officer oversight. Generative models are more capable but opaque, probabilistic, and harder to audit.</div>
+          <div class="sc-def"><span class="sc-term">Proprietary vs. Open-source</span> — Proprietary: vendor dependency, limited auditability, but vendor assumes some responsibility. Open-source: full auditability of architecture, but the deployer assumes full liability for training data provenance and IP risks.</div>
+          <div class="sc-def"><span class="sc-term">Small vs. Large models</span> — Small models are more resource-efficient and auditable within defined scope. Large foundation models offer breadth but introduce greater opacity, unpredictable emergent behaviours, and higher data governance complexity.</div>
+          <div class="sc-def"><span class="sc-term">Language vs. Multimodal</span> — Multimodal models process text, images, audio, or video. The interaction between modalities can produce emergent outputs that are harder to predict, test, and audit — raising opacity and reliability governance concerns.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.A.3 — AI Deployment Options</span></div>
+      <div class="sc-concept-body">
+        <p>How and where a model is deployed determines data sovereignty obligations, update management complexity, latency tradeoffs, and vendor risk exposure. The BOK lists both infrastructure options (cloud/on-premise/edge) and technical adaptation techniques (as-is, fine-tuning, RAG, agentic).</p>
+        <div class="sc-why">Why it matters for the exam: Scenarios typically involve data residency, update propagation failures, or choosing between RAG and fine-tuning. The agentic architecture question is a high-value area — know that cascading autonomous actions require stronger human oversight controls.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Infrastructure options</div>
+          <div class="sc-def"><span class="sc-term">Cloud</span> — Scalable, vendor-managed updates, but raises data sovereignty risks when processing data across jurisdictions. Creates third-party dependency.</div>
+          <div class="sc-def"><span class="sc-term">On-premise</span> — Data stays within the organisation's control, addressing residency requirements. Requires internal infrastructure and update management capability.</div>
+          <div class="sc-def"><span class="sc-term">Edge</span> — Data processed locally at the device or node level. Lowest latency, strongest local data control, but introduces model version management challenges: patches may not propagate consistently across distributed nodes.</div>
+          <div class="sc-defs-title">Technical adaptation options</div>
+          <div class="sc-def"><span class="sc-term">As-is deployment</span> — Deploys the model without modification. Fastest, but may not fit the specific use case well. Deployer accepts the model's existing limitations and biases.</div>
+          <div class="sc-def"><span class="sc-term">Fine-tuning</span> — Retrains the model on domain-specific data. Increases fit and performance but increases the deployer's liability for the resulting model's outputs and training data provenance.</div>
+          <div class="sc-def"><span class="sc-term">Retrieval Augmented Generation (RAG)</span> — Grounds model responses in retrieved source documents rather than parametric memory. Reduces hallucination, keeps knowledge current without retraining, and provides citation trails for audit.</div>
+          <div class="sc-def"><span class="sc-term">Agentic architectures</span> — AI takes multi-step autonomous actions (searching, deciding, executing). Primary governance risk: cascading autonomous actions with minimal human intervention require stronger oversight controls, including the ability to interrupt or halt operations.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.A.4 — Impact Assessment for Deployment</span></div>
+      <div class="sc-concept-body">
+        <p>The deployer's impact assessment is distinct from the developer's. Even when a vendor has completed a thorough assessment, the deployer must conduct its own when the use case, user population, or operational context differs from what the vendor evaluated. The assessment must cover secondary and downstream uses — not just the primary, intended interaction.</p>
+        <div class="sc-why">Why it matters for the exam: A common wrong answer is "the vendor's IA is sufficient." It is not when context differs. Also know that the IA must be updated when the scope of deployment changes materially — new populations, new jurisdictions, new use cases all trigger reassessment.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">When a deployer must conduct its own IA</div>
+          <div class="sc-def"><span class="sc-term">Different use case or population</span> — vendor tested on US consumers; deployer uses for Southeast Asian SMEs. Different risk profile, different bias exposure, different legal requirements.</div>
+          <div class="sc-def"><span class="sc-term">Secondary and downstream uses</span> — the IA must capture not only direct impacts on primary users but also how outputs may be used by third parties (reinsurers, downstream decision-makers) or for unintended purposes.</div>
+          <div class="sc-def"><span class="sc-term">Material scope changes post-deployment</span> — expanding to senior leadership hiring, new jurisdictions, or new use cases after initial deployment all require the IA to be updated or a new one conducted.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Table</span>
+    <span class="sc-section-title">AI Deployment Options — Governance Tradeoffs</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead>
+          <tr><th>Dimension</th><th>Cloud</th><th>On-Premise</th><th>Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Data location</td><td>Vendor servers (may be multi-jurisdiction)</td><td>Organisation's own servers</td><td>End device or local node</td></tr>
+          <tr><td>Data sovereignty</td><td>Risk — depends on vendor location and DPAs</td><td>Controlled — stays within org</td><td>Controlled — stays local</td></tr>
+          <tr><td>Latency</td><td>Higher — round-trip to cloud</td><td>Medium — internal network</td><td>Lowest — processed on-device</td></tr>
+          <tr><td>Update management</td><td>Vendor-managed — automatic, consistent</td><td>Internal — controlled rollout</td><td>Difficult — may not reach all nodes</td></tr>
+          <tr><td>Scalability</td><td>High — elastic cloud resources</td><td>Limited by infrastructure investment</td><td>Variable — per-device capacity</td></tr>
+          <tr><td>Primary governance risk</td><td>Vendor dependency; cross-border data transfer</td><td>Internal security and access controls</td><td>Model version drift; patch propagation failures</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sc-table-wrap" style="margin-top:1.2rem">
+      <table class="sc-table">
+        <thead>
+          <tr><th>Dimension</th><th>As-is</th><th>Fine-tuning</th><th>RAG</th><th>Agentic</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Deployment speed</td><td>Fastest</td><td>Slower — retraining required</td><td>Moderate — retrieval layer setup</td><td>Complex — multi-system integration</td></tr>
+          <tr><td>Knowledge currency</td><td>Fixed at training cutoff</td><td>Updated via retraining</td><td>Real-time via retrieved docs</td><td>Real-time via external tools</td></tr>
+          <tr><td>Hallucination risk</td><td>High</td><td>Reduced in domain</td><td>Low — grounded in source docs</td><td>Variable — depends on tool outputs</td></tr>
+          <tr><td>Deployer liability</td><td>Lower — vendor model unchanged</td><td>Higher — deployer owns retrained model</td><td>Moderate — retrieval corpus quality matters</td><td>Highest — autonomous multi-step actions</td></tr>
+          <tr><td>Oversight requirement</td><td>Standard</td><td>Standard + data governance</td><td>Standard + source validation</td><td>Highest — must be able to interrupt/halt</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Worked Scenario — Deployer Evaluation</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Situation</span>
+      <span class="sc-scenario-text">A regional bank acquires an LLM-based credit advisory tool from a US fintech vendor. The vendor's impact assessment confirmed fair performance across US consumer demographics. The bank plans to deploy the tool for SME lending decisions in Malaysia and Indonesia, with customer-facing outputs delivered via a mobile app on customer devices (edge). The vendor's documentation does not cover Southeast Asian borrower profiles, local anti-discrimination law, or the edge deployment architecture.</span>
+    </div>
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Role</span>
+      <span class="sc-scenario-text">You are the bank's AI governance professional. Leadership wants to go live in 90 days. You must assess whether the vendor's documentation is sufficient and what governance steps the bank must own.</span>
+    </div>
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Analysis</span>
+      <span class="sc-scenario-text">Under IV.A.1, the use case context is materially different from what the vendor evaluated — different business objectives (SME vs. consumer), different data availability (local credit bureau data vs. US credit bureau), different workforce readiness (local relationship managers with no LLM training), and different ethical and legal landscape. Under IV.A.4, the vendor's IA does not cover this population, jurisdiction, or use case — the bank must conduct its own impact assessment. Under IV.A.3, the edge deployment architecture introduces model version management risk: if the LLM is updated (e.g., to correct a bias), the bank must ensure updates propagate to customer devices in Malaysia and Indonesia — which connectivity limitations may prevent. Under IV.A.2, if the bank subsequently fine-tunes the model on local lending data, it accepts higher liability for the resulting model's outputs and becomes responsible for that training data's provenance.</span>
+    </div>
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Outcome</span>
+      <span class="sc-scenario-text">The bank must: (1) conduct a deployer impact assessment covering the SEA use case, user population, and applicable local law; (2) evaluate whether edge deployment is appropriate given update propagation challenges; (3) assess workforce readiness of local relationship managers for oversight and escalation; (4) review data availability from local credit bureaus. <span class="sc-pi-ref">IV.A.1</span> <span class="sc-pi-ref">IV.A.4</span> <span class="sc-pi-ref">IV.A.3</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK RECALL FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall — Click to reveal</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc">
+        <div class="sc-fc-q">What are the five dimensions of AI use case context under IV.A.1? <span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">Business objectives, performance requirements, data availability, ethical considerations, and workforce readiness.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">When must a deployer conduct its own impact assessment even if the vendor has one? <span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">When the deployer's use case, user population, operational context, or jurisdiction differs materially from what the vendor evaluated. The vendor's IA is never automatically sufficient for a different context.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the primary governance advantage of RAG over fine-tuning? <span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">RAG grounds responses in retrieved source documents, reducing hallucination and keeping knowledge current without retraining — and without increasing the deployer's liability for training data provenance.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the distinguishing governance risk of agentic AI architectures? <span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">Cascading autonomous multi-step actions with minimal human intervention. Governance must ensure the organisation can interrupt or halt operations — the oversight bar is higher than for conventional AI deployments.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the primary governance risk of edge deployment that cloud deployment avoids? <span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">Model version drift — patches and updates may not propagate consistently to distributed edge nodes due to connectivity limitations, leaving some nodes running outdated or uncorrected models.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What governance concern distinguishes open-source from proprietary model selection? <span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">Open-source models shift full liability to the deployer for training data provenance and IP risks — if the training data includes copyrighted or non-consensually collected material, the deployer bears responsibility.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What triggers a requirement to update or redo the impact assessment post-deployment? <span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">Material scope changes: expanding to new populations, new jurisdictions, new use cases, or secondary uses not covered in the original assessment all require the IA to be updated or redone.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IAPP RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Links</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank">
+        <span class="sc-res-label">AIGP Body of Knowledge</span>
+        <span class="sc-res-desc">Official BOK — authoritative source for all exam content</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank">
+        <span class="sc-res-label">Exam Preparation</span>
+        <span class="sc-res-desc">IAPP official study resources and preparation guidance</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank">
+        <span class="sc-res-label">AIGP Study Guide</span>
+        <span class="sc-res-desc">Request the official IAPP AIGP study guide</span>
+      </a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank">
+        <span class="sc-res-label">Certification Handbook</span>
+        <span class="sc-res-desc">IAPP exam policies, structure, and candidate guidance</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script>
+</body></html>
