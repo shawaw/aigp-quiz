@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 16 · Assess the AI System</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a1a1a;--accent-light:#fceae8}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- 1. HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 16 · Week 3</span>
+    <span class="sc-meta">20 June 2026 · Domain IV · 5–7 exam questions</span>
+  </div>
+  <div class="sc-title">IV.B — Perform Key Activities to Assess the AI System</div>
+  <div class="sc-meta">Estimated reading time: 20 min · Vendor contracts + Proprietary AI risk</div>
+</div>
+
+<!-- 2. BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Performance Indicators — IV.B (verbatim)</span>
+  </div>
+  <div class="sc-section-body">
+    <ul class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">IV.B.1</span> Identify and evaluate key terms and risks in the vendor or licensing agreement.</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.B.2</span> Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3. KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Key Concepts</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head">
+        <span class="sc-concept-name">1. Vendor / Third-Party AI Contract Assessment</span>
+      </div>
+      <div class="sc-concept-body">
+        <p>When a company deploys AI built by a third party, its primary governance lever is the contract. Once signed, the deployer is responsible for AI behaviour in its environment regardless of who wrote the code. The contract is where risks get allocated — or left unallocated, which defaults to the deployer bearing them.</p>
+        <p class="sc-why">Why it matters on the exam: IV.B.1 is tested through scenario questions where a deployer is harmed by a gap in their contract — missing audit rights, uncapped liability, silent model updates. You need to spot which specific term was missing and why it mattered.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Eight Terms to Know</div>
+          <div class="sc-def"><span class="sc-term">Liability cap</span> The ceiling on financial damages the vendor will pay — typically set as a multiple of subscription fees and almost always far below real harm potential. Negotiate this up, and push to exclude consequential damages waivers for high-stakes use cases.</div>
+          <div class="sc-def"><span class="sc-term">Indemnification</span> Who defends and pays if a third party (e.g., a harmed customer) sues. Watch for carve-outs triggered by your own configuration choices — if you customise the system, the carve-out may void coverage.</div>
+          <div class="sc-def"><span class="sc-term">IP ownership</span> Who owns fine-tuned weights, output embeddings, or custom models created on the vendor's infrastructure. Standard contracts often assign derivative models back to the vendor. Negotiate this explicitly before deploying proprietary data.</div>
+          <div class="sc-def"><span class="sc-term">Data usage rights</span> Whether the vendor may use your inputs and outputs to train future versions. Conflicts with data minimisation, purpose limitation, and PDPA/GDPR requirements when the data contains personal information.</div>
+          <div class="sc-def"><span class="sc-term">Subprocessor disclosure</span> The right to be notified of, and approve, downstream parties who access your data during inference. Critical for cross-border data transfer obligations and regulatory accountability chains.</div>
+          <div class="sc-def"><span class="sc-term">Audit and explainability rights</span> Contractual entitlement to inspect model documentation, security controls, and decision logic. Without this, responding to a regulator's inquiry about AI decisions is nearly impossible.</div>
+          <div class="sc-def"><span class="sc-term">Change notification / model versioning</span> Requirement for the vendor to provide advance notice before pushing model updates that could alter system behaviour. Silent updates can change risk profiles without warning.</div>
+          <div class="sc-def"><span class="sc-term">Exit and portability rights</span> The right to export data, models, and decision histories at contract termination. Includes change-of-control clauses that allow immediate exit if the vendor is acquired by a competitor. Vendor lock-in is a governance risk, not just a commercial one.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head">
+        <span class="sc-concept-name">2. Proprietary AI — Risk and Opportunity Profile</span>
+      </div>
+      <div class="sc-concept-body">
+        <p>When a company builds and deploys its own AI system, it occupies both the provider and deployer roles simultaneously under most AI governance frameworks. This dual role triggers the full stack of obligations — technical documentation, conformity assessments, bias testing, risk management — that a pure deployer of third-party AI can partially offset against vendor documentation.</p>
+        <p class="sc-why">Why it matters on the exam: IV.B.2 is almost always tested through a "build vs. buy" comparison. You need to articulate what changes — specifically increased obligations and higher potential liability — and also name the genuine upside: IP ownership and competitive differentiation. Both sides of the ledger matter.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key Definitions</div>
+          <div class="sc-def"><span class="sc-term">AI provider (regulatory definition)</span> The entity that develops an AI system or has it developed and places it on the market or into service — either externally or for internal use. A company that builds its own AI for internal deployment qualifies as a provider under frameworks such as the EU AI Act.</div>
+          <div class="sc-def"><span class="sc-term">AI deployer (regulatory definition)</span> The entity that puts an AI system into use within a professional context. A company building and using its own AI is both provider and deployer — no role separation exists to distribute accountability.</div>
+          <div class="sc-def"><span class="sc-term">Higher potential liability</span> No third-party vendor exists to absorb any fraction of claims through a contract. Every design decision, training dataset choice, and performance failure is the company's own.</div>
+          <div class="sc-def"><span class="sc-term">Increased obligations</span> As provider, the company must create and maintain its own technical documentation, perform its own conformity assessment, implement its own risk management system, and supply instructions for use.</div>
+          <div class="sc-def"><span class="sc-term">IP ownership (opportunity)</span> The model, training data, and all derivative assets belong to the company. This prevents vendor lock-in, protects the competitive moat, and enables licensing or commercialisation as a future revenue stream.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head">
+        <span class="sc-concept-name">3. Dual-Role Accountability in Practice</span>
+      </div>
+      <div class="sc-concept-body">
+        <p>The governance implication of being both provider and deployer is not abstract. It means the company must staff and fund the full provider compliance programme in addition to its deployer monitoring obligations. There is no vendor to call when a regulator asks for the model card, the training data assessment, or the risk management log.</p>
+        <p class="sc-why">Why it matters on the exam: Questions on this concept often present a "peer company uses a vendor" comparison to highlight what the proprietary builder must do that the peer does not. The correct answer identifies the provider-level obligation that the vendor would otherwise supply.</p>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Provider Obligations That Transfer Inward</div>
+          <div class="sc-def"><span class="sc-term">Technical documentation</span> Design rationale, training data description, architecture, intended purpose, performance metrics, and known limitations — all must be created and maintained internally.</div>
+          <div class="sc-def"><span class="sc-term">Conformity / impact assessment</span> The company conducts its own pre-deployment assessment rather than relying on a vendor's certification. For high-risk AI, this involves demonstrating compliance with all applicable requirements before the system goes live.</div>
+          <div class="sc-def"><span class="sc-term">Post-market monitoring</span> Ongoing performance and safety tracking, incident logging, and reporting — typically shared with vendors in third-party deployments but entirely owned internally with proprietary systems.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 4. COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Compare</span>
+    <span class="sc-section-title">Third-Party vs. Proprietary AI — Governance Dimensions</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead>
+          <tr>
+            <th>Governance Dimension</th>
+            <th>Third-Party AI (licensed)</th>
+            <th>Proprietary AI (built internally)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Regulatory role</td><td>Deployer</td><td>Provider + Deployer</td></tr>
+          <tr><td>Technical documentation</td><td>Vendor supplies</td><td>Company must create</td></tr>
+          <tr><td>Liability for model errors</td><td>Shared — subject to contract terms</td><td>Company bears fully, no offset</td></tr>
+          <tr><td>IP ownership of model</td><td>Vendor retains</td><td>Company owns</td></tr>
+          <tr><td>Vendor lock-in risk</td><td>High (data + dependencies)</td><td>None</td></tr>
+          <tr><td>Competitive differentiation</td><td>Limited (vendor sells to all)</td><td>High (model is proprietary IP)</td></tr>
+          <tr><td>Conformity assessment</td><td>May rely on vendor certification</td><td>Company conducts independently</td></tr>
+          <tr><td>Post-market monitoring</td><td>Shared with vendor obligations</td><td>Fully internal</td></tr>
+          <tr><td>Exit risk</td><td>Depends on contract exit terms</td><td>Full internal control</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 5. WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Worked Scenario — Fintech AI Governance Assessment</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Situation</div>
+      <div class="sc-scenario-text">A Singapore-based fintech is building an AI-powered credit scoring system. The board is deciding between two options: (A) license a credit scoring model from an established vendor, or (B) build a proprietary model using internal customer transaction data. The AI governance officer must brief the board on the governance implications of each path before the decision is made.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Role</div>
+      <div class="sc-scenario-text">AI Governance Officer conducting a pre-deployment assessment and advising the board.</div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Analysis — Option A: Third-Party Vendor</div>
+      <div class="sc-scenario-text">The governance officer reviews the vendor's standard contract and identifies four gaps: (1) the liability cap is set at three months of fees — far below the potential regulatory fine for a discriminatory lending decision; (2) there are no audit rights over the model's decision logic; (3) the vendor reserves the right to use customer transaction data for model improvement; (4) there is no change notification clause. The officer recommends negotiating all four terms before signing. <span class="sc-pi-ref">IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.</span></div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Analysis — Option B: Proprietary Build</div>
+      <div class="sc-scenario-text">The proprietary path gives the company full IP ownership of the credit scoring model — a competitive moat in a market where peers use the same vendor API. However, the company becomes the AI provider under applicable regulations, triggering obligations to create technical documentation, conduct its own conformity assessment, implement a risk management system, and operate post-market monitoring entirely in-house. There is no vendor to share liability if the model discriminates against a protected class. The governance officer quantifies the additional compliance investment required before the board can compare it against the IP opportunity. <span class="sc-pi-ref">IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).</span></div>
+    </div>
+    <div class="sc-scenario-block">
+      <div class="sc-scenario-label">Outcome</div>
+      <div class="sc-scenario-text">The board chooses Option B with governance conditions: a dedicated AI risk function, a formal technical documentation programme, and a legal review of provider obligations under the applicable AI framework. The governance officer ensures the board understands that IP ownership is the upside, and sole accountability is the cost — both must be accepted explicitly before proceeding.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. QUICK RECALL FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall — Click to Reveal</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc">
+        <div class="sc-fc-q">What does a liability cap in a vendor AI contract limit — and why is it a key IV.B.1 risk?<span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">The maximum financial compensation available from the vendor if the AI system causes harm. Caps are typically set at a multiple of subscription fees — often far below the actual damage potential. Negotiating the cap upward and preserving consequential damages is a core contract risk management task.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is an indemnification carve-out in an AI vendor contract, and when does it expose the deployer?<span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">A provision removing vendor indemnification coverage for claims arising from the deployer's own configuration choices. If you customise the system beyond vendor defaults and a third party is harmed, the carve-out means the deployer bears the full defence and damages with no vendor coverage.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Why does deploying a proprietary AI model create "higher potential liability" under IV.B.2?<span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">No third-party vendor exists to absorb any fraction of claims through contractual liability sharing. The company designed the model, selected the training data, and made every architecture decision — it is the primary accountable party for all governance failures with no vendor indemnification to fall back on.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is a change-of-control clause in an AI vendor contract?<span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">A provision permitting the deploying company to terminate immediately if the vendor is acquired — particularly by a competitor. Without it, a 12-month notice period may give a competitor access to AI usage data and query patterns.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What are audit and explainability rights in a vendor AI contract, and why are they essential?<span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">Contractual entitlements to inspect the vendor's model documentation, security controls, and decision logic. Without them, the deploying organisation cannot respond to regulatory inquiries about AI decisions or investigate incidents where model behaviour is disputed.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What is the primary opportunity of proprietary AI model ownership under IV.B.2?<span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">Full IP ownership of the model and all training data — a competitive moat that vendor-licensed peers cannot replicate, eliminating vendor lock-in and retaining the option to commercialise or license the model in the future.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Under AI-specific legislation, when is a company both AI provider and AI deployer simultaneously?<span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">When it develops an AI system internally and deploys it in its own operations or to end users — triggering the full set of provider obligations (technical documentation, conformity assessment, risk management, post-market monitoring) on top of deployer obligations.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What does a model versioning clause require a vendor to do?<span class="sc-fc-icon">▾</span></div>
+        <div class="sc-fc-a">Provide advance notice and version tracking for any model updates that could alter system behaviour. Without it, a vendor can silently push updates that change risk-scoring thresholds or model capabilities, invalidating prior compliance assessments.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. IAPP RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Links</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank">
+        <span class="sc-res-label">AIGP Body of Knowledge</span>
+        <span class="sc-res-desc">Official BOK — authoritative source for all competency definitions and performance indicators</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank">
+        <span class="sc-res-label">IAPP Exam Preparation</span>
+        <span class="sc-res-desc">Official preparation guidance, recommended resources, and study tools</span>
+      </a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank">
+        <span class="sc-res-label">AIGP Study Guide</span>
+        <span class="sc-res-desc">IAPP's official study guide for the AIGP examination</span>
+      </a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank">
+        <span class="sc-res-label">Certification Candidate Handbook</span>
+        <span class="sc-res-desc">Exam format, scoring, domain weightings, and candidate policies</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>

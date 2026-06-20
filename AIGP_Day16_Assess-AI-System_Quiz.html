@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIGP Day 16 Quiz — Assess the AI System</title>
+<script src="quiz-engine.js"></script>
+<script>
+const QUIZ_DATA = {
+  day: 16, week: 3, comp: "IV.B", topic: "Assess the AI System",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DIV-IVB-001", pi: "IV.B.1", isRetrieval: false,
+      stem: "A healthcare organisation is negotiating an AI vendor contract for a diagnostic support tool. The vendor's standard contract caps liability at three months of subscription fees and excludes consequential damages. The AI system later misdiagnoses 50 patients before an error is detected, triggering regulatory fines and patient claims. Which contract term should the AI governance officer have prioritised during vendor assessment?",
+      options: {
+        A: "Requiring the vendor to provide dedicated implementation support for the first 90 days to ensure correct configuration and minimise early deployment risk",
+        B: "Negotiating liability caps commensurate with potential harm from system failures and ensuring consequential damages are not excluded for high-stakes healthcare applications",
+        C: "Securing a right of first refusal on any future model updates released by the vendor over the lifetime of the contract",
+        D: "Including a price-lock provision preventing subscription fee increases for the full duration of the initial contract term"
+      },
+      correct: "B",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "B is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement requires assessing whether liability caps reflect actual harm potential. A three-month subscription fee cap against patient harm and regulatory fines creates catastrophic unallocated exposure. A governance officer must negotiate caps upward and remove consequential damages exclusions before signing. A (implementation support) is a deployment management term, not a liability risk term. C (right of first refusal on updates) relates to model versioning access, not liability allocation. D (price-lock) is a commercial term with no risk governance relevance."
+    },
+    {
+      id: "DIV-IVB-002", pi: "IV.B.1", isRetrieval: false,
+      stem: "A retail company fine-tunes a vendor's foundation model on its proprietary customer data, creating a customised recommendation engine. When the company terminates the contract and attempts to migrate the fine-tuned model to a new vendor, the original vendor claims ownership of all model weights created on its infrastructure. Which contractual risk did the governance team fail to address before signing?",
+      options: {
+        A: "Data processing addenda required under applicable privacy laws governing how customer behavioural data may be used in model training",
+        B: "Service level agreements specifying minimum uptime and latency standards for the recommendation engine during peak traffic periods",
+        C: "IP ownership clauses covering derivative models and fine-tuned weights created using proprietary data on vendor infrastructure",
+        D: "Audit rights allowing the company to inspect vendor security controls and review model performance documentation on request"
+      },
+      correct: "C",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "C is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement includes IP ownership provisions. Fine-tuned weights are a derivative asset — standard vendor contracts often assign these back to the vendor because they were created on vendor infrastructure. Negotiating explicit IP ownership of derivatives before fine-tuning begins is a core contract assessment task. A (data processing addenda) is a privacy compliance issue, not the IP risk the scenario describes. B (SLA) is a performance management term. D (audit rights) is a transparency and compliance term unrelated to the asset ownership dispute at issue."
+    },
+    {
+      id: "DIV-IVB-003", pi: "IV.B.2", isRetrieval: false,
+      stem: "A bank builds its own fraud detection AI system from the ground up using internal transaction data. Compared to deploying a third-party fraud detection service, which governance implication is most significant for the bank?",
+      options: {
+        A: "The bank assumes provider-level obligations, becoming fully accountable for model design, bias, and regulatory compliance with no third party to share any portion of responsibility",
+        B: "The bank gains stronger IP protection for its detection algorithms than it would achieve under a standard licensing agreement with a vendor who retains full model ownership",
+        C: "The bank must obtain individual data subject consent for fraud detection activities, whereas third-party vendors providing the same service are entirely exempt from such consent obligations",
+        D: "The bank is required to publicly disclose its full model architecture under transparency obligations that would not apply to comparable third-party AI vendors performing the same function"
+      },
+      correct: "A",
+      bokRef: "IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).",
+      explanation: "A is correct. IV.B.2 Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model states increased obligations and higher potential liability as key risks. Building internally makes the bank the AI provider under applicable frameworks, triggering provider-level obligations — technical documentation, conformity assessment, post-market monitoring — on top of deployer obligations. No third-party vendor exists to share any portion of regulatory or legal exposure. B is partially true (IP ownership is an opportunity) but does not capture the most significant governance implication asked. C is incorrect — consent obligations arise from data protection law regardless of whether the fraud model is proprietary or vendor-supplied. D overstates transparency requirements; model architecture publication is not a standard legal obligation for internal deployments."
+    },
+    {
+      id: "DIV-IVB-004", pi: "IV.B.1", isRetrieval: false,
+      stem: "An insurance company's AI vendor processes policyholder claims using a model the vendor describes as 'proprietary and not subject to external audit.' A regulator later inquires about the model's decision logic for claim denials. The company cannot respond because its contract grants no rights to inspect model documentation. Which contract term would most directly have enabled the company to respond to the regulator?",
+      options: {
+        A: "A service continuity clause ensuring uninterrupted access to the claims processing model during any regulatory review or investigation period",
+        B: "A data portability provision requiring the vendor to export historical claim decisions in a structured, machine-readable format on request",
+        C: "A most-favoured-customer pricing term guaranteeing the company receives the lowest subscription rate offered to comparable enterprise clients",
+        D: "Audit and explainability rights allowing the deploying organisation and its regulators to review model decision logic and supporting technical documentation"
+      },
+      correct: "D",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "D is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement requires assessing whether audit and explainability rights are present. Without contractual rights to inspect the model's decision logic, a deployer cannot demonstrate to a regulator how AI-driven claim denials were reached. This is a foundational accountability failure. A (service continuity) keeps the system running but provides no information about its reasoning. B (data portability) would export decisions but not the underlying model logic or documentation the regulator is asking about. C (pricing) has no relevance to regulatory accountability."
+    },
+    {
+      id: "DIV-IVB-005", pi: "IV.B.2", isRetrieval: false,
+      stem: "A logistics company develops a proprietary route optimisation AI system internally. During governance review, the AI governance officer identifies both risks and opportunities unique to this deployment model. Which opportunity is most directly attributable to proprietary model ownership under IV.B.2?",
+      options: {
+        A: "The company avoids most regulatory requirements because internal AI systems used for logistics operations are generally exempt from AI-specific legislation in major jurisdictions",
+        B: "The company benefits from the vendor's existing compliance certifications and technical documentation, which reduces its own audit preparation workload",
+        C: "The company retains full ownership of the model and training data, enabling competitive differentiation and eliminating dependence on any external vendor",
+        D: "The company transfers operational liability for model errors to the cloud infrastructure provider that hosts and runs the deployed system"
+      },
+      correct: "C",
+      bokRef: "IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).",
+      explanation: "C is correct. IV.B.2 Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model explicitly includes the opportunity of full IP ownership — the model and data are proprietary assets that cannot be replicated by competitors using the same vendor API. A is incorrect; internal use does not create a regulatory exemption under most AI governance frameworks. B describes a third-party vendor benefit, the opposite of what a proprietary build provides. D is incorrect; infrastructure providers do not assume liability for model design or output errors under standard cloud agreements."
+    },
+    {
+      id: "DIV-IVB-006", pi: "IV.B.1", isRetrieval: false,
+      stem: "A government agency licenses an AI content moderation tool. The vendor's contract states that data submitted to the model may be used to improve future model versions. The agency processes communications that include personal data of citizens. Which contract risk requires immediate escalation to the data protection officer before the contract is signed?",
+      options: {
+        A: "The data usage clause creates a conflict with data protection obligations by authorising the vendor to process personal data for model improvement beyond the original lawful basis for collection",
+        B: "The content moderation use case falls outside the vendor's permitted scope under its acceptable use policy, requiring a formal use-case amendment before deployment",
+        C: "The agency must negotiate a right to sublicense the improved model versions created from its data under open-source or public interest terms",
+        D: "The vendor's data retention schedule likely conflicts with the agency's record-keeping obligations, requiring alignment on deletion timelines before deployment"
+      },
+      correct: "A",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "A is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement requires identifying data usage rights as a key contract term. A clause permitting the vendor to use submitted data for model training creates secondary processing that likely exceeds the original lawful basis under which the agency collected citizen communications. This is a fundamental data protection risk that must be escalated and renegotiated before signing. B assumes an acceptable use policy issue not stated in the scenario. C (sublicensing improved models) is not a standard data protection obligation. D (retention alignment) is a valid concern but secondary to the unlawful purpose expansion created by the data usage clause."
+    },
+    {
+      id: "DIV-IVB-007", pi: "IV.B.2", isRetrieval: false,
+      stem: "A company deploys its proprietary AI hiring tool and a candidate files a discrimination claim. The HR director argues that liability should be shared with the company that supplied the training data. The legal team advises that this argument will not succeed. Why is the legal team correct?",
+      options: {
+        A: "Training data suppliers are strictly liable under product liability law for discriminatory outcomes caused by datasets they provide to AI developers downstream",
+        B: "Data supplier contracts typically include explicit indemnification for discriminatory outcomes caused by their datasets when used in employment screening applications",
+        C: "Anti-discrimination law shifts liability to HR teams that act on AI recommendations rather than to the model owner who designed and trained the system",
+        D: "As the proprietary model developer and deployer, the company bears full accountability for model design choices and outputs, with no automatic liability transfer to data suppliers"
+      },
+      correct: "D",
+      bokRef: "IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).",
+      explanation: "D is correct. IV.B.2 Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model states higher potential liability as a key risk. The company chose to build its own hiring model, made all design and training decisions, and deployed it — no automatic liability transfer to a data supplier exists in law. A is incorrect; training data providers are generally not subject to strict product liability for downstream AI model outputs. B is incorrect; such indemnification clauses are not standard. C reverses the accountability chain; the model owner who embedded discriminatory patterns bears the primary obligation."
+    },
+    {
+      id: "DIV-IVB-008", pi: "IV.B.1", isRetrieval: false,
+      stem: "A financial services firm deploys a vendor AI system for real-time trade surveillance. The vendor's SLA guarantees 99% uptime but is silent on latency. Six months after deployment, the system develops 30-second processing delays that cause the firm to miss flagging several suspicious trades. A regulator inquires why the system failed. Which contract term should the governance team have negotiated before deployment?",
+      options: {
+        A: "A liability carve-out excluding the vendor from claims arising from third-party data feed interruptions that affect model inputs during market hours",
+        B: "Performance SLAs specifying latency thresholds alongside uptime, with defined remedies and escalation procedures when either metric is breached",
+        C: "A force majeure clause protecting the vendor from SLA penalties during market volatility events that generate unusually high data volumes",
+        D: "A minimum staffing requirement obligating the vendor to maintain dedicated support personnel during peak market hours and regulatory review periods"
+      },
+      correct: "B",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "B is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement requires evaluating SLA terms as key risk indicators. An uptime SLA without latency thresholds fails to address the most operationally critical risk in real-time surveillance — processing delay. A complete SLA specifies both availability and performance, with remedies for each. A (liability carve-out) shifts blame rather than ensuring performance. C (force majeure) further weakens the firm's position by expanding vendor escape clauses. D (staffing clause) addresses support responsiveness, not the latency performance gap that caused the compliance failure."
+    },
+    {
+      id: "DIV-IVB-009", pi: "IV.B.1", isRetrieval: false,
+      stem: "A media company built its entire content recommendation pipeline around a single vendor's AI API. The vendor announces it will sunset the current API version in 90 days with no migration path. The company faces complete service disruption. Which contract term, negotiated at signing, would most directly have mitigated this vendor lock-in risk?",
+      options: {
+        A: "A most-favoured-nation clause ensuring the company receives pricing parity with the vendor's largest enterprise customers at all times",
+        B: "A minimum commitment term requiring the vendor to maintain the current API version for at least the duration of the signed contract period",
+        C: "Contractual provisions requiring advance notice for material changes, a documented exit plan, and model portability or data export rights on termination",
+        D: "An exclusivity clause preventing the vendor from offering the same API to direct competitors during the active contract term"
+      },
+      correct: "C",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "C is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement includes exit and portability rights as key terms. A comprehensive exit provision covers advance notice before changes, a documented exit plan, and portability rights. A (pricing parity) is a commercial term with no migration value. B (minimum commitment term) prevents early vendor exit but does not address sunset after the term ends. D (exclusivity) restricts competitors but does not help the company exit the relationship."
+    },
+    {
+      id: "DIV-IVB-010", pi: "IV.B.2", isRetrieval: false,
+      stem: "Under AI-specific legislation that distinguishes between AI providers and deployers, a company that develops and internally deploys its own HR screening AI system would be classified as which of the following?",
+      options: {
+        A: "Both provider and deployer, subjecting it to the full obligations applicable to each role — technical documentation, conformity assessments, and ongoing monitoring requirements",
+        B: "Deployer only, because provider obligations apply exclusively to organisations that commercialise AI systems for sale or external licensing, and do not extend to internally deployed systems",
+        C: "Provider only, because internal development does not trigger deployer obligations, which apply only to organisations sourcing AI systems externally from third-party developers or vendors",
+        D: "Neither provider nor deployer, since most current AI governance frameworks explicitly exempt internal-use AI systems from the provider-deployer classification structure and associated compliance requirements"
+      },
+      correct: "A",
+      bokRef: "IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).",
+      explanation: "A is correct. IV.B.2 Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model states increased obligations as a key risk. Under frameworks such as the EU AI Act, a company that develops a system and places it into use — even internally — qualifies as an AI provider. It simultaneously qualifies as a deployer because it operates the system. Both role definitions apply concurrently. B incorrectly restricts provider status to commercial sales. C incorrectly restricts deployer status to externally sourced systems. D is factually wrong — internal deployment does not create a blanket exemption."
+    },
+    {
+      id: "DIV-IVB-011", pi: "IV.B.1", isRetrieval: false,
+      stem: "A company signs an AI services agreement with a primary vendor without reviewing the vendor's subprocessor list. It later discovers that the vendor routes all inference requests through a subprocessor in a jurisdiction with inadequate data protection standards. Which contract term should have been negotiated before signing?",
+      options: {
+        A: "A service level agreement specifying the primary vendor's response time for technical support inquiries related to subprocessor infrastructure outages",
+        B: "A benchmarking clause permitting the company to compare subprocessor performance against industry peers on an annual review basis",
+        C: "An exclusivity provision preventing the primary vendor from sharing the company's prompts and model outputs with any competing organisations",
+        D: "Subprocessor disclosure and approval rights, with restrictions on cross-border data transfers and the right to terminate if unapproved subprocessors are engaged"
+      },
+      correct: "D",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "D is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement requires identifying subprocessor disclosure as a key term. When personal data is routed through a third party in an inadequate jurisdiction, cross-border transfer restrictions under data protection law are triggered. The deploying company needs contractual rights to know who the subprocessors are, approve any changes, and exit if unapproved parties are introduced. A (SLA for outages) addresses availability, not data protection risk. B (benchmarking) is a performance comparison mechanism. C (exclusivity from competitors) addresses IP/competitive concerns, not the subprocessor jurisdiction issue."
+    },
+    {
+      id: "DIV-IVB-012", pi: "IV.B.2", isRetrieval: false,
+      stem: "A company relying on a third-party AI vendor for customer service automation receives a regulatory fine for deceptive AI-generated responses. The vendor's liability cap covers one month of subscription fees — one-tenth of the fine amount. How does this scenario differ from what the company would face if it had deployed a proprietary AI system instead?",
+      options: {
+        A: "With a proprietary system, the regulatory fine would be automatically apportioned between the company and its cloud infrastructure provider under a joint-processing liability framework",
+        B: "With a proprietary system, the company would face the same or greater financial exposure without even the partial contractual offset the vendor's liability clause provides, since no third-party contract exists",
+        C: "Proprietary deployments typically attract lower regulatory fines because regulators consider internal AI development as evidence of a stronger governance commitment",
+        D: "Third-party AI deployments are always higher risk than proprietary deployments because vendors cannot be held jointly accountable under most current AI governance frameworks"
+      },
+      correct: "B",
+      bokRef: "IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).",
+      explanation: "B is correct. IV.B.2 Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model states higher potential liability as a defining risk. With a third-party vendor, even an inadequate liability cap provides some contractual offset. With a proprietary model, no vendor contract exists — the company is the sole accountable party. A is incorrect; cloud infrastructure providers do not assume joint processing liability for AI model outputs. C is incorrect; regulators do not formally discount fines for internal development. D overgeneralises — risk profiles depend on context."
+    },
+    {
+      id: "DIV-IVB-013", pi: "IV.B.1", isRetrieval: false,
+      stem: "An edtech company deploys a third-party AI tutoring system. A parent sues, alleging the AI provided harmful advice to a child. The vendor's contract contains a mutual indemnification clause but carves out claims arising from the deployer's own configuration choices. The company had customised the system's response parameters beyond the vendor's default settings. Which party bears liability for the claim?",
+      options: {
+        A: "The edtech company, because its configuration choices triggered the indemnification carve-out, leaving it without vendor coverage for claims arising from its customisations",
+        B: "The AI vendor, because the underlying model generated the harmful output and is the proximate cause of the harm regardless of how the deployer configured the parameters",
+        C: "Neither party, because AI-generated content is generally excluded from product liability frameworks under the laws of most jurisdictions",
+        D: "Both parties equally, because indemnification carve-outs in AI vendor contracts are unenforceable in cases where a minor is harmed by AI-generated content"
+      },
+      correct: "A",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "A is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement requires evaluating indemnification terms including their carve-outs. When a deployer customises a system beyond vendor defaults and the carve-out is triggered, the deployer loses vendor coverage for claims arising from those customisations. B incorrectly overrides the contractual carve-out; proximate cause analysis does not nullify contractual risk allocation. C is incorrect; AI-generated harmful content to a minor is not broadly exempt from liability frameworks. D is incorrect; carve-outs tied to deployer actions are generally enforceable where the deployer's choices were the proximate trigger."
+    },
+    {
+      id: "DIV-IVB-014", pi: "IV.B.1", isRetrieval: false,
+      stem: "A company deploys a vendor AI model for regulatory compliance monitoring. Six months after go-live, the vendor silently pushes a model update that changes the system's risk-scoring thresholds. The company only discovers this when its compliance reports show unexplained anomalous trends. Which contract term would have prevented this outcome?",
+      options: {
+        A: "A warranty clause requiring the vendor to certify model accuracy against the company's specific compliance use case on an annual review basis",
+        B: "A data residency provision ensuring the model and all inference outputs remain within the company's operating jurisdiction at all times",
+        C: "A model versioning and change notification clause requiring the vendor to provide advance notice of any updates that could affect system behaviour or outputs",
+        D: "A source code escrow arrangement allowing the company to access model weights and architecture if the vendor becomes insolvent or ceases operations"
+      },
+      correct: "C",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "C is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement includes model versioning and change management as key terms. A change notification clause obligates the vendor to disclose updates in advance, enabling the deployer to re-validate the system before the new version goes live. A (annual accuracy warranty) is retrospective and would not prevent the silent update. B (data residency) addresses where data is stored, not how model behaviour changes. D (source code escrow) is a business continuity provision for vendor insolvency, not a change management control."
+    },
+    {
+      id: "DIV-IVB-015", pi: "IV.B.2", isRetrieval: false,
+      stem: "A pharmaceutical company's AI governance committee is evaluating whether to build a proprietary drug interaction prediction model or license a foundation model from a third-party vendor. The governance lead states that a proprietary build creates 'higher potential liability.' Which explanation best supports this position per IV.B.2?",
+      options: {
+        A: "Pharmaceutical companies face stricter contract negotiation standards when building proprietary AI systems than when licensing from established vendors who already carry product liability insurance",
+        B: "As the model developer, the company assumes provider-level obligations and cannot attribute design defects, bias, or adverse outcomes to any third-party vendor — making it the sole accountable party",
+        C: "Proprietary AI models require submission of additional regulatory filings that third-party licensed systems are entirely exempt from, creating a substantially higher administrative liability burden for internal developers",
+        D: "Third-party vendors in pharmaceutical contexts universally accept unlimited liability for adverse drug interaction predictions, an indemnification level that proprietary internal builds cannot contractually replicate or achieve"
+      },
+      correct: "B",
+      bokRef: "IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).",
+      explanation: "B is correct. IV.B.2 Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model states increased obligations and higher potential liability as the defining risks. Building the model internally makes the company the AI provider — all design decisions and architectural trade-offs are its own. No vendor exists to whom any portion of liability can be attributed. A inverts the reality; vendor contracts include liability caps that limit, rather than increase, the deployer's exposure. C overstates regulatory filing differences. D is false; unlimited vendor liability for drug interaction errors is not a standard feature of any pharmaceutical AI licensing agreement."
+    },
+    {
+      id: "DIV-IVB-016", pi: "IV.B.1", isRetrieval: false,
+      stem: "A company deploys a vendor AI chatbot that handles sensitive customer financial data. A data breach occurs at the vendor's inference infrastructure. The company's contract does not specify the vendor's required security standards, breach notification timelines, or the company's right to audit the vendor's security controls. Which governance failure does this represent under IV.B.1?",
+      options: {
+        A: "The company failed to conduct a post-breach incident review within the timeframe required under applicable data breach notification legislation",
+        B: "The company did not register the vendor as a sub-controller with the relevant data protection authority before initiating the chatbot deployment",
+        C: "The company should have trained its customer service team on manual fallback procedures to use in the event of vendor infrastructure failures",
+        D: "The company failed to negotiate contractual security obligations including minimum security standards, breach notification requirements, and audit rights before commencing deployment"
+      },
+      correct: "D",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "D is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement requires identifying security obligations as key contract terms. Before deploying any vendor AI system that processes sensitive data, the contract must specify minimum security standards, breach notification timelines, and audit rights. A describes a post-breach remediation action, not the pre-deployment contract failure the question asks about. B (sub-controller registration) is not a standard requirement under most data protection frameworks. C (manual fallback training) is an operational resilience measure, not a contract governance control."
+    },
+    {
+      id: "DIV-IVB-017", pi: "IV.B.2", isRetrieval: false,
+      stem: "A telecom company builds a proprietary AI-powered network fault prediction model. The governance officer notes that the company faces higher compliance obligations than peers using third-party AI tools, but the board decides to proceed. Which factor most directly justifies this decision from a governance perspective per IV.B.2?",
+      options: {
+        A: "The proprietary model eliminates all regulatory obligations because internal AI systems used for network operations are exempt from AI-specific legislation in all major jurisdictions",
+        B: "Full IP ownership of the model and training data creates a sustainable competitive advantage that vendor-licensed peers cannot replicate, justifying the higher governance investment required",
+        C: "Building the model internally reduces total compliance cost because the company avoids vendor contract negotiation legal fees and avoids SLA management overhead",
+        D: "Proprietary models receive lower risk classification scores under standard AI frameworks than equivalent third-party systems performing the same network management function"
+      },
+      correct: "B",
+      bokRef: "IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).",
+      explanation: "B is correct. IV.B.2 Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model explicitly identifies IP ownership as a key opportunity. When peers use the same vendor API, the model itself cannot differentiate them. Owning the model and its training data creates a proprietary capability that justifies accepting higher provider-level governance obligations. A is incorrect; network management AI is not universally exempt. C is incorrect; building internally typically increases total compliance cost. D is incorrect; risk classification is determined by use case and harm potential, not by whether the model is proprietary or third-party."
+    },
+    {
+      id: "DIV-IVB-018", pi: "IV.B.1", isRetrieval: false,
+      stem: "A company's AI vendor is acquired by a direct competitor. The company wants to terminate the contract immediately, but the vendor insists on a 12-month notice period during which the competitor would have access to the company's AI query patterns and usage data. Which contract provision would have enabled immediate termination without a 12-month exposure window?",
+      options: {
+        A: "A governing law clause specifying that the contract is subject to the jurisdiction most favourable to the deploying company in scenarios involving vendor acquisitions",
+        B: "A key-personnel clause permitting termination if the vendor's named AI ethics officer or chief technology officer departs following a change of ownership",
+        C: "A change-of-control clause permitting immediate termination if the vendor is acquired by a competitor, with restrictions on data use during any notice period",
+        D: "A benchmarking clause allowing the company to renegotiate pricing terms if the acquiring competitor offers lower rates to comparable enterprise customers"
+      },
+      correct: "C",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "C is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement includes exit rights — specifically, change-of-control clauses. A change-of-control clause permits immediate termination upon vendor acquisition by a competitor and can restrict the vendor from using the company's data during any residual notice period. A (governing law) determines which court applies the contract but does not create an exit right. B (key-personnel clause) is a performance risk mitigation, not a competitive exposure remedy. D (benchmarking) is a pricing mechanism that does not address the competitive intelligence exposure."
+    },
+    {
+      id: "DIV-IVB-019", pi: "IV.B.2", isRetrieval: false,
+      stem: "A manufacturing company builds a proprietary computer vision AI to inspect product quality on the assembly line. Under a high-risk AI classification framework, what additional documentation obligation does the company face compared to a peer deploying a licensed equivalent from a certified vendor?",
+      options: {
+        A: "The manufacturing company must register the AI system with national authorities, whereas certified vendors are exempt from registration requirements under safe harbour provisions",
+        B: "The manufacturing company must establish a dedicated AI governance committee specifically for the computer vision system, which is not required for organisations deploying vendor-certified systems",
+        C: "The manufacturing company must conduct quarterly audits of the computer vision system's performance, whereas deployers of third-party systems are required only to conduct annual reviews",
+        D: "As the AI provider, the manufacturing company must create and maintain full technical documentation including design rationale, training data description, and risk management records, which the peer deploying a certified vendor system may rely on the vendor to supply"
+      },
+      correct: "D",
+      bokRef: "IV.B.2 — Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model (e.g., increased obligations and higher potential liability).",
+      explanation: "D is correct. IV.B.2 Identify and understand the risks and opportunities that are unique to a company deploying its own proprietary AI model states increased obligations as a key risk — specifically the technical documentation burden that falls on the provider. A company that is both provider and deployer must create and own all technical documentation itself. A peer deploying a certified vendor system receives the vendor's technical documentation as part of the product. A incorrectly applies a safe harbour exemption that does not exist as stated. B (dedicated governance committee) is not a universal documentation requirement. C (quarterly vs. annual audits) incorrectly implies a standard frequency differential in regulation."
+    },
+    {
+      id: "DIV-IVB-020", pi: "IV.B.1", isRetrieval: false,
+      stem: "An AI governance officer is reviewing a proposed contract with a foundation model provider for a customer-facing AI assistant. The contract is silent on model drift, hallucination rates, and the vendor's training data transparency. What is the most appropriate governance response before the contract is executed?",
+      options: {
+        A: "Require the vendor to include performance benchmarks, transparency obligations about known model limitations, and remediation procedures for drift and hallucination risks before the contract is signed",
+        B: "Accept the vendor's standard contract terms and rely on internal monitoring protocols to detect model drift and hallucination issues after deployment begins",
+        C: "Request the vendor's marketing documentation on hallucination reduction techniques as a supplementary exhibit, without modifying the main contract terms",
+        D: "Escalate the gaps to the legal team and proceed with deployment in parallel to avoid project delays, addressing the contract terms at the next annual renewal"
+      },
+      correct: "A",
+      bokRef: "IV.B.1 — Identify and evaluate key terms and risks in the vendor or licensing agreement.",
+      explanation: "A is correct. IV.B.1 Identify and evaluate key terms and risks in the vendor or licensing agreement requires proactive identification and negotiation of risk terms before execution. Silence on model drift, hallucination rates, and training data transparency creates governance gaps that cannot be resolved post-deployment through monitoring alone. The governance officer must require performance benchmarks, known limitation disclosures, and remediation procedures before the company accepts the risk. B accepts an inadequately contracted risk position. C substitutes marketing materials for contractual obligations, which are unenforceable. D creates regulatory exposure by commencing deployment without addressing material governance gaps."
+    },
+    {
+      id: "DIII-IIIB-021", pi: "III.B.1", isRetrieval: true,
+      stem: "During training data preparation for a computer vision model, the data team discovers that 40% of their image dataset was scraped from a social media platform without reviewing the platform's terms of service. From a data governance perspective under Domain III Governing AI Development, what is the primary obligation the team failed to meet?",
+      options: {
+        A: "The team failed to conduct an interpretability assessment on the scraped image dataset to evaluate how each image would influence the model's decision boundaries",
+        B: "The team did not document data lineage for each individual image in the training dataset, creating gaps in the provenance record required for compliance",
+        C: "The team failed to assess and document lawful rights to collect and use the data before including it in the training pipeline, breaching the foundational data governance requirement",
+        D: "The team did not obtain explicit data subject consent from every individual whose image appeared in the scraped social media dataset before training began"
+      },
+      correct: "C",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose).",
+      explanation: "C is correct. III.B Data Governance requires, per III.B.1, that organisations establish and follow data governance requirements including assessing and documenting lawful rights to collect and use data before it enters the training pipeline. Scraping data without reviewing terms of service skips the lawful rights assessment — the most foundational step. A (interpretability assessment) relates to model testing under III.B.3 Plan and perform training and testing, not data rights. B (lineage documentation) is addressed under III.B.2 Establish and document data lineage and provenance — a secondary obligation that cannot substitute for the primary rights assessment. D (individual consent) may be one mechanism for establishing lawful rights but is not always required; the failure here is not checking what rights basis applies."
+    },
+    {
+      id: "DIII-IIIB-022", pi: "III.B.1", isRetrieval: true,
+      stem: "A fraud detection model trained on historical transaction data consistently underperforms on transactions from customers who joined after 2022. Investigation reveals the training data covers only 2015–2021 records, and post-2022 transaction patterns reflect significantly different consumer behaviours. Which data governance obligation under III.B.1 was not met before training began?",
+      options: {
+        A: "The requirement to assess data quality, quantity, and fit-for-purpose before training — the temporal mismatch shows the dataset was not representative of current fraud patterns",
+        B: "The obligation to obtain informed consent from all customers whose historical transaction records were included in the training dataset prior to any model development work",
+        C: "The requirement to document training data provenance by ensuring each record is traceable back to a verified primary source system through an unbroken and auditable chain of custody",
+        D: "The obligation to conduct integration testing on the trained model before deployment in order to identify performance gaps across different customer account vintage segments"
+      },
+      correct: "A",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose).",
+      explanation: "A is correct. III.B.1 Establish and follow the requirements for data governance explicitly requires assessing data quality, quantity, integrity, and fit-for-purpose. A training dataset ending in 2021 used for a current fraud detection model fails the fit-for-purpose criterion — the data does not represent the patterns the model must detect. B (consent) may be relevant to rights assessment under III.B.1 but is not the quality-dimension failure the performance gap reveals. C (provenance documentation) is addressed under III.B.2 Establish and document data lineage and provenance, which covers chain of custody rather than temporal fitness. D (integration testing) is a testing obligation under III.B.3 Plan and perform training and testing — a post-data-selection activity."
+    },
+    {
+      id: "DIII-IIIB-023", pi: "III.B.1", isRetrieval: true,
+      stem: "An AI governance audit finds that a model development team cannot produce any documentation showing what data sources were used for training, whether collection was legally authorised, or whether data quality checks were performed before training began. Which performance indicator under III.B Data Governance did the team most directly fail to satisfy?",
+      options: {
+        A: "The obligation to establish and document data lineage and provenance through traceable chain-of-custody records covering each dataset used in training",
+        B: "The requirement to establish and follow data governance standards by assessing and documenting lawful collection rights and evaluating data quality, quantity, integrity, and fit-for-purpose",
+        C: "The obligation to document the training and testing process to validate results, establish compliance evidence, and support risk management records",
+        D: "The requirement to plan and perform bias testing on the training dataset before use to ensure equitable model performance across all relevant demographic groups"
+      },
+      correct: "B",
+      bokRef: "III.B.1 — Establish and follow the requirements for data governance (e.g., assess and document lawful rights to collect and use data, and assess data quality, quantity, integrity and fit-for-purpose).",
+      explanation: "B is correct. III.B.1 Establish and follow the requirements for data governance directly requires assessing and documenting lawful rights to collect and use data and assessing data quality, quantity, integrity, and fit-for-purpose. The audit finding — no source documentation, no rights assessment, no quality checks — is a complete failure of III.B.1. A describes III.B.2 Establish and document data lineage and provenance, which covers chain of custody but is a narrower obligation than the compound failure described. C describes III.B.5 Document the training and testing process — a downstream obligation that presupposes III.B.1 was done. D describes bias testing under III.B.3 Plan and perform training and testing — a model performance obligation, not the foundational data rights and quality obligation at issue."
+    },
+    {
+      id: "DIV-IVA-024", pi: "IV.A.3", isRetrieval: true,
+      stem: "A healthcare provider is deploying a diagnostic support AI. The IT team recommends on-premise deployment to keep patient data within the hospital network, but the selected vendor only offers cloud-hosted SaaS. The AI governance officer notes that the organisation's risk analysis was completed before deployment options were evaluated. Which governance step was skipped during the pre-deployment assessment?",
+      options: {
+        A: "The organisation did not conduct a privacy impact assessment covering the cloud deployment option before the vendor was selected and contracted",
+        B: "The organisation should have fine-tuned the vendor's model on local patient data to create a hybrid on-premise deployment as a compromise between the IT team's preference and the vendor's offering",
+        C: "The organisation failed to include a data residency clause in the vendor contract before evaluating which deployment architecture was technically feasible",
+        D: "The organisation failed to understand and compare AI deployment options including cloud versus on-premise trade-offs as part of the pre-deployment decision process"
+      },
+      correct: "D",
+      bokRef: "IV.A.3 — Understand the differences in AI deployment options (e.g., cloud vs. on-premise vs. edge, and using the AI model as is or with fine-tuning, retrieval augmented generation, agentic architectures, or other techniques to improve performance and fit).",
+      explanation: "D is correct. IV.A.3 Understand the differences in AI deployment options is a pre-deployment assessment competency. Comparing cloud versus on-premise versus edge deployment must occur before vendor selection, not after. Selecting a cloud-only vendor before evaluating whether on-premise is required creates lock-in into an architecture that may not meet data residency or risk requirements. A (privacy impact assessment) is a related but distinct step that follows deployment option analysis. B (fine-tuning as compromise) is a technical workaround, not a governance process step. C (data residency clause) is a contract negotiation action that presupposes the deployment option was already selected."
+    },
+    {
+      id: "DIV-IVA-025", pi: "IV.A.3", isRetrieval: true,
+      stem: "A legal services firm is deploying a generative AI assistant for contract review. They are choosing between using the foundation model as-is, fine-tuning it on proprietary legal templates, or implementing retrieval augmented generation (RAG) using their contract library. Under IV.A.3, what distinguishes fine-tuning from RAG as a deployment approach with distinct governance implications?",
+      options: {
+        A: "Fine-tuning modifies model weights using proprietary data to create a persistent behaviour change, while RAG retrieves relevant content at inference time without altering the model — each approach carries distinct implications for data rights, IP ownership, and auditability",
+        B: "Fine-tuning always produces lower hallucination rates than RAG for legal applications because modifying model weights creates more deterministic outputs than retrieval-based answer generation",
+        C: "RAG requires full retraining of the foundation model whenever new documents are added to the retrieval corpus, making it more computationally intensive than fine-tuning for maintaining current legal information",
+        D: "Fine-tuning and RAG are functionally equivalent deployment techniques that differ only in infrastructure cost with no distinct governance implications for data handling or model accountability"
+      },
+      correct: "A",
+      bokRef: "IV.A.3 — Understand the differences in AI deployment options (e.g., cloud vs. on-premise vs. edge, and using the AI model as is or with fine-tuning, retrieval augmented generation, agentic architectures, or other techniques to improve performance and fit).",
+      explanation: "A is correct. IV.A.3 Understand the differences in AI deployment options requires understanding the governance implications — not just technical mechanics — of each option. Fine-tuning embeds proprietary data into model weights permanently, raising IP ownership questions and creating persistent data exposure. RAG retrieves content dynamically at inference without modifying the model, which is more auditable but creates its own data access governance considerations. These are distinct risk profiles requiring different governance controls. B is incorrect; fine-tuning does not categorically reduce hallucinations versus RAG. C is factually incorrect; RAG adds documents to a retrieval index, not by retraining the model. D is wrong; the governance implications of data embedding (fine-tuning) versus dynamic retrieval (RAG) are materially different."
+    }
+  ]
+};
+document.addEventListener('DOMContentLoaded', function() { initQuiz(QUIZ_DATA); });
+</script>
+</head>
+<body><div id="quiz-root"></div></body>
+</html>
