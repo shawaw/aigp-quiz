@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIGP Day 18 Quiz — Deployment Controls</title>
+<script src="quiz-engine.js"></script>
+<script>
+const QUIZ_DATA = {
+  day: 18, week: 3, comp: "IV.C", topic: "Deployment Controls",
+  webhookUrl: "https://script.google.com/macros/s/AKfycbyCG5oTGoPsjE9ytN3NJbsAv45GO0_uxb5gjXL7K8trVSiOfG05tQ0LV3wnjtuj7Bir/exec",
+  questions: [
+    {
+      id: "DIV-IVC-001", pi: "IV.C.1", isRetrieval: false, comp: "IV.C",
+      stem: "A financial services company is deploying an AI credit-scoring model. The AI governance officer must ensure deployment follows established policy. Which action is most aligned with IV.C.1?",
+      options: {
+        A: "Prioritize deployment speed to gain competitive advantage and schedule a full policy review at the first quarterly audit.",
+        B: "Delegate all deployment policy decisions to the development team, who understand the model's operational requirements.",
+        C: "Apply data governance, risk management, issue management, and user training requirements throughout the deployment process.",
+        D: "Focus deployment controls exclusively on data security, since financial AI systems carry the highest breach risk exposure."
+      },
+      correct: "C",
+      explanation: "IV.C.1 Deployment policy requires applying all four named pillars — data governance, risk management, issue management, and user training. A defers policy review, violating the application requirement. B abdicates governance to development, not an authorized delegation. D focuses only on security, omitting three required pillars. C is the only option that applies the complete deployment policy framework.",
+      bokRef: "IV.C.1 — Apply the policies, procedures, best practices and ethical considerations to the deployment of an AI system (e.g., data governance, risk management, issue management, and user training)."
+    },
+    {
+      id: "DIV-IVC-002", pi: "IV.C.1", isRetrieval: false, comp: "IV.C",
+      stem: "An HR department is receiving a new AI tool for screening job applications. The governance officer is assessing deployment readiness. Which element is explicitly required by IV.C.1?",
+      options: {
+        A: "Ensuring HR staff receive training on using the AI screening tool appropriately before it begins evaluating applicants.",
+        B: "Postponing deployment until jurisdiction-specific AI hiring regulations come into force to close any regulatory compliance gaps.",
+        C: "Obtaining written consent from every applicant before the AI screening tool processes any of their application data.",
+        D: "Replacing all manual screening processes simultaneously to ensure consistent scoring across the entire applicant population."
+      },
+      correct: "A",
+      explanation: "IV.C.1 Deployment policy explicitly names user training as one of the four deployment pillars. B delays deployment on a regulatory basis not required by IV.C.1. C adds a consent requirement that is a II.A Privacy Laws obligation, not a IV.C.1 requirement. D creates operational consistency but is not a governance policy requirement. Only A names a specific IV.C.1 deployment obligation.",
+      bokRef: "IV.C.1 — Apply the policies, procedures, best practices and ethical considerations to the deployment of an AI system (e.g., data governance, risk management, issue management, and user training)."
+    },
+    {
+      id: "DIV-IVC-003", pi: "IV.C.1", isRetrieval: false, comp: "IV.C",
+      stem: "After deploying a customer service chatbot, users report inconsistent warranty advice. What does the IV.C.1 deployment policy framework require the governance team to do first?",
+      options: {
+        A: "Retrain the chatbot immediately on warranty-specific data to restore accuracy before allowing any further customer interactions.",
+        B: "Disable the chatbot entirely and revert all customer service to manual processing until the root cause is identified.",
+        C: "Notify the AI vendor of the performance failure and request a replacement or refund under the service agreement.",
+        D: "Activate the issue management process in the deployment policy, document the incidents, and assess the operational impact."
+      },
+      correct: "D",
+      explanation: "IV.C.1 Deployment policy requires that issue management processes be applied — capturing, triaging, and resolving operational problems through the pre-established governance framework. A jumps to retraining without following the issue management process first. B is an operational decision that bypasses the documentation and assessment steps. C escalates to the vendor without first fulfilling the internal governance obligation. D correctly applies the issue management pillar of IV.C.1.",
+      bokRef: "IV.C.1 — Apply the policies, procedures, best practices and ethical considerations to the deployment of an AI system (e.g., data governance, risk management, issue management, and user training)."
+    },
+    {
+      id: "DIV-IVC-004", pi: "IV.C.2", isRetrieval: false, comp: "IV.C",
+      stem: "Six months after deploying a medical imaging AI, the vendor releases a software update. The hospital's governance policy requires a maintenance schedule per IV.C.2. What does this obligation primarily require?",
+      options: {
+        A: "Reviewing the vendor contract annually to confirm that software update clauses remain favorable to the hospital.",
+        B: "Following a documented schedule for evaluating, testing, and applying updates and retraining to the deployed AI system.",
+        C: "Allowing the vendor to push updates automatically without internal review so the system remains continuously current.",
+        D: "Waiting until the annual regulatory compliance audit to determine whether updates are needed based on audit findings."
+      },
+      correct: "B",
+      explanation: "IV.C.2 Continuous monitoring requires establishing a regular schedule for maintenance, updates, and retraining — a documented, proactive governance cadence. A reviews the vendor contract, not the AI system maintenance schedule. C abdicates maintenance governance to the vendor, removing internal review. D makes the maintenance schedule contingent on an annual audit, not the proactive schedule IV.C.2 requires. B is the only option that describes a scheduled, internally governed maintenance process.",
+      bokRef: "IV.C.2 — Conduct continuous monitoring of the AI model and system, and establish a regular schedule for maintenance, updates and retraining."
+    },
+    {
+      id: "DIV-IVC-005", pi: "IV.C.2", isRetrieval: false, comp: "IV.C",
+      stem: "A retail demand-forecasting AI trained on pre-pandemic data shows increasing prediction errors as consumer behavior shifts. Which action best fulfills the IV.C.2 obligation?",
+      options: {
+        A: "Decommission the model and procure a new commercially available forecasting solution from a specialist AI vendor.",
+        B: "Expand the monitoring dashboard to capture additional performance metrics without modifying the underlying model.",
+        C: "Schedule and conduct retraining of the model using current consumer behavior data to restore its prediction accuracy.",
+        D: "Accept the degraded performance as an inherent AI limitation and record it as a known risk in the risk register."
+      },
+      correct: "C",
+      explanation: "IV.C.2 Continuous monitoring includes an obligation to retrain the AI system on a regular schedule when monitoring signals — like increasing prediction errors from data drift — indicate it is needed. A replaces the system entirely when governance-mandated retraining has not been attempted. B expands monitoring without acting on what monitoring reveals — not sufficient. D accepts degradation rather than fulfilling the maintenance and retraining obligation. C directly applies the IV.C.2 retraining requirement.",
+      bokRef: "IV.C.2 — Conduct continuous monitoring of the AI model and system, and establish a regular schedule for maintenance, updates and retraining."
+    },
+    {
+      id: "DIV-IVC-006", pi: "IV.C.2", isRetrieval: false, comp: "IV.C",
+      stem: "An AI governance policy requires continuous monitoring of a deployed AI system. Which description most accurately reflects the IV.C.2 'continuous monitoring' obligation?",
+      options: {
+        A: "Ongoing automated and human-reviewed observation of system performance with scheduled intervals for maintenance decisions.",
+        B: "Daily manual review by the development team of all model outputs before they are delivered to end users.",
+        C: "Annual third-party audits assessing whether the deployed AI system meets its original design specifications.",
+        D: "Automated alerting that triggers only when the model's accuracy drops below a predetermined threshold value."
+      },
+      correct: "A",
+      explanation: "IV.C.2 Continuous monitoring combines ongoing observation with scheduled decision-making — both parts are required. B (daily manual review of all outputs) imposes an operational burden not required and confuses monitoring with quality control. C describes a periodic assessment activity under IV.C.3 Periodic assessment, not continuous monitoring. D describes purely reactive alerting, missing the proactive scheduled maintenance component. A captures both parts of IV.C.2 accurately.",
+      bokRef: "IV.C.2 — Conduct continuous monitoring of the AI model and system, and establish a regular schedule for maintenance, updates and retraining."
+    },
+    {
+      id: "DIV-IVC-007", pi: "IV.C.3", isRetrieval: false, comp: "IV.C",
+      stem: "A cybersecurity company has deployed an AI threat detection system. The governance lead is designing the periodic assessment program. Which activity is explicitly listed in IV.C.3 as appropriate for assessing performance, reliability, and safety?",
+      options: {
+        A: "Surveying customers on whether the AI system's threat alerts are actionable and relevant to their operational context.",
+        B: "Performing red teaming exercises to identify weaknesses and vulnerabilities in the deployed AI threat detection system.",
+        C: "Reviewing quarterly financial reports to assess whether the AI system has generated a positive return on investment.",
+        D: "Requesting the vendor's internal testing results rather than conducting an independent periodic assessment of the system."
+      },
+      correct: "B",
+      explanation: "IV.C.3 Periodic assessment explicitly names red teaming as a required periodic activity to assess performance, reliability, and safety. A is a customer satisfaction measure, not a safety or reliability assessment. C measures financial ROI — not a performance, reliability, or safety dimension covered by IV.C.3. D delegates assessment to the vendor, bypassing the deployer's independent periodic assessment obligation. B is the only option naming an explicitly listed IV.C.3 activity.",
+      bokRef: "IV.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing)."
+    },
+    {
+      id: "DIV-IVC-008", pi: "IV.C.3", isRetrieval: false, comp: "IV.C",
+      stem: "Post-deployment assessments of a financial fraud detection AI show no significant accuracy issues, but governance requires periodic safety evaluation. Which activity under IV.C.3 best addresses this when accuracy is not the concern?",
+      options: {
+        A: "Asking all end users to complete a quarterly satisfaction survey regarding false positive rates in their workflow.",
+        B: "Comparing the AI's fraud detection rate to published industry benchmarks from the most recent regulatory guidance.",
+        C: "Reviewing the vendor's architectural documentation to verify the model was designed with safety principles in mind.",
+        D: "Conducting threat modeling to identify potential attack vectors and failure scenarios in the deployed AI system."
+      },
+      correct: "D",
+      explanation: "IV.C.3 Periodic assessment includes threat modeling as an explicit activity — it identifies how the system could be attacked, manipulated, or fail in ways that create safety risks beyond accuracy. A measures user satisfaction, not safety. B benchmarks accuracy externally but does not address safety vulnerabilities. C reviews documentation passively rather than conducting a structured assessment. D is the correct IV.C.3 periodic safety assessment activity when accuracy is already confirmed.",
+      bokRef: "IV.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing)."
+    },
+    {
+      id: "DIV-IVC-009", pi: "IV.C.3", isRetrieval: false, comp: "IV.C",
+      stem: "During a periodic assessment of a deployed AI system, the governance team identifies which types of testing fall under IV.C.3. Which set of activities is most aligned with the PI?",
+      options: {
+        A: "Benchmarking model accuracy against training metrics and reviewing data labeling quality across production inputs.",
+        B: "Auditing user access logs and reviewing vendor data processing agreements for contract compliance gaps.",
+        C: "Conducting audits, red teaming, threat modeling, and security testing to assess performance, reliability, and safety.",
+        D: "Running sensitivity analysis on model hyperparameters to improve accuracy before the next production release."
+      },
+      correct: "C",
+      explanation: "IV.C.3 Periodic assessment explicitly names audits, red teaming, threat modeling, and security testing as the four periodic assessment activities. A addresses model training quality — a III.B Data Governance concern. B focuses on access control and contract review — relevant to I.C Lifecycle policies but not the IV.C.3 periodic assessment activities. D optimizes model parameters — a development-phase activity. Only C lists all four IV.C.3 activities verbatim.",
+      bokRef: "IV.C.3 — Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing)."
+    },
+    {
+      id: "DIV-IVC-010", pi: "IV.C.4", isRetrieval: false, comp: "IV.C",
+      stem: "A deployed AI content moderation system fails to flag harmful posts, prompting a regulatory inquiry. What does IV.C.4 require the governance team to do first?",
+      options: {
+        A: "Document the incident, the issues identified, the associated risks, and update the post-market monitoring plan accordingly.",
+        B: "Issue a public apology via the organization's social media channels to demonstrate accountability to external stakeholders.",
+        C: "Immediately suspend all AI moderation and replace it with human reviewers while the full investigation is pending.",
+        D: "Notify only the development team to resolve the technical issue internally before escalating to senior management."
+      },
+      correct: "A",
+      explanation: "IV.C.4 Documentation requires documenting incidents, issues, risks, and post-market monitoring plans — documentation is the primary governance obligation. B addresses external communication (IV.C.6 External communication plans), not documentation. C is an operational decision about system use, not a documentation requirement. D limits notification to development and skips the documentation obligation entirely. A directly fulfills IV.C.4 by capturing the incident, issues, risks, and updating the monitoring plan.",
+      bokRef: "IV.C.4 — Document incidents, issues, risks and post-market monitoring plans."
+    },
+    {
+      id: "DIV-IVC-011", pi: "IV.C.4", isRetrieval: false, comp: "IV.C",
+      stem: "A governance officer reviews the deployment documentation package for an AI loan origination system. Which document, required by IV.C.4, should be included to satisfy post-deployment obligations?",
+      options: {
+        A: "The original vendor proposal and pricing structure used during the procurement selection and negotiation process.",
+        B: "A post-market monitoring plan specifying how incidents, issues, and risks will be tracked and reported after deployment.",
+        C: "A signed vendor attestation confirming the model has never been involved in a discriminatory credit decision.",
+        D: "The complete training dataset provenance log documenting data sourcing decisions made during the development phase."
+      },
+      correct: "B",
+      explanation: "IV.C.4 Documentation explicitly requires a post-market monitoring plan — a forward-looking document specifying how the deployer will track performance and emerging risks. A is a procurement record with no IV.C.4 basis. C is a vendor-provided assurance, not an organizational governance document. D is a development-phase provenance record covered by III.B Data Governance, not a IV.C.4 deployment document. Only B names an item explicitly required by IV.C.4.",
+      bokRef: "IV.C.4 — Document incidents, issues, risks and post-market monitoring plans."
+    },
+    {
+      id: "DIV-IVC-012", pi: "IV.C.4", isRetrieval: false, comp: "IV.C",
+      stem: "After deploying an AI patient triage system, the clinical governance team identifies that it consistently de-prioritizes patients from certain demographic groups. What does IV.C.4 require?",
+      options: {
+        A: "Escalate immediately to the vendor and demand a refund, as the system has failed to meet its contractual performance obligations.",
+        B: "Disable the feature without creating written records to avoid establishing documented liability through formal documentation.",
+        C: "Inform only the clinical staff of the identified bias and rely on their judgment to override AI recommendations going forward.",
+        D: "Document the incident, identify the bias as an associated risk, and update the post-market monitoring plan to track recurrence."
+      },
+      correct: "D",
+      explanation: "IV.C.4 Documentation requires capturing incidents, their associated risks, and updating the post-market monitoring plan — including bias incidents. A pursues vendor remedies without fulfilling the documentation obligation. B explicitly avoids the documentation IV.C.4 requires. C limits notification to clinical staff without formal documentation or risk assessment. D satisfies all three IV.C.4 elements: incident documentation, risk identification, and monitoring plan update.",
+      bokRef: "IV.C.4 — Document incidents, issues, risks and post-market monitoring plans."
+    },
+    {
+      id: "DIV-IVC-013", pi: "IV.C.5", isRetrieval: false, comp: "IV.C",
+      stem: "A government agency deploys an AI fraud detection system. Six months later, a third party requests access to the model's outputs for use in a criminal investigation database. The IV.C.5 obligation is to:",
+      options: {
+        A: "Approve the request provided the third party signs a data sharing agreement with appropriate security and access provisions.",
+        B: "Reject the request outright, since using a fraud detection AI in criminal proceedings is categorically prohibited by law.",
+        C: "Assess and document the risk that this secondary use constitutes an unintended downstream harm before approving or denying.",
+        D: "Refer the decision entirely to legal counsel, since third-party secondary use requests fall outside the AI governance scope."
+      },
+      correct: "C",
+      explanation: "IV.C.5 Secondary and unintended use requires the deployer to forecast and reduce secondary use risks — which means assessing the risk of downstream harm before any approval or denial. A approves on security terms alone without the required harm risk assessment. B makes a categorical prohibition without conducting the required assessment. D incorrectly places secondary use outside governance scope — IV.C.5 explicitly assigns this obligation to the deployer. C correctly initiates the IV.C.5 assessment process.",
+      bokRef: "IV.C.5 — Forecast and reduce risks of secondary or unintended uses and downstream harms."
+    },
+    {
+      id: "DIV-IVC-014", pi: "IV.C.5", isRetrieval: false, comp: "IV.C",
+      stem: "A hiring platform's AI resume screener is repurposed internally to flag employees likely to leave the organization. Which governance response best reflects IV.C.5?",
+      options: {
+        A: "Forecast the downstream harms this secondary use could cause, assess whether it creates new risks, and apply controls or prohibit it.",
+        B: "Allow the secondary use since the model is proprietary, and internal repurposing does not require additional governance review.",
+        C: "Require the HR team to obtain informed consent from all employees whose data will be used in the secondary application.",
+        D: "Update the privacy notice to disclose the secondary use to all employees and consider the governance obligation fulfilled."
+      },
+      correct: "A",
+      explanation: "IV.C.5 Secondary and unintended use requires the deployer to forecast harms from secondary uses and apply controls to reduce them — not merely document or notify. B exempts internal repurposing from governance, which IV.C.5 does not support. C conflates IV.C.5 (governance controls) with II.A.1 Privacy Laws (consent as a lawful basis) — consent alone is not the complete obligation. D treats notice as sufficient, but IV.C.5 requires actual risk reduction, not only disclosure. A correctly applies the forecast-and-reduce obligation.",
+      bokRef: "IV.C.5 — Forecast and reduce risks of secondary or unintended uses and downstream harms."
+    },
+    {
+      id: "DIV-IVC-015", pi: "IV.C.5", isRetrieval: false, comp: "IV.C",
+      stem: "An insurance company's deployed AI risk scoring model is shared with a subsidiary for use in auto underwriting decisions. The original deployment scope covered only home insurance marketing analytics. Under IV.C.5, the governance team should:",
+      options: {
+        A: "Approve the transfer since subsidiaries within the same corporate group share the same governance framework and oversight.",
+        B: "Identify and document the risks of this unintended use, including harms to auto insurance applicants, and take steps to reduce them.",
+        C: "Require the subsidiary to build a separate model trained specifically on underwriting data before any risk scoring use begins.",
+        D: "Notify the AI regulator of the secondary use in advance to ensure the organization is protected from future enforcement action."
+      },
+      correct: "B",
+      explanation: "IV.C.5 Secondary and unintended use requires identifying, documenting, and reducing the risks of secondary use — here, applying a marketing analytics model to underwriting decisions for which it was not assessed. A assumes shared corporate governance makes the transfer risk-free, bypassing the required IV.C.5 assessment. C requires building a new model rather than assessing and governing the secondary use risk. D notifies the regulator but does not fulfill the internal governance obligation to assess and reduce the risk. B correctly applies IV.C.5.",
+      bokRef: "IV.C.5 — Forecast and reduce risks of secondary or unintended uses and downstream harms."
+    },
+    {
+      id: "DIV-IVC-016", pi: "IV.C.6", isRetrieval: false, comp: "IV.C",
+      stem: "An AI system used in public health surveillance is approaching a planned governance milestone. The officer must establish an external communication plan per IV.C.6. What should this plan primarily address?",
+      options: {
+        A: "Internal escalation procedures for briefing the senior executive team and board on AI system performance failures.",
+        B: "Marketing messaging about the AI system's capabilities to maintain public confidence and support government funding.",
+        C: "Legal disclaimer language for vendor contracts that limits organizational liability for AI-driven surveillance decisions.",
+        D: "How and when to communicate with external stakeholders about the AI system's use, performance, limitations, and risks."
+      },
+      correct: "D",
+      explanation: "IV.C.6 External communication plans requires a plan for communicating with external stakeholders — users, regulators, the public, and affected parties — about the AI system's use, capabilities, limitations, and risks. A is internal escalation — IV.C.6 addresses external parties, not the board or executives. B is marketing — IV.C.6 is a governance obligation, not a confidence-building or funding exercise. C is vendor contract management — unrelated to external stakeholder communication. D accurately describes the IV.C.6 obligation.",
+      bokRef: "IV.C.6 — Establish external communication plans."
+    },
+    {
+      id: "DIV-IVC-017", pi: "IV.C.6", isRetrieval: false, comp: "IV.C",
+      stem: "A deployer of an AI financial advisory tool receives complaints from customers who were not informed that AI was involved in the advice they received. The IV.C.6 governance response is to:",
+      options: {
+        A: "Route all future customer inquiries through a human advisor to prevent further complaints about undisclosed AI involvement.",
+        B: "Add a brief reference to AI use in the terms of service document so customers are technically informed going forward.",
+        C: "Establish and implement an external communication plan that informs users about AI involvement, its capabilities, and limitations.",
+        D: "Delegate customer-facing communication to the marketing team, since external messaging falls outside governance scope."
+      },
+      correct: "C",
+      explanation: "IV.C.6 External communication plans requires establishing a structured plan for informing external stakeholders — here, users — about AI use, its capabilities, and limitations. A removes AI involvement rather than establishing a communication plan. B adds a TOS reference — a minimal disclosure, not a structured IV.C.6 communication plan. D incorrectly places external communication outside governance scope — IV.C.6 makes it a governance obligation. C establishes the plan IV.C.6 requires.",
+      bokRef: "IV.C.6 — Establish external communication plans."
+    },
+    {
+      id: "DIV-IVC-018", pi: "IV.C.7", isRetrieval: false, comp: "IV.C",
+      stem: "A regulator issues guidance that AI systems used in consumer credit decisions must cease operations pending a new conformity assessment. The deploying organization's IV.C.7 governance response is to:",
+      options: {
+        A: "Activate the deactivation policy and suspend the AI system in the affected jurisdiction as the regulatory requirement mandates.",
+        B: "Continue operating the AI system while preparing the conformity assessment, since suspension would delay customer credit decisions.",
+        C: "Apply for an exemption from the regulatory requirement on the basis that deactivation would cause unacceptable business disruption.",
+        D: "Transfer the AI system operations to a jurisdiction not subject to the new regulatory guidance to maintain operational continuity."
+      },
+      correct: "A",
+      explanation: "IV.C.7 Deactivation and localization requires having a policy and controls ready to deactivate or localize the AI system when regulatory requirements trigger the obligation. A regulatory order to cease operations is an explicit trigger. B continues operating in defiance of a regulatory order. C applies for an exemption without first fulfilling the regulatory obligation to cease. D evades the regulation through jurisdictional transfer — not a valid governance response. A correctly applies the pre-built deactivation policy.",
+      bokRef: "IV.C.7 — Create and implement a policy and controls to deactivate or localize an AI system as necessary (e.g., due to regulatory requirements or performance issues)."
+    },
+    {
+      id: "DIV-IVC-019", pi: "IV.C.7", isRetrieval: false, comp: "IV.C",
+      stem: "An AI system deployed globally begins producing outputs that violate local cultural norms in one region, creating significant reputational risk. The IV.C.7 governance framework directs the team to:",
+      options: {
+        A: "Shut down the AI system globally until the region-specific output issue is fully investigated and resolved for all markets.",
+        B: "Apply localization controls to restrict or adapt the AI system's operation in the affected region without disrupting other markets.",
+        C: "Issue a public statement in the affected region acknowledging the problem and committing to a resolution timeline for affected users.",
+        D: "Retrain the global model on region-specific data to eliminate the problematic outputs across all deployment contexts."
+      },
+      correct: "B",
+      explanation: "IV.C.7 Deactivation and localization distinguishes between full deactivation and localization — restricting or adapting the system in a specific context when the issue is context-specific. A global shutdown is disproportionate when the problem is regional. A shuts down globally, affecting unrelated markets. C is an external communication response (IV.C.6 External communication plans), not a control response under IV.C.7. D retrains the global model without first applying the immediate localization control. B correctly applies the proportionate IV.C.7 response.",
+      bokRef: "IV.C.7 — Create and implement a policy and controls to deactivate or localize an AI system as necessary (e.g., due to regulatory requirements or performance issues)."
+    },
+    {
+      id: "DIV-IVC-020", pi: "IV.C.7", isRetrieval: false, comp: "IV.C",
+      stem: "A governance officer is drafting a deactivation policy required by IV.C.7. Which trigger scenarios should the policy explicitly address?",
+      options: {
+        A: "Financial performance thresholds below which the AI system should be retired in favor of cost-efficient manual processes.",
+        B: "Scheduled technical upgrades that require planned downtime and standardized system restart and rollback procedures.",
+        C: "User feedback scores that, when sufficiently negative, automatically escalate the AI system's status to executive review.",
+        D: "Deactivation or localization due to regulatory requirements or performance issues that make continued operation unacceptable."
+      },
+      correct: "D",
+      explanation: "IV.C.7 Deactivation and localization explicitly names two triggers the policy must address: regulatory requirements and performance issues. A (financial thresholds) and B (upgrade downtime) are operational considerations not specified as IV.C.7 triggers. C (user feedback escalation) is a monitoring metric that may inform governance but is not one of the two explicit deactivation triggers in the BOK. D correctly states both BOK-specified triggers.",
+      bokRef: "IV.C.7 — Create and implement a policy and controls to deactivate or localize an AI system as necessary (e.g., due to regulatory requirements or performance issues)."
+    },
+    {
+      id: "DIV-IVC-021", pi: "IV.C.5", isRetrieval: true, comp: "IV.C",
+      stem: "A legal research AI originally deployed for case law analysis is licensed to a third party for use in automated parole eligibility assessments. Under IV.C.5, the deploying organization's first governance obligation is to:",
+      options: {
+        A: "Terminate the license immediately since using a legal AI in parole decisions is inherently discriminatory and legally prohibited.",
+        B: "Require the third party to conduct its own independent AI governance review before any secondary application begins.",
+        C: "Forecast the risks of this secondary use, identify potential downstream harms to affected individuals, and take steps to reduce them.",
+        D: "Update the vendor contract to include a liability clause protecting the original deployer from harms caused by third-party secondary use."
+      },
+      correct: "C",
+      explanation: "IV.C.5 Secondary and unintended use requires forecasting and reducing risks when the AI is applied to a materially different context — here, parole decisions rather than legal research. A makes a categorical prohibition without the required harm assessment. B delegates the assessment to the third party without the deployer first fulfilling its own IV.C.5 obligation. D is a contractual risk transfer, not a harm reduction measure. C correctly applies the IV.C.5 forecast-and-reduce obligation before any approval or denial.",
+      bokRef: "IV.C.5 — Forecast and reduce risks of secondary or unintended uses and downstream harms."
+    },
+    {
+      id: "DIV-IVC-022", pi: "IV.C.5", isRetrieval: true, comp: "IV.C",
+      stem: "An HR scheduling AI is being used by managers to identify employees showing behavioral patterns that suggest mental health struggles. Which response best reflects IV.C.5 obligations?",
+      options: {
+        A: "Identify this unintended use, forecast the downstream harms to affected employees, and apply controls to prevent or mitigate it.",
+        B: "Allow continued use as long as managers do not formally document or share the AI's inferences in any official HR records.",
+        C: "Conduct a data minimization audit to ensure the scheduling system does not over-collect personal data for secondary purposes.",
+        D: "Update the system's terms of use to list mental health inference as a permitted use, removing the secondary-use governance risk."
+      },
+      correct: "A",
+      explanation: "IV.C.5 Secondary and unintended use requires identifying unintended uses, forecasting the harms they create, and applying controls to reduce or eliminate them — not just documenting or limiting disclosure. B permits the secondary use informally, bypassing the IV.C.5 assessment entirely. C is a data minimization measure relevant to II.A.2 Privacy Laws, not the secondary use harm reduction required by IV.C.5. D redesignates the use as permitted without conducting the required harm forecast and risk reduction. A directly applies all elements of IV.C.5.",
+      bokRef: "IV.C.5 — Forecast and reduce risks of secondary or unintended uses and downstream harms."
+    },
+    {
+      id: "DIV-IVC-023", pi: "IV.C.6", isRetrieval: true, comp: "IV.C",
+      stem: "A public utility deploys an AI system to predict infrastructure failures and prioritize maintenance. Residents in one district find maintenance is systematically deferred in their area. The IV.C.6 governance response should include:",
+      options: {
+        A: "Commissioning an internal audit of the AI system's prioritization logic before communicating with any external parties.",
+        B: "Establishing an external communication plan to inform affected stakeholders about how the AI system operates and its limitations.",
+        C: "Migrating the AI deployment to a cloud environment that provides greater transparency to external technical reviewers.",
+        D: "Suspending the AI system until the prioritization bias is corrected, then resuming with a post-correction announcement."
+      },
+      correct: "B",
+      explanation: "IV.C.6 External communication plans requires informing external stakeholders — here, affected residents — about how the AI system operates, its limitations, and its risks. A is an internal audit — a valid step but not what IV.C.6 requires for external stakeholders. C changes technical infrastructure without establishing the required communication plan. D suspends and makes a single announcement rather than establishing a structured external communication plan. B correctly addresses the IV.C.6 obligation to affected external parties.",
+      bokRef: "IV.C.6 — Establish external communication plans."
+    },
+    {
+      id: "DIV-IVC-024", pi: "IV.C.6", isRetrieval: true, comp: "IV.C",
+      stem: "An AI deployer's governance framework requires an external communication plan under IV.C.6. Which element most appropriately belongs in such a plan?",
+      options: {
+        A: "Internal escalation procedures for briefing executives before any AI-related information is disclosed to external parties.",
+        B: "Marketing team approval workflows for all AI-related content published on the organization's public-facing channels.",
+        C: "Planned disclosures to regulators, users, and the public about AI system use, limitations, performance, and risk profile.",
+        D: "Vendor NDAs and confidentiality clauses that prevent external parties from disclosing AI deployment specifics to third parties."
+      },
+      correct: "C",
+      explanation: "IV.C.6 External communication plans addresses what to communicate to external stakeholders and when — covering use, capabilities, limitations, performance, and risks. A is internal escalation — not external communication. B is a marketing governance workflow — IV.C.6 is a governance obligation, not a content approval process. D restricts external communication through confidentiality rather than enabling it — the inverse of what IV.C.6 requires. C accurately describes the content of an IV.C.6 external communication plan.",
+      bokRef: "IV.C.6 — Establish external communication plans."
+    },
+    {
+      id: "DIV-IVC-025", pi: "IV.C.2", isRetrieval: true, comp: "IV.C",
+      stem: "Eighteen months after deploying an AI procurement system, the organization notices its vendor recommendations have become increasingly concentrated on a narrow supplier set not dominant in the original training data. Under IV.C.2, the governance team should:",
+      options: {
+        A: "Attribute the concentration pattern to normal model behavior and record it as an acceptable known limitation in the risk register.",
+        B: "Decommission the procurement AI entirely, since vendor concentration bias signals the model is fundamentally and irrecoverably flawed.",
+        C: "Report the concentration drift to the AI regulator as a mandatory incident notification under post-deployment monitoring obligations.",
+        D: "Evaluate whether retraining or updating is warranted based on the monitoring signal, and act through the established maintenance schedule."
+      },
+      correct: "D",
+      explanation: "IV.C.2 Continuous monitoring requires ongoing observation to detect issues like vendor concentration drift, and an established maintenance schedule for deciding when retraining or updates are needed. Monitoring has surfaced a signal; the schedule governs the response. A accepts degraded and potentially biased outputs without fulfilling the maintenance obligation. B decommissions without first applying the governance-required update and retraining cycle. C treats internal model drift as a mandatory regulatory report — IV.C.2 is an internal governance obligation, not a regulatory notification trigger. D correctly applies both parts of IV.C.2.",
+      bokRef: "IV.C.2 — Conduct continuous monitoring of the AI model and system, and establish a regular schedule for maintenance, updates and retraining."
+    }
+  ]
+};
+document.addEventListener('DOMContentLoaded', function() { initQuiz(QUIZ_DATA); });
+</script>
+</head>
+<body><div id="quiz-root"></div></body>
+</html>
