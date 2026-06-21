@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AIGP Study Card — Day 17 · Govern Deployment &amp; Use</title>
+<link rel="stylesheet" href="aigp-studycard.css">
+<style>:root{--accent-dark:#7a1a1a;--accent-light:#fceae8}</style>
+</head>
+<body><div class="sc-wrap">
+
+<!-- HEADER -->
+<div class="sc-header">
+  <div class="sc-header-row">
+    <span class="sc-day-label">Day 17 · Week 3</span>
+    <span class="sc-meta">21 Jun 2026 · Domain IV · 9–11 exam questions · ~35 min</span>
+  </div>
+  <div class="sc-title">IV.C — Govern the Deployment and Use of the AI System</div>
+</div>
+
+<!-- BOK PERFORMANCE INDICATORS -->
+<div class="sc-section always-open">
+  <div class="sc-section-head">
+    <span class="sc-section-label">BOK</span>
+    <span class="sc-section-title">Performance Indicators</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <ol class="sc-pi-list">
+      <li class="sc-pi"><span class="sc-pi-code">IV.C.1</span> Apply the policies, procedures, best practices and ethical considerations to the deployment of an AI system (e.g., data governance, risk management, issue management, and user training).</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.C.2</span> Conduct continuous monitoring of the AI model and system, and establish a regular schedule for maintenance, updates and retraining.</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.C.3</span> Conduct periodic activities to assess the AI system's performance, reliability and safety (e.g., audits, red teaming, threat modeling and security testing).</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.C.4</span> Document incidents, issues, risks and post-market monitoring plans.</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.C.5</span> Forecast and reduce risks of secondary or unintended uses and downstream harms.</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.C.6</span> Establish external communication plans.</li>
+      <li class="sc-pi"><span class="sc-pi-code">IV.C.7</span> Create and implement a policy and controls to deactivate or localize an AI system as necessary (e.g., due to regulatory requirements or performance issues).</li>
+    </ol>
+  </div>
+</div>
+
+<!-- KEY CONCEPTS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Concepts</span>
+    <span class="sc-section-title">Key Concepts</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.C.1 — Deployment Governance</span></div>
+      <div class="sc-concept-body">
+        <p>IV.C.1 is the deployer's obligation to apply the full governance stack at the point of deployment and use. The BOK's examples are a checklist, not a suggestion: data governance, risk management, issue management, and user training. Each can fail independently at deployment even when it was handled correctly during development.</p>
+        <div class="sc-why">Exam use: questions will describe a deployment gap — missing user training, no issue escalation path, uncontrolled data access — and ask which PI is implicated. IV.C.1 is the broadest deployer obligation and is the correct answer when no more specific PI fits the scenario.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Key distinctions</div>
+          <div class="sc-def"><span class="sc-term">IV.C.1 vs III.A.3</span> III.A.3 applies policies during design and build. IV.C.1 applies them at deployment and ongoing use. Same governance frame, different life cycle stage.</div>
+          <div class="sc-def"><span class="sc-term">User training</span> Explicitly listed under IV.C.1. Staff deploying the system without understanding its limitations is a IV.C.1 violation — not a training program issue under I.B.3 Organizational Governance.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.C.2 — Continuous Monitoring &amp; Retraining</span></div>
+      <div class="sc-concept-body">
+        <p>IV.C.2 requires ongoing, operational visibility into the AI system's behaviour and a scheduled cadence for maintenance, updates and retraining. Data drift, concept drift and distributional shift are the failure modes this PI is designed to catch before they cause harm.</p>
+        <div class="sc-why">Critical distinction: IV.C.2 and IV.C.3 are frequently confused on the exam. IV.C.2 = continuous, real-time, operational (dashboards, automated alerts, retraining schedules triggered by drift). IV.C.3 = periodic, structured, assessment-oriented (audits, red teaming, threat modeling). A real-time alert dashboard is IV.C.2. A quarterly security audit is IV.C.3.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Parallel with III.C</div>
+          <div class="sc-def"><span class="sc-term">III.C.2 vs IV.C.2</span> Near-identical obligations. Both developer and deployer must conduct continuous monitoring. The responsible party differs; the activity does not.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.C.3 — Periodic Assessment</span></div>
+      <div class="sc-concept-body">
+        <p>IV.C.3 requires scheduled, structured assessments going beyond routine monitoring. The BOK examples — audits, red teaming, threat modeling, security testing — signal deliberately intrusive activities designed to find what continuous monitoring misses, including adversarial vulnerabilities and systemic reliability gaps.</p>
+        <div class="sc-why">Red teaming belongs under IV.C.3, not IV.C.2. If a question mentions adversarial probing, simulated attacks, or structured vulnerability exercises, IV.C.3 is the answer — not IV.C.2 (continuous monitoring) and not IV.C.4 (documentation).</div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.C.4 — Incident Documentation &amp; Post-Market Monitoring Plans</span></div>
+      <div class="sc-concept-body">
+        <p>IV.C.4 has two distinct components: (1) ongoing formal documentation of incidents, issues and risks as they occur; and (2) a post-market monitoring plan — a structured forward-looking document outlining how the deployer will track the system's performance after release. The plan is a deliverable in its own right, not a summary of past incident logs.</p>
+        <div class="sc-why">The exam will test whether you notice that III.C.4 says "manage and document incidents, issues and risks" while IV.C.4 explicitly adds "post-market monitoring plans." Any question asking which PI requires a post-market monitoring plan points to IV.C.4, not III.C.4.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">What must be documented</div>
+          <div class="sc-def"><span class="sc-term">Incidents</span> Discrete events — system errors, unexpected outputs, harm events — regardless of perceived severity</div>
+          <div class="sc-def"><span class="sc-term">Issues</span> Ongoing performance problems, persistent gaps between expected and actual behaviour</div>
+          <div class="sc-def"><span class="sc-term">Risks</span> Identified potential harms not yet realised, retained in the risk register</div>
+          <div class="sc-def"><span class="sc-term">Post-market monitoring plan</span> Proactive, structured plan for ongoing oversight — distinct from reactive incident logs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.C.5 — Secondary Uses &amp; Downstream Harms</span></div>
+      <div class="sc-concept-body">
+        <p>IV.C.5 is deployer-specific with no direct parallel in III.C. It requires the governance team to actively forecast how the AI system might be used beyond its validated scope, and to reduce the harms those unintended uses could cause. "Secondary use" means use cases the system was not designed or validated for. "Downstream harms" refers to effects on individuals, groups or society flowing from the system's outputs — even indirectly.</p>
+        <div class="sc-why">IV.C.5 is the answer when a scenario shows harms arising indirectly: proxy discrimination, scope creep by end users, or outputs used in decisions the model was not validated for. Don't confuse with IV.C.3 (periodic audits) or IV.C.2 (monitoring) even when the harm was detectable through those activities — IV.C.5 is the obligation to proactively forecast and prevent.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Examples</div>
+          <div class="sc-def"><span class="sc-term">Secondary use</span> A clinical note summarization model repurposed by a clinician to generate patient prognosis estimates it was not validated for</div>
+          <div class="sc-def"><span class="sc-term">Downstream harm</span> A home insurance pricing model producing racially correlated outcomes through postal code proxy variables</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.C.6 — External Communication Plans</span></div>
+      <div class="sc-concept-body">
+        <p>IV.C.6 requires the deployer to establish plans for communicating with external stakeholders — regulators, affected users, the public — about the AI system. This is operational communication about deployment and incidents, not technical documentation for the supply chain.</p>
+        <div class="sc-why">III.C.6 (developer) covers public disclosures — technical documentation, instructions for use to deployers, post-market monitoring plans sent through the supply chain. IV.C.6 (deployer) covers external communication plans aimed at regulators, users and the public. A question about a regulatory enquiry response or a user notification plan points to IV.C.6.</div>
+      </div>
+    </div>
+
+    <div class="sc-concept">
+      <div class="sc-concept-head"><span class="sc-concept-name">IV.C.7 — Deactivation &amp; Localization Controls</span></div>
+      <div class="sc-concept-body">
+        <p>IV.C.7 requires a policy and operational controls to take the AI system fully offline or restrict it to a subset of markets or use cases when necessary. The BOK gives two explicit triggers: regulatory requirements and performance issues. Both are mandatory — if either condition arises, the deployer must be capable of acting immediately.</p>
+        <div class="sc-why">"Localization" is the key term candidates miss. It means restricting the system geographically or by use scope rather than full shutdown. A question describing a regional compliance failure or market-specific performance problem where the deployer restricts (not suspends) the system maps to IV.C.7 "localize." Both deactivation and localization require a pre-existing policy — not an ad hoc decision.</div>
+        <div class="sc-defs">
+          <div class="sc-defs-title">Both triggers are explicit in the BOK</div>
+          <div class="sc-def"><span class="sc-term">Regulatory requirements</span> Legal basis suspended, re-certification mandated, jurisdiction-specific prohibition enacted</div>
+          <div class="sc-def"><span class="sc-term">Performance issues</span> Reliability failure, safety breach, unresolvable model drift, regional language model gap</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Table</span>
+    <span class="sc-section-title">III.C (Developer) vs IV.C (Deployer) — Parallel Obligations</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-table-wrap">
+      <table class="sc-table">
+        <thead><tr><th>Obligation</th><th>III.C — Developer (Release &amp; Maintenance)</th><th>IV.C — Deployer (Deployment &amp; Use)</th></tr></thead>
+        <tbody>
+          <tr><td>Readiness check</td><td>III.C.1 — Assess readiness, model card, conformity requirements</td><td>— no equivalent (system already deployed)</td></tr>
+          <tr><td>Continuous monitoring</td><td>III.C.2 — Monitor, schedule maintenance, updates &amp; retraining</td><td>IV.C.2 — Same from deployer perspective</td></tr>
+          <tr><td>Periodic assessment</td><td>III.C.3 — Audits, red teaming, threat modeling, security testing</td><td>IV.C.3 — Same activities, deployer context</td></tr>
+          <tr><td>Incident management</td><td>III.C.4 — Manage and document incidents, issues, risks</td><td>IV.C.4 — Document + <strong>post-market monitoring plans</strong></td></tr>
+          <tr><td>Cross-functional collab</td><td>III.C.5 — Collaborate to understand incident root causes (brittleness, drift, data quality)</td><td>— no equivalent</td></tr>
+          <tr><td>External disclosure</td><td>III.C.6 — Technical docs, instructions for use, post-market plans to supply chain</td><td>IV.C.6 — External communication plans for regulators, users, public</td></tr>
+          <tr><td>Secondary use risks</td><td>— no equivalent</td><td>IV.C.5 — Forecast and reduce unintended use and downstream harms</td></tr>
+          <tr><td>Deactivation controls</td><td>— no equivalent</td><td>IV.C.7 — Policy and controls to deactivate or localize</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- WORKED SCENARIO -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Scenario</span>
+    <span class="sc-section-title">Regional Insurer — Three Simultaneous Governance Failures</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Situation</span>
+      <span class="sc-scenario-text">You are the AI Governance Lead at a regional insurer that deployed a third-party AI underwriting model 12 months ago. This week: (a) a regulator requests your post-market monitoring plan; (b) a broker reports the model is producing inconsistent premium quotes for identical risk profiles; and (c) your IT team reveals three model errors were logged last month but never escalated or recorded formally.</span>
+    </div>
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Analysis</span>
+      <span class="sc-scenario-text">The regulator request: <span class="sc-pi-ref">IV.C.4</span> requires a formal post-market monitoring plan as a documented deliverable. An incident log is not a substitute. The inconsistent quotes: <span class="sc-pi-ref">IV.C.2</span> requires continuous monitoring to detect output drift — identical inputs producing different outputs is a drift signal your monitoring should have caught before external escalation. The three undocumented errors: <span class="sc-pi-ref">IV.C.4</span> again — all incidents must be formally documented regardless of perceived severity or resolution outcome. The regulator interaction also activates <span class="sc-pi-ref">IV.C.6</span> — your external communication plan governs how your organisation responds to regulatory queries about AI system performance.</span>
+    </div>
+    <div class="sc-scenario-block">
+      <span class="sc-scenario-label">Outcome</span>
+      <span class="sc-scenario-text">Immediate: create the post-market monitoring plan and backfill the incident register for the three undocumented errors (IV.C.4). Parallel: investigate the inconsistent quotes through your monitoring infrastructure and schedule a model review (IV.C.2). Draft the regulator response under your external communication plan (IV.C.6). If the investigation confirms the inconsistency cannot be resolved without model replacement, invoke IV.C.7 controls to localize or suspend the system in affected product lines until a validated model is in place.</span>
+    </div>
+  </div>
+</div>
+
+<!-- FLASHCARDS -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Recall</span>
+    <span class="sc-section-title">Quick Recall</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-flashcards">
+      <div class="sc-fc">
+        <div class="sc-fc-q">What four examples does IV.C.1 give for deployer governance? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Data governance, risk management, issue management, and user training. All four are explicitly listed in the BOK under IV.C.1.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">IV.C.2 vs IV.C.3 — what is the operational difference? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">IV.C.2 is continuous and operational: real-time monitoring, automated drift alerts, scheduled retraining. IV.C.3 is periodic and structured: audits, red teaming, threat modeling, security testing.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">What does IV.C.4 require that III.C.4 does not? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Post-market monitoring plans. III.C.4 says "manage and document incidents, issues and risks." IV.C.4 explicitly adds "post-market monitoring plans" as a required deliverable.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">The two explicit BOK triggers for IV.C.7 deactivation or localization? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">Regulatory requirements (e.g., suspended legal basis, re-certification mandated) and performance issues (e.g., reliability failure, unresolvable drift). Both are explicit in the PI text.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Which IV.C PIs have no parallel in III.C? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">IV.C.5 (forecast and reduce secondary use risks and downstream harms) and IV.C.7 (deactivation and localization controls). Both are deployer-specific obligations with no developer equivalent.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">IV.C.5 vs IV.C.3: a model produces racially biased outcomes through proxy variables. Which PI? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">IV.C.5 — proxy-variable bias is an unintended downstream harm. IV.C.3 audits might detect it, but IV.C.5 is the obligation to forecast and proactively prevent such harms from arising.</div>
+      </div>
+      <div class="sc-fc">
+        <div class="sc-fc-q">Why does IV.C carry the most exam weight of any single competency? <span class="sc-fc-icon">▸</span></div>
+        <div class="sc-fc-a">9–11 questions, the highest weight for any single competency in the AIGP exam. It has 7 PIs spanning the full deployer governance lifecycle — missing any one PI costs exam marks directly.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESOURCES -->
+<div class="sc-section">
+  <div class="sc-section-head">
+    <span class="sc-section-label">Links</span>
+    <span class="sc-section-title">IAPP Resources</span>
+    <span class="sc-chevron">▾</span>
+  </div>
+  <div class="sc-section-body">
+    <div class="sc-resources">
+      <a class="sc-res-link" href="https://iapp.org/certify/body-of-knowledge-aigp/" target="_blank"><span class="sc-res-label">BOK Overview</span><span class="sc-res-desc">AIGP Body of Knowledge landing page</span></a>
+      <a class="sc-res-link" href="https://iapp.org/certify/prepare/" target="_blank"><span class="sc-res-label">Exam Prep</span><span class="sc-res-desc">Official IAPP exam preparation resources</span></a>
+      <a class="sc-res-link" href="https://iapp.org/l/aigp-study-guide-request" target="_blank"><span class="sc-res-label">Study Guide</span><span class="sc-res-desc">Request the official AIGP study guide</span></a>
+      <a class="sc-res-link" href="https://assets.contentstack.io/v3/assets/bltd4dd5b2d705252bc/blteb8b5d531fd78971/IAPP-Certification_Handbook.pdf" target="_blank"><span class="sc-res-label">Cert Handbook</span><span class="sc-res-desc">IAPP Certification candidate handbook</span></a>
+    </div>
+  </div>
+</div>
+
+</div>
+<script>
+document.querySelectorAll('.sc-section-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-section').classList.toggle('open')));
+document.querySelectorAll('.sc-concept-head').forEach(h=>h.addEventListener('click',()=>h.closest('.sc-concept').classList.toggle('open')));
+document.querySelectorAll('.sc-fc-q').forEach(q=>q.addEventListener('click',()=>q.closest('.sc-fc').classList.toggle('revealed')));
+</script></body></html>
